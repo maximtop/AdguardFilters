@@ -312,3 +312,4 @@ tagesanzeiger.ch$$div[class="teaserEditorialContent"][tag-content="Sponsored Con
 pcwelt.de$$div[class="box"][tag-content="-Anzeige-"]
 ! http://forum.adguard.com/showthread.php?8853
 chip.de$$article[tag-content="Anzeige |"]
+example.org##h1
