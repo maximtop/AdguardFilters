@@ -304,7 +304,7 @@ freenet.de#$##frnMain { min-height: 0!important; }
 ! https://github.com/AdguardTeam/AdguardFilters/issues/33849
 ! https://github.com/AdguardTeam/AdguardFilters/issues/30443
 ! https://github.com/AdguardTeam/AdguardFilters/issues/28684
-bs.to$$script[tag-content="Object["][min-length="4000"][max-length="10000"]
+bs.com$$script[tag-content="Object["][min-length="4000"][max-length="10000"]
 ! https://github.com/AdguardTeam/AdguardFilters/issues/2193
 tagesanzeiger.ch$$div[class="teaserEditorialContent"][tag-content="Werbung"]
 tagesanzeiger.ch$$div[class="teaserEditorialContent"][tag-content="Sponsored Content"]
