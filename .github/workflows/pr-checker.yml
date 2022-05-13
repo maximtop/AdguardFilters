@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: maximtop/filters-pr-checker@v1
+      - uses: maximtop/filters-pr-checker@v1.0.0
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           imgur_client_id: ${{ secrets.IMGUR_CLIENT_ID }}
