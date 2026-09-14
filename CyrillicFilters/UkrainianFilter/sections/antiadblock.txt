@@ -1,0 +1,111 @@
+!
+! First of all, this section has common rules that prevent most known ad block detections. In that case domain should be added to the common rules.
+! The section contains the list of the rules are against all kinds of ads reinjection or ad-blocking circumvention scripts. If such a script does not cripple the website, we add rules to the Annoyances filter.
+! Rules should generally be domain-specific. In some exceptional cases, it's allowed to add generic ones, but this should be approved by most of the maintainers.
+!
+! Good: ||example.org/adblock/detect.js
+! Good: @@/adblocker/detect.js$domain=example.org
+! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/161129
+gsm.in.ua##body > div[class*=" "][style^="background: "]
+!
+! sinoptik.ua - ads reinject
+@@||sinoptik.ua^$generichide
+!#if (adguard_ext_chromium || adguard_ext_opera)
+*$image,redirect-rule=1x1-transparent.gif,domain=sinoptik.ua
+*$script,redirect-rule=noopjs,domain=sinoptik.ua
+sinoptik.ua#@#.informerTop
+sinoptik.ua#@#div[id^="adsLeftZone"]
+sinoptik.ua#@##left-slot1
+sinoptik.ua#@#div[id^="bn_"]
+!#endif
+sinoptik.ua$$script[tag-content="adtelligent"]
+sinoptik.ua$$script[tag-content="slotBranding"]
+sinoptik.ua$$script[tag-content="div-gpt-ad"]
+sinoptik.ua#%#//scriptlet("abort-on-property-read", "SIN.AdsLoader")
+sinoptik.ua$$script[tag-content="SIN.AdsLoader.adBlockDetector()"][max-length="16000"]
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/68143
+budport.com.ua##body > div[style*="text-align:center"][style*="z-index:9999"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/102060
+!+ NOT_PLATFORM(windows, mac, android, cli)
+@@||pubads.g.doubleclick.net/gampad/ads?sz=640x360&ad_rule=0&iu=%2F82479101%2FTsn.ua%2FPREroll-1_Cut&cust_params=$domain=imasdk.googleapis.com
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/48882#issuecomment-584208221
+1plus1.video#%#//scriptlet('prevent-fetch', 'pagead2.googlesyndication.com')
+||1plus1.video/static/player/js/ovva.$script,replace=/\.abMessage\(\)//
+@@||1plus1.video/static/pubads.ad^
+@@||player.adtelligent.com/prebid/wrapper_*.js|$domain=1plus1.video
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=1plus1.video|1plus1.ua
+@@||gaua.hit.gemius.pl/gemiuslib.js$domain=1plus1.video|1plus1.ua
+||pubads.g.doubleclick.net/gampad/ads?*1plus1.video$xmlhttprequest,domain=imasdk.googleapis.com,redirect=noopvast-3.0
+||gaua.hit.gemius.pl/gemiuslib.js$script,xmlhttprequest,redirect=noopjs,domain=1plus1.video|1plus1.ua,important
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||pubads.g.doubleclick.net/gampad/ads?*1plus1.video
+! https://github.com/AdguardTeam/AdguardFilters/issues/89348
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima3,domain=unian.net
+@@||unian.net/static/pubads.ad
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=unian.net|unian.ua
+!#safari_cb_affinity(general,privacy)
+@@||gaua.hit.gemius.pl/gplayer.js$domain=1plus1.video|1plus1.ua|unian.net
+@@||gaua.hit.gemius.pl/gemiuslib.js$domain=unian.net|unian.ua
+!#safari_cb_affinity
+!
+! prozoro.net.ua - ads reinjection
+prozoro.net.ua#%#//scriptlet('abort-on-property-read', 'adsBlocked')
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/46073
+!+ NOT_PLATFORM(windows, mac, android, cli)
+@@||pixel.adtelligent.com/player/adblock$domain=player.starlight.digital
+||static.adtelligent.com/static/jsvpaid.js$script,redirect=noopjs,important,domain=stb.ua|novy.tv|ictv.ua|teleportal.ua
+ictv.ua#@##adblock
+@@||geo-service.adtelligent.com^|$domain=ictv.ua
+!#if (adguard_ext_edge || adguard_ext_safari || adguard_app_ios || adguard_ext_android_cb)
+@@||ua-vast.vertamedia.com/?content_page_url=$domain=stb.ua|novy.tv|ictv.ua|teleportal.ua
+@@||static.vertamedia.com/static/jsvpaid.js$domain=stb.ua|novy.tv|ictv.ua|teleportal.ua
+@@||ua-vast.vertamedia.com/?aid=$domain=stb.ua|novy.tv|ictv.ua|teleportal.ua
+@@||static.adtelligent.com/static/jsvpaid.js$domain=stb.ua|novy.tv|ictv.ua|teleportal.ua
+!#endif
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/156569
+plus-plus.tv#%#//scriptlet('prevent-fetch', 'pagead2.googlesyndication.com')
+! https://github.com/AdguardTeam/AdguardFilters/issues/51177
+@@||eu-vast.vertamedia.com/vmap?aid=$domain=inter.ua
+! https://github.com/AdguardTeam/AdguardFilters/issues/37660
+@@||green-way.com.ua/themes/greenway/assets/javascript/ads.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/36576
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=gnatkovsky.com.ua
+! https://github.com/AdguardTeam/AdguardFilters/issues/30987
+@@||static.adtelligent.com/static/jsvpaid.js$domain=player.starlight.digital
+! https://github.com/AdguardTeam/AdguardFilters/issues/21350
+investgazeta.ua###please1
+investgazeta.ua###please2
+! https://github.com/AdguardTeam/AdguardFilters/issues/18956
+@@||rem-tech.at.ua/pagead2.ads.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/16133
+! https://github.com/AdguardTeam/AdguardFilters/issues/10295
+! simpsonsua.tv
+||franecki.net^$domain=tortuga.wtf,redirect=nooptext,important
+@@||simpsonsua.*/adv.png
+@@||simpsonsua.*/test-ad.php^
+! https://github.com/AdguardTeam/AdguardFilters/issues/4369
+@@||googleads.g.doubleclick.net/pcs/click$domain=eda.ua
+@@||tpc.googlesyndication.com/simgad/*$domain=eda.ua
+@@||securepubads.g.doubleclick.net/gampad/ads$domain=eda.ua
+@@||securepubads.g.doubleclick.net/gpt/pubads_impl_$domain=eda.ua
+@@||eda.ua$generichide
+! https://forum.adguard.com/index.php?threads/18587/
+@@||ictv.ua/assets/*/advert.js
+! https://forum.adguard.com/index.php?threads/16230/
+omskbird.at.ua###_uwndWnd1
+! http://forum.adguard.com/showthread.php?6773
+24tv.ua##.no-ad-block
+! tester script
+@@||i.online.ua/js/advertisement.js
+! news.online.ua
+@@||i.online.ua/adsence.js
+!
+!+ NOT_PLATFORM(windows, mac, android, cli)
+dengi.ua,kino-hd720.net,mirknig.su,kino-fs.ucoz.net,ex-fs.net,hvylya.net#%#//scriptlet("abort-current-inline-script", "String.fromCharCode", "/\/\*[0-9a-f]{40}\*\//")
+!

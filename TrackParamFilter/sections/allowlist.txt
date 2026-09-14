@@ -1,0 +1,201 @@
+!
+! This section contains the list of rules that fix incorrect blocking. Rules should be domain-specific and only the `removeparam` modifier is allowed.
+!
+! Good: @@||example.org^$removeparam=cx
+! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
+!
+!
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/235814
+@@$removeparam=utm_medium,domain=hobbygames.ru
+@@$removeparam=utm_campaign,domain=hobbygames.ru
+@@$removeparam=utm_source,domain=hobbygames.ru
+! https://github.com/AdguardTeam/AdguardFilters/issues/237862
+@@/authentication/login?analytics_trace_id=$removeparam=analytics_trace_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/237174
+! https://github.com/AdguardTeam/AdguardFilters/issues/236387
+@@||shopify.com/authentication/$removeparam=analytics_trace_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/230641
+@@/e/er?$removeparam=elqTrackId,domain=s1740541080.t.eloqua.com|app.econnect.utexas.edu|clk.texaslonghorns.com
+@@/e/er?$removeparam=elq,domain=s1740541080.t.eloqua.com|app.econnect.utexas.edu|clk.texaslonghorns.com
+@@/e/er?$removeparam=elqaid,domain=s1740541080.t.eloqua.com|app.econnect.utexas.edu|clk.texaslonghorns.com
+@@/e/er?$removeparam=elqat,domain=s1740541080.t.eloqua.com|app.econnect.utexas.edu|clk.texaslonghorns.com
+@@/e/er?$removeparam=elqak,domain=s1740541080.t.eloqua.com|app.econnect.utexas.edu|clk.texaslonghorns.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/227699
+@@||msn.com^$app=msedgewebview2.exe,removeparam=ocid
+! https://github.com/AdguardTeam/AdguardFilters/issues/227175
+@@||iforms.americanexpress.com^$removeparam=cuid
+! canadacompanyregistry.com - utm_source is used to lookup the company name; removing it breaks the page
+@@||canadacompanyregistry.com^$removeparam=utm_campaign
+! https://github.com/uBlockOrigin/uAssets/issues/31494
+@@||usprobioticguide.com^$removeparam=utm_campaign
+! https://github.com/uBlockOrigin/uAssets/issues/31203
+@@||metabase.com^$removeparam=utm_term
+! https://github.com/AdguardTeam/AdguardFilters/issues/214119
+@@||adj.st^$removeparam=adj_t
+! https://github.com/AdguardTeam/AdguardFilters/issues/211078
+@@||yandex.go.link^$removeparam=adj_t
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-13135670
+@@||em.dynamicyield.com^$removeparam=cuid
+! Some a8 links on https://figure-times.com/
+@@||a8cv.amiami.jp/click/$removeparam=a8
+! https://github.com/AdguardTeam/AdguardFilters/issues/201922
+!+ PLATFORM(ext_ublock)
+@@||rpc.meituan.com/api/foodorder$removeparam,xmlhttprequest,domain=awp.meituan.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/201424
+@@||apimeishi.meituan.com/meishi/poi$removeparam=utm_medium,xmlhttprequest,domain=meishi.meituan.com
+@@||portal-portm.meituan.com/horn$removeparam=utm_medium,xmlhttprequest,domain=meishi.meituan.com
+! https://github.com/uBlockOrigin/uAssets/issues/27751
+@@||tix.axs.com^$removeparam=irclickid
+! https://github.com/AdguardTeam/AdguardFilters/issues/199306#issuecomment-2678167845
+! BUG: https://github.com/AdguardTeam/AdguardBrowserExtension/issues/3076
+! TODO: remove when this issue is fixed in MV2 extension
+!+ PLATFORM(ext_ff, ext_opera, ext_chromium)
+@@||google.*/url?*%26srsltid%3D$removeparam=srsltid
+! https://github.com/AdguardTeam/AdguardFilters/issues/200080
+!+ PLATFORM(ext_ublock)
+@@||m.maoyan.com/api/mtrade/mmcs/cinema/v2/select/movie/cinemas.json$removeparam,xmlhttprequest
+! https://github.com/AdguardTeam/AdguardFilters/issues/198365
+!+ PLATFORM(android)
+@@||ozon.ru/my/points$removeparam=__rr,app=ru.ozon.app.android
+! https://github.com/AdguardTeam/AdguardFilters/issues/199110
+! TODO: remove when this issue is fixed - https://github.com/AdguardTeam/AdguardBrowserExtension/issues/3076
+!#if (adguard_ext_chromium || adguard_ext_firefox || adguard_ext_opera)
+@@||bywiola.com^$removeparam=tagtag_uid
+@@||converti.se/click/$removeparam=wgexpiry
+@@||dashboard.wedare.pl^$removeparam
+@@||pl-pepper.digidip.net/visit$removeparam
+@@||tc.tradetracker.net/?*=ppr-pl-$removeparam
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/197733
+! TODO: remove when this issue is fixed - https://github.com/AdguardTeam/AdguardBrowserExtension/issues/3076
+!#if (adguard_ext_chromium || adguard_ext_firefox || adguard_ext_opera)
+@@||allegro.pl/affiliate?redirect_url=$removeparam=clickId
+@@||allegro.pl/affiliate?redirect_url=$removeparam=utm_source
+@@||allegro.pl/affiliate?redirect_url=$removeparam=utm_campaign
+!#endif
+! redirecting link on mobile from mydealz.de to Metro
+@@||rd.bizrate.com^$removeparam=utm_campaign
+@@||rd.bizrate.com^$removeparam=utm_medium
+! reddit.com - e-mails about replies not resolving to the post
+@@||reddit.app.link^$removeparam=utm_content,domain=reddit.app.link
+! https://github.com/AdguardTeam/AdguardFilters/issues/196067
+@@||video-shoper.ru^$removeparam=utm_source
+! https://github.com/AdguardTeam/AdguardFilters/issues/195040
+@@||glavnoe.life^$removeparam=utm_campaign
+@@||glavnoe.life^$removeparam=utm_content
+@@||glavnoe.life^$removeparam=utm_medium
+@@||glavnoe.life^$removeparam=utm_referrer
+@@||glavnoe.life^$removeparam=utm_source
+@@||glavnoe.life^$removeparam=utm_term
+! https://github.com/AdguardTeam/AdguardFilters/issues/194309 BookLive link
+@@||booklive.jp/vcentry/landing?$removeparam=vc_lpp
+! https://www.reddit.com/r/uBlockOrigin/comments/1h1aaj7/ubo_on_firefox_android_is_causing_a_refresh_loop/
+@@||google.*/maps^$removeparam=utm_campaign
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-11375067
+@@||uploadnow.*/share$removeparam=utm_source
+! https://github.com/AdguardTeam/AdguardFilters/issues/191539
+@@||3dnews.ru/*?utm_source=^$removeparam=utm_source
+! https://github.com/AdguardTeam/AdguardFilters/issues/178856 reader broken
+@@||gaugau.futabanet.jp^$removeparam=utm_content
+! https://github.com/AdguardTeam/AdguardFilters/issues/169890
+@@||lifehacker.ru^$removeparam=erid
+! https://github.com/AdguardTeam/AdguardFilters/issues/168271
+@@||transfernow.net/*/*?utm_source=$removeparam=utm_source
+! https://github.com/AdguardTeam/AdguardFilters/issues/166698
+@@||cleviationly.com/adServe/aff?cmpid=*mydealz*&dlink=$removeparam=cmpid
+! https://github.com/uBlockOrigin/uAssets/issues/20708
+@@||pixel.adsafeprotected.com/services/pub?$xmlhttprequest,removeparam=slot,domain=reuters.com
+@@||pixel.adsafeprotected.com/services/pub?$xmlhttprequest,removeparam=anId,domain=reuters.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/163365
+@@||mootoon.co.kr^$removeparam=cuid
+! https://github.com/AdguardTeam/AdguardFilters/issues/163015
+@@||forbes.ru^$removeparam=erid
+! greenbuildingadvisor.com - broken login
+@@||greenbuildingadvisor.com^$removeparam=oly_enc_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/157807
+! Fixes ERR_TOO_MANY_REDIRECTS error
+@@||login.aliexpress.*/sync_cookie_write.htm?*&_ga=$removeparam=_ga
+! https://github.com/AdguardTeam/AdguardFilters/issues/152716
+@@||kommersant.ru^$removeparam=erid
+! https://github.com/AdguardTeam/AdguardFilters/issues/148757
+@@||redirects.tradedoubler.com^$removeparam=utm_content
+@@||redirects.tradedoubler.com^$removeparam=utm_campaign
+! https://github.com/AdguardTeam/AdguardFilters/issues/144144
+@@||tradedoubler.com^$removeparam=tduid
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-4621746
+@@||carrefourpl.snrpage.com^$removeparam=utm_source
+! https://github.com/AdguardTeam/AdguardFilters/issues/134443
+@@||s.click.aliexpress.com/deep_link.htm?aff_short_key=$removeparam=aff_short_key
+! https://github.com/AdguardTeam/AdguardFilters/issues/134007
+@@||transfernow.net/*/dltransfer$removeparam=utm_source
+! https://github.com/AdguardTeam/AdguardFilters/issues/124425
+! Fixing a redirect loop
+@@||assetstore.unity.com/packages/*?aid=*&utm_$removeparam
+! https://github.com/AdguardTeam/AdguardFilters/issues/117491
+@@||mmcref.pl/?$removeparam=utm_medium
+! https://github.com/AdguardTeam/AdguardFilters/issues/78392
+@@||lanacion.com.ar/*module$removeparam=utm_source
+! https://github.com/AdguardTeam/AdguardFilters/issues/69031
+@@||t.send.vt.edu/r/?id=$removeparam=utm_source
+@@||t.send.vt.edu/r/?id=$removeparam=utm_medium
+@@||t.send.vt.edu/r/?id=$removeparam=utm_campaign
+! https://github.com/AdguardTeam/AdguardFilters/issues/51919
+@@||lanacion.com.ar/?utm_source=navigation$removeparam
+! https://github.com/AdguardTeam/AdguardFilters/issues/45817
+@@||ad.doubleclick.net/ddm/trackclk/*https://www.thegoodguys.com.au/*?utm_source=Partner$removeparam
+! https://github.com/AdguardTeam/AdguardFilters/issues/42946
+@@||chaynikam.info^$removeparam
+! https://github.com/AdguardTeam/AdguardFilters/issues/63522
+! https://github.com/AdguardTeam/AdguardFilters/issues/34644
+@@||fakt.pl/*?utm_source=$removeparam
+@@||onet.pl/?utm_source=$removeparam
+! https://forum.adguard.com/index.php?threads/https-www-empflix-com-nsfw.25985/
+@@||empflix.com^$removeparam
+! https://github.com/AdguardTeam/AdguardFilters/issues/6348
+@@||cdn-fck.tnaflix.com^$removeparam
+! https://github.com/AdguardTeam/AdguardForWindows/issues/356#issuecomment-314934554
+@@||xe.com^$removeparam
+! https://github.com/AdguardTeam/AdguardFilters/issues/52925
+@@||ofeminin.pl/*&srcc=ucs$removeparam=utm_source
+@@||auto-swiat.pl/*&srcc=ucs$removeparam=utm_source
+@@||komputerswiat.pl/*&srcc=ucs$removeparam=utm_source
+@@||noizz.pl/*&srcc=ucs$removeparam=utm_source
+@@||plejada.pl/*&srcc=ucs$removeparam=utm_source
+@@||medonet.pl/*&srcc=ucs$removeparam=utm_source
+@@||businessinsider.com.pl/*&srcc=ucs$removeparam=utm_source
+! https://github.com/AdguardTeam/AdguardFilters/issues/34644
+! https://github.com/AdguardTeam/AdguardFilters/issues/63522
+@@||onet.pl/?utm_source=$removeparam
+! https://github.com/ClearURLs/Rules/issues/30
+@@||tix.axs.com^$removeparam
+! https://github.com/AdguardTeam/AdguardFilters/issues/100285
+@@||sendgb.com/*/?utm_source=$removeparam=utm_source
+! https://github.com/AdguardTeam/AdguardFilters/issues/95837#issuecomment-944914999
+! it can be removed after the release of the extension 4.0
+!
+! https://github.com/DandelionSprout/adfilt/discussions/163#discussioncomment-1683830
+@@||mywot.com/*/confirmNewEmail/$removeparam
+! app.plex.tv - login page is broken by removing UTM parameters
+@@||app.plex.tv/auth-form/$removeparam=utm_source,domain=app.plex.tv
+@@||app.plex.tv/auth-form/$removeparam=utm_content,domain=app.plex.tv
+@@||app.plex.tv/auth-form/$removeparam=utm_medium,domain=app.plex.tv
+! https://github.com/AdguardTeam/AdguardFilters/issues/96900
+@@||plex.tv/api/v*/users/*?utm_source=$removeparam=utm_source,domain=watch.plex.tv
+! https://github.com/AdguardTeam/AdguardFilters/issues/96746
+@@/embed/comments^$removeparam,~third-party,domain=clickhole.com|lifehacker.com|splinternews.com|avclub.com|deadspin.com|gizmodo.com|jalopnik.com|jezebel.com|kotaku.com|qz.com|theinventory.com|theonion.com|theroot.com|thetakeout.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/89618#issuecomment-897100189
+@@||urldefense.com^$removeparam
+! https://github.com/AdguardTeam/AdguardFilters/issues/86251
+@@||cdn.privatehost.com/videos*/$removeparam
+! https://github.com/AdguardTeam/AdguardFilters/issues/85797
+@@||rightnowtech.com/engagement/api/consumer/nvidia/*/requestEngagement?pool=$removeparam
+! https://github.com/AdguardTeam/AdguardFilters/issues/85388
+@@||insurancexblog.blogspot.com/?utm_source=$removeparam=utm_source
+! https://github.com/AdguardTeam/AdguardFilters/issues/85160
+@@||gizmodo.com/embed/comments/$removeparam
+! kotaku.com - "See all replies" button broken
+@@||kotaku.com/embed/comments$removeparam
+! https://github.com/AdguardTeam/AdguardFilters/issues/52925
+@@||fakt.pl/*&srcc=ucs$removeparam
+@@||przegladsportowy.pl/*&srcc=ucs$removeparam

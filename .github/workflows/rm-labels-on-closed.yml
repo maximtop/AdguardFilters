@@ -1,0 +1,39 @@
+name: "Remove 'Unsorted' labels when the issue is closed"
+
+on:
+  issues:
+    types: [closed]
+
+jobs:
+  remove_label:
+    if: ${{ github.repository == 'AdguardTeam/AdguardFilters' }}
+    runs-on: ubuntu-slim
+    steps:
+      - uses: actions/github-script@v9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const issueNumber = context.issue.number;
+
+            const issueLabelsRaw = await github.rest.issues.listLabelsOnIssue({
+              owner,
+              repo,
+              issue_number: issueNumber,
+            });
+
+            const issueLabels = issueLabelsRaw.data.map((el) => el.name);
+
+            const labelsToRemove = [ 'Unsorted' ];
+            for (let label of labelsToRemove) {
+              if (issueLabels.includes(label)) {
+                console.log(`Removing ${label} from #${issueNumber}`);
+                await github.rest.issues.removeLabel({
+                  owner,
+                  repo,
+                  issue_number: issueNumber,
+                  name: label,
+                });
+              }
+            }

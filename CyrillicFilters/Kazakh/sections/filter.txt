@@ -1,0 +1,39 @@
+!
+! This section contains the list of rules that are supposed to work on Kazakh websites.
+!
+! Good: any type of the rules will be good
+! Bad: @@||example.org^$stealth
+!
+! NOTE: Ad servers
+!
+! NOTE: Allow-list
+!
+! NOTE: Anti-adblock
+!
+! NOTE: Specific
+!
+ulysmedia.kz##.adv-top-sec
+kapital.kz###ad-container
+kazpravda.kz##.container:has(> .top-banner)
+kazpravda.kz##.kp-sb
+||kazpravda.kz/media/banners/
+massaget.kz##div[class^="banners-"]
+massaget.kz#$#header { height: auto !important; }
+inbusiness.kz##div[class^="ad"]
+tengrinews.kz##section:not([class]):has(> div.tn-recommended-widget-banner)
+tengrinews.kz##main > section:not([class]):has(> div[data-smi-widget-id])
+tengrinews.kz##div[class^="tn-"][class*="-banner"]
+nur.kz##.sidebar-adv
+nur.kz##.adv-placeholder:not(#style_important)
+baq.kz##.top-banner
+||baq.kz/ajax/banners/
+turkystan.kz##.adv-top-div
+sn.kz##.top-adv-sec
+stan.kz##.admanager_block
+||stan.kz/js/admanager_v*.js
+stan.kz##[class^="branding_"]
+stan.kz##.adbuttons
+stan.kz##.sport_slider_main
+stan.kz##img[style*="width: 1200px;"][style*="height: 200px;"]
+stan.kz##img[style*="width: 1200px;"][style*="height: 172px;"]
+stan.kz##.x_logo

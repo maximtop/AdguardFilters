@@ -1,0 +1,945 @@
+!
+!
+! This section contains the list of the rules that block tracking cookies. Rules should be specific and have only only one modifier `$cookie`.
+!
+! Good: ||lemurov.net^$cookie=flat_r_mb
+! Bad:  ||monerominer.rocks^$third-party (should be in adservers.txt)
+!
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/239398
+||gipfel.ru^$cookie=UniqAnalyticsId
+! newsnow.com
+||newsnow.com^$cookie=nnusrst
+||newsnow.com^$cookie=nn_sid
+||newsnow.com^$cookie=nn_uid
+! experience.tripster.ru
+||experience.tripster.ru^$cookie=device_id
+||experience.tripster.ru^$cookie=gb_uid
+! wildberries.ru
+||wildberries.ru^$cookie=_wbauid
+! https://github.com/AdguardTeam/AdguardFilters/issues/239596
+||a-bly.com^$cookie=AMP_
+||a-bly.com^$cookie=device-id
+! news.golfdigest.co.jp
+||news.golfdigest.co.jp^$cookie=MkiTracUUID
+! 4media.com
+$cookie=tipssid,domain=krosno112.pl|zawszepomorze.pl|raportwarszawski.pl|nowinypolnocne.pl|cozadzien.pl|telewizjagorzow.pl|krosno112.pl|tvswietokrzyska.pl|przegladpiaseczynski.pl
+! hna.de
+||hna.de^$cookie=cua_uuid
+! https://github.com/AdguardTeam/AdguardFilters/issues/239398
+! https://github.com/AdguardTeam/AdguardFilters/issues/237741
+*$cookie=/^__ddg/,domain=premierzal.ru|gipfel.ru
+! itmedia.co.jp
+||itmedia.co.jp^$cookie=s_vid
+||itmedia.co.jp^$cookie=s_ubid
+! gamsgo.com
+||gamsgo.com^$cookie=_gv_visit_tracking
+! https://github.com/AdguardTeam/AdguardFilters/issues/235441
+mcp.directory#%#//scriptlet('remove-cookie', 'dotcom_user')
+! greatandhra.com
+||greatandhra.com^$cookie=uid-s
+||greatandhra.com^$cookie=vsid
+! https://github.com/AdguardTeam/AdguardFilters/issues/234433
+||ridibooks.com^$cookie=fingerprint
+||ridibooks.com^$cookie=attribution_tool_params
+||ridibooks.com^$cookie=pvid
+! dugun.com
+||dugun.com^$cookie=uniqueId
+! matchtv.ru
+||matchtv.ru^$cookie=spbc_uuid
+! telefonnyjdovidnyk.com.ua
+||telefonnyjdovidnyk.com.ua^$cookie=goog_ads
+! rtl.hr
+||rtl.hr^$cookie=device-id
+! ahaber.com.tr
+||ahaber.com.tr^$cookie=VideoSessionId
+! detector404.ru
+||detector404.$cookie=tag
+! mexc.com
+||mexc.com^$cookie=sensorsdata2015jssdkcross
+||mexc.com^$cookie=sajssdk_2015_cross_new_user
+||mexc.com^$cookie=mxc_home_advertising_redhot_isclick
+! abc.net.au
+||abc.net.au^$cookie=/^ABC_Snowplow_id/
+! https://github.com/AdguardTeam/AdguardFilters/issues/229676
+! https://github.com/AdguardTeam/AdguardFilters/issues/229485
+||money.ca^$cookie=suid
+||moneywise.com^$cookie=suid
+! gobankingrates.com
+||gobankingrates.com^$cookie=visitor_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/229275
+||invb.ru^$cookie=/^pa_/
+! https://ridibooks.com/webtoon/recommendation
+||ridibooks.com$cookie=ruid
+||ridibooks.com$cookie=/^AMP/
+! spb.docdoc.ru
+||spb.docdoc.ru^$cookie=deviceId
+! coinstats.app
+||coinstats.app^$cookie=temp_uid
+! apkpure.com
+||apkpure.com^$cookie=_qimei
+! expero.ru
+||expero.ru^$cookie=deviceId
+! my.club
+||my.club^$cookie=my_club_guestId
+||my.club^$cookie=my_club_guestUuid
+! https://github.com/AdguardTeam/AdguardFilters/issues/225274
+||gmarket.co.kr^$cookie=sca
+||gmarket.co.kr^$cookie=cna
+! https://github.com/AdguardTeam/AdguardFilters/issues/225275
+||11st.co.kr^$cookie=PCID
+! theculturetrip.com
+||theculturetrip.com^$cookie=tct-real-user
+! webmd.com
+||webmd.com^$cookie=VisitorId
+! zvuk.com
+||zvuk.com^$cookie=device_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/224419
+||exodus.com^$cookie=cfz_zaraz-analytics
+! tracktollywood.com
+||tracktollywood.com^$cookie=uid-s
+! moz.de
+||moz.de^$cookie=/^spid/
+! newspicks.com
+||newspicks.com^$cookie=np_uuid
+! kupibilet.ru
+||kupibilet.ru^$cookie=kb_client_id
+! nicegram.app
+||nicegram.app^$cookie=X-identify
+! usnews.com
+||usnews.com^$cookie=usn_visitor_id
+! momondo.com
+||momondo.com^$cookie=kmkid
+! https://github.com/AdguardTeam/AdguardFilters/issues/220298
+||agoda.com^$cookie=agoda.analytics
+||agoda.com^$cookie=agoda.firstclicks
+||agoda.com^$cookie=agoda.lastclicks
+||agoda.com^$cookie=t_rc
+||agoda.com^$cookie=t_pp
+! aws.amazon.com
+||amazon.com^$cookie=aws-target-data
+||amazon.com^$cookie=aws-target-session-id
+||amazon.com^$cookie=aws-target-visitor-id
+||amazon.com^$cookie=aws-vid
+! yellowpages.com
+||yellowpages.com^$cookie=vrid
+! spooncast.net
+||spooncast.net^$cookie=/^_hackle_/
+! emart.ssg.com
+||emart.ssg.com^$cookie=PCID
+||emart.ssg.com^$cookie=/^RC_/
+! https://github.com/AdguardTeam/AdguardFilters/issues/217766
+! ||epicgames.com^$cookie=EPIC_DEVICE - breaks login = https://github.com/AdguardTeam/AdguardFilters/issues/217793
+||epicgames.com^$cookie=visitor-uuid
+! thekrazycouponlady.com
+||thekrazycouponlady.com^$cookie=/^ab\.storage\./
+! lovense.com
+||lovense.com^$cookie=_utm_os
+||lovense.com^$cookie=_utm_ref
+||lovense.com^$cookie=_utm_track_id
+||lovense.com^$cookie=Hytto-Referer-Detail
+||lovense.com^$cookie=USER-TRACK-ID
+! https://github.com/AdguardTeam/AdguardFilters/issues/217065
+$cookie=/^UBT_/,domain=trip.com
+$cookie=/^ubtc_/,domain=trip.com
+! https://docs-en.hackle.io/docs/javascript
+$cookie=/^_hackle_/,domain=app.catchtable.co.kr
+! coloradoan.com
+||coloradoan.com^$cookie=gup_anonid
+||coloradoan.com^$cookie=gup_clientid
+! https://github.com/AdguardTeam/AdguardFilters/issues/216326
+||bybit.$cookie=deviceId
+||bybit.$cookie=/^sensorsdata/
+! https://github.com/AdguardTeam/AdguardFilters/issues/216005
+||flaticon.com^$cookie=g_state
+! indianexpress.com
+||indianexpress.com^$cookie=ev_did
+||indianexpress.com^$cookie=ev_sid
+! https://github.com/AdguardTeam/AdguardFilters/issues/215614
+||heumm.com^$cookie=FB_EXTERNAL_ID
+! vbr.ru
+||vbr.ru^$cookie=puid
+! x.com
+! https://cdn.cms-twdigitalassets.com/content/dam/help-twitter/rules-and-policies/cookie-description-lists/cookie-description-list-en.pdf
+||x.com^$cookie=guest_id_ads
+||x.com^$cookie=guest_id_marketing
+! novakidschool.com
+||novakid.$cookie=ftr
+||novakidschool.com^$cookie=ftr
+||novakidschool.com^$cookie=wpcf7_guest_user_id
+! purevpn.de
+||purevpn.$cookie=/^intercom-/
+! fashionnova.com
+||fashionnova.com^$cookie=2c.cld
+||fashionnova.com^$cookie=OptimizelyUserId
+! https://github.com/AdguardTeam/AdguardFilters/issues/237762
+! Breaks "Recommended for you" section
+! eneba.com
+! ||eneba.com^$cookie=userId
+! dmm.com
+||dmm.com^$cookie=top_dummy
+||dmm.com^$cookie=top_pv_uid
+! agatameble.pl
+||agatameble.pl^$cookie=private_content_version
+! dcinside.com
+||dcinside.com^$cookie=csid
+! superhuman.com
+||superhuman.com^$cookie=web-device
+! spankbang.com
+||spankbang.com^$cookie=ana_sid
+||spankbang.com^$cookie=ana_vid
+! whitepages.com
+||whitepages.com^$cookie=wp_pid
+! jdpower.com
+||jdpower.com^$cookie=userid
+! slideshare.net
+||slideshare.net^$cookie=browser_id
+! pelikan.sk
+$cookie=PAPVisitorId,domain=pelikan.cz|pelikan.hu|pelikan.sk
+! https://github.com/AdguardTeam/AdguardFilters/issues/213694
+||bouyguestelecom.fr^$cookie=trackerId
+! hostadvice.com
+||hostadvice.com^$cookie=msvt_uid
+! azrhymes.com
+||azrhymes.com^$cookie=visitor
+! pzfans.com
+||pzfans.com^$cookie=ezosuibasgeneris-1
+! https://github.com/AdguardTeam/AdguardFilters/issues/213391
+||flo.com.tr^$cookie=bunsar_visitor_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/212878
+||soundcloud.com^$cookie=sc_anonymous_id
+||soundcloud.com^$cookie=sc_tracking_anonymous_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/212676
+||blog.naver.com^$cookie=BA_DEVICE
+! obi.ru
+||obi.ru^$cookie=_userGUID
+! hoyoverse.com
+||hoyoverse.com^$cookie=_HYVUUID
+! miyoushe.com tracking
+$cookie=DEVICEFP,domain=mihoyo.com|hoyoverse.com
+$cookie=DEVICEFP_SEED_ID,domain=mihoyo.com|hoyoverse.com
+$cookie=DEVICEFP_SEED_TIME,domain=mihoyo.com|hoyoverse.com
+! 4game.com / .ru
+||4game.ru^$cookie=trk
+||4game.com^$cookie=trk
+! https://github.com/AdguardTeam/AdguardFilters/issues/211186
+||unipegaso.it^$cookie=crm_multi_tracking
+! ko44.ru
+||ko44.ru^$cookie=uniqueid
+! https://github.com/AdguardTeam/AdguardFilters/issues/210570
+||newneek.co^$cookie=/AMP_/
+||newneek.co^$cookie=deviceId
+! kari.com
+||kari.com^$cookie=rees46_device_id
+||kari.com^$cookie=did
+||kari.com^$cookie=/^sid_/
+! https://github.com/AdguardTeam/AdguardFilters/issues/210626
+||news.kbs.co.kr^$cookie=STAT_WEBLOG_TOKEN
+! hpplus.jp
+||hpplus.jp^$cookie=fw_se
+||hpplus.jp^$cookie=fw_uid
+! idnes.cz
+||idnes.cz^$cookie=adtrack-lib-criteo
+||idnes.cz^$cookie=_mmid
+||idnes.cz^$cookie=_webid
+||idnes.cz^$cookie=_webid2
+||idnes.cz^$cookie=ADS_VISITOR_ID
+||idnes.cz^$cookie=lastAdSyncDate
+||idnes.cz^$cookie=lastPianoSyncDate
+! opera.com
+||opera.com^$cookie=opref
+! https://github.com/AdguardTeam/AdguardFilters/issues/209516
+||animegoods.co.kr^$cookie=/fb_/
+||animegoods.co.kr^$cookie=ec_ipad_device
+! https://github.com/AdguardTeam/AdguardFilters/issues/209281
+||expressvpn.com^$cookie=/gtm/
+||expressvpn.com^$cookie=xvid
+! https://github.com/AdguardTeam/AdguardFilters/issues/209458
+||danawa.com^$cookie=wcs_bt
+! https://github.com/AdguardTeam/AdguardFilters/issues/172125
+||prothomalo.com^$cookie=uuid_v2
+! https://github.com/AdguardTeam/AdguardFilters/issues/152313
+||applesfera.com^$cookie=NID
+! https://github.com/AdguardTeam/AdguardFilters/issues/136734
+||investing.com^$cookie=smd
+||investing.com^$cookie=udid
+! https://github.com/AdguardTeam/AdguardFilters/issues/123160
+||whistleout.com.au^$cookie=ARRAffinity
+||whistleout.com.au^$cookie=ARRAffinitySameSite
+! https://github.com/AdguardTeam/AdguardFilters/issues/209255
+||jobkorea.co.kr^$cookie=/GTM/
+||jobkorea.co.kr^$cookie=JK_USER_UUID
+! https://github.com/AdguardTeam/AdguardFilters/issues/209326
+||kma.go.kr^$cookie=TRK_EX
+||kma.go.kr^$cookie=_TRK_SID
+||kma.go.kr^$cookie=_TRK_UID
+! https://github.com/AdguardTeam/AdguardFilters/issues/209283
+||danawa.com^$cookie=/_INSIGHT_CK_/
+! 4gamers.com.tw
+||4gamers.com.tw^$cookie=_pkc
+! sravni.ru
+||sravni.ru^$cookie=_FP_
+! youdo.com
+||youdo.com^$cookie=/^_utm_/
+! allrecipes.com
+||allrecipes.com^$cookie=/^_sharedid/
+! 33-news.ru
+||33-news.ru^$cookie=uniqueid
+! buildtheearth.net
+||buildtheearth.net^$cookie=/^_pk_id./
+! pap.pl
+||pap.pl^$cookie=/incap_/
+! wolverine.com
+||wolverine.com^$cookie=_cs_mk_ga
+||wolverine.com^$cookie=sid
+! okko.tv
+||okko.tv^$cookie=_sa
+||okko.tv^$cookie=odid
+||okko.tv^$cookie=SherlockChatInfo
+! sports.ru
+||cyber.sports.ru^$cookie=suida
+! oilprice.com
+||oilprice.com^$cookie=ga_store_user_id
+! hk01.com
+||hk01.com^$cookie=/^_pk_id./
+||hk01.com^$cookie=hk01_annonymous_id
+||hk01.com^$cookie=hk01_segment_id
+! azcentral.com
+||azcentral.com^$cookie=/^gnt_/
+||azcentral.com^$cookie=gup_anonid
+||azcentral.com^$cookie=gup_clientid
+! wallapop.com
+||wallapop.com^$cookie=device_id
+||wallapop.com^$cookie=rl_anonymous_id
+! nytimes.com
+||nytimes.com^$cookie=nyt-jkidd
+||nytimes.com^$cookie=jkidd-s
+! https://github.com/AdguardTeam/AdguardFilters/issues/206984
+||medicalnewstoday.com^$cookie=traveler_tglr_tenant_id
+||medicalnewstoday.com^$cookie=traveler_tglr_anon_id
+||medicalnewstoday.com^$cookie=tglr_tenant_id
+||medicalnewstoday.com^$cookie=tglr_transit_id
+||medicalnewstoday.com^$cookie=tglr_ref
+||medicalnewstoday.com^$cookie=tglr_req
+||medicalnewstoday.com^$cookie=tglr_anon_id
+||medicalnewstoday.com^$cookie=pmpdid
+||medicalnewstoday.com^$cookie=blab
+! spbvedomosti.ru
+||spbvedomosti.ru^$cookie=/^BITRIX_/
+! diag.pl
+||diag.pl^$cookie=/incap_/
+||diag.pl^$cookie=___utmvc
+! wpde.com
+||wpde.com^$cookie=sbgtvNonce
+||wpde.com^$cookie=SUID
+! shoebacca.com
+||shoebacca.com^$cookie=/^smbimpr/
+||shoebacca.com^$cookie=/^swym-/
+||shoebacca.com^$cookie=tfc-l
+! independent.co.uk
+||independent.co.uk^$cookie=/^esi-/
+! sport-express.ru
+||sport-express.ru^$cookie=_se_site_counter
+! plus.nl
+||plus.nl^$cookie=/^nr[12]Users\$/
+||plus.nl^$cookie=/^osVisit/
+! kimbino.ro/.bg
+||kimbino.$cookie=/^kim-tracker/
+! gb.ru
+||gb.ru^$cookie=/^utm_/
+! makemytrip.com
+||makemytrip.com^$cookie=dvid
+! 101.ru
+||101.ru^$cookie=statDaySession
+||101.ru^$cookie=uniqClientId
+||101.ru^$cookie=incomeUrl
+||101.ru^$cookie=sid_101_ru
+! coca-cola.com.br
+||andina.nasuacasa.coca-cola.com.br^$cookie=/^_snrs_/
+||andina.nasuacasa.coca-cola.com.br^$cookie=/^vtex-search-/
+! vnexpress.net
+||vnexpress.net^$cookie=/^fosp_/
+||vnexpress.net^$cookie=orig_aid
+! terra.com.br
+||terra.com.br^$cookie=X-XAct-ID
+! healf.com
+||healf.com^$cookie=/^ig-/
+||healf.com^$cookie=/^ph_phc_/
+! usetrmnl.com
+||usetrmnl.com^$cookie=/^intercom-/
+! galaxus.de
+||galaxus.de^$cookie=/^\.(b|s|xp|ub\.)id/
+! redis.io
+||redis.io^$cookie=rdsTracking
+! raycast.com
+||raycast.com^$cookie=/^ph_phc_/
+! pixabay.com
+||pixabay.com^$cookie=anonymous_user_id
+! sahibinden.com
+||sahibinden.com^$cookie=kno
+||sahibinden.com^$cookie=shuid
+! aamulehti.fi
+||aamulehti.fi^$cookie=sa1pid
+! swissotel.com
+||swissotel.com^$cookie=/incap_/
+||swissotel.com^$cookie=/^nlbi_/
+! darntough.com
+||darntough.com^$cookie=/^ph_phc_/
+! oxylabs.io
+||developers.oxylabs.io^$cookie=/^intercom-/
+! https://github.com/AdguardTeam/AdguardFilters/issues/203766
+$cookie=_HFID,domain=womenshealthmag.com|bicycling.com|bestproducts.com|caranddriver.com|cosmopolitan.com|countryliving.com|delish.com|elledecor.com|elle.com|esquire.com|goodhousekeeping.com|harpersbazaar.com|housebeautiful.com|oprahdaily.com|prevention.com|redbookmag.com|roadandtrack.com|runnersworld.com|seventeen.com|townandcountrymag.com|veranda.com|womansday.com|autoweek.com|thepioneerwoman.com|popularmechanics.com
+$cookie=_perhip,domain=womenshealthmag.com|bicycling.com|bestproducts.com|caranddriver.com|cosmopolitan.com|countryliving.com|delish.com|elledecor.com|elle.com|esquire.com|goodhousekeeping.com|harpersbazaar.com|housebeautiful.com|oprahdaily.com|prevention.com|redbookmag.com|roadandtrack.com|runnersworld.com|seventeen.com|townandcountrymag.com|veranda.com|womansday.com|autoweek.com|thepioneerwoman.com|popularmechanics.com
+$cookie=mosb,domain=womenshealthmag.com|bicycling.com|bestproducts.com|caranddriver.com|cosmopolitan.com|countryliving.com|delish.com|elledecor.com|elle.com|esquire.com|goodhousekeeping.com|harpersbazaar.com|housebeautiful.com|oprahdaily.com|prevention.com|redbookmag.com|roadandtrack.com|runnersworld.com|seventeen.com|townandcountrymag.com|veranda.com|womansday.com|autoweek.com|thepioneerwoman.com|popularmechanics.com
+! businessinsider.com
+||businessinsider.com^$cookie=universal_id
+||businessinsider.com^$cookie=anonymous_id
+||businessinsider.com^$cookie=fenrir_anonymous_id
+! businessinsider.jp
+||businessinsider.jp^$cookie=mgppid
+||businessinsider.jp^$cookie=ppid
+! roblox.com
+||roblox.com^$cookie=RBXSessionTracker
+! iltalehti.fi
+||iltalehti.fi^$cookie=/^il_ga_/
+! hwbusters.com
+||hwbusters.com^$cookie=advanced_ads_page_impressions
+||hwbusters.com^$cookie=advanced_ads_visitor
+! katu.com
+||katu.com^$cookie=SUID
+! popin.cc
+||popin.cc^$cookie=__mguid_
+! xraws.com
+||xraws.com^$cookie=client_id
+! vtcnews.vn
+||vtcnews.vn^$cookie=vtcCookie
+! newsbreak.com
+||newsbreak.com^$cookie=nb_wuid
+||newsbreak.com^$cookie=userId
+! softwarekeep.com
+||softwarekeep.com^$cookie=_orig_referrer
+! hindustantimes.com
+||hindustantimes.com^$cookie=ppid
+||hindustantimes.com^$cookie=_ht_fp
+! lifehacker.com
+||lifehacker.com^$cookie=gtagSessionId
+! realtor.com
+||realtor.com^$cookie=__vst
+! wish.com
+||wish.com^$cookie=visitor_id
+||wish.com^$cookie=logged_out_tracker
+! Disqus
+||disqus.com^$cookie=zeta-ssp-user-id
+! Internal statistics, used for anonymous visitors (Sigma)
+||disqus.com^$cookie=disqus_unique
+!
+! temu.com
+||temu.com^$cookie=_bee
+||temu.com^$cookie=_nano_fp
+||temu.com^$cookie=_ttc
+! boundless.com
+||boundless.com^$cookie=_boundless_tracking_id
+! deezer.com
+! ||deezer.com^$cookie=dzr_uniq_id
+! vulture.com
+||vulture.com^$cookie=first-nymcid
+||vulture.com^$cookie=nymcid
+||vulture.com^$cookie=nyma
+! infox.sg - tracking
+||infox.sg^$cookie
+! https://github.com/AdguardTeam/AdguardFilters/issues/194916
+||fanatical.com^$cookie=affiliate_source
+! https://github.com/AdguardTeam/AdguardFilters/issues/194647
+||titulky.com^$cookie=adbwshown
+||titulky.com^$cookie=udid
+||titulky.com^$cookie=sid
+! dropbox.com
+||dropbox.com^$cookie=dbx_js_analytics_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/194354
+||my-best.com^$cookie=mybest_uuid
+! hulu.com
+||hulu.com^$cookie=metrics_tracker_session_manager
+! clarity.ms
+||clarity.ms^$cookie=MUID
+||clarity.ms^$cookie=CLID
+||clarity.ms^$cookie=ANON
+! https://github.com/AdguardTeam/AdguardFilters/issues/186196
+||homerun.co.uk^$cookie=_fingerPrint
+! https://github.com/AdguardTeam/AdguardFilters/issues/185426
+||cyberghostvpn.com^$cookie=cg_campaign
+||cyberghostvpn.com^$cookie=cg_clickid
+||cyberghostvpn.com^$cookie=visitor_date
+||cyberghostvpn.com^$cookie=visitor_type
+! https://github.com/AdguardTeam/AdguardFilters/issues/184012
+||joinrs.com^$cookie=TRACKING_CLIENT_TOKEN
+||joinrs.com^$cookie=TRACKING_SESSION_TOKEN
+! https://github.com/AdguardTeam/AdguardFilters/issues/183505
+||goldapple.ru^$cookie=advcake_track_id
+||goldapple.ru^$cookie=digi-analytics-sessionId
+! manchestereveningnews.co.uk
+||manchestereveningnews.co.uk^$cookie=TM_ga_clientId
+! faz.net - adobe counter
+||faz.net^$cookie=adobe_pageViewCount
+! vgwort.de counting cookie
+||vgwort.de^$cookie=srp
+! https://github.com/AdguardTeam/AdguardFilters/issues/180074
+||investing.com^$cookie=adBlockerNewUserDomains
+! rarejob.com
+||rarejob.com^$cookie=guest_id_ads
+||rarejob.com^$cookie=guest_id_marketing
+! revico.io
+$cookie=revico-visitor-id
+! staff-start.com
+$cookie=ss_tracking_session_id
+! similarweb.com
+||similarweb.com^$cookie=.DEVICETOKEN.SIMILARWEB.COM
+||similarweb.com^$cookie=cb_anonymous_id
+||similarweb.com^$cookie=sgID
+! https://github.com/AdguardTeam/AdguardFilters/issues/175335
+||tractorsupply.com^$cookie=/WC_USERACTIVITY_/
+||tractorsupply.com^$cookie=WC_GENERIC_ACTIVITYDATA
+||tractorsupply.com^$cookie=WC_ACTIVEPOINTER
+! https://github.com/AdguardTeam/AdguardFilters/issues/175282
+||hwupgrade.it^$cookie=bblastvisit
+! https://github.com/AdguardTeam/AdguardFilters/issues/174637
+||pinkvilla.com^$cookie=1P_JAR
+! https://github.com/uBlockOrigin/uAssets/issues/22750#event-12008887116
+||shiksha.com^$cookie=visitorSessionId
+||shiksha.com^$cookie=visitorId
+! uber.com
+||uber.com^$cookie=marketing_vistor_id
+! remarkable.com
+||remarkable.com^$cookie=rmMetaV2-user_id
+||remarkable.com^$cookie=rmMetaV2-myrm_utm_parameters
+||remarkable.com^$cookie=rmMetaV2-utm_parameters
+||remarkable.com^$cookie=rmMetaV2-session_id
+||remarkable.com^$cookie=rmMetaV2-gclid
+||remarkable.com^$cookie=rmMetaV2-device_id
+||remarkable.com^$cookie=rmMetaV2-fbc
+||remarkable.com^$cookie=rmMetaV2-rm_country
+||remarkable.com^$cookie=rmMetaV2-affiliate_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/172581
+||wisernotify.com^$cookie=track_ref
+||wisernotify.com^$cookie=track_entry
+||wisernotify.com^$cookie=track_exit
+! mgmanager.gr
+||mgmanager.gr^$cookie=VisitorGUID
+||mgmanager.gr^$cookie=VisitorState
+! pixiv.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/180178
+!+ NOT_PLATFORM(ext_ff)
+||pixiv.net^$cookie=first_visit_datetime_pc
+||pixiv.net^$cookie=first_visit_datetime
+! https://github.com/AdguardTeam/AdguardFilters/issues/171140
+xfree.com$cookie=anonymous
+! https://github.com/AdguardTeam/AdguardFilters/issues/171231
+||exame.com^$cookie=NID
+! https://github.com/AdguardTeam/AdguardFilters/issues/170358
+||foxnews.com^$cookie=xid
+! https://github.com/AdguardTeam/AdguardFilters/issues/169629
+||tvnoviny.sk^$cookie=MS_PPID
+! rnd.de - analytics
+||rnd.de^$cookie=__vads
+! https://github.com/AdguardTeam/AdguardFilters/issues/169286
+||engineerscodex.com^$cookie=visit_id
+! bild.de
+||bild.de^$cookie=kameleoonVisitorCode
+||bild.de^$cookie=s_ips
+||bild.de^$cookie=ioam2018
+||bild.de^$cookie=_sp_su
+! toyokeizai.net - analytics
+||toyokeizai.net^$cookie=ismuc
+! justjoin.it - marketing
+||justjoin.it^$cookie=userUid
+! kcby.com - analytics
+||kcby.com^$cookie=SUID
+! https://github.com/AdguardTeam/AdguardFilters/issues/167766
+||substack.com^$cookie=visit_idr
+! giveawayoftheday.com
+||giveawayoftheday.com^$cookie=gaotd_uid
+||giveawayoftheday.com^$cookie=gaotd_user_id
+||giveawayoftheday.com^$cookie=/^gaotd_visited_/
+! https://github.com/AdguardTeam/AdguardFilters/issues/161497
+||trafficcardinal.com^$cookie=1P_JAR
+! https://github.com/AdguardTeam/AdguardFilters/issues/161471
+||meetup.com^$cookie=MEETUP_TRACK
+! forbes.com
+||forbes.com^$cookie=client_id
+||forbes.com^$cookie=fadvuke2etid
+! https://github.com/AdguardTeam/AdguardFilters/issues/160129
+$cookie=ahoy_visit,domain=instacart.ca|instacart.com
+$cookie=ahoy_visitor,domain=instacart.ca|instacart.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/158999
+||ft.com^$cookie=spoor-id
+! https://github.com/AdguardTeam/AdguardFilters/issues/158141
+||galottery.com^$cookie=NID
+||galottery.com^$cookie=1P_JAR
+! https://github.com/AdguardTeam/AdguardFilters/issues/156457
+||nv.ua^$cookie=browser_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/156892
+||educationconnection.com^$cookie=_CampaignTrackID
+! https://github.com/AdguardTeam/AdguardFilters/issues/156019
+||themanual.com^$cookie=dtLastActive
+||themanual.com^$cookie=dtPageViewId
+! https://github.com/AdguardTeam/AdguardFilters/issues/156263
+||tjrwrestling.net^$cookie=_pbjs_userid_consent_data
+! https://github.com/AdguardTeam/AdguardFilters/issues/155578
+||moreknig.org^$cookie=NID
+||moreknig.org^$cookie=1P_JAR
+! https://github.com/AdguardTeam/AdguardFilters/issues/152840
+||oilprice.com^$cookie=_omappvp
+||oilprice.com^$cookie=_omappvs
+! https://github.com/AdguardTeam/AdguardFilters/issues/151964
+||izi.ua$cookie=statz_unique_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/151687
+||breakdownexpress.com^$cookie=NID
+||breakdownexpress.com^$cookie=DV
+! https://github.com/AdguardTeam/AdguardFilters/issues/151782
+||adweek.com^$cookie=aw-article-visits
+! https://github.com/AdguardTeam/AdguardFilters/issues/151045
+||infoniac.ru^$cookie=NID
+! https://github.com/AdguardTeam/AdguardFilters/issues/151279
+||3dnews.ru^$cookie=3d-viewer-id
+||3dnews.ru^$cookie=lastvisit
+! https://github.com/AdguardTeam/AdguardFilters/issues/151180
+||ping.contactpigeon.com^$cookie=bi
+! Quantserv
+||quantserve.com^$cookie=mc
+! https://github.com/AdguardTeam/AdguardFilters/issues/150799
+||blablacar.co.uk$cookie=vstr_id
+! Vimeo
+! Used to collect analytics tracking information
+! ||vimeo.com^$cookie=vuid - breaks login - https://github.com/AdguardTeam/AdguardFilters/issues/152108
+||vimeo.com^$cookie=_scid_r
+||vimeo.com^$cookie=_scid
+! https://github.com/AdguardTeam/AdguardFilters/issues/150077
+||newsweekjapan.jp^$cookie=_pbjs_userid_consent_data
+||newsweekjapan.jp^$cookie=_td
+||newsweekjapan.jp^$cookie=site_visited
+||newsweekjapan.jp^$cookie=is_visiter
+! https://github.com/AdguardTeam/AdguardFilters/issues/149980
+||niadd.com^$cookie=protocol_country_code
+! https://github.com/AdguardTeam/AdguardFilters/issues/150002
+||si.com^$cookie=BCSessionID
+||si.com^$cookie=last_visit_bc
+||si.com^$cookie=muid
+! https://github.com/AdguardTeam/AdguardFilters/issues/145516
+||wionews.com^$cookie=myPPID
+||wionews.com^$cookie=traffic_medium
+||wionews.com^$cookie=traffic_source
+! https://github.com/AdguardTeam/AdguardFilters/issues/144327
+||dickssportinggoods.com^$cookie=RES_TRACKINGID
+||dickssportinggoods.com^$cookie=BVBRANDID
+! https://github.com/AdguardTeam/AdguardFilters/issues/143883
+||kkuriren.se^$cookie=adksid
+||kkuriren.se^$cookie=adkvid
+! Tradedoubler
+! https://dev.tradedoubler.com/tracking/advertiser/
+||tradedoubler.com^$cookie=GUID
+! https://github.com/AdguardTeam/AdguardFilters/issues/142645
+||sina.cn^$cookie=recent_visited
+! https://github.com/AdguardTeam/AdguardFilters/issues/142007
+||latestly.com^$cookie=personalization_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/141628
+||xiaohongshu.com^$cookie=xhsTrackerId
+||xiaohongshu.com^$cookie=xhsTrackerId.sig
+! https://github.com/AdguardTeam/AdguardFilters/issues/140992
+||fwmrm.net^$cookie=_fwex_doubleclick.net_IDE
+! https://github.com/AdguardTeam/AdguardFilters/issues/141256
+||navdmp.com^$cookie=nid
+! https://github.com/AdguardTeam/AdguardFilters/issues/141668
+||patched.to^$cookie=sid
+||patched.to^$cookie=mybb[threadread]
+||patched.to^$cookie=mybb[lastvisit]
+||patched.to^$cookie=mybb[lastactive]
+! https://github.com/AdguardTeam/AdguardFilters/issues/141198
+||otakufr.co^$cookie=_uc_referrer
+||otakufr.co^$cookie=session_id
+! richrelevance.com
+! Tracks a visitor across sessions
+||richrelevance.com^$cookie=uc
+! https://github.com/AdguardTeam/AdguardFilters/issues/141578
+! UTM, referer
+||timeweb.cloud^$cookie=aors_fc
+! https://github.com/AdguardTeam/AdguardFilters/issues/141385
+||uphold.com^$cookie=sdk_trends_user_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/141398
+||apa.org^$cookie=/incap_|nlbi_/
+||apa.org^$cookie=SessionId
+||apa.org^$cookie=TAFSessionId
+||apa.org^$cookie=ASP.NET_SessionId
+||apa.org^$cookie=___utmvc
+! https://github.com/AdguardTeam/AdguardFilters/issues/141467
+||dailymail.co.uk^$cookie=RT
+! https://github.com/AdguardTeam/AdguardFilters/issues/141449
+||modnakiecka.pl^$cookie=smvr
+||modnakiecka.pl^$cookie=smcfds
+||modnakiecka.pl^$cookie=smuuid
+! https://github.com/AdguardTeam/AdguardFilters/issues/141154
+||istories.media^$cookie=latest_viewed_material
+! https://github.com/AdguardTeam/AdguardFilters/issues/141055
+||mindbox.ru^$cookie=deviceUUID
+! t-j.ru
+||t-j.ru^$cookie=dsp_click_id
+||t-j.ru^$cookie=mindboxDeviceUUID
+! https://github.com/AdguardTeam/AdguardFilters/issues/140889
+||dealabs.com^$cookie=f_v
+! https://github.com/AdguardTeam/AdguardFilters/issues/140940
+||bgr.in^$cookie=traffic_medium
+||bgr.in^$cookie=traffic_source
+! https://github.com/AdguardTeam/AdguardFilters/issues/140733
+||cnn.$cookie=nexus-web-application-identifier
+||cnn.$cookie=__idcontext
+! Used to provide advertising based on user data
+||mailchimp.com^$cookie=_mcid
+! https://github.com/AdguardTeam/AdguardFilters/issues/140645
+||sexu.com^$cookie=_ttrack
+! https://github.com/AdguardTeam/AdguardFilters/issues/140694
+||airportinfo.live^$cookie=adsplit
+||airportinfo.live^$cookie=adblocker
+! https://github.com/AdguardTeam/AdguardFilters/issues/140506
+||migros.com.tr^$cookie=VSTR_ID
+! dailymail.co.uk - views counter, ad tracking
+||dailymail.co.uk^$cookie=latest-article-count
+||dailymail.co.uk^$cookie=mol.ads.visits
+||dailymail.co.uk^$cookie=mol.ads.visitsExpire
+||dailymail.co.uk^$cookie=_pbjs_userid_consent_data
+! https://github.com/AdguardTeam/AdguardFilters/issues/139907
+||meetup.com^$cookie=MEETUP_BROWSER_ID
+! https://github.com/AdguardTeam/AdguardFilters/issues/139501
+||videoseyred.in^$cookie=/^vstrack_ga/
+! Tripadvisor
+! Used for user tracking across websites
+!||tripadvisor.$cookie=TAUnique - breaks results https://github.com/AdguardTeam/AdguardFilters/issues/168373
+!||tripadvisor.$cookie=TADCID - breaks login
+! https://github.com/AdguardTeam/AdguardFilters/issues/139322
+||nordvpn.com^$cookie=nv_tri
+||nordvpn.com^$cookie=nv_trs
+||nordvpn.com^$cookie=CurrentSession
+||nordvpn.com^$cookie=FirstSession
+||nordvpn.com^$cookie=nextbid
+! https://github.com/AdguardTeam/AdguardFilters/issues/139263
+||ridestore.com^$cookie=/^google-analytics_v4__/
+! makeway.pl - unique user ID
+||makeway.pl^$cookie=uid
+||makeway.pl^$cookie=sid
+! money.hu
+||money.hu^$cookie=UserUuid
+! relaido.jp
+||relaido.jp^$cookie=relaido_uuid
+! at-s.com
+||at-s.com^$cookie=_rld_u
+! Branch.io / App.Link
+! Used to collect data on visitors behaviour and interaction
+||app.link^$cookie=_s
+||branch.io^$cookie=bnc_returning_visitor
+! openresty.org - unique user ID
+||openresty.org^$cookie=userid
+! webdock.io - ad tracking
+||webdock.io^$cookie=Webdock-Internal-Ad-Tracker
+||webdock.io^$cookie=Webdock-Internal-Ad-Two
+! dreamstime.com - user ID
+||dreamstime.com^$cookie=dtuid
+||dreamstime.com^$cookie=firstvisit
+||dreamstime.com^$cookie=lastvisit
+||dreamstime.com^$cookie=revisit
+! stocksy.com - unique user ID
+||stocksy.com^$cookie=stocksylytics_anon_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/134089
+||nttcoms.com^$cookie=visitorid
+! depop.com
+||depop.com^$cookie=_px2
+||depop.com^$cookie=_pxvid
+||depop.com^$cookie=pxcts
+||depop.com^$cookie=ACTIVITY_TRACKER_PERSISTENT_SESSION_ID
+! https://github.com/AdguardTeam/AdguardFilters/issues/131068
+||nu.nl^$cookie=temptation-id
+! https://github.com/AdguardTeam/AdguardFilters/issues/130723
+||zoom.us^$cookie=_zm_fingerprint
+||zoom.us^$cookie=_zm_visitor_guid
+||zoom.us^$cookie=_zm_ctaid
+! https://github.com/AdguardTeam/AdguardFilters/issues/128820
+||stripchat.com^$cookie=stripchat_com_affiliateId
+! https://github.com/AdguardTeam/AdguardFilters/issues/128392
+||rtp.pt^$cookie=googlepersonalization
+||rtp.pt^$cookie=_gid
+||rtp.pt^$cookie=/_gat_gtag_/
+||rtp.pt^$cookie=_gat_playerTracker
+||rtp.pt^$cookie=___iat_vis
+||rtp.pt^$cookie=_ga
+||rtp.pt^$cookie=_recid
+||rtp.pt^$cookie=cid
+! https://github.com/AdguardTeam/AdguardFilters/issues/128259
+||pokernews.com^$cookie=anid_pnuser_uuid
+! https://github.com/AdguardTeam/AdguardFilters/issues/128243
+||baidu.com^$cookie=baikeVisitId
+||hao123.com^$cookie=traceid
+||hao123.com^$cookie=tnwhiteft
+! https://github.com/AdguardTeam/AdguardFilters/issues/128195
+||service.giosg.com^$cookie=gid
+||service.giosg.com^$cookie=sgid
+! https://github.com/AdguardTeam/AdguardFilters/issues/126960
+||e1.ru^$cookie=jtnews_adblock
+! https://github.com/AdguardTeam/AdguardFilters/issues/126303
+||sportskeeda.com^$cookie=unique_browser_id
+||sportskeeda.com^$cookie=KEEDA_SESSION_ID
+||sportskeeda.com^$cookie=unique_user_id
+||sportskeeda.com^$cookie=keeda-session-uuid
+! bigw.com.au - user identification
+||bigw.com.au^$cookie=ir-clickid
+! Rambler group
+||championat.com^$cookie=adtech_uid
+||championat.com^$cookie=top100_id
+||championat.com^$cookie=rchainid
+$cookie=ruid,domain=afisha.ru|eda.ru
+||afisha.ru^$cookie=adtech_uid
+||afisha.ru^$cookie=_afuid
+||afisha.ru^$cookie=_eggDeviceUUID
+||afisha.ru^$cookie=_egguid
+$cookie=uid,domain=motor.ru|quto.ru
+||lenta.ru^$cookie=lids
+||lenta.ru^$cookie=lid
+! AdFox
+||adfox.ru^$cookie=cryptouid_sign
+||adfox.ru^$cookie=cryptouid
+||adfox.ru^$cookie=luid1_ts
+||adfox.ru^$cookie=luid1
+! https://github.com/AdguardTeam/AdguardFilters/issues/125304
+||uid.mavencoalition.io^$cookie
+||thestreet.com^$cookie=BCSessionID
+||thestreet.com^$cookie=last_visit_bc
+||thestreet.com^$cookie=muid
+! https://github.com/AdguardTeam/AdguardFilters/issues/125119
+||e1.ru^$cookie=ngs_uid
+||e1.ru^$cookie=ngs_analytics_uid
+! adingo.jp
+.adingo.jp^$cookie
+! wp.pl
+$cookie=WPabs,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=WPdp,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=PWA_adbd,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=STvisit,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=sgVisitId,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=BDhs,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=BDh,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=sa31,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=STpage,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=ttlStatid,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=STabnoid,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=WPpds,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=sgv,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=c,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=camps,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=WPtcs2,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=WPci,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=_pbjs_userid_consent_data,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=ACac2,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+$cookie=STac,domain=wp.pl|money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+! https://github.com/AdguardTeam/AdguardFilters/issues/173708
+! Do not block "statid" cookie on the wp.pl domain because it breaks video player on pilot.wp.pl
+$cookie=statid,domain=money.pl|o2.pl|pudelek.pl|komorkomania.pl|gadzetomania.pl|fotoblogia.pl|autokult.pl|abczdrowie.pl|parenting.pl|videostar.pl|autocentrum.pl|benchmark.pl
+!
+$cookie=rubiconuid,domain=wp.pl
+$cookie=rtbhouseuid,domain=wp.pl
+$cookie=openxmiud,domain=wp.pl
+$cookie=onetaguid,domain=wp.pl
+$cookie=oftmediauid,domain=wp.pl
+$cookie=tpluid,domain=wp.pl
+$cookie=stroeercoreuid,domain=wp.pl
+$cookie=yoc_visxuid,domain=wp.pl
+$cookie=apnxuid,domain=wp.pl
+$cookie=adfmuid,domain=wp.pl
+$cookie=ixuid,domain=wp.pl
+$cookie=smartmiud,domain=wp.pl
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/123962
+||hankookilbo.com^$cookie=uv_user_id
+||hankookilbo.com^$cookie=hk_ltuid
+||hankookilbo.com^$cookie=hkvstcd
+||hankookilbo.com^$cookie=uv_session_id
+! gazeta.pl
+$cookie=cric_adid,domain=gazeta.pl|sport.pl|tokfm.pl
+$cookie=cric_pubid,domain=gazeta.pl|sport.pl|tokfm.pl
+! https://github.com/AdguardTeam/AdguardFilters/issues/118022
+||drop.com^$cookie=md.etag
+||drop.com^$cookie=md.visitId
+! PopIn
+||popin.cc^$cookie=_ss_pp_id
+||popin.cc^$cookie=_td
+||popin.cc^$cookie=uid
+||dashboard.popin.cc^$cookie=laravel_session
+! Taplytics
+||taplytics.com^$cookie=/^_tl_/
+! sharethrough.com ad analytics
+||sharethrough.com^$cookie=stx_user_id
+! OLX
+$cookie=fingerprint,domain=olx.ro|olx.kz|olx.pl|olx.pt|olx.ua|olx.uz|olx.in|olx.com
+$cookie=dfp_user_id,domain=olx.ro|olx.kz|olx.pl|olx.pt|olx.ua|olx.uz|olx.in|olx.com
+! 220-volt.ru tracking
+||220-volt.ru^$cookie=telemetryToken
+||220-volt.ru^$cookie=advref
+||220-volt.ru^$cookie=advref_first
+||220-volt.ru^$cookie=_userGUID
+! indiatimes.com - tracking, fingerprinting
+||indiatimes.com^$cookie=/pfuuid|fpid/
+! insider.com - tracking
+||insider.com^$cookie=/anonymous_id|fenrir_anonymous_id/
+! Duolingo
+$cookie=initial_referrer,domain=duolingo.com|duolingo.cn
+$cookie=wuuid,domain=duolingo.com|duolingo.cn
+! onthe.io cookies
+||vc.ru^$cookie=/^__io/
+||vc.ru^$cookie=/^io_/
+! ad networks
+||exoclick.com^$cookie
+||realsrv.com^$cookie
+! Do not add new rules to this section. Add above with a comment
+||kayak.co.kr^$cookie=kmkid
+||kayak.co.kr^$cookie=csid
+||kayak.com^$cookie=kmkid
+||kayak.com^$cookie=csid
+$cookie=/^_gd/,domain=leichtathletik.de
+$cookie=tint-anonymous-uid,domain=leichtathletik.de
+||thirdweb.com^$cookie=/^ph_phc_/
+||eduki.com^$cookie=track_sid
+||manomano.de^$cookie=mm_visitor_id
+||manomano.de^$cookie=mm_ab_test_version
+||manomano.de^$cookie=mm_ab_tests
+||kariyer.net^$cookie=jobviewcount
+||ok.ru^$cookie=mtrc
+||productreview.com.au^$cookie=pr_guest_id
+||productreview.com.au^$cookie=pr_visitor_id
+||11st.co.kr^$cookie=/RAKE_SID/
+||adform.net^$cookie=/uid|TPC/
+||delfi.lv^$cookie=dcid
+||airasia.com^$cookie=cosmos-arbiter-identifier
+||airasia.com^$cookie=clonedDeviceID
+||lemurov.net^$cookie=flat_r_mb
+||21buttons.com^$cookie=21b.user.generated.id
+$cookie=vocuser_uuid,domain=ideal.es|elcorreo.com
+$cookie=ev_sid,domain=ideal.es|elcorreo.com|diariovasco.com
+$cookie=ev_did,domain=diariovasco.com
+||joyn.de^$cookie=trackingSessionId
+||tf1.fr^$cookie=atidvisitor
+||tf1.fr^$cookie=ABTastySession
+||tf1.fr^$cookie=ABTasty
+||tf1.fr^$cookie=gguserid
+||getpublica.com^$cookie=p_uid
+||williams-sonoma.com^$cookie=svi_dec
+||williams-sonoma.com^$cookie=_abck
+||williams-sonoma.com^$cookie=WSPE_SID
+||mobile01.com^$cookie=HobbyCatuuid
+||mobile01.com^$cookie=/^MID-uuid/
+||foxtime.ru^$cookie=cherry_trend_views
+||foxtime.ru^$cookie=/^pvc_visits/
+||indiatimes.com^$cookie=deviceid
+||rshrt.com^$cookie=app_visitor
+||indiatimes.com^$cookie=/deviceid|lgc_deviceid|ak_bmsc/
+||producthunt.com^$cookie=/visitor_id|track_code|first_visit/
+||iltalehti.fi^$cookie=sammio-bsid
+||smartworld.it^$cookie=__mx_log
+||gulfnews.com^$cookie=/incap_|NEW_VISITOR|nlbi_|___utmv/
+||fusionmovies.to^$cookie=/^_tezer_|_on_page/
+||theatlantic.com^$cookie=/atl_uuid|kppid/
+||businessinsider.com^$cookie=/traffic_src|^_sp_/
+||vc.ru^$cookie=/osnova-aid|fingerprint|adblock-state/

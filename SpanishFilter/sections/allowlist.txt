@@ -1,0 +1,325 @@
+!
+! This section contains the list of rules that fix incorrect blocking. Rules must be domain-specific.
+!
+! Good: example.org#@#.ad
+! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
+!
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/234929
+! caused by AG russian filter _ad.aspx
+@@||mincetur.gob.pe/webCasinos/Index.aspx?po=frmRegistros_AD.aspx$~third-party
+@@||mincetur.gob.pe/webCasinos/sistema/publico/frmRegistros_AD.aspx$~third-party
+! https://github.com/AdguardTeam/AdguardFilters/issues/231825
+nmas.com.mx#%#//scriptlet('google-ima3-dai')
+!+ PLATFORM(ios, ext_safari, ext_android_cb, ext_ublock)
+@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$domain=nmas.com.mx
+! https://github.com/AdguardTeam/AdguardFilters/issues/230623
+@@||fapi-top.prisasd.com/api/null/player/*?ignoreAccount$domain=as.com
+@@||gapi.prisasd.com/api/$domain=as.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/227702
+||imasdk.googleapis.com/js/sdkloader/ima3.js$redirect=google-ima3,domain=recordplus.com
+@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$domain=recordplus.com
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=recordplus.com
+! https://github.com/uBlockOrigin/uAssets/issues/17047#issuecomment-3854304347
+@@||widget.playoncenter.com/webservice/$domain=hipertextual.com
+@@||vod.playoncenter.com/videos/$domain=hipertextual.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/219538
+@@||c.amazon-adsystem.com/aax2/apstag.js$domain=telehit.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/216360
+@@/publicidad-$domain=radioeuroextasis.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/214711
+||imasdk.googleapis.com/js/sdkloader/ima3.js$redirect=google-ima3,domain=playerclips.laliga.com
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=playerclips.laliga.com
+! https://github.com/uBlockOrigin/uAssets/issues/24543#issuecomment-3287354728
+||imasdk.googleapis.com/js/sdkloader/ima3.js$redirect=noopjs,domain=caracoltv.com,important
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=caracoltv.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/211150
+@@||media.gazetadopovo.com.br/*/curso-na-mira-dos-golpes_touchpoint_Touchpoint_300x250-$domain=buy.tinypass.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/210926
+||imasdk.googleapis.com/js/sdkloader/ima3.js$redirect=google-ima3,domain=cooperativa.cl
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=cooperativa.cl
+! https://github.com/AdguardTeam/AdguardFilters/issues/203562
+@@||imasdk.googleapis.com/pal/sdkloader/pal.js$domain=mais.sbt.com.br
+! https://github.com/AdguardTeam/AdguardFilters/issues/202097
+nationalgeographic.com.es#@#.ad-item
+! https://github.com/AdguardTeam/AdguardFilters/issues/198804
+@@||amazonaws.com/*uol.com.br/publicidade-legal/json/ultimas.json$domain=uol.com.br
+! https://github.com/AdguardTeam/AdguardFilters/issues/199029
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima3,domain=cnnbrasil.com.br
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=cnnbrasil.com.br
+! https://github.com/AdguardTeam/AdguardFilters/issues/198711
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$domain=turbo.pt
+! https://github.com/AdguardTeam/AdguardFilters/issues/198901
+paste1c.ru#@#.share-panel
+! https://github.com/AdguardTeam/AdguardFilters/issues/194055
+@@||tam.cdn-go.cn/aegis-sdk/latest/aegis.min.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/192758
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima3,domain=tn.com.ar
+||player.vodgc.net/dist/*/node_modules/videojs-contrib-ads/dist/videojs.ads.min.js$script,redirect=noopjs,domain=tn.com.ar
+! https://github.com/AdguardTeam/AdguardFilters/issues/190509
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||tm.jsuol.com.br/modules/external/admanager/carros_ads.js$domain=uol.com.br
+! https://github.com/AdguardTeam/AdguardFilters/issues/189639
+poder360.com.br#@#.box-advertising
+! https://github.com/uBlockOrigin/uAssets/issues/25051
+||imasdk.googleapis.com/js/sdkloader/ima3_debug.js$script,redirect=google-ima3,domain=mais.sbt.com.br
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||imasdk.googleapis.com/js/sdkloader/ima3_debug.js$script,domain=mais.sbt.com.br
+! https://github.com/AdguardTeam/AdguardFilters/issues/185825
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$domain=abola.pt
+@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js$domain=abola.pt
+! https://github.com/AdguardTeam/AdguardFilters/issues/159573
+@@||googleads.github.io/videojs-ima/node_modules/video.js/dist/video.min.js$domain=cultura.uol.com.br
+@@||googleads.github.io/videojs-ima/node_modules/video.js/dist/video-js.min.css$domain=cultura.uol.com.br
+! https://github.com/AdguardTeam/AdguardFilters/issues/175517
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima3,domain=terra.com.br
+||amazon-adsystem.com/aax2/apstag.js$script,redirect=amazon-apstag,domain=terra.com.br
+!#if (adguard_app_ios || adguard_ext_android_cb || adguard_ext_safari)
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=terra.com.br
+@@||amazon-adsystem.com/aax2/apstag.js$domain=terra.com.br
+!#endif
+! dimed.com.br - broken own images
+@@||dimed.com.br/banners/$image
+@@||images.colombo.com.br/banners/$image
+! https://github.com/AdguardTeam/AdguardFilters/issues/165603
+@@||lms.ev.org.br/mpls/WebAds/
+! https://github.com/AdguardTeam/AdguardFilters/issues/166457
+@@||cmp.inmobi.com/choice/*/choice.js$domain=tviplayer.iol.pt
+@@||cmp.inmobi.com/tcfv2/*.js$domain=tviplayer.iol.pt
+@@||cmp.inmobi.com/*/cmp-list.json$domain=tviplayer.iol.pt
+@@||cmp.inmobi.com/*/vendor-list-*.json$domain=tviplayer.iol.pt
+! https://github.com/AdguardTeam/AdguardFilters/issues/166288
+@@||cmp.inmobi.com/choice/*/choice.js$domain=beachcam.meo.pt
+@@||cmp.inmobi.com/tcfv2/*.js$domain=beachcam.meo.pt
+@@||cmp.inmobi.com/*/vendor-list-*.json$domain=beachcam.meo.pt
+! https://github.com/AdguardTeam/AdguardFilters/issues/162827
+@@||bradmax.com/client/embed-player/$subdocument,domain=teletica.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/162781
+@@||geometriaanalitica.info/tardisrocinante/screx.js
+@@||geometriaanalitica.info/tardisrocinante/lazy_load.js
+@@||geometriaanalitica.info/tardisrocinante/css_onload.js
+! https://github.com/uBlockOrigin/uAssets/issues/19849
+!#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android && !adguard_app_cli && !adguard_ext_chromium && !adguard_ext_opera)
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$domain=3djuegos.com|3djuegosguias.com|3djuegospc.com|applesfera.com|compradiccion.com|directoalpaladar.com|elblogsalmon.com|espinof.com|genbeta.com|mundoxiaomi.com|trendencias.com|trendenciashombre.com|vidaextra.com|vitonica.com|xataka.com|xatakaciencia.com|xatakafoto.com|xatakahome.com|xatakamovil.com|xatakandroid.com|xatakawindows.com
+@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js$domain=3djuegos.com|3djuegosguias.com|3djuegospc.com|applesfera.com|compradiccion.com|directoalpaladar.com|elblogsalmon.com|espinof.com|genbeta.com|mundoxiaomi.com|trendencias.com|trendenciashombre.com|vidaextra.com|vitonica.com|xataka.com|xatakaciencia.com|xatakafoto.com|xatakahome.com|xatakamovil.com|xatakandroid.com|xatakawindows.com
+@@||securepubads.g.doubleclick.net/gampad/ads$xmlhttprequest,domain=3djuegos.com|3djuegosguias.com|3djuegospc.com|applesfera.com|compradiccion.com|directoalpaladar.com|elblogsalmon.com|espinof.com|genbeta.com|mundoxiaomi.com|trendencias.com|trendenciashombre.com|vidaextra.com|vitonica.com|xataka.com|xatakaciencia.com|xatakafoto.com|xatakahome.com|xatakamovil.com|xatakandroid.com|xatakawindows.com
+@@||cdn.lib.getjad.io/library/$script,domain=3djuegos.com|3djuegosguias.com|3djuegospc.com|applesfera.com|compradiccion.com|directoalpaladar.com|elblogsalmon.com|espinof.com|genbeta.com|mundoxiaomi.com|trendencias.com|trendenciashombre.com|vidaextra.com|vitonica.com|xataka.com|xatakaciencia.com|xatakafoto.com|xatakahome.com|xatakamovil.com|xatakandroid.com|xatakawindows.com
+@@||cdn.lib.getjad.io/prebid/$script,domain=3djuegos.com|3djuegosguias.com|3djuegospc.com|applesfera.com|compradiccion.com|directoalpaladar.com|elblogsalmon.com|espinof.com|genbeta.com|mundoxiaomi.com|trendencias.com|trendenciashombre.com|vidaextra.com|vitonica.com|xataka.com|xatakaciencia.com|xatakafoto.com|xatakahome.com|xatakamovil.com|xatakandroid.com|xatakawindows.com
+@@||c.amazon-adsystem.com/aax2/apstag.js$domain=3djuegos.com|3djuegosguias.com|3djuegospc.com|applesfera.com|compradiccion.com|directoalpaladar.com|elblogsalmon.com|espinof.com|genbeta.com|mundoxiaomi.com|trendencias.com|trendenciashombre.com|vidaextra.com|vitonica.com|xataka.com|xatakaciencia.com|xatakafoto.com|xatakahome.com|xatakamovil.com|xatakandroid.com|xatakawindows.com
+3djuegos.com,3djuegosguias.com,3djuegospc.com,applesfera.com,compradiccion.com,directoalpaladar.com,elblogsalmon.com,espinof.com,genbeta.com,mundoxiaomi.com,trendencias.com,trendenciashombre.com,vidaextra.com,vitonica.com,xataka.com,xatakaciencia.com,xatakafoto.com,xatakahome.com,xatakamovil.com,xatakandroid.com,xatakawindows.com#@#div[id^="div-gpt-"]
+3djuegos.com,3djuegosguias.com,3djuegospc.com,applesfera.com,compradiccion.com,directoalpaladar.com,elblogsalmon.com,espinof.com,genbeta.com,mundoxiaomi.com,trendencias.com,trendenciashombre.com,vidaextra.com,vitonica.com,xataka.com,xatakaciencia.com,xatakafoto.com,xatakahome.com,xatakamovil.com,xatakandroid.com,xatakawindows.com#@#.ad-box:not(#ad-banner):not(:empty)
+3djuegos.com,3djuegosguias.com,3djuegospc.com,applesfera.com,compradiccion.com,directoalpaladar.com,elblogsalmon.com,espinof.com,genbeta.com,mundoxiaomi.com,trendencias.com,trendenciashombre.com,vidaextra.com,vitonica.com,xataka.com,xatakaciencia.com,xatakafoto.com,xatakahome.com,xatakamovil.com,xatakandroid.com,xatakawindows.com#@#.ad-lat2
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/161245
+cozinhandofitness.com#@##ads2
+! https://github.com/AdguardTeam/AdguardFilters/issues/160254
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=descargaseriestv.com
+||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$script,redirect=googlesyndication-adsbygoogle,important,domain=descargaseriestv.com
+@@||descargaseriestv.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/146455
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima3,domain=niusdiario.es
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=niusdiario.es
+! https://github.com/AdguardTeam/AdguardFilters/issues/145203
+||webmotors.com.br/javascripts/prebid.*.js$script,redirect=prebid,domain=webmotors.com.br
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||webmotors.com.br/javascripts/prebid.*.js$domain=webmotors.com.br
+! https://github.com/uBlockOrigin/uAssets/issues/9807#issuecomment-1450692386
+@@||static.adsafeprotected.com/iasPET.1.js$domain=independentespanol.com
+@@||permutive.app/*web.js$domain=independentespanol.com
+@@||cdn.permutive.com^$xmlhttprequest,domain=independentespanol.com
+@@||api.permutive.com^$xmlhttprequest,domain=independentespanol.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/135573
+nebrija.com#@##publicidad
+@@||nebrija.com/images/cabeceras/titulaciones/fast/*-publicidad-*.webp
+! https://github.com/AdguardTeam/AdguardFilters/issues/131251
+elsuperfullhd.com#@#.vertical-ads
+! https://github.com/AdguardTeam/AdguardFilters/issues/117538
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima3,domain=r7.com
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=r7.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/116121
+flatout.com.br#@#.penci-google-adsense
+flatout.com.br#@#.penci_single_ad_before_content
+! https://github.com/uBlockOrigin/uAssets/issues/12701
+@@||ecuavisa.com/widget/*/catalog/mm_publicidad_$xmlhttprequest,~third-party
+! https://github.com/AdguardTeam/AdguardFilters/issues/112205
+oantagonista.uol.com.br#@#div[id^="div-gpt-"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/103893
+@@||movistarplus.es/js/yomvi/player/publi.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/95508
+||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect=googletagservices-gpt,domain=jn.pt
+!#if (adguard_app_ios || adguard_ext_android_cb || adguard_ext_safari)
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$domain=jn.pt
+@@||securepubads.g.doubleclick.net/gpt/pubads_impl_*.js$domain=jn.pt
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/92632
+@@||jangboja.godohosting.com/shop/external/fix/IMG_BANNER/
+! https://github.com/AdguardTeam/AdguardFilters/issues/91363
+@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$domain=app.prende.tv
+@@||pubads.g.doubleclick.net/ssai/event/*/streams$domain=app.prende.tv
+@@||pubads.g.doubleclick.net/ondemand/hls/content/*/vid/*/streams$domain=app.prende.tv
+@@||dice-live-us.akamaized.net/ads-*/*/hls/live/$domain=app.prende.tv
+@@||dice-live-us.akamaized.net/ads-*/*/hls/*/event/*/master.m3u8$domain=app.prende.tv
+@@||dve-streams.akamaized.net/ads-*/*/dio/$domain=app.prende.tv
+@@||dve-streams.akamaized.net/ads-*/*/audio/$domain=app.prende.tv
+@@||dve-streams.akamaized.net/ads-*/*/video/$domain=app.prende.tv
+@@||dve-streams.akamaized.net/ads-*/*/ondemand/hls/content/*/master.m3u8$domain=app.prende.tv
+! https://github.com/AdguardTeam/AdguardFilters/issues/87691
+@@||portal-algartelecom-files.s3.amazonaws.com/banners/imgs/$domain=algartelecom.com.br
+! https://github.com/AdguardTeam/AdguardFilters/issues/73962
+@@||adhandler.kissfmradio.cires21.com/get_link?url=$domain=hitfm.es
+! https://github.com/AdguardTeam/AdguardFilters/issues/71530
+@@||sunmedia.tv/integrations/*.js$domain=vandal.elespanol.com
+@@||static.sunmedia.tv/AdBlockDetection/adblockDetector.min.js*iframevideo$domain=vandal.elespanol.com
+!
+! https://github.com/uBlockOrigin/uAssets/issues/8471
+@@.m3u8$xmlhttprequest,domain=videos.memedeportes.com|videos.cuantarazon.com|videos.vistoenlasredes.com|videos.vrutal.com|videos.humorenserie.com
+@@||imasdk.googleapis.com/js/sdkloader/ima3_debug.js$script,domain=videos.memedeportes.com|videos.cuantarazon.com|videos.vistoenlasredes.com|videos.vrutal.com|videos.humorenserie.com
+@@||gvt1.com/videoplayback/$media,domain=videos.memedeportes.com|videos.cuantarazon.com|videos.vistoenlasredes.com|videos.vrutal.com|videos.humorenserie.com
+@@||tpc.googlesyndication.com^$script,stylesheet,domain=videos.memedeportes.com|videos.cuantarazon.com|videos.vistoenlasredes.com|videos.vrutal.com|videos.humorenserie.com
+@@||tpc.googlesyndication.com/pageadimg/imgad$image,media,domain=videos.memedeportes.com|videos.cuantarazon.com|videos.vistoenlasredes.com|videos.vrutal.com|videos.humorenserie.com
+@@||tpc.googlesyndication.com/pimgad/$image,media,domain=videos.memedeportes.com|videos.cuantarazon.com|videos.vistoenlasredes.com|videos.vrutal.com|videos.humorenserie.com
+@@||googletagservices.com/tag/js/gpt.js$domain=videos.memedeportes.com|videos.cuantarazon.com|videos.vistoenlasredes.com|videos.vrutal.com|videos.humorenserie.com
+@@||securepubads.g.doubleclick.net/gpt/pubads_impl_*.js$domain=videos.memedeportes.com|videos.cuantarazon.com|videos.vistoenlasredes.com|videos.vrutal.com|videos.humorenserie.com
+@@||securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1$domain=videos.memedeportes.com|videos.cuantarazon.com|videos.vistoenlasredes.com|videos.vrutal.com|videos.humorenserie.com
+@@||ads.ampliffy.com/gampad/$domain=videos.memedeportes.com|videos.cuantarazon.com|videos.vistoenlasredes.com|videos.vrutal.com|videos.humorenserie.com
+!#safari_cb_affinity(general,privacy)
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$domain=videos.memedeportes.com|videos.cuantarazon.com|videos.vistoenlasredes.com|videos.vrutal.com|videos.humorenserie.com
+!#safari_cb_affinity
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/163936
+! https://github.com/AdguardTeam/AdguardFilters/issues/89176
+||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect=googletagservices-gpt,domain=suamusica.com.br
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima3,domain=suamusica.com.br
+!#if (adguard_app_ios || adguard_ext_android_cb || adguard_ext_safari)
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$domain=suamusica.com.br
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=suamusica.com.br
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/87302
+gczs.gldjc.com#@#.bannerBox
+! https://github.com/uBlockOrigin/uAssets/issues/9405
+brasilescola.uol.com.br#@#.banner
+! https://github.com/AdguardTeam/AdguardFilters/issues/79885
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=esradio.libertaddigital.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/71230
+@@||fadadosexo.com/wp-content/uploads/useful_banner_manager_banners/*.jpg
+! https://github.com/AdguardTeam/AdguardFilters/issues/68257
+programasdixguel.blogspot.com#@#[href^="http://raboninco.com/"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/67969
+crazygamer.epizy.com#@#[href^="http://raboninco.com/"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/67827
+@@||googletagmanager.com/gtm.js$domain=odia.ig.com.br
+! https://github.com/AdguardTeam/AdguardFilters/issues/67388
+olx.com.br#@#div[class^="AdCard_"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/65425
+@@||img.wikicharlie.cl^$~third-party
+! https://github.com/AdguardTeam/AdguardFilters/issues/63720
+@@||laprovincia.es/elementosWeb/*/multimedia/player/videojs-contrib-ads/videojs.ads.min.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/62524
+charmingescortsamsterdam.com#@#.bannerBox
+! https://github.com/AdguardTeam/AdguardFilters/issues/61205
+@@||sascdn.com/diff/video/current/libs/js/controller.js$domain=ubeat.tv
+! https://github.com/AdguardTeam/AdguardFilters/issues/59034
+flatout.com.br#@#div[id^="div-gpt-ad"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/59006
+vvale.com.br#@#.publicidade
+! https://github.com/AdguardTeam/AdguardFilters/issues/56398
+@@||poki.com/assets/client.*-exp-prebid.*.js$domain=paisdelosjuegos.es
+! https://github.com/AdguardTeam/AdguardFilters/issues/51457
+@@||movilzona.es/app/themes/mykonos-child/assets/js/stickyAds.min.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/50188
+@@||ver.movistarplus.es/js/yomvi/scripts/publi.js$domain=ver.movistarplus.es
+! https://github.com/AdguardTeam/AdguardFilters/issues/49849
+@@||adservice.google.com.ua^$domain=ucicinemas.pt
+@@||securepubads.g.doubleclick.net/gpt/pubads_impl_*.js$domain=ucicinemas.pt
+@@||googletagservices.com/tag/js/gpt.js$domain=ucicinemas.pt
+! https://github.com/AdguardTeam/AdguardFilters/issues/50157
+@@||jwpcdn.com/player/plugins/vast/*/vast.js$domain=doramasmp4.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/47494
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=tn.com.ar
+! https://github.com/AdguardTeam/AdguardFilters/issues/46603
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=13.cl
+@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$domain=13.cl
+@@||pubads.g.doubleclick.net/ssai/event/*/streams$domain=13.cl
+! rapidotorrents.net - fixes incorrectly blocked images
+@@||i.imgur.com^$domain=rapidotorrents.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/44371
+@@||glbimg.com/*/300x250/smart/$domain=revistamonet.globo.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/43603
+@@||hentaihd.xyz/repro/ads/ads.php
+! https://github.com/AdguardTeam/AdguardFilters/issues/37782
+@@||imasdk.googleapis.com/js/sdkloader/outstream.js$domain=mundoprimaria.com
+! https://forum.adguard.com/index.php?threads/adslzone-net-breakage.33430/
+@@||disqus.com/count-data.js^
+@@||disqus.com/embed/comments^
+@@||adslzone.net/20*/*/*/*/
+! https://github.com/AdguardTeam/AdguardFilters/issues/42389
+@@||images.vertele.eldiario.es/*/noticias/
+! https://github.com/AdguardTeam/AdguardFilters/issues/25654
+@@||pubads.g.doubleclick.net/ssai/event/*/streams$domain=mitele.es
+@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$domain=mitele.es
+! https://github.com/AdguardTeam/AdguardFilters/issues/21452
+@@||videoplaza.tv/proxy/distributor/*Atresplayer$domain=atresplayer.com
+@@||statics.atresmedia.com/atresplayer/assets/web/videoplaza/advertisement.js$domain=atresplayer.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/19041
+@@||hispasonic.com/index.php?controller=
+! https://github.com/AdguardTeam/AdguardFilters/issues/18561
+@@||blogdoiphone.com/20
+! https://github.com/AdguardTeam/AdguardFilters/issues/17735
+@@||animeflv.net/efire.php^
+! https://github.com/AdguardTeam/AdguardFilters/issues/16813
+@@||static.vodgc.net/player^
+! https://github.com/AdguardTeam/AdguardFilters/issues/15333
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=api.vodgc.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/14326
+@@||fayerwayer.com/*/*/*publicidad
+! https://github.com/AdguardTeam/AdguardFilters/issues/10438
+@@||hashavuabogota.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/3267
+@@||partner.googleadservices.com/gpt/pubads_impl_$domain=simple.ripley.com.pe
+@@||securepubads.g.doubleclick.net/gampad/ads$domain=simple.ripley.com.pe
+@@||tpc.googlesyndication.com/simgad/*$domain=simple.ripley.com.pe
+simple.ripley.com.pe#@#.dfp-ad-unit
+! https://github.com/AdguardTeam/AdguardFilters/issues/7660
+@@||geekland.eu/wp-content/uploads/*-publicidad-$image
+! https://github.com/AdguardTeam/AdguardFilters/issues/6118
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=bemad.es|cuatro.com|divinity.es|energytv.es|factoriadeficcion.com|mtmad.es|telecinco.es|uppers.es|yasss.es
+! http://forum.adguard.com/showthread.php?6420
+@@||calcularindemnizacion.es^$elemhide
+! Fixing links on marca.com
+@@||b.scorecardresearch.com^$domain=marca.com
+!
+@@||seur.com^$document
+@@/publicidad.$domain=tn.com.ar
+@@||ads.e-planning.net^*/PreRoll?
+@@||ads.globo.com/RealMedia/ads/adstream_jx.ads/g1/*videos
+@@||ads.globo.com/RealMedia/ads/adstream_mjx.ads/g1/home/
+@@||ads.globo.com/RealMedia/ads/adstream_nx.ads/g1/home/
+@@||ads.telecinco.es^*/PM_test_video/crossdomain.xml
+@@||adserver.ig.com.br/crossdomain.xml$domain=ig.com.br
+@@||adswizz.com/www/components/$domain=esradio.fm
+@@||adswizz.com/www/delivery/swfIndex.php?$domain=esradio.fm
+@@||antena3.com/adserver/flv2/$domain=larazon.es
+@@||autoscout24.es^*/adbanner.css
+@@||avisooportunoexpress.mx/ajax_core.php*&adtype?$domain=avisooportunoexpress.mx
+@@||cdn.smartclip.net/easyroll/player.swf
+@@||ads.e-planning.net^$domain=ole.com.ar,object
+@@||diariosigloxxi.com/banners/logo_
+@@||e-planning.net/esb/*.swf?clickTag$domain=ole.com.ar
+@@||extraconfidencial.com/js/*$object
+@@||f.i.uol.com.br/folha/publicidade/images/$domain=folha.uol.com.br
+@@||forolockerz.com/advertisement.js
+@@||freelibros.com/wp-content/plugins/no-adblock/$script
+@@||izigo.pt/*/adsearch?
+@@||izigo.pt/AdPictures/
+@@||lanacion.com.ar^*/publicidad/
+@@||larazon.es/videos/publicidad_
+@@||prisacom.com/RealMedia/ads/*/eplayer/$domain=as.com
+@@||t26.net/ads/yahooads.css
+@@||tvn.cl/include/ads/zona.js

@@ -1,0 +1,51 @@
+!
+! This section contains the list of ad blocking rules that fall under "advanced" category.
+! By advanced we mean the following rule types: CSS, scriptlets, HTML filtering (`$$` marker), JS.
+!
+! Good: example.org#$##rek { display: none !important; }; example.org#%#//scriptlet('set-cookie', 'ad', '0'); example.org$$script[tag-content="ad"][max-length="3000"].
+! Bad: example.org###rek (should be in specific.txt)
+!
+!--------------------------------------!
+!------- JS rules ---------------------!
+!--------------------------------------!
+! SECTION: Dutch - JS
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/178794
+datumprikker.nl#%#//scriptlet('remove-class', 'takeover', 'html.takeover')
+! https://github.com/AdguardTeam/AdguardFilters/issues/166205
+npo.nl#%#//scriptlet('json-prune', 'assets.preroll')
+! https://github.com/AdguardTeam/AdguardFilters/issues/131530
+hardware.info#%#//scriptlet("set-constant", "BannerManager", "undefined")
+! NOTE: JS end ⬆️
+! !SECTION: Dutch - JS
+!
+!--------------------------------------!
+!------- CSS fixes --------------------!
+!--------------------------------------!
+! SECTION: Dutch - CSS
+!
+! https://github.com/uBlockOrigin/uAssets/issues/23325#issuecomment-2166894545
+rtl.nl#$#.css-19tp5d5 { max-width: unset !important; margin-right: unset !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/178794
+datumprikker.nl#$#.takeover #main #maincontainer { margin-top: 15px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/172847
+! https://github.com/AdguardTeam/AdguardFilters/issues/143168
+rtlnieuws.nl#$#.article-sidebar__ad { visibility: hidden !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/157818
+gpblog.com#$#aside[class^="Ad_"] { position: absolute !important; left: -3000px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/3226
+omroepbrabant.nl#$#.ad-banner-container { position: absolute!important; left: -3000px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/26718
+handbalstartpunt.nl#$##advertentie-top { height: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/14714
+omroepwest.nl#$#.adcontainer-Rectangle { position: absolute!important; left: -4000px!important; }
+! NOTE: CSS end ⬆️
+! !SECTION: Dutch - CSS
+!
+!--------------------------------------!
+!------- Content filtering rules ------!
+!--------------------------------------!
+! SECTION: Dutch - HTML
+!
+! NOTE: HTML end ⬆️
+! !SECTION: Dutch - HTML

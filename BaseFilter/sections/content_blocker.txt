@@ -1,0 +1,2583 @@
+!
+! This section contains the list of the rules for content blockers (AdGuard for iOS, AdGuard for Safari and AdGuard Content Blocker for Yandex Browser / Samsung Browser on Android).
+!
+! The point is that these apps support only a limited subset of AdGuard filtering rules syntax.
+! Because of that, we have to resort to using more complicated and less effective solutions there.
+! Note, that you can use some specific type of the rules: base (with / without exceptions).
+!
+! Good: ||example.org/adblock/detect.js
+! Good: @@/adblocker/detect.js$domain=example.org
+! Bad: example.org#?##adblock (should be in antiadblock.txt)
+!
+!
+! *** CAUTION: all rules are wrapped by AG directive. Don't remove it, and don't add another directives***
+!
+!#if (adguard_app_ios || adguard_ext_safari || adguard_ext_android_cb)
+!
+!
+!#######################################################
+!############## Ad servers #############################
+!#######################################################
+!
+! Section contains list of advertising networks
+ankunding.biz^$third-party
+cdn.braun634.com^$third-party
+!
+!#######################################################
+!############## Anti-adblock rules #####################
+!#######################################################
+!
+! These rules are against all kinds of ad blocking reinjection/circumvention scripts
+!
+! SECTION: BlockAdBlock
+! BlockAdBlock, which requires some URL exclusions (for AG without JS rules)
+! START: BlockAdBlock(no JS)
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=9ketsuki.info|fizyka.org|dayzrp.com|pipocas.tv|classic-retro-games.com|forum.release-apk.com|userupload.in
+@@||ad.mail.ru/favicon1.ico
+@@||ads.twitter.com/favicon.ico
+@@||advertising.aol.com/favicon.ico
+@@||advertising.yahoo.com/favicon.ico
+@@||as.inbox.com/banner_ad.gif
+@@||crunchyroll.adclixx.net/vast?fg=
+@@||crunchyroll.adtrackers.net/vast?fg=
+@@||crunchyroll.bannertrack.net/vast?fg=
+@@||doubleclickbygoogle.com/favicon.ico
+@@||google.com/adsense/start/images/favicon.ico
+@@||gstatic.com/adx/doubleclick.ico
+@@||ox-d.adclixx.net/auid=
+@@||ox-d.adtrackers.net/auid=
+@@||ox-d.bannertrack.net/auid=
+@@||partnerads.ysm.yahoo.com/favicon1.ico
+@@||serve.adclixx.net/promoload
+@@||serve.adtrackers.net/promoload
+@@||serve.bannertrack.net/promoload
+@@||torrentz.adclixx.net/mgid/ad.js
+@@||torrentz.adtrackers.net/mgid/ad.js
+@@||torrentz.bannertrack.net/mgid/ad.js
+@@||yahoo.adclixx.net/serv
+@@||yahoo.adtrackers.net/serv
+@@||yahoo.bannertrack.net/serv
+@@||yasni.adclixx.net/design/relaunch/gfx/elitepartner_
+@@||yasni.adtrackers.net/design/relaunch/gfx/elitepartner_
+@@||yasni.bannertrack.net/design/relaunch/gfx/elitepartner_
+@@||zoover.adclixx.net/shared/bannerpages/darttagsbanner.aspx
+@@||zoover.adtrackers.net/shared/bannerpages/darttagsbanner.aspx
+@@||zoover.bannertrack.net/shared/bannerpages/darttagsbanner.aspx
+!
+@@||umagame.info^$generichide
+@@||apnetv.biz^$generichide
+@@||dash.hyzen-cloud.com^$generichide
+@@||bombuj.si^$generichide
+@@||zonegfx.com^$generichide
+@@||lecturel.com^$generichide
+@@||daemonanime.net^$generichide
+@@||card.llsif.moe^$generichide
+@@||robloxaltgen.com^$generichide
+@@||freevipservers.net^$generichide
+@@||allfaucet.xyz^$generichide
+@@||hatauzmani.com^$generichide
+@@||elitetunnel.com^$generichide
+@@||dajya-ranger.com^$generichide
+@@||hengame.club^$generichide
+@@||looptorrent.net^$generichide
+@@||teamos.xyz^$generichide
+@@||djxmaza.in^$generichide
+@@||aradramtv.com^$generichide
+@@||gawbne.com^$generichide
+@@||skincarie.com^$generichide
+@@||rulesofcheaters.net^$generichide
+@@||blisseyhusband.in^$generichide
+@@||an1me.nl^$generichide
+@@||aeroxplorer.com^$generichide
+@@||coinpayz.xyz^$generichide
+@@||michezoafrika.com^$generichide
+@@||tutsnode.net^$generichide
+@@||sgpics.net^$generichide
+@@||tsd.mdn.world^$generichide
+@@||ontools.net^$generichide
+@@||netcine.*^$generichide
+@@||cheaterboss.com^$generichide
+@@||cryptorotator.website^$generichide
+@@||nevcoins.club^$generichide
+@@||anitube.*^$generichide
+@@||bestcripto.xyz^$generichide
+@@||geojamal.com^$generichide
+@@||shrink.icu^$generichide
+@@||quaanhdaocuteo.com^$generichide
+@@||protestia.com^$generichide
+@@||futlances.net^$generichide
+@@||multifaucet.org^$generichide
+@@||anime-king.com^$generichide
+@@||tron-free.com^$generichide
+@@||images4u.cc^$generichide
+@@||noon.khsm.io^$generichide
+@@||museum-29.dajya-ranger.com^$generichide
+@@||patchedfiles.com^$generichide
+@@||belezaedieta.net^$generichide
+@@||legionscans.com^$generichide
+@@||freeshib.biz^$generichide
+@@||articlesnew.com^$generichide
+@@||voyeurhouse.life^$generichide
+@@||handydecor.com.vn^$generichide
+@@||thizissam.in^$generichide
+@@||heyapakabar.com^$generichide
+@@||usefuldiy.com^$generichide
+@@||dual1080p.blogspot.com^$generichide
+@@||dreamcheeky.com^$generichide
+@@||uruploads.com^$generichide
+@@||tvshows4mobile.com^$generichide
+@@||51sec.org^$generichide
+@@||sexkbj.com^$generichide
+@@||fotkaew.ru^$generichide
+@@||corvusrom.com^$generichide
+@@||primeos.in^$generichide
+@@||crunchyscan.fr^$generichide
+@@||clk.asia^$generichide
+@@||apkmb.com^$generichide
+@@||sektedoujin.club^$generichide
+@@||ttsfree.com^$generichide
+@@||nodo313.net^$generichide
+@@||descargaranimes.net^$generichide
+@@||11bit.co.in^$generichide
+@@||karanpc.com^$generichide
+@@||o2tvseries.com^$generichide
+@@||myshrinker.com^$generichide
+@@||fullmatchsports.cc^$generichide
+@@||tinytranslation.xyz^$generichide
+@@||downloadcursos.org^$generichide
+@@||havoc-os.com^$generichide
+@@||320volt.com^$generichide
+@@||messitv.net^$generichide
+@@||elearn.interviewgig.com^$generichide
+@@||telepisodes.org^$generichide
+@@||claimtrx.com^$generichide
+@@||baixedetudo.net.br^$generichide
+@@||canlidershane.net^$generichide
+@@||illink.net^$generichide
+@@||xproxxx.org^$generichide
+@@||forex-trnd.com^$generichide
+@@||informatikamu.id^$generichide
+@@||windowsbulletin.com^$generichide
+@@||animeunity.tv^$generichide
+@@||animeuploader.com^$generichide
+@@||myfirstname.rocks^$generichide
+@@||voyeur-house.fun^$generichide
+@@||bbw-chan.nl^$generichide
+@@||chaturbate-video.xyz^$generichide
+@@||racevpn.com^$generichide
+@@||crazyblog.in^$generichide
+@@||mgkomik.com^$generichide
+@@||tritinia.com^$generichide
+@@||tutflix.org^$generichide
+@@||tboost.xyz^$generichide
+@@||nartag.com^$generichide
+@@||cazzette.com^$generichide
+@@||restorbio.com^$generichide
+@@||azsoft.$generichide
+@@||manjaro.pl^$generichide
+@@||webassistanceita.com^$generichide
+@@||allkaicerteam.com^$generichide
+@@||getexploits.com^$generichide
+@@||gamingforecast.com^$generichide
+@@||genshinnude.com^$generichide
+@@||xanimehub.com^$generichide
+@@||xploit.ink^$generichide
+@@||two.re^$generichide
+@@||afly.pro^$generichide
+@@||silenthub.net^$generichide
+@@||cm-pack.pl^$generichide
+@@||jav-asia.top^$generichide
+@@||objectivequiz.com^$generichide
+@@||multirecommend.com^$generichide
+@@||thegoneapp.com^$generichide
+@@||nousdecor.com^$generichide
+@@||visitmama.com^$generichide
+@@||staaker.com^$generichide
+@@||damduck01.com^$generichide
+@@||feyorra.top^$generichide
+@@||dizipal*.com^$generichide
+@@||descargaspcpro.net^$generichide
+@@||bagi.co.in^$generichide
+@@||egydead.com^$generichide
+@@||fatcatslim.ru^$generichide
+@@||go4kora.com^$generichide
+@@||oxanime.com^$generichide
+@@||linkpoi.me^$generichide
+@@||173.249.49.204^$generichide
+@@||evolution-x.org^$generichide
+@@||wuyong.fun^$generichide
+@@||hdturk.club^$generichide
+@@||fzmovies.*^$generichide
+@@||gledajcrtace.xyz^$generichide
+@@||mcmfaucets.xyz^$generichide
+@@||promo-visits.site^$generichide
+@@||faucet.dog^$generichide
+@@||dogestar.website^$generichide
+@@||blog.krcesdev.com^$generichide
+@@||faucet.plus^$generichide
+@@||nyaa.net^$generichide
+@@||omgexploits.com^$generichide
+@@||tekfiz.com^$generichide
+@@||onepiece-streaming.co^$generichide
+@@||nekomeowmeow.com^$generichide
+@@||uploadshare.net^$generichide
+@@||tezgoal.com^$generichide
+@@||cartoon.porn^$generichide
+@@||sozcukbul.com^$generichide
+@@||todoseriales1.blogspot.com^$generichide
+@@||tempmailpro.net^$generichide
+@@||gledaitv.live^$generichide
+@@||217.16.188.246^$generichide
+@@||freevstplugins.net^$generichide
+@@||acilissaati.com^$generichide
+@@||link1s.com^$generichide
+@@||nnaa66.xyz^$generichide
+@@||edvok.com^$generichide
+@@||ltc24.com^$generichide
+@@||portable4pc.com^$generichide
+@@||allhomecinema.com^$generichide
+@@||rscripts.net^$generichide
+@@||uppit.com^$generichide
+@@||beursig.com^$generichide
+@@||cryptomoneyco.in^$generichide
+@@||hcdn.online^$generichide
+@@||coindice.win^$generichide
+@@||melissabenoist.com.br^$generichide
+@@||fastcoin.ga^$generichide
+@@||jagoanssh.com^$generichide
+@@||cryptojunkie.net^$generichide
+@@||dynamicpapers.com^$generichide
+@@||wouterplanet.com^$generichide
+@@||coinles.com^$generichide
+@@||globaltvapp.net^$generichide
+@@||eldaminger.blogspot.com^$generichide
+@@||wyklady.org^$generichide
+@@||msfsaddon.com^$generichide
+@@||doge.is^$generichide
+@@||novelgo.id^$generichide
+@@||xxxdao.com^$generichide
+@@||everexam.in^$generichide
+@@||ifdreamscametrue.com^$generichide
+@@||ad-doge.com^$generichide
+@@||pobierzgrepc.com^$generichide
+@@||donghuanosekai.com^$generichide
+@@||gainbtc.click^$generichide
+@@||fast-down.com^$generichide
+@@||down.mdiaload.com^$generichide
+@@||anime-saikou.com^$generichide
+@@||itopmusic.org^$generichide
+@@||devcourseweb.com^$generichide
+@@||sm.ms^$generichide
+@@||afasiaarchzine.com^$generichide
+@@||f1countdown.com^$generichide
+@@||famfonts.com^$generichide
+@@||jpopsingles.eu^$generichide
+@@||getpczone.com^$generichide
+@@||myviptuto.com^$generichide
+@@||8tm.net^$generichide
+@@||androidtunado.com.br^$generichide
+@@||gpucheck.com^$generichide
+@@||cryptoaddicted.biz$generichide
+@@||shoppinglys.blogspot.com^$generichide
+@@||fzmovies.host^$generichide
+@@||file-upload.com^$generichide
+@@||weviral.org^$generichide
+@@||dota2freaks.com^$generichide
+@@||hala-tube.net^$generichide
+@@||significatocanzoni.it^$generichide
+@@||kpopstan.com^$generichide
+@@||javadecompilers.com^$generichide
+@@||thepoorcoder.com^$generichide
+@@||reactgo.com^$generichide
+@@||goalpro-demo.blogspot.com^$generichide
+@@||hugo3c.tw^$generichide
+@@||themeparktourist.com^$generichide
+@@||tw-hkt.blogspot.com^$generichide
+@@||best-shopme.com^$generichide
+@@||swift4claim.com^$generichide
+@@||apps2app.com^$generichide
+@@||msmxtended.org^$generichide
+@@||submitclimb.com^$generichide
+@@||adeth.cc^$generichide
+@@||samapkstore.com^$generichide
+@@||satoshiquiz.com^$generichide
+@@||super-ethanol.com^$generichide
+@@||vidlii.com^$generichide
+@@||csgo-ranks.com^$generichide
+@@||hakie.net^$generichide
+@@||safetxt.net^$generichide
+@@||raphsonbd.com^$generichide
+@@||unity3diy.blogspot.com^$generichide
+@@||vviruslove.com^$generichide
+@@||shrinkurl.org^$generichide
+@@||yannik.biz^$generichide
+@@||anonymous-links.com^$generichide
+@@||series-streaminghd.com^$generichide
+@@||iptunnels.com^$generichide
+@@||davidgalaxia.com^$generichide
+@@||faktykaliskie.pl^$generichide
+@@||relmz.io^$generichide
+@@||wikitechy.com^$generichide
+@@||quicasting.it^$generichide
+@@||senpa.io^$generichide
+@@||graphicdesignresources.net^$generichide
+@@||apptoko.com^$generichide
+@@||emoji.gg^$generichide
+@@||lookimg.com^$generichide
+@@||eduzabawy.com^$generichide
+@@||apnetv.me^$generichide
+@@||vstplugs.com^$generichide
+@@||9ketsuki.info^$generichide
+@@||aradramatv.co^$generichide
+@@||dayoftheweek.org^$generichide
+@@||osuskinner.com^$generichide
+@@||yoursavegames.com^$generichide
+@@||canadapolicereport.ca^$generichide
+@@||rahim-soft.com^$generichide
+@@||mondainai.moe^$generichide
+@@||belajarbro.id^$generichide
+@@||myuploadedpremium.de^$generichide
+@@||freeomovie.to^$generichide
+@@||leechpremium.link^$generichide
+@@||vintagewinepicks.blogspot.com^$generichide
+@@||casos-aislados.com^$generichide
+@@||milaulas.com^$generichide
+@@||anomize.xyz^$generichide
+@@||ziperto.com^$generichide
+@@||localizaagencia.com^$generichide
+@@||fox-url.com^$generichide
+@@||frkn64modding.com^$generichide
+@@||dolldivine.com^$generichide
+@@||cours-de-droit.net^$generichide
+@@||kantotero.net^$generichide
+@@||althub.club^$generichide
+@@||dirrrtyremixes.com^$generichide
+@@||bg-gledai.live^$generichide
+@@||bg-gledai.co^$generichide
+@@||verteleseriesonline.com^$generichide
+@@||cryptofun.space^$generichide
+@@||legendas.dev^$generichide
+@@||mariouniverse.com^$generichide
+@@||sombex.com^$generichide
+@@||business-mortgage.pw^$generichide
+@@||credits-loan.pw^$generichide
+@@||business-credits.cc^$generichide
+@@||business-mortgage.info^$generichide
+@@||mmo-population.com^$generichide
+@@||memoriadatv.com^$generichide
+@@||sarapbabe.com^$generichide
+@@||kollhong.com^$generichide
+@@||techdracula.com^$generichide
+@@||ovagames.com^$generichide
+@@||miscellaneous-c.blogspot.com^$generichide
+@@||userupload.in^$generichide
+@@||hhkungfu.tv^$generichide
+@@||webtvhd.com^$generichide
+@@||vivereurbino.it^$generichide
+@@||modekoninginmaxima.nl^$generichide
+@@||hunter.fm^$generichide
+@@||anonyviet.com^$generichide
+@@||forzearmate.eu^$generichide
+@@||sklinkstech.blogspot.com^$generichide
+@@||ero18.cc^$generichide
+@@||expresswords.xyz^$generichide
+@@||scambieuropei.info^$generichide
+@@||filmedonstage.com^$generichide
+@@||obengplus.com^$generichide
+@@||teledyski.info^$generichide
+@@||get-digital-help.com^$generichide
+@@||alfaloji.org^$generichide
+@@||bigbtc.win^$generichide
+@@||prueba.pixelshost.com^$generichide
+@@||profhalazayed.gnomio.com^$generichide
+@@||memexcomputer.it^$generichide
+@@||romsforever.co^$generichide
+@@||mintik.com^$generichide
+@@||xda-developers-android.blogspot.com^$generichide
+@@||k258059.net^$generichide
+@@||javplayer.com^$generichide
+@@||uragongaming.blogspot.com^$generichide
+@@||iptv.allkaicerteam.com^$generichide
+@@||myicloud.info^$generichide
+@@||smashresume.com^$generichide
+@@||mega-p2p.net^$generichide
+@@||infodifesa.it^$generichide
+@@||info-desk.co.za^$generichide
+@@||countrytabs.com^$generichide
+@@||gvmp.de^$generichide
+@@||erovoice.us^$generichide
+@@||comptoir-hardware.com^$generichide
+@@||apkgezegeni.com^$generichide
+@@||vstx.ru^$generichide
+@@||courseforfree.com^$generichide
+@@||seirsanduk.online^$generichide
+@@||it-developer.in.ua^$generichide
+@@||notepad.pw^$generichide
+@@||promipool.com^$generichide
+@@||mp4upload.com^$generichide
+@@||animeunity.it^$generichide
+@@||givekey.ru^$generichide
+@@||kaamuu.com^$generichide
+@@||osuskins.net^$generichide
+@@||wallpaperwaifu.com^$generichide
+@@||crackedvst.com^$generichide
+@@||minioppai.org^$generichide
+@@||olodesi.com^$generichide
+@@||cryptlife.com^$generichide
+@@||myreadingmanga.info^$generichide
+@@||erai-raws.info^$generichide
+@@||nu6i-bg-net.com^$generichide
+@@||berryboot.alexgoldcheidt.com^$generichide
+@@||classic-retro-games.com^$generichide
+@@||gaming-tools.com^$generichide
+@@||bax.tv^$generichide
+@@||topflix.tv^$generichide
+@@||onifile.com^$generichide
+@@||vsx.pl^$generichide
+@@||limontec.com^$generichide
+@@||itechfever.com^$generichide
+@@||hisse.net^$generichide
+@@||sopasti.com^$generichide
+@@||kk665403.pixnet.net^$generichide
+@@||thememazing.com^$generichide
+@@||midnightchannel.net^$generichide
+@@||thefightingcock.co.uk^$generichide
+@@||gatevidyalay.com^$generichide
+@@||btcnewz.com^$generichide
+@@||tranimeizle.*^$generichide
+@@||ktm2day.com^$generichide
+@@||r34anim.com^$generichide
+@@||afreesms.com^$generichide
+@@||f1fanklub.pl^$generichide
+@@||sapixcraft.com^$generichide
+@@||live90m.blogspot.com^$generichide
+@@||alexstuff.ru^$generichide
+@@||typingtestnow.com^$generichide
+@@||livenewschat.eu^$generichide
+@@||txori.com^$generichide
+@@||tibiawiki.com.br^$generichide
+@@||wowclassicbis.com^$generichide
+@@||tionghoa.info^$generichide
+@@||pasend.com^$generichide
+@@||shorterall.com^$generichide
+@@||gamebrew.org^$generichide
+@@||faucetbr.tk^$generichide
+@@||faucet.gold^$generichide
+@@||claimfreecoins.io^$generichide
+@@||jaiefra.com^$generichide
+@@||navratdoreality.cz^$generichide
+@@||techrrival.com^$generichide
+@@||chiaseapk.com^$generichide
+@@||teknolojiprojeleri.com^$generichide
+@@||downloader.la^$generichide
+@@||freecourser.com^$generichide
+@@||opendrive.online^$generichide
+@@||lyricsongation.com^$generichide
+@@||iblitzmods.ru^$generichide
+@@||queenfaucet.website^$generichide
+@@||herexxx.com^$generichide
+@@||go-links.net^$generichide
+@@||turkdown.com^$generichide
+@@||tempmail.ninja^$generichide
+@@||chile-forum.ru^$generichide
+@@||todotech20.com^$generichide
+@@||dostats.info^$generichide
+@@||readcomicsonline.ru^$generichide
+@@||correotemporal.org^$generichide
+@@||g-status.com^$generichide
+@@||executivetraveller.com^$generichide
+@@||hdporncomics.com^$generichide
+@@||getpcapps.com^$generichide
+@@||massivetechinterview.blogspot.com^$generichide
+@@||tech-zealots.com^$generichide
+@@||av-drive.blogspot.com^$generichide
+@@||alt-torrent.com^$generichide
+@@||amtonline.com.br^$generichide
+@@||androidaba.com^$generichide
+@@||androidescomplicado.blogspot.com^$generichide
+@@||brfiles.com^$generichide
+@@||cobachpl8.milaulas.com^$generichide
+@@||dangotoons.com^$generichide
+@@||ddmix.net^$generichide
+@@||edusaguepa.milaulas.com^$generichide
+@@||enfermeria.gnomio.com^$generichide
+@@||eusouandroid.co^$generichide
+@@||lamitadmas1.net^$generichide
+@@||lctutors.com.br^$generichide
+@@||medicalopium.blogspot.com.br^$generichide
+@@||minhaoperadora.com.br^$generichide
+@@||mixmods.com.br^$generichide
+@@||nerdmaldito.com^$generichide
+@@||programasvirtualespc.net^$generichide
+@@||sobootlogo.blogspot.com^$generichide
+@@||tibiabr.com^$generichide
+@@||tunovelaligera.com^$generichide
+@@||turiver.com^$generichide
+@@||tvfree.me^$generichide
+@@||vsthouse.ru^$generichide
+@@||wakfutemporada2subs.blogspot.com^$generichide
+@@||arrowos.net^$generichide
+! END: BlockAdBlock(no JS)
+! NOTE: BlockAdBlock end ⬆️
+! !SECTION: BlockAdBlock
+!
+!
+! SECTION[id=antiblockorg]: antiblock.org g207
+! URL baits
+@@#.banner%20ad.$image,domain=dokuo666.blog98.fc2.com
+@@/\.(gif|jpg|png|svg).*#.*\/ad\//$image,domain=mizugigurabia.com|aimasummd.blog.fc2.com|newssokuhou666.blog.fc2.com|touhoudougamatome.blog.fc2.com|metamani.blog15.fc2.com|youkaiwatch2345.blog.fc2.com|dokuo666.blog98.fc2.com|mysafe.stisda.ac.id|metamani.blog15.fc2.com|link.technics-goods.info|gfilex.blogspot.com|codare.fun|ads-ti9ni4.blogspot.com|thelibrarydigital.blogspot.com|www-daftarharga.blogspot.com|mediapemersatubangsa.com|ear-phone-review.com|tienganhedu.com|itdmusics.com|burnbutt.com|valuable.hatenablog.com|leechpremium.net|lib.hatenablog.com|gametter.com|mini.surveyenquete.net|opatil.com
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=dqmsl-search.net
+!
+chartstream.net###b6c3
+king-shoot.tv#@##ads_top
+!
+@@||pidlio.com^$generichide
+@@||opatil.com^$generichide
+@@||mini.surveyenquete.net^$generichide
+@@||yoima2.hatenablog.com^$generichide
+@@||hartico.tv^$generichide
+@@||kecapku.com^$generichide
+@@||facetoshi.live^$generichide
+@@||telecinetorrent.ucoz.com^$generichide
+@@||total-sportek.to^$generichide
+@@||hyogo.ie-t.net^$generichide
+@@||veo-hentai.com^$generichide
+@@||uploadmall.com^$generichide
+@@||tiroalpaloes.net^$generichide
+@@||stream4free.tv^$generichide
+@@||hes-goals.tv^$generichide
+@@||ysokuhou.blog.jp^$generichide
+@@||mmo69.com^$generichide
+@@||adnade.net^$generichide
+@@||postazap.com^$generichide
+@@||360kora.io^$generichide
+@@||aktion-holz.de^$generichide
+@@||s41poke.com^$generichide
+@@||yalla-shoot-tv.io^$generichide
+@@||tucinehd.com^$generichide
+@@||db-creation.net^$generichide
+@@||mdpr.jp^$generichide
+@@||serverssh.net^$generichide
+@@||fc-lc.xyz^$generichide
+@@||hes-goal.net^$generichide
+@@||irasutoya.blogspot.com^$generichide
+@@||encurtandourl.com^$generichide
+@@||ak.sv^$generichide
+@@||haafedk2.com^$generichide
+@@||k-ba.net^$generichide
+@@||codesnse.com^$generichide
+@@||yoima.hatenadiary.com^$generichide
+@@||hdrez.com^$generichide
+@@||klartext-ne.de^$generichide
+@@||ak4ar.*^$generichide
+@@||nu6i-bg-net.com^$generichide
+@@||akw.to^$generichide
+@@||xn--mgba7fjn.*^$generichide
+@@||traductionjeux.com^$generichide
+@@||ak4eg.*^$generichide
+@@||uploady.io^$generichide
+@@||oii.io^$generichide
+@@||xpicture.ru^$generichide
+@@||ibmmainframes.com^$generichide
+@@||btvsports.lol^$generichide
+@@||downloadgeral.com^$generichide
+@@||sequencecard.xyz^$generichide
+@@||lib.hatenablog.com^$generichide
+@@||livestreamtvbox.com^$generichide
+@@||sultanovic.info^$generichide
+@@||leechpremium.net^$generichide
+@@||speedynews.xyz^$generichide
+@@||xmod.in^$generichide
+@@||pastlinkvn.com^$generichide
+@@||mistermodzzforum.space^$generichide
+@@||hadoantv.com^$generichide
+@@||thizissam.in^$generichide
+@@||shortx.net^$generichide
+@@||kymta.com^$generichide
+@@||3dscias.blogspot.com^$generichide
+@@||toutes-les-solutions.fr^$generichide
+@@||gaget.hatenablog.com^$generichide
+@@||hakanayas.blogspot.com^$generichide
+@@||thinktibits.blogspot.com^$generichide
+@@||bclikeqt.com^$generichide
+@@||gamezone.de^$generichide
+@@||valuable.hatenablog.com^$generichide
+@@||avjamak.net^$generichide
+@@||telefullenvivo.com^$generichide
+@@||yacine-tv.com^$generichide
+@@||gsm1x.xyz^$generichide
+@@||e-didaskalia.blogspot.com^$generichide
+@@||uploadmx.com^$generichide
+@@||mangajokomik.blogspot.com^$generichide
+@@||rosefile.net^$generichide
+@@||funnymadworld.blogspot.com^$generichide
+@@||burnbutt.com^$generichide
+@@||itdmusics.com^$generichide
+@@||tienganhedu.com^$generichide
+@@||cotravinh.blogspot.com^$generichide
+@@||themanwiththehat.de^$generichide
+@@||shuajota.com^$generichide
+@@||akwam.$generichide
+@@||akwams.$generichide
+@@||fivemturk.com^$generichide
+@@||oneotv.com^$generichide
+@@||5ggyan.com^$generichide
+@@||uyduportal.net^$generichide
+@@||gagaltotal666.my.id^$generichide
+@@||adonisfansub.com^$generichide
+@@||megawypas.com^$generichide
+@@||explosivemenu.com^$generichide
+@@||fc-lc.com^$generichide
+@@||gfilex.blogspot.com^$generichide
+@@||mediapemersatubangsa.com^$generichide
+@@||fc.lc^$generichide
+@@||link.technics-goods.info^$generichide
+@@||mysafe.stisda.ac.id^$generichide
+@@||youkaiwatch2345.blog.fc2.com^$generichide
+@@||metamani.blog15.fc2.com^$generichide
+@@||aimasummd.blog.fc2.com^$generichide
+@@||dokuo666.blog98.fc2.com^$generichide
+@@||newssokuhou666.blog.fc2.com^$generichide
+@@||touhoudougamatome.blog.fc2.com^$generichide
+@@||www-daftarharga.blogspot.com^$generichide
+@@||thelibrarydigital.blogspot.com^$generichide
+@@||pramejarab.blogspot.com^$generichide
+@@||cintateknologi.com^$generichide
+@@||ads-ti9ni4.blogspot.com^$generichide
+@@||drop.download^$generichide
+@@||codare.fun^$generichide
+@@||devotag.com^$generichide
+@@||tny.so^$generichide
+@@||mizugigurabia.com^$generichide
+@@||pythonmatplotlibtips.blogspot.com^$generichide
+@@||tools.halpas.com^$generichide
+@@||yilmaztv.com^$generichide
+@@||garaveli.de^$generichide
+@@||uvnc.com^$generichide
+@@||xiaomitools.com^$generichide
+@@||decomaniacos.es^$generichide
+@@||pengantartidurkuh.blogspot.com^$generichide
+@@||whowantstuffs.blogspot.com^$generichide
+@@||dqmsl-search.net^$generichide
+@@||th-world.com^$generichide
+@@||dmhy.b168.net^$generichide
+@@||ihow.info^$generichide
+@@||momozain.com^$generichide
+@@||leechpremium.link^$generichide
+@@||bams.my.id^$generichide
+@@||readyssh.net^$generichide
+@@||arab4media.com^$generichide
+@@||larvelfaucet.com^$generichide
+@@||webserver.one^$generichide
+@@||blograffo.net^$generichide
+@@||sshconect.com.br^$generichide
+@@||av-jamak.com^$generichide
+@@||bitfly.io^$generichide
+@@||onlinetutorium.com^$generichide
+@@||3dzip.org^$generichide
+@@||adobeactivators.blogspot.com^$generichide
+@@||4download.net^$generichide
+@@||dcode.fr^$generichide
+@@||acapellas.eu^$generichide
+@@||gomaainfo.com^$generichide
+@@||xup.in^$generichide
+@@||cgtips.org^$generichide
+@@||tutoganga.blogspot.com^$generichide
+@@||dafideff.com^$generichide
+@@||moneywar2.blogspot.com^$generichide
+@@||linksaya.com^$generichide
+@@||fawrye.com^$generichide
+@@||exambd.net^$generichide
+@@||tel-emporio10.blogspot.com^$generichide
+@@||texte.work^$generichide
+@@||hhkungfu.tv^$generichide
+@@||chuppito.fr^$generichide
+@@||depo-program.blogspot.com^$generichide
+@@||gametter.com^$generichide
+@@||freshstuff4u.info^$generichide
+@@||thuglink.com^$generichide
+@@||mage.si^$generichide
+@@||magesy.pro^$generichide
+@@||4kfilm.online^$generichide
+@@||anonymousceviri.com^$generichide
+@@||seireshd.com^$generichide
+@@||globalssh.net^$generichide
+@@||pghk.blogspot.com^$generichide
+@@||stalker-mods.su^$generichide
+@@||tainhanhvn.com^$generichide
+@@||animeuniverse.*^$generichide
+@@||minorpatch.com^$generichide
+@@||magesy.blog^$generichide
+@@||shorterall.com^$generichide
+@@||reifenrechner.at^$generichide
+@@||techieway.blogspot.com^$generichide
+@@||de-baystars.doorblog.jp^$generichide
+@@||gbadamud.blogspot.com^$generichide
+@@||cosmomaker3.blogspot.com^$generichide
+@@||2kspecialist.net^$generichide
+@@||digit77.com^$generichide
+@@||hd-tch.com^$generichide
+@@||zekozimo.blogspot.com^$generichide
+@@||pkfnpo.ru^$generichide
+@@||nensaysubs.net^$generichide
+@@||cheatglobal.com^$generichide
+@@||safeku.com^$generichide
+@@||jumpmanclubbrasil.com.br^$generichide
+@@||altyazili13.xyz^$generichide
+@@||onehack.us^$generichide
+@@||wojtekczytawh40k.blogspot.com^$generichide
+@@||akoam.net^$generichide
+@@||download.3dzip.org^$generichide
+@@||toppng.com^$generichide
+@@||livestreamgamess.blogspot.com^$generichide
+@@||goodssh.com^$generichide
+@@||magdyman.com^$generichide
+@@||best-anime.eu^$generichide
+@@||ear-phone-review.com^$generichide
+@@||squidssh.com^$generichide
+@@||descargaspcpro.net^$generichide
+@@||erpsoftwarelink.blogspot.com^$generichide
+@@||mobilkulup.com^$generichide
+@@||viralogic.xyz^$generichide
+@@||cirokun.blogspot.com^$generichide
+@@||anibatch.me^$generichide
+@@||lnindo.org^$generichide
+@@||gdr-online.com^$generichide
+@@||freesoftpdfdownload.blogspot.com^$generichide
+@@||dinvemitoloji.com^$generichide
+@@||daemon-hentai.com^$generichide
+@@||vmc.org.pl^$generichide
+@@||unlockapk.com^$generichide
+@@||aspdotnet-suresh.com^$generichide
+@@||jagoanssh.com^$generichide
+@@||acienciasgalilei.com^$generichide
+@@||aeprofree.com^$generichide
+@@||akashiro.co.id^$generichide
+@@||almezoryae.com^$generichide
+@@||anime-i.com^$generichide
+@@||anonyviet.com^$generichide
+@@||antiblock.org^$generichide
+@@||balog18.blogspot.com^$generichide
+@@||camwhores.co^$generichide
+@@||cle0desktop.blogspot.com^$generichide
+@@||connectwww.com^$generichide
+@@||dayzrp.com^$generichide
+@@||diagnofast.com^$generichide
+@@||dictionnaire-medical.net^$generichide
+@@||direct-link.net^$generichide
+@@||dreamfancy.org^$generichide
+@@||driverdestek.com^$generichide
+@@||dropapk.com^$generichide
+@@||dvdgayporn.com^$generichide
+@@||ebookdz.com^$generichide
+@@||echoes.gr^$generichide
+@@||eikaiwamastery.blogspot.com^$generichide
+@@||eldaryasolutiongame.blogspot.com^$generichide
+@@||europeanclassiccomic.blogspot.com^$generichide
+@@||ferr-um.ucoz.ru^$generichide
+@@||ferrarilamborghininews.com^$generichide
+@@||fforfree.net^$generichide
+@@||filmes-torrent-baixar.blogspot.com^$generichide
+@@||freshstuff4you.com^$generichide
+@@||generacionretro.net^$generichide
+@@||getlec.blogspot.com^$generichide
+@@||grafixfather.com^$generichide
+@@||gtoys.blog.fc2.com^$generichide
+@@||hdbox.ws^$generichide
+@@||i8086.de^$generichide
+@@||itdmusic.com^$generichide
+@@||jagobd.com^$generichide
+@@||javaguides.net^$generichide
+@@||kamikiyuki.hatenablog.com^$generichide
+@@||kickass.com.se^$generichide
+@@||kikra.jp.com^$generichide
+@@||king-pes.blogspot.com^$generichide
+@@||kpliker.net^$generichide
+@@||letras2.com^$generichide
+@@||lib.hatenablog.com^$generichide
+@@||link-to.net^$generichide
+@@||liodonwloads.blogspot.com^$generichide
+@@||m.pes24.com^$generichide
+@@||majesy.com^$generichide
+@@||marketmovers.it^$generichide
+@@||mimaletadepeliculas.blogspot.com^$generichide
+@@||mimaletamusical.blogspot.com^$generichide
+@@||ministryofsolutions.com^$generichide
+@@||mobdi3ips.com^$generichide
+@@||mohanlalmovieshub.blogspot.com^$generichide
+@@||mp3fiber.com^$generichide
+@@||myshorturls.blogspot.com^$generichide
+@@||nazolog.com^$generichide
+@@||neko-miku.com^$generichide
+@@||nir-oz.blogspot.com^$generichide
+@@||novelasymangasjpo.blogspot.com^$generichide
+@@||nuevos-mu.ucoz.com^$generichide
+@@||omutulove.blog.fc2.com^$generichide
+@@||omutulove.seesaa.net^$generichide
+@@||oyunceviri.net^$generichide
+@@||oz3gamer.blog.fc2.com^$generichide
+@@||parasitipedia.net^$generichide
+@@||peytonlist.ru^$generichide
+@@||pharmaguideline.com^$generichide
+@@||pipocas.tv^$generichide
+@@||porkyfap.org^$generichide
+@@||praxis-jugendarbeit.de^$generichide
+@@||projetomotog.blogspot.com^$generichide
+@@||promotionbasis.de^$generichide
+@@||radiotormentamx.com^$generichide
+@@||sacheats.com^$generichide
+@@||samnaprawiam.com^$generichide
+@@||satoshilabs.net^$generichide
+@@||sna3talaflam.com^$generichide
+@@||softmaroc.org^$generichide
+@@||stalker-mods.clan.su^$generichide
+@@||studizba.com^$generichide
+@@||terrarium.com.pl^$generichide
+@@||tiengnhatpro.net^$generichide
+@@||turkleech.com^$generichide
+@@||unfriend-app.com^$generichide
+@@||visionias.net^$generichide
+@@||vivotvhd.com^$generichide
+@@||voipsipclient.blogspot.nl^$generichide
+@@||wakudan.seesaa.net^$generichide
+@@||wehellas.gr^$generichide
+@@||yoututosjeff.es^$generichide
+! NOTE: antiblock.org g207 end ⬆️
+! !SECTION: antiblock.org g207
+!
+! SECTION: contributor.google.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/55640
+@@||lematin.ch^$generichide
+@@||0115765.com^$generichide
+@@||graphicget.com^$generichide
+@@||nichepcgamer.com^$generichide
+@@||aquafora.nl^$generichide
+@@||wiki3.jp^$generichide
+@@||betaprofiles.com^$generichide
+@@||tvonline123.com^$generichide
+@@||smstome.com^$generichide
+@@||dailymail.co.uk^$generichide
+@@||stadt-bremerhaven.de^$generichide
+@@||wallpapershome.com^$generichide
+@@||i.pl^$generichide
+@@||repubblica.it^$generichide
+@@||klix.ba^$generichide
+@@||santafenewmexican.com^$generichide
+@@||japan.techinsight.jp^$generichide
+@@||taimanin-rpg.wikiru.jp^$generichide
+@@||f1-gate.com^$generichide
+@@||in.gr^$generichide
+@@||receivesms.cc^$generichide
+@@||luciferdonghua.in^$generichide
+@@||now.gg^$generichide
+@@||cleverbot.com^$generichide
+@@||kledgeb.blogspot.com^$generichide
+@@||kuramu.net^$generichide
+@@||rakuna-seikatsu.com^$generichide
+@@||dunebook.com^$generichide
+@@||canlidizi9.net^$generichide
+@@||banklive.net^$generichide
+@@||mifirmware.com^$generichide
+@@||onet.pl^$generichide
+@@||konhaber.com^$generichide
+@@||fifakitcreator.com^$generichide
+@@||malaymail.com^$generichide
+@@||apkmaza.co^$generichide
+@@||nova.cz^$generichide
+@@||cdromance.com^$generichide
+@@||mona-news.com^$generichide
+@@||moyens.net^$generichide
+@@||themindsjournal.com^$generichide
+@@||toramemoblog.com^$generichide
+@@||indianhealthyrecipes.com^$generichide
+@@||keylerbenden.com^$generichide
+@@||logos-world.net^$generichide
+@@||kblognext.com^$generichide
+@@||online-archive-extractor.com^$generichide
+@@||rhymes-with.com^$generichide
+@@||adjectives-for.com^$generichide
+@@||find-words.com^$generichide
+@@||word-count-tool.com^$generichide
+@@||ocr-free.com^$generichide
+@@||read-text.com^$generichide
+@@||other-languages.com^$generichide
+@@||how-to-say.com^$generichide
+@@||online-screen-recorder.com^$generichide
+@@||webcam-test.com^$generichide
+@@||record-video-online.com^$generichide
+@@||speaker-test.com^$generichide
+@@||send-voice.com^$generichide
+@@||share-my-location.com^$generichide
+@@||online-mic-test.com^$generichide
+@@||defconlevel.com^$generichide
+@@||cloudssh.us,kissmanga.in^$generichide
+@@||adshnk.com^$generichide
+@@||adshrink.it^$generichide
+@@||pixelpassion.info^$generichide
+@@||phonesized.com^$generichide
+@@||foxnews.com^$generichide
+@@||diariodopeixe.com.br^$generichide
+@@||connectedgamestore.com^$generichide
+@@||ign.com^$generichide
+@@||wpb.shueisha.co.jp^$generichide
+@@||minkou.jp^$generichide
+@@||natalie.mu^$generichide
+@@||acidcow.com^$generichide
+@@||paradacreativa.es^$generichide
+@@||myrtlebeachonline.com^$generichide
+@@||elpais.com.uy^$generichide
+@@||heraldsun.com^$generichide
+@@||newsphere.jp^$generichide
+@@||courrier.jp^$generichide
+@@||sololibri.net^$generichide
+@@||all3dp.com^$generichide
+@@||keizai.biz^$generichide
+@@||shibukei.com^$generichide
+@@||elmueble.com^$generichide
+@@||comingsoon.it^$generichide
+@@||idahostatesman.com^$generichide
+@@||elnacional.com^$generichide
+@@||heraldo.es^$generichide
+@@||20minutos.es^$generichide
+@@||tucson.com^$generichide
+@@||hamakei.com^$generichide
+@@||telva.com^$generichide
+@@||gazettetimes.com^$generichide
+@@||missoulian.com^$generichide
+@@||kenoshanews.com^$generichide
+@@||cumberlink.com^$generichide
+@@||stltoday.com^$generichide
+@@||auburnpub.com^$generichide
+@@||trib.com^$generichide
+@@||dailyprogress.com^$generichide
+@@||journalstar.com^$generichide
+@@||siouxcityjournal.com^$generichide
+@@||pantagraph.com^$generichide
+@@||ot.gr^$generichide
+@@||elpais.com^$generichide
+@@||definitions.net^$generichide
+@@||ensonhaber.com^$generichide
+@@||lapatilla.com^$generichide
+@@||sozcu.com.tr^$generichide
+@@||sonyalpharumors.com^$generichide
+@@||slideshare.net^$generichide
+@@||readfrom.net^$generichide
+@@||gazeteduvar.com.tr^$generichide
+@@||halktv.com.tr^$generichide
+@@||24u.jp^$generichide
+@@||dphotoworld.net^$generichide
+@@||animerikosuper.blogspot.com^$generichide
+@@||megatv.com^$generichide
+@@||sonixgvn.net^$generichide
+@@||androplus.org^$generichide
+@@||rizonesoft.com^$generichide
+@@||br0wsers.com^$generichide
+@@||tellows.it^$generichide
+@@||germancarforum.com^$generichide
+@@||sitelike.org^$generichide
+@@||wordlegame.org^$generichide
+@@||pcprogramasymas.net^$generichide
+@@||gezenbilir.com^$generichide
+@@||mertcangokgoz.com^$generichide
+@@||majhinaukri.in^$generichide
+@@||medevel.com^$generichide
+@@||zagreb.info^$generichide
+@@||techtobo.com^$generichide
+@@||sto520.com^$generichide
+@@||aqlier.com^$generichide
+@@||ansedo.com^$generichide
+@@||thesouthern.com^$generichide
+@@||business.financialpost.com^$generichide
+@@||vancouversun.com^$generichide
+@@||montrealgazette.com^$generichide
+@@||nwitimes.com^$generichide
+@@||elnuevoherald.com^$generichide
+@@||sme.sk^$generichide
+@@||bellinghamherald.com^$generichide
+@@||okdiario.com^$generichide
+@@||poststar.com^$generichide
+@@||wcfcourier.com^$generichide
+@@||systranbox.com^$generichide
+@@||ratatype.com^$generichide
+@@||bolgegundem.com^$generichide
+@@||softpedia.com^$generichide
+@@||sadeczanin.info^$generichide
+@@||freemaptools.com^$generichide
+@@||flightradar24.com^$generichide
+@@||morewords.com^$generichide
+@@||ldoceonline.com^$generichide
+@@||arcadehole.com^$generichide
+@@||mentalflare.com^$generichide
+@@||arquitecturaydiseno.es^$generichide
+@@||ik4.es^$generichide
+@@||mathrubhumi.com^$generichide
+@@||notizieora.it^$generichide
+@@||spiele-umsonst.de^$generichide
+@@||gotvach.bg^$generichide
+@@||star-telegram.com^$generichide
+@@||lacrossetribune.com^$generichide
+@@||grammar.com^$generichide
+@@||goodreturns.in^$generichide
+@@||corrieredellosport.it^$generichide
+@@||malaysiakini.com^$generichide
+@@||natlawreview.com^$generichide
+@@||tsf.pt^$generichide
+@@||pesmaster.com^$generichide
+@@||ovaciondigital.com.uy^$generichide
+@@||hwupgrade.it^$generichide
+@@||kansas.com^$generichide
+@@||filmibeat.com^$generichide
+@@||iol.pt^$generichide
+@@||zerohedge.com^$generichide
+@@||friday.kodansha.co.jp^$generichide
+@@||tuttosport.com^$generichide
+@@||melty.fr^$generichide
+@@||manta.com^$generichide
+@@||fildo.net^$generichide
+@@||wuolah.com^$generichide
+@@||brocardi.it^$generichide
+@@||gizbot.com^$generichide
+@@||jn.pt^$generichide
+@@||mytuner-radio.com^$generichide
+@@||supersoluce.com^$generichide
+@@||fresherslive.com^$generichide
+@@||universoformulas.com^$generichide
+@@||sneakernews.com^$generichide
+@@||sonyliv.com^$generichide
+@@||synology-forum.de^$generichide
+@@||news.goo.ne.jp^$generichide
+@@||agazeta.com.br^$generichide
+@@||newsobserver.com^$generichide
+@@||kizlarsoruyor.com^$generichide
+! NOTE: contributor.google.com end ⬆️
+! !SECTION: contributor.google.com
+!
+! ##.banner_ad and ##.full_ad
+! https://github.com/AdguardTeam/AdguardFilters/issues/39191
+! #@#.full_ad
+! #@#.banner_ad
+@@||d2ujtyf7wfmq6y.cloudfront.net/ads/ads.html$domain=reisefrage.net|motorradfrage.net|autofrage.net|sportlerfrage.net|gesundheitsfrage.net|finanzfrage.net|computerfrage.net|gutefrage.net
+!
+! ##.ad-placement
+! https://github.com/AdguardTeam/AdguardFilters/issues/47876
+polzadom.ru#@#.ad-placement
+!
+! NOTE: Regular rules
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/234170
+forum.betaprofiles.com##.discourse-adplugin
+! https://github.com/AdguardTeam/AdguardFilters/issues/230909
+@@||tpc.googlesyndication.com/simgad/$domain=a2zapk.co
+! https://github.com/AdguardTeam/AdguardFilters/issues/228566
+mako.co.il#$#main[class*="_hidden_"] { transform: none !important; position: relative !important; }
+mako.co.il#$#div[class*="_rootHidden__"] { transform: none !important; position: relative !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/225362
+gays-cruising.com##body > div[style="display: block; visibility: visible; height: 100px;"]
+||gays-cruising.com/nb
+! https://github.com/AdguardTeam/AdguardFilters/issues/220204
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=isekaitube.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/218932
+@@||havenclick.com/www/delivery/*vast$domain=hentaimama.tv
+@@||s.magsrv.com/v*/vast.php$domain=hentaimama.tv
+! https://github.com/AdguardTeam/AdguardFilters/issues/216299
+@@||dlhd.dad^$genericblock
+! https://github.com/AdguardTeam/AdguardFilters/issues/215888
+*$script,third-party,denyallow=mega.co.nz|mega.nz|libs.baidu.com|ilfcdn.li|bytecdntp.com|doodcdn.io|intensedebate.com|vixcloud.co|cdn.plyr.io|rsc.cdn77.org|linkvertise.com|fastly.net|statically.io|sharecast.ws|b-cdn.net|bunnycdn.ru|bootstrapcdn.com|cdn.ampproject.org|cloudflare.com|cdn.staticfile.org|disqus.com|disquscdn.com|dmca.com|ebacdn.com|facebook.net|fastlylb.net|fbcdn.net|fluidplayer.com|fontawesome.com|github.io|google.com|googleapis.com|googletagmanager.com|gstatic.com|jquery.com|jsdelivr.net|jwpcdn.com|jwplatform.com|recaptcha.net|shrink.pe|twitter.com|ulogin.ru|unpkg.com|userapi.com|vidazoo.com|vk.com|yastatic.net|ytimg.com|zencdn.net|youtube.com|cackle.me|googleoptimize.com|vuukle.com|chatango.com|twimg.com|google-analytics.com|hcaptcha.com|media-imdb.com|blogger.com|hwcdn.net|instagram.com|wp.com|fastcomments.com|plyr.io|imgsmail.ru|cloudflare.net|rabbitstream.net|x.com,_____,domain=great-tv.tv,badfilter
+! https://github.com/AdguardTeam/AdguardFilters/issues/205914
+9hentai.so#%#//scriptlet('set-cookie', 'juicyads0', '1')
+9hentai.so#%#//scriptlet('set-cookie', 'juicyads1', '1')
+9hentai.so#%#//scriptlet('set-cookie', 'juicyads2', '1')
+! https://github.com/AdguardTeam/AdguardFilters/issues/201717
+@@||conservationmag.org^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/199715
+@@||ksstradio.com/wp-content/plugins/adrotate/library/jquery.*.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/193896
+@@||c.disquscdn.com/embedv2/$domain=toongod.org
+@@||c.disquscdn.com/next/embed/$domain=toongod.org
+! https://github.com/AdguardTeam/AdguardFilters/issues/193439
+@@||nrc.nl^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/192399
+@@||livenewsmag.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/185563
+@@||ads.mxhnkn.pro/popup/popup-v2.js$domain=nettruyenaa.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/184227
+@@||kqzyfj.com/click-
+! https://github.com/AdguardTeam/AdguardFilters/issues/183386
+@@||hqq.ac/js/adv/fuckadblock.js
+@@||hqq.ac/js/script_*$domain=hqq.ac
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=hqq.ac
+! https://github.com/AdguardTeam/AdguardFilters/issues/182585
+marieclaire.fr#@#div[id^="div-gpt-"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/175797
+@@://googlesyndication.com/|$domain=raenonx.cc
+! https://github.com/AdguardTeam/AdguardFilters/issues/172880
+.xyz/$third-party,domain=luluvdo.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/173275
+dailymail.co.uk##ad-slot
+! https://github.com/AdguardTeam/AdguardFilters/issues/172943
+!#safari_cb_affinity(privacy)
+@@||app.appsflyer.com/id*&*navigate_url*shopee.co
+@@||app.appsflyer.com/*?af_ios_url=https*shopee.co
+!#safari_cb_affinity
+! https://github.com/AdguardTeam/AdguardFilters/issues/172773
+forbes.com##.table-ad
+! https://github.com/AdguardTeam/AdguardFilters/issues/166888
+@@||digitalmusicnews.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/158084
+repubblica.it##div[id^="adv-"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/155562
+@@||tapewithadblock.org^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/155995
+@@||duckduckgo.com/y.js?*url
+! https://github.com/AdguardTeam/AdguardFilters/issues/154376
+@@/adlink-$domain=electronics-lab.com|intel.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/153741
+@@||go.bluelinknow.com/t/clk?
+! https://github.com/AdguardTeam/AdguardFilters/issues/150712
+@@||onl.bz^
+@@||aws.amazon.com/*/*-ad
+! https://github.com/AdguardTeam/AdguardFilters/issues/147298
+@@||ariba.com/*/ad/
+! https://github.com/AdguardTeam/AdguardFilters/issues/146951
+@@||twittrend.jp^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/142453
+@@||meracalculator.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/140694
+airportinfo.live#@#.ads
+@@||airportinfo.live/images/ads.gif
+! https://github.com/AdguardTeam/AdguardFilters/issues/137906
+@@||enit.in^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/137322
+@@||roanoke.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/134216
+@@||dlpanda.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/132928
+@@||now14.co.il^$generichide
+@@||snippet.univtec.com^$generichide
+@@||engine.univtec.com^$generichide
+@@||america.cgtn.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/129892
+@@||wallpapers.ispazio.net^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/118531
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=lightningmaps.org
+lightningmaps.org###wb_hide
+lightningmaps.org###wb_mobile
+! https://github.com/AdguardTeam/AdguardFilters/issues/111235
+@@||mitaku.net^$generichide
+! ! https://github.com/AdguardTeam/AdguardFilters/issues/106875
+@@||googleadservices.com/pagead/conversion.js$domain=www3.nissan.co.jp
+@@||img.ak.impact-ad.jp/sr/js/nissan_test_$script,domain=www3.nissan.co.jp
+@@||penta.a.one.impact-ad.jp^$script,domain=www3.nissan.co.jp
+! https://github.com/uBlockOrigin/uAssets/issues/11088
+@@||cdn.bootcss.com/fuckadblock/$domain=1090ys2.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/102538
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=twinkybf.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/102267
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=softfully.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/101358
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=windowsbulletin.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/99912
+@@||static.kendam.com/js/prebid-ads.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/99919
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=googledrivelinks.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/95560
+@@||kuku.lu^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/95200
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=calculator-online.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/93416
+@@||cryptofans.news^$generichide
+! rutab.net - adb detection
+@@||rutab.net^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/92382#issuecomment-906531979
+@@||v4u6i8r9.stackpathcdn.com/wp-banners.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/92121
+@@||pornofaps.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/pull/105436
+@@||temporarymail.com/js/ads-prebid.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/90864
+@@||milfnut.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/89061#issuecomment-890454613
+@@||s*.adform.net/banners/scripts/adx.js$domain=delfi.ee
+! https://github.com/AdguardTeam/AdguardFilters/issues/89284
+getexploits.com###floating_ads_bottom_textcss_container
+! https://github.com/AdguardTeam/AdguardFilters/issues/88549
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=hentaihaven.com
+@@||hentaihaven.com^$generichide
+hentaihaven.com#@#.adSense
+hentaihaven.com#@#.adContent
+! https://github.com/AdguardTeam/AdguardFilters/issues/88500
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=tsn.ua
+@@||tsn.ua/static/pubads.ad^
+! http://forum.adguard.com/showthread.php?6936
+@@||go.admost.com/adx/js/admost.js^$domain=mackolik.com
+! http://forum.adguard.com/showthread.php?7046
+@@||app.medyanetads.com/ad.js$domain=mackolik.com
+@@||app.medyanetads.com/Session$domain=mackolik.com
+@@||app.medyanetads.com/Session?publisher=$domain=sahadan.com
+@@||go.admost.com/adx/get.ashx&accptck$domain=sahadan.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/88037
+@@||thepoorcoder.com^$generichide
+thepoorcoder.com##.adtester-container
+thepoorcoder.com##.side-ad
+! https://github.com/AdguardTeam/AdguardFilters/issues/86828
+@@||tutflix.org/js/*/showflashad.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/86502
+@@||dood.la^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/84849
+filmibeat.com##.vuukle-ads
+filmibeat.com##.refreshInarticleAd
+! https://github.com/AdguardTeam/AdguardFilters/issues/84275
+@@||img.medscapestatic.com/medscape-core/ads/js/dfp/profads2.js$domain=reference.medscape.com
+! otzovik - adb
+@@||an.yandex.ru/system/context.js$domain=otzovik.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/138364
+egotter.com#@#.adsense-container
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=egotter.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/77578
+@@||dood.so^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/74868
+@@||pcgamer.com^$generichide
+pcgamer.com##amp-ad
+! https://github.com/AdguardTeam/AdguardFilters/issues/76212
+@@||vijesti.me^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/74654
+!#safari_cb_affinity(privacy)
+@@||sgqcvfjvr.onet.pl^
+!#safari_cb_affinity
+! https://github.com/AdguardTeam/AdguardFilters/issues/74301
+@@||ontiva.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/74097
+@@||clickswin.tvchoicemagazine.co.uk/assets/advertisement/ads-*.js$domain=tvchoicemagazine.co.uk
+! https://github.com/AdguardTeam/AdguardFilters/issues/80273
+@@||adzsafe.com^$generichide
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=adzsafe.com
+@@||pagead2.googlesyndication.com/pagead/js/*/show_ads_impl$domain=adzsafe.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/80489
+@@||googletagmanager.com/gtag/js$domain=exe.app|linkpoi.me
+! https://github.com/AdguardTeam/AdguardFilters/issues/81533
+@@||googletagmanager.com/gtag/js$domain=rotana.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/83084
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=cbs-soft.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/83177
+@@||pagead2.googlesyndication.com/pagead/show_ads.js$domain=herokuapp.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/82049
+@@||lootlinks.*/js/prebid-ads.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/77008
+@@||aiarticlespinner.co^$generichide
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=aiarticlespinner.co
+@@||pagead2.googlesyndication.com/pagead/js/*/show_ads_impl$domain=aiarticlespinner.co
+! anti-adb check-plagiarism.com
+@@||check-plagiarism.com^$generichide
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=check-plagiarism.com
+@@||pagead2.googlesyndication.com/pagead/js/r*/show_ads_impl.js$domain=check-plagiarism.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/72691
+@@||tinyppt.com^$generichide
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=tinyppt.com
+@@||pagead2.googlesyndication.com/pagead/js/r*/show_ads_impl_*.js$domain=tinyppt.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/73781
+@@||escapegames24.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/72221
+@@||elektrikmen.com^$generichide
+@@||ib.adnxs.com^$image,domain=elektrikmen.com
+@@||router.infolinks.com/dyn/apn-usync$image,domain=elektrikmen.com
+@@||contextual.media.net/dmedianet.js$domain=elektrikmen.com
+@@||elektrikmen.com/wp-content/plugins/ad-inserter/*/*.js
+@@||elektrikmen.com/wp-content/plugins/ad-inserter/images/ads.png
+@@||google-analytics.com/analytics.js$domain=elektrikmen.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/72114
+@@||world4.eu^$generichide
+@@||ib.adnxs.com^$image,domain=world4.eu
+@@||router.infolinks.com/dyn/apn-usync$image,domain=world4.eu
+@@||contextual.media.net/dmedianet.js$domain=world4.eu
+@@||world4.eu/wp-content/uploads/ad-inserter/*/*.js
+@@||world4.eu/wp-content/plugins/ad-inserter-pro/images/ads.png
+@@||google-analytics.com/analytics.js$domain=world4.eu
+! https://github.com/AdguardTeam/AdguardFilters/issues/71365
+@@||inews.co.uk^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/71156
+@@||slidesharedownloader.ngelmat.net^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/70452
+@@||scubidu.eu^$generichide
+@@||ib.adnxs.com^$image,domain=scubidu.eu
+@@||router.infolinks.com/dyn/apn-usync$image,domain=scubidu.eu
+@@||contextual.media.net/dmedianet.js$domain=scubidu.eu
+@@||scubidu.eu/wp-content/plugins/ad-inserter/*/*.js
+@@||scubidu.eu/wp-content/plugins/ad-inserter/images/ads.png
+! https://github.com/AdguardTeam/AdguardFilters/issues/70405
+@@||politics-dz.com^$generichide
+@@||ib.adnxs.com^$image,domain=politics-dz.com
+@@||router.infolinks.com/dyn/apn-usync$image,domain=politics-dz.com
+@@||contextual.media.net/dmedianet.js$domain=politics-dz.com
+@@||politics-dz.com/wp-content/plugins/ad-inserter/*/*.js
+@@||politics-dz.com/wp-content/plugins/ad-inserter/images/ads.png
+! https://github.com/AdguardTeam/AdguardFilters/issues/70383
+@@||game-owl.com^$generichide
+@@||ib.adnxs.com^$image,domain=game-owl.com
+@@||router.infolinks.com/dyn/apn-usync$image,domain=game-owl.com
+@@||contextual.media.net/dmedianet.js$domain=game-owl.com
+@@||game-owl.com/wordpress/wp-content/plugins/ad-inserter/*/*.js
+@@||game-owl.com/wordpress/wp-content/plugins/ad-inserter/images/ads.png
+! https://github.com/AdguardTeam/AdguardFilters/issues/70082
+@@||ad.a-ads.com/*?size=$domain=pentafaucet.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/67846
+@@||lacuevadeguns.com/forum/banner.gif?|
+! https://github.com/AdguardTeam/AdguardFilters/issues/67445
+@@||exbulletin.com^$generichide
+@@||ib.adnxs.com^$image,domain=exbulletin.com
+@@||router.infolinks.com/dyn/apn-usync$image,domain=exbulletin.com
+@@||contextual.media.net/dmedianet.js$domain=exbulletin.com
+@@||exbulletin.com/wp-content/plugins/ad-inserter/*/*.js
+@@||exbulletin.com/wp-content/plugins/ad-inserter/images/ads.png
+! https://github.com/AdguardTeam/AdguardFilters/issues/67262
+@@||apkmaza.net^$generichide
+@@||ib.adnxs.com^$image,domain=apkmaza.net
+@@||router.infolinks.com/dyn/apn-usync$image,domain=apkmaza.net
+@@||contextual.media.net/dmedianet.js$domain=apkmaza.net
+@@||apkmaza.net/am_plugins/ad-inserter/*/*.js
+@@||apkmaza.net/am_plugins/ad-inserter/images/ads.png
+! https://github.com/AdguardTeam/AdguardFilters/issues/67023
+@@||k12reader.com^$generichide
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=k12reader.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/66007
+@@||googleads.g.doubleclick.net/pagead/ads$domain=next-episode.net
+@@||adservice.google.com/adsid/integrator.js$domain=next-episode.net
+@@||googleads.g.doubleclick.net/pagead/ff.js$domain=next-episode.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/66137
+@@||mbid.marfeelrev.com/hub/mbidder/adx$domain=hipertextual.com
+@@||live.mrf.io/statics/marfeel/prebid-worker/webworker.js$domain=hipertextual.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/65735
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=southindianactress.in
+! https://github.com/AdguardTeam/AdguardFilters/issues/65346
+||tinypass.com^$domain=businessinsider.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/65081
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=malaysianwireless.com
+! htmlweb.ru - antiadblock
+htmlweb.ru#@#div > .adsbygoogle
+! https://github.com/AdguardTeam/AdguardFilters/issues/64001
+@@||proper.io/*?proper_uid=$domain=salon.com
+@@||bids.proper.io/api/bidding$domain=salon.com
+@@||global.proper.io/payloads/*.js$domain=salon.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/63329
+2ip.io,2ip.ru#@#.advMenuTab
+! https://github.com/AdguardTeam/AdguardFilters/issues/63069
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=sportskeeda.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/62602
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=fshost.me
+! https://github.com/AdguardTeam/AdguardFilters/issues/62554
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=vidlii.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/62436
+@@||contextual.media.net/dmedianet.js$domain=programmiedovetrovarli.it
+! https://github.com/AdguardTeam/AdguardFilters/issues/62371
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=audiotag.info
+! https://github.com/AdguardTeam/AdguardFilters/issues/61339
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=premid.app
+! https://github.com/AdguardTeam/AdguardFilters/issues/61263
+@@||mercedesclub.cz^$generichide
+@@||google-analytics.com/analytics.js$domain=mercedesclub.cz
+! https://github.com/AdguardTeam/AdguardFilters/issues/60492
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=dynast.io
+! https://github.com/AdguardTeam/AdguardFilters/issues/60369
+@@.gif#$domain=exambd.net
+exambd.net##.adsbygoogle
+! https://github.com/AdguardTeam/AdguardFilters/issues/59797
+@@||biopills.net^$generichide
+@@||contextual.media.net/dmedianet.js$domain=biopills.net
+@@||biopills.net/wp-content/plugins/ad-inserter/*/*.js
+@@||biopills.net/wp-content/plugins/ad-inserter/images/ads.png
+! https://github.com/AdguardTeam/AdguardFilters/issues/59772
+@@||malaysiastock.biz/*/javascript/ads.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/59607
+@@||mashtips.com^$generichide
+@@||contextual.media.net/dmedianet.js$domain=mashtips.com
+@@||mashtips.com/wp-content/plugins/ad-inserter/images/ads.png
+@@||mashtips.com/wp-content/plugins/ad-inserter/*/*.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/59414
+@@||tileman.io^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/59200
+@@||ask4movie.*^$generichide
+! https://forum.adguard.com/index.php?threads/oneman-adblock-detect.39056/
+@@||oneman.gr^$generichide
+! https://forum.adguard.com/index.php?threads/talkceltic-detecting-talkceltic-net.39047
+@@||talkceltic.net/forums/js/Siropu/AM/ads.min.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/58971
+@@||bigten.org/common/templates/dfp/dfp-component-template.html
+! https://github.com/AdguardTeam/AdguardFilters/issues/57493#issuecomment-654985308
+@@||th.thgim.com/static/js/adsframe.min.js$domain=thehindu.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/58337#issuecomment-652035636
+||tinypass.com^$domain=oglobo.globo.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/58003
+@@||wikihow.com/_ads/ads.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/57648
+@@||ligainsider.de/public/desktop/js/dfp.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/56878
+@@||haaretz.co.il^$elemhide
+! https://github.com/AdguardTeam/AdguardFilters/issues/57396
+@@||parzibyte.me^$generichide
+@@||parzibyte.me/blog/wp-content/plugins/ad-inserter/images/ads.png
+@@||parzibyte.me/blog/wp-content/plugins/ad-inserter/*/*.js
+@@||contextual.media.net/dmedianet.js$domain=parzibyte.me
+! https://github.com/AdguardTeam/AdguardFilters/issues/57219
+canadapolicereport.ca##.adsbygoogle
+! https://github.com/AdguardTeam/AdguardFilters/issues/54041
+@@thalia.de/shop/*.html?pid=*&group_id=0&banner_id=
+! https://github.com/AdguardTeam/AdguardFilters/issues/56935
+@@||techadvisor.co.uk^$generichide
+@@||techadvisor.co.uk/cmsdata/features/
+! https://github.com/AdguardTeam/AdguardFilters/issues/74206
+@@||drugs.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/56627
+@@||leakite.com^$generichide
+@@||contextual.media.net/dmedianet.js$domain=leakite.com
+@@||cdn.shortpixel.ai/*.leakite.com/wp-content/plugins/ad-inserter/images/ads.png$domain=leakite.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/56572
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=myviptuto.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/55724
+@@||hqq.tv/js/adv/ads.js
+@@||hqq.tv/js/adv/fuckadblock.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/55972
+@@||musicradar.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/55971
+dropgalaxy.com##.adsbygoogle
+@@||dropgalaxy.com^$generichide
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=dropgalaxy.com
+@@||static.popads.net/img/logo.png$domain=dropgalaxy.com
+@@||tpc.googlesyndication.com/simgad/$domain=dropgalaxy.com
+@@||adspace.pro/*.jpg$domain=dropgalaxy.com
+@@||cadsecs.com/*.js$domain=dropgalaxy.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/55662
+@@||greensboro.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/55945
+@@||mbid.marfeelrev.com/hub/mbidder/adx$domain=simpleflying.com
+@@||live.mrf.io/statics/marfeel/prebid-worker/webworker.js$domain=simpleflying.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/55767
+@@||haaretz.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/55510
+@@||sms24.me^$generichide
+sms24.me##div[id^="div-gpt-ad"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/55739
+@@||jetphotos.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/55366
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=plagiarismdetector.net
+@@||pagead2.googlesyndication.com/pagead/js/r*/show_ads_impl_*.js$domain=plagiarismdetector.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/55580
+! https://github.com/AdguardTeam/AdguardFilters/issues/55121
+@@||assets.revcontent.com/master/delivery.js$domain=mp4upload.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/54644
+! https://github.com/AdguardTeam/AdguardFilters/issues/54741
+@@||unreshiramor.com/*/|$domain=disneyplayvn.net
+@@||iamcdn.net/players/ads.watch.js$domain=disneyplayvn.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/54532
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=techably.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/54508
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=prepostseo.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/54225
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$domain=nieuwsblad.be
+@@||securepubads.g.doubleclick.net/gpt/pubads_impl_*.js$domain=nieuwsblad.be
+! https://github.com/AdguardTeam/AdguardFilters/issues/54090
+forbes.com#@#.ADBAR
+forbes.com#@#.AD_area
+forbes.com#@#.AD_underpost
+forbes.com#@#.AD_MOVIE_ITEMROW
+forbes.com#@#.AD_MOVIE_ITEM
+forbes.com#@#.ADTop
+forbes.com#@#.ADInfo
+forbes.com#@#.ADFooter
+forbes.com#@#.AD300x250A
+forbes.com#@#.AD-RC-300x250
+forbes.com#@#.AD-POST
+forbes.com#@#.AD300
+forbes.com#@#.AD355125
+forbes.com#@#.AD300x600-wrapper
+forbes.com#@#.AD300x250
+forbes.com#@#.AD300Block
+forbes.com#@#.AD-label300x250
+forbes.com#@#.AD-Rotate
+! https://github.com/AdguardTeam/AdguardFilters/issues/54097
+@@||rutab.net/html/js/adsbygoogle.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/54079
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=bleachmx.fr
+! https://github.com/AdguardTeam/AdguardFilters/issues/53879
+@@||tomshw.it^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/53600
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=akunssh.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/53640
+@@||yourdictionary.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/53430
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=ilovephd.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/53394
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=akinator.mobi|akinator.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/53106
+@@||a.exosrv.com/ads.js$domain=javtiful.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/52976
+@@||journaldemontreal.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/52702
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=podu.me
+! https://github.com/AdguardTeam/AdguardFilters/issues/52370
+@@*$image,domain=hardwareluxx.de,~third-party
+! gamemag.ru - antiadblock
+@@||googleads.g.doubleclick.net/pagead/id$xmlhttprequest,domain=gamemag.ru
+! https://github.com/AdguardTeam/AdguardFilters/issues/52351
+@@||sunherald.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/50702#issuecomment-604475507
+@@||latimes.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/52257
+@@||lifestyle.bg^$generichide
+@@||money.bg^$generichide
+@@||news.bg^$generichide
+@@||topsport.bg^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/53880
+thelayoff.com##body > div[style*="position: fixed;"][style*="width: 100%; height: 100%;"][style*="z-index:"]
+thelayoff.com##.alert-danger
+! https://github.com/AdguardTeam/AdguardFilters/issues/52114
+@@||allmusic.com/ads.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/52020
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=sna3talaflam.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/51708
+@@||elmundo.es^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/51401
+@@||q32.ru/themes/default/reklama/advertising.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/51509
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=onehack.us
+! https://github.com/AdguardTeam/AdguardFilters/issues/51257
+m.haberler.com##.swiper-slide > a.rekkklam ~ div
+! https://github.com/AdguardTeam/AdguardFilters/issues/50983
+@@||miaminewtimes.com/js_cache/ads.js
+! salon.com - adblock on article
+@@||global.proper.io/salon.min.js$domain=salon.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/50811
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=ujszo.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/49833#issuecomment-592652930
+@@||marca.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/50511
+@@/favicon.ico$third-party,domain=thehouseofportable.com
+@@||adservice.google.*/adsid/integrator.js$domain=thehouseofportable.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/50629
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=md5hashing.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/50434
+@@||kansascity.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/50548
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=almezoryae.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/49874
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=kimochi.info
+! https://github.com/AdguardTeam/AdguardFilters/issues/50179
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=tunein.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/49897
+@@||cdn.intergi.com/*/js/libs/cmg-prebid-*.new.js$domain=coolmathgames.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/50013
+@@||strangermeetup.com/content/Scripts/ads.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/49956
+@@||cdn.concert.io/lib/concert-ads/*-latest/concert_ads.js$domain=vox.com
+@@||cdn.vox-cdn.com/packs/concert_ads-
+! https://github.com/AdguardTeam/AdguardFilters/issues/49709
+@@||yorumbudur.com/*/javascript/ads.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/49651
+kitsapsun.com#@#.plainAd
+! https://github.com/AdguardTeam/AdguardFilters/issues/49667
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=softwarecrackguru.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/49505
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=dr-farfar.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/49331
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=tarkov-market.ru|tarkov-market.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/49316
+@@||customgames.ru/forum/js/*/ads.min.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/49305
+digitalcameraworld.com#@#.googleAd
+! https://github.com/AdguardTeam/AdguardFilters/issues/49290
+@@||avforums.com^$generichide
+avforums.com##.adHeader
+! https://github.com/AdguardTeam/AdguardFilters/issues/47499
+@@||macwelt.de^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/49176
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=rimworldbase.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/49087
+lcsun-news.com#@#.plainAd
+! https://github.com/AdguardTeam/AdguardFilters/issues/48964
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=seo-visit.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/48940
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=mitele.es
+! https://github.com/AdguardTeam/AdguardFilters/issues/48857
+@@||gputracker.eu/js/ads-*.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/48715
+@@||gigaho.com^$generichide
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=gigaho.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/48598
+@@||nik-ser.at.ua/js/pagead2.ads.js$domain=remont-aud.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/48614
+@@||adservice.google.com.tr/adsid/integrator.js$domain=playhub.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/47903
+@@||theverge.com/*/*/*/*/*-*-
+! https://github.com/AdguardTeam/AdguardFilters/issues/48226
+@@||mtlblog.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/48211
+@@||dloady.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/64900
+||usgamer.net/static/scripts/musgamer-fsm.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/47361
+@@||static.criteo.net/images/pixel.gif$domain=diariodenavarra.es
+! https://github.com/AdguardTeam/AdguardFilters/issues/46935
+@@||zlavomat.sk/akcia^
+! fix showjet.ru player on myshows.me
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=myshows.me
+! https://github.com/AdguardTeam/AdguardFilters/issues/46252
+@@||modhoster.de/assets/advertisement-*.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/46227
+@@||hentaivideo.tv/ads.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/77887
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=insidertracking.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/46136
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=fcportables.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/46100
+@@||nitropay.com/ads-*.js$domain=duellinksmeta.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/45985
+@@||ftc.gov/news-events/media-resources^
+! https://github.com/AdguardTeam/AdguardFilters/issues/45418
+@@||bcrams.com/common/templates/dfp/
+! https://github.com/AdguardTeam/AdguardFilters/issues/45129
+@@||gousfbulls.com/common/templates/dfp/dfp-component-template.html
+! https://github.com/AdguardTeam/AdguardFilters/issues/45187
+@@||ams.cdn.arkadiumhosted.com/advertisement/display/stable/display-ads.js$domain=games.latimes.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/45031
+@@||meteomedia.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/44730
+@@||cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js$domain=yusepjaelani.blogspot.com
+yusepjaelani.blogspot.com#@#.adsShield
+yusepjaelani.blogspot.com#@##adcontent
+! https://github.com/AdguardTeam/AdguardFilters/issues/44510
+@@||cdn.gatehousemedia.com/gh-sites/global/ads/ads.js
+@@||googletagservices.com/tag/js/gpt.js
+! basicweb.ru - antiadblock notice
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=basicweb.ru
+! https://github.com/AdguardTeam/AdguardFilters/issues/44066
+@@||rcsobjects.it/rcs_data-tracking/v*/distro/openx/gazzetta/openx_async.js$domain=gazzetta.it
+! https://github.com/AdguardTeam/AdguardFilters/issues/44070
+t3n.de#@##adsbox
+! https://github.com/AdguardTeam/AdguardFilters/issues/43640
+@@||pornxxx.tv/ads.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/43231
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=teemo.gg
+! https://github.com/AdguardTeam/AdguardFilters/issues/42885
+@@||greekmythology.com/*/eros.html
+! https://github.com/AdguardTeam/AdguardFilters/issues/42043
+||youporn.com^$script,subdocument,domain=youporn.com|youporngay.com,badfilter
+! https://github.com/AdguardTeam/AdguardFilters/issues/38657
+aioboot.com,dist-tutor.info,investmentwatchblog.com,life.ru,1000ps.de,abw.by,abw.ru,americanlookout.com,androidcentral.com,arstechnica.com,atwiki.jp,audio-cutter.com,audio-joiner.com,autocar.co.uk,novy.tv,bloomberg.com,bold.dk,bootcampdrivers.freeforums.net,closermag.fr,convert-video-online.com,csdn.net,dailyherald.com,diffnow.com,downloadgamexbox.com,estrepublicain.fr,extract.me,fightnews.info,filmtotaal.nl,flashgames.ru,flightaware.com,forexpeacearmy.com,foros.3dgames.com.ar,fourtoutici.xyz,getgreenshot.org,goducks.com,greenbayphoenix.com,imore.com,independent.co.uk,iphonesoft.fr,kshowonline.com,lalsace.fr,lifehack.org,likuoo.video,megagames.com,mel.fm,mikrobitti.fi,modelist-konstruktor.com,mp3cut.net,mp3cut.ru,msueagles.com,naturallycurly.com,ncaa.com,newkaliningrad.ru,nv-online.info,nzz.ch,observador.pt,online-audio-converter.com,online-video-cutter.com,online-voice-recorder.com,onwardstate.com,orlygift.com,outschool.com,peers.tv,photoreview.com.au,pixiz.com,pokehuntr.com,postandcourier.com,pr-cy.ru,pri.org,proboards.com,professorweb.ru,radioforest.net,republicain-lorrain.fr,returnofreckoning.com,saveur.com,sbs.com.au,semantic-ui.com,shlyahten.ru,shopback.com.au,sme.sk,theland.com.au,thesenior.com.au,thestar.co.uk,thurrott.com,tideschart.com,tmohentai.com,todayinliege.be,topsante.com,tsn.ua,tumangaonline.com,umterps.com,vosgesmatin.fr,webcamera.io,windowscentral.com,xataka.com,xnxx.com,zerohedge.com#@#.pub_300x250
+aioboot.com,dist-tutor.info,investmentwatchblog.com,life.ru,1000ps.de,abw.by,abw.ru,americanlookout.com,androidcentral.com,arstechnica.com,atwiki.jp,audio-cutter.com,audio-joiner.com,autocar.co.uk,novy.tv,bloomberg.com,bold.dk,bootcampdrivers.freeforums.net,closermag.fr,convert-video-online.com,csdn.net,dailyherald.com,diffnow.com,downloadgamexbox.com,estrepublicain.fr,extract.me,fightnews.info,filmtotaal.nl,flashgames.ru,flightaware.com,forexpeacearmy.com,foros.3dgames.com.ar,fourtoutici.xyz,getgreenshot.org,goducks.com,greenbayphoenix.com,imore.com,independent.co.uk,iphonesoft.fr,kshowonline.com,lalsace.fr,lifehack.org,likuoo.video,megagames.com,mel.fm,mikrobitti.fi,modelist-konstruktor.com,mp3cut.net,mp3cut.ru,msueagles.com,naturallycurly.com,ncaa.com,newkaliningrad.ru,nv-online.info,nzz.ch,observador.pt,online-audio-converter.com,online-video-cutter.com,online-voice-recorder.com,onwardstate.com,orlygift.com,outschool.com,peers.tv,photoreview.com.au,pixiz.com,pokehuntr.com,postandcourier.com,pr-cy.ru,pri.org,proboards.com,professorweb.ru,radioforest.net,republicain-lorrain.fr,returnofreckoning.com,saveur.com,sbs.com.au,semantic-ui.com,shlyahten.ru,shopback.com.au,sme.sk,theland.com.au,thesenior.com.au,thestar.co.uk,thurrott.com,tideschart.com,tmohentai.com,todayinliege.be,topsante.com,tsn.ua,tumangaonline.com,umterps.com,vosgesmatin.fr,webcamera.io,windowscentral.com,xataka.com,xnxx.com,zerohedge.com#@#.pub_300x250m
+aioboot.com,dist-tutor.info,investmentwatchblog.com,life.ru,1000ps.de,abw.by,abw.ru,americanlookout.com,androidcentral.com,arstechnica.com,atwiki.jp,audio-cutter.com,audio-joiner.com,autocar.co.uk,novy.tv,bloomberg.com,bold.dk,bootcampdrivers.freeforums.net,closermag.fr,convert-video-online.com,csdn.net,dailyherald.com,diffnow.com,downloadgamexbox.com,estrepublicain.fr,extract.me,fightnews.info,filmtotaal.nl,flashgames.ru,flightaware.com,forexpeacearmy.com,foros.3dgames.com.ar,fourtoutici.xyz,getgreenshot.org,goducks.com,greenbayphoenix.com,imore.com,independent.co.uk,iphonesoft.fr,kshowonline.com,lalsace.fr,lifehack.org,likuoo.video,megagames.com,mel.fm,mikrobitti.fi,modelist-konstruktor.com,mp3cut.net,mp3cut.ru,msueagles.com,naturallycurly.com,ncaa.com,newkaliningrad.ru,nv-online.info,nzz.ch,observador.pt,online-audio-converter.com,online-video-cutter.com,online-voice-recorder.com,onwardstate.com,orlygift.com,outschool.com,peers.tv,photoreview.com.au,pixiz.com,pokehuntr.com,postandcourier.com,pr-cy.ru,pri.org,proboards.com,professorweb.ru,radioforest.net,republicain-lorrain.fr,returnofreckoning.com,saveur.com,sbs.com.au,semantic-ui.com,shlyahten.ru,shopback.com.au,sme.sk,theland.com.au,thesenior.com.au,thestar.co.uk,thurrott.com,tideschart.com,tmohentai.com,todayinliege.be,topsante.com,tsn.ua,tumangaonline.com,umterps.com,vosgesmatin.fr,webcamera.io,windowscentral.com,xataka.com,xnxx.com,zerohedge.com#@#.pub_728x90
+aioboot.com,dist-tutor.info,investmentwatchblog.com,life.ru,1000ps.de,abw.by,abw.ru,americanlookout.com,androidcentral.com,arstechnica.com,atwiki.jp,audio-cutter.com,audio-joiner.com,autocar.co.uk,novy.tv,bloomberg.com,bold.dk,bootcampdrivers.freeforums.net,closermag.fr,convert-video-online.com,csdn.net,dailyherald.com,diffnow.com,downloadgamexbox.com,estrepublicain.fr,extract.me,fightnews.info,filmtotaal.nl,flashgames.ru,flightaware.com,forexpeacearmy.com,foros.3dgames.com.ar,fourtoutici.xyz,getgreenshot.org,goducks.com,greenbayphoenix.com,imore.com,independent.co.uk,iphonesoft.fr,kshowonline.com,lalsace.fr,lifehack.org,likuoo.video,megagames.com,mel.fm,mikrobitti.fi,modelist-konstruktor.com,mp3cut.net,mp3cut.ru,msueagles.com,naturallycurly.com,ncaa.com,newkaliningrad.ru,nv-online.info,nzz.ch,observador.pt,online-audio-converter.com,online-video-cutter.com,online-voice-recorder.com,onwardstate.com,orlygift.com,outschool.com,peers.tv,photoreview.com.au,pixiz.com,pokehuntr.com,postandcourier.com,pr-cy.ru,pri.org,proboards.com,professorweb.ru,radioforest.net,republicain-lorrain.fr,returnofreckoning.com,saveur.com,sbs.com.au,semantic-ui.com,shlyahten.ru,shopback.com.au,sme.sk,theland.com.au,thesenior.com.au,thestar.co.uk,thurrott.com,tideschart.com,tmohentai.com,todayinliege.be,topsante.com,tsn.ua,tumangaonline.com,umterps.com,vosgesmatin.fr,webcamera.io,windowscentral.com,xataka.com,xnxx.com,zerohedge.com#@#.text-ad
+aioboot.com,dist-tutor.info,investmentwatchblog.com,life.ru,1000ps.de,abw.by,abw.ru,americanlookout.com,androidcentral.com,arstechnica.com,atwiki.jp,audio-cutter.com,audio-joiner.com,autocar.co.uk,novy.tv,bloomberg.com,bold.dk,bootcampdrivers.freeforums.net,closermag.fr,convert-video-online.com,csdn.net,dailyherald.com,diffnow.com,downloadgamexbox.com,estrepublicain.fr,extract.me,fightnews.info,filmtotaal.nl,flashgames.ru,flightaware.com,forexpeacearmy.com,foros.3dgames.com.ar,fourtoutici.xyz,getgreenshot.org,goducks.com,greenbayphoenix.com,imore.com,independent.co.uk,iphonesoft.fr,kshowonline.com,lalsace.fr,lifehack.org,likuoo.video,megagames.com,mel.fm,mikrobitti.fi,modelist-konstruktor.com,mp3cut.net,mp3cut.ru,msueagles.com,naturallycurly.com,ncaa.com,newkaliningrad.ru,nv-online.info,nzz.ch,observador.pt,online-audio-converter.com,online-video-cutter.com,online-voice-recorder.com,onwardstate.com,orlygift.com,outschool.com,peers.tv,photoreview.com.au,pixiz.com,pokehuntr.com,postandcourier.com,pr-cy.ru,pri.org,proboards.com,professorweb.ru,radioforest.net,republicain-lorrain.fr,returnofreckoning.com,saveur.com,sbs.com.au,semantic-ui.com,shlyahten.ru,shopback.com.au,sme.sk,theland.com.au,thesenior.com.au,thestar.co.uk,thurrott.com,tideschart.com,tmohentai.com,todayinliege.be,topsante.com,tsn.ua,tumangaonline.com,umterps.com,vosgesmatin.fr,webcamera.io,windowscentral.com,xataka.com,xnxx.com,zerohedge.com#@#.text-ad-links
+aioboot.com,dist-tutor.info,investmentwatchblog.com,life.ru,1000ps.de,abw.by,abw.ru,americanlookout.com,androidcentral.com,arstechnica.com,atwiki.jp,audio-cutter.com,audio-joiner.com,autocar.co.uk,novy.tv,bloomberg.com,bold.dk,bootcampdrivers.freeforums.net,closermag.fr,convert-video-online.com,csdn.net,dailyherald.com,diffnow.com,downloadgamexbox.com,estrepublicain.fr,extract.me,fightnews.info,filmtotaal.nl,flashgames.ru,flightaware.com,forexpeacearmy.com,foros.3dgames.com.ar,fourtoutici.xyz,getgreenshot.org,goducks.com,greenbayphoenix.com,imore.com,independent.co.uk,iphonesoft.fr,kshowonline.com,lalsace.fr,lifehack.org,likuoo.video,megagames.com,mel.fm,mikrobitti.fi,modelist-konstruktor.com,mp3cut.net,mp3cut.ru,msueagles.com,naturallycurly.com,ncaa.com,newkaliningrad.ru,nv-online.info,nzz.ch,observador.pt,online-audio-converter.com,online-video-cutter.com,online-voice-recorder.com,onwardstate.com,orlygift.com,outschool.com,peers.tv,photoreview.com.au,pixiz.com,pokehuntr.com,postandcourier.com,pr-cy.ru,pri.org,proboards.com,professorweb.ru,radioforest.net,republicain-lorrain.fr,returnofreckoning.com,saveur.com,sbs.com.au,semantic-ui.com,shlyahten.ru,shopback.com.au,sme.sk,theland.com.au,thesenior.com.au,thestar.co.uk,thurrott.com,tideschart.com,tmohentai.com,todayinliege.be,topsante.com,tsn.ua,tumangaonline.com,umterps.com,vosgesmatin.fr,webcamera.io,windowscentral.com,xataka.com,xnxx.com,zerohedge.com#@#.text-ads
+aioboot.com,dist-tutor.info,investmentwatchblog.com,life.ru,1000ps.de,abw.by,abw.ru,americanlookout.com,androidcentral.com,arstechnica.com,atwiki.jp,audio-cutter.com,audio-joiner.com,autocar.co.uk,novy.tv,bloomberg.com,bold.dk,bootcampdrivers.freeforums.net,closermag.fr,convert-video-online.com,csdn.net,dailyherald.com,diffnow.com,downloadgamexbox.com,estrepublicain.fr,extract.me,fightnews.info,filmtotaal.nl,flashgames.ru,flightaware.com,forexpeacearmy.com,foros.3dgames.com.ar,fourtoutici.xyz,getgreenshot.org,goducks.com,greenbayphoenix.com,imore.com,independent.co.uk,iphonesoft.fr,kshowonline.com,lalsace.fr,lifehack.org,likuoo.video,megagames.com,mel.fm,mikrobitti.fi,modelist-konstruktor.com,mp3cut.net,mp3cut.ru,msueagles.com,naturallycurly.com,ncaa.com,newkaliningrad.ru,nv-online.info,nzz.ch,observador.pt,online-audio-converter.com,online-video-cutter.com,online-voice-recorder.com,onwardstate.com,orlygift.com,outschool.com,peers.tv,photoreview.com.au,pixiz.com,pokehuntr.com,postandcourier.com,pr-cy.ru,pri.org,proboards.com,professorweb.ru,radioforest.net,republicain-lorrain.fr,returnofreckoning.com,saveur.com,sbs.com.au,semantic-ui.com,shlyahten.ru,shopback.com.au,sme.sk,theland.com.au,thesenior.com.au,thestar.co.uk,thurrott.com,tideschart.com,tmohentai.com,todayinliege.be,topsante.com,tsn.ua,tumangaonline.com,umterps.com,vosgesmatin.fr,webcamera.io,windowscentral.com,xataka.com,xnxx.com,zerohedge.com#@#.textAd
+aioboot.com,dist-tutor.info,investmentwatchblog.com,life.ru,1000ps.de,abw.by,abw.ru,americanlookout.com,androidcentral.com,arstechnica.com,atwiki.jp,audio-cutter.com,audio-joiner.com,autocar.co.uk,novy.tv,bloomberg.com,bold.dk,bootcampdrivers.freeforums.net,closermag.fr,convert-video-online.com,csdn.net,dailyherald.com,diffnow.com,downloadgamexbox.com,estrepublicain.fr,extract.me,fightnews.info,filmtotaal.nl,flashgames.ru,flightaware.com,forexpeacearmy.com,foros.3dgames.com.ar,fourtoutici.xyz,getgreenshot.org,goducks.com,greenbayphoenix.com,imore.com,independent.co.uk,iphonesoft.fr,kshowonline.com,lalsace.fr,lifehack.org,likuoo.video,megagames.com,mel.fm,mikrobitti.fi,modelist-konstruktor.com,mp3cut.net,mp3cut.ru,msueagles.com,naturallycurly.com,ncaa.com,newkaliningrad.ru,nv-online.info,nzz.ch,observador.pt,online-audio-converter.com,online-video-cutter.com,online-voice-recorder.com,onwardstate.com,orlygift.com,outschool.com,peers.tv,photoreview.com.au,pixiz.com,pokehuntr.com,postandcourier.com,pr-cy.ru,pri.org,proboards.com,professorweb.ru,radioforest.net,republicain-lorrain.fr,returnofreckoning.com,saveur.com,sbs.com.au,semantic-ui.com,shlyahten.ru,shopback.com.au,sme.sk,theland.com.au,thesenior.com.au,thestar.co.uk,thurrott.com,tideschart.com,tmohentai.com,todayinliege.be,topsante.com,tsn.ua,tumangaonline.com,umterps.com,vosgesmatin.fr,webcamera.io,windowscentral.com,xataka.com,xnxx.com,zerohedge.com#@#.text_ad
+aioboot.com,dist-tutor.info,investmentwatchblog.com,life.ru,1000ps.de,abw.by,abw.ru,americanlookout.com,androidcentral.com,arstechnica.com,atwiki.jp,audio-cutter.com,audio-joiner.com,autocar.co.uk,novy.tv,bloomberg.com,bold.dk,bootcampdrivers.freeforums.net,closermag.fr,convert-video-online.com,csdn.net,dailyherald.com,diffnow.com,downloadgamexbox.com,estrepublicain.fr,extract.me,fightnews.info,filmtotaal.nl,flashgames.ru,flightaware.com,forexpeacearmy.com,foros.3dgames.com.ar,fourtoutici.xyz,getgreenshot.org,goducks.com,greenbayphoenix.com,imore.com,independent.co.uk,iphonesoft.fr,kshowonline.com,lalsace.fr,lifehack.org,likuoo.video,megagames.com,mel.fm,mikrobitti.fi,modelist-konstruktor.com,mp3cut.net,mp3cut.ru,msueagles.com,naturallycurly.com,ncaa.com,newkaliningrad.ru,nv-online.info,nzz.ch,observador.pt,online-audio-converter.com,online-video-cutter.com,online-voice-recorder.com,onwardstate.com,orlygift.com,outschool.com,peers.tv,photoreview.com.au,pixiz.com,pokehuntr.com,postandcourier.com,pr-cy.ru,pri.org,proboards.com,professorweb.ru,radioforest.net,republicain-lorrain.fr,returnofreckoning.com,saveur.com,sbs.com.au,semantic-ui.com,shlyahten.ru,shopback.com.au,sme.sk,theland.com.au,thesenior.com.au,thestar.co.uk,thurrott.com,tideschart.com,tmohentai.com,todayinliege.be,topsante.com,tsn.ua,tumangaonline.com,umterps.com,vosgesmatin.fr,webcamera.io,windowscentral.com,xataka.com,xnxx.com,zerohedge.com#@#.text_ads
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/41324
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=nsfw247.to
+! https://github.com/AdguardTeam/AdguardFilters/issues/41057
+coachmag.co.uk#@#.plainAd
+! https://github.com/AdguardTeam/AdguardFilters/issues/41381
+@@||ligainsider.de^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/40401
+@@||mangacanblog.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/40813
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=unlockapk.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/40260
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=kharisma-adzana.blogspot.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/39754
+@@||volvo-club.cz^$generichide
+@@||google-analytics.com/analytics.js$domain=volvo-club.cz
+! https://github.com/AdguardTeam/AdguardFilters/issues/39709
+@@||10play.com.au/static/ads.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/39588
+tvtropes.org##div[style*="z-index: 100001;"][style*="position: fixed;"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/39745
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=download.shareappscrack.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/39576
+@@||camera.aeonax.com^$generichide
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=camera.aeonax.com
+@@||googleads.g.doubleclick.net/pagead/html/r*/zrt_lookup.html$domain=camera.aeonax.com
+@@||pagead2.googlesyndication.com/pagead/js/r*/show_ads_impl.js$domain=camera.aeonax.com
+@@||googleads.g.doubleclick.net/pagead/ads?client=ca-pub-$domain=camera.aeonax.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/39112
+@@||google-analytics.com/gtm/js?id=$domain=theverge.com
+@@||google-analytics.com/analytics.js$domain=theverge.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/39305
+||northumberlandgazette.co.uk/_build/dirty-amp.*.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/39361
+abc.es#@#.div-gpt-ad
+! https://github.com/AdguardTeam/AdguardFilters/issues/74902
+@@||robot-forum.com^$generichide
+@@||robot-forum.com/*/adsbygoogle.js$domain=robot-forum.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/39298
+@@||lavoz.com.ar^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/39110
+@@||ad.doubleclick.net/ddm/$domain=prad.de
+@@||prad.de^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/38905
+@@||iconmonstr.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/38249
+@@||thesaurus.com/assets/ads.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/38397
+denofgeek.com#@#.plainAd
+! https://github.com/AdguardTeam/AdguardFilters/issues/36644
+@@||nu.nl/static/js/advertising.js
+! ! https://github.com/AdguardTeam/AdguardFilters/issues/35046
+@@||rp5.by^$generichide
+@@||rp5.kz^$generichide
+@@||rp5.ru^$generichide
+@@||rp5.ua^$generichide
+@@||rp5.md^$generichide
+rp5.by,rp5.kz,rp5.ru,rp5.ua,rp5.md#@#.adslot_1
+@@||m.rp5.*/mobile/scripts/adtop.js$domain=m.rp5.ru|m.rp5.by|m.rp5.kz|rp5.md
+@@||m.rp5.*/mobile/scripts/adblocker.js$domain=m.rp5.ru|m.rp5.by|m.rp5.kz|rp5.md
+! https://github.com/AdguardTeam/AdguardFilters/issues/34414
+@@||tagblatt.ch^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/30901
+@@||eurogamer.pt^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/78471
+@@||c.amazon-adsystem.com/aax2/apstag.js$domain=venge.io
+! https://github.com/AdguardTeam/AdguardFilters/issues/21710
+@@||imasdk.googleapis.com/js/sdkloader/ima3_debug.js$domain=maxpreps.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/18965
+@@||hdliveextra-a.akamaihd.net/*/config/ads.js$domain=nbcsports.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/19624
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=247sports.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/16055
+@@||pe.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/13148
+techbii.com##.herald-ad
+@@||techbii.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/13056
+@@||securepubads.g.doubleclick.net/gpt/pubads_impl_$domain=itprotoday.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/12215
+@@||tubeland.site^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/12188
+lep.co.uk##.leaderboard-ad
+@@||lep.co.uk^$generichide
+@@||leechall.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/11644
+@@||caravaning.de^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/11254
+@@||360kora.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/11257
+@@||mangarock.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/11160
+@@||pastpapers.papacambridge.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/10872
+@@||lubetube.com^$generichide
+lubetube.com##.sidead
+@@/favicon.ico$domain=lubetube.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/10880
+@@||sgxnifty.org^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/10804
+manta.com##.adsbygoogle
+! https://github.com/AdguardTeam/AdguardFilters/issues/10728
+@@||pressgazette.co.uk^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/9534
+pallok.com##.adsbygoogle
+@@||pallok.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/9170
+@@||embed.kijk.nl^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/8800
+@@||play.anghami.com^$generichide
+play.anghami.com##.header-banner
+play.anghami.com##.content > .mpu
+! https://github.com/AdguardTeam/AdguardFilters/issues/8696
+@@||smslisten.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/8653
+@@||sabishiidesu.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/8476
+@@||freebitcoin.win^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/8455
+@@||opensnow.com/js/fuckadblock.js
+@@||opensnow.com^$generichide
+! https://forum.adguard.com/index.php?threads/clkmein-com.22184/
+@@||clkmein.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/5090
+@@||arkforum.de^$generichide
+! https://forum.adguard.com/index.php?threads/22030/
+@@||chelsea24news.pl^$generichide
+! https://forum.adguard.com/index.php?threads/pikio-pl.22007/
+@@||pikio.pl^$generichide
+! https://forum.adguard.com/index.php?threads/hiding-the-use-of-adguard.21983/#post-138159
+@@||gestyy.com^$generichide
+! https://forum.adguard.com/index.php?threads/motorradonline-de.21544/
+motorradonline.de#@#.mps-banner
+@@||motorradonline.de^$generichide
+! https://forum.adguard.com/index.php?threads/21564/
+@@||it-times.de^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/4920
+mathb-ege.sdamgia.ru##.content >div[style="margin-bottom:20px"] > div[style="width:728px;margin:auto"]+div
+! https://github.com/AdguardTeam/AdguardFilters/issues/4906
+@@||mobilesringtones.com^$generichide
+! https://forum.adguard.com/index.php?threads/deezer-com-antiadblock.21269/
+@@||deezer.com^$generichide
+! https://forum.adguard.com/index.php?threads/jkwaveblog-com.19449/
+@@||jkwaveblog.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/3680
+@@||mackungfu.org$generichide
+! https://forum.adguard.com/index.php?threads/www-lesechos-fr.15718/
+@@||lesechos.com/*/dfp.js^
+! https://forum.adguard.com/index.php?threads/15039/
+@@||lesinrocks.com^$generichide
+! wordpress theme https://mythemeshop.com/themes/ad-sense/
+@@||adisteme.kz^$generichide
+@@||adobevn.net^$generichide
+@@||applosungen.com^$generichide
+@@||awamiweb.com^$generichide
+@@||besthealthyguide.com^$generichide
+@@||bhookedcrochet.com^$generichide
+@@||biochemden.com^$generichide
+@@||bloggingden.com^$generichide
+@@||carapraktis.info^$generichide
+@@||catchmyjobs.com^$generichide
+@@||ccna6.com^$generichide
+@@||ccnav6.com^$generichide
+@@||dayoadetiloye.com^$generichide
+@@||detutorial.com^$generichide
+@@||diedit.com^$generichide
+@@||dollsnews.com^$generichide
+@@||duniaq.com^$generichide
+@@||espiaresgratis.com^$generichide
+@@||gamingguidetips.com^$generichide
+@@||geekpeaksoftware.com^$generichide
+@@||gennarino.org^$generichide
+@@||healthspiritbody.com^$generichide
+@@||hightechbuzz.net^$generichide
+@@||inmigrantesenmadrid.com^$generichide
+@@||laivanduc.com^$generichide
+@@||langsungviral.com^$generichide
+@@||learn-automation.com^$generichide
+@@||lifeblogid.com^$generichide
+@@||liriklaguindonesia.net^$generichide
+@@||masterdrivers.com^$generichide
+@@||mobilehardreset.com^$generichide
+@@||mobilesreview.co.in^$generichide
+@@||mypapercraft.net^$generichide
+@@||mysemakan.com^$generichide
+@@||nicecarsinfo.com^$generichide
+@@||ofertasahora.com^$generichide
+@@||orduh.com^$generichide
+@@||organichealthcorner.com^$generichide
+@@||ovnihoje.com^$generichide
+@@||parhaye.com^$generichide
+@@||prdnews.com^$generichide
+@@||quoteacademy.com^$generichide
+@@||ricasaude.com^$generichide
+@@||rwaag.org^$generichide
+@@||satgobmx.com^$generichide
+@@||shoemoney.com^$generichide
+@@||smartphonehrvatska.com^$generichide
+@@||soltvperu.com^$generichide
+@@||ssante.com^$generichide
+@@||sumberpendidikan.com^$generichide
+@@||supportcanon.com^$generichide
+@@||tatuajestatu.com^$generichide
+@@||topnaturaltips.com^$generichide
+@@||topwebsitelists.com^$generichide
+@@||tutorialescomo.com^$generichide
+@@||ultra4kporn.com^$generichide
+@@||vegrecetas.com^$generichide
+@@||vidabytes.com^$generichide
+@@||wikigain.com^$generichide
+@@||wisdomquotesandstories.com^$generichide
+@@||yoemigro.com^$generichide
+! https://forum.adguard.com/index.php?threads/camiris-com-nsfw-anti-adblock.20650/
+@@||camiris.com^$generichide
+@@/fuckadblock.js$domain=camiris.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/4665
+@@||inside-digital.de^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/3844
+@@||securepubads.g.doubleclick.net/gpt/pubads_impl_*.js$domain=boston.com|calgaryherald.com|calgarysun.com|celebuzz.com|montrealgazette.com|saveur.com
+@@||static.ads-twitter.com/oct.js$domain=boston.com|calgaryherald.com|calgarysun.com|celebuzz.com|montrealgazette.com|saveur.com
+@@||js.revsci.net/gateway/gw.js$domain=boston.com|calgaryherald.com|calgarysun.com|celebuzz.com|montrealgazette.com|saveur.com
+@@||c.betrad.com/geo/ba.js$domain=boston.com|calgaryherald.com|calgarysun.com|celebuzz.com|montrealgazette.com|saveur.com
+@@||yahoo.com/lib/metro/g/myy/advertisement_*.js$domain=boston.com|calgaryherald.com|calgarysun.com|celebuzz.com|montrealgazette.com|saveur.com
+@@||google-analytics.com/analytics.js$domain=boston.com|calgaryherald.com|calgarysun.com|celebuzz.com|montrealgazette.com|saveur.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/4143
+@@||securepubads.g.doubleclick.net/gpt/pubads_impl_$domain=allmusic.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/4189
+@@||websetnet.com$elemhide
+! https://github.com/AdguardTeam/AdguardFilters/issues/3849
+@@google$domain=focus.de,script
+! https://github.com/AdguardTeam/AdguardFilters/issues/3109
+@@||mackie100projects.altervista.org^$generichide
+! https://forum.adguard.com/index.php?threads/13867/
+@@||pagead2.googlesyndication.com/pagead/js/lidar.js$domain=freewarefiles.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/2995
+@@||ran.de^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/2962
+@@||mackungfu.org^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/2883
+@@||animetake.tv^$elemhide
+! https://forum.adguard.com/index.php?threads/12790/
+@@||d-h.st^$generichide
+! https://forum.adguard.com/index.php?threads/12421/
+@@||sadeempc.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/2787
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=vmf.edge-apps.net|americatv.com.ar
+! https://github.com/AdguardTeam/AdguardFilters/issues/2777
+@@||today.it^$generichide
+! https://forum.adguard.com/index.php?threads/12260/
+@@||androidsage.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/2669
+@@||bnonews.com^$generichide
+! https://forum.adguard.com/index.php?threads/12053/
+@@||animmex.net^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/2574
+! opensubtitles.org - anti-adblock ads
+@@||static.opensubtitles.org/libs/js/ad_
+@@||pagead2.googlesyndication.com/pagead/show_ads.js$domain=opensubtitles.org
+@@||ads2.opensubtitles.org/*www/delivery/afr.php?
+! https://github.com/AdguardTeam/AdguardFilters/issues/2453
+@@||gofobo.com^$generichide
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/1971
+@@||vidoser.org^$elemhide
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/1948
+@@||echoes.gr^$elemhide
+@@||echoes.gr/*/adsManager
+! http://forum.adguard.com/showthread.php?10520
+@@||jagledam.com^$generichide
+@@||jagledam.co^$generichide
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/1717
+@@||sharejunction.com^$generichide
+! wired.com
+wired.com###veil
+@@||assets.adobedtm.com^$domain=wired.com
+@@||wired.com^$generichide
+! ad4msan.com - anti-adblock
+ad4msan.com#@##adBannerTable
+ad4msan.com#@##ad_YieldManager-728x90
+ad4msan.com#@##adver5
+ad4msan.com#@##googleAdwordsModule
+ad4msan.com#@##iframeTopAd
+ad4msan.com#@##multi_ad
+!#######################################################
+!############## Specific rules #########################
+!#######################################################
+!
+! Section contains rules for specific websites
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/29103
+! https://github.com/AdguardTeam/AdguardFilters/issues/20779
+! https://github.com/AdguardTeam/AdguardFilters/issues/15542
+! https://github.com/AdguardTeam/AdguardFilters/issues/14261
+! https://github.com/AdguardTeam/AdguardFilters/issues/10524
+! Rules to block ads on "amp" websites on Safari
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##.ampads
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws###i-amphtml-wrapper div.content_ins
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##.amp-ad
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##.advertising
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##amp-embed[type="taboola"]
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##.nextad
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws###i-amphtml-wrapper .frame-holder
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##.id-Amp-recommendation
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##amp-iframe[src^="https://widgets.outbrain.com/hub/amp.html"]
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws###mrec
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##.iqampcenter
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##amp-fx-flying-carpet
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##.amp-flying-carpet-text-border
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##.amp-article-ad
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##amp-embed[type="outbrain"]
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##.ad-mark
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##amp-embed.i-amphtml-layout-responsive[type="doubleclick"]
+google.ad,google.ae,google.al,google.am,google.as,google.at,google.az,google.ba,google.be,google.bf,google.bg,google.bi,google.bj,google.bs,google.bt,google.by,google.ca,google.cat,google.cd,google.cf,google.cg,google.ch,google.ci,google.cl,google.cm,google.cn,google.co.ao,google.co.bw,google.co.ck,google.co.cr,google.co.id,google.co.il,google.co.in,google.co.jp,google.co.ke,google.co.kr,google.co.ls,google.co.ma,google.co.mz,google.co.nz,google.co.th,google.co.tz,google.co.ug,google.co.uk,google.co.uz,google.co.ve,google.co.vi,google.co.za,google.co.zm,google.co.zw,google.com,google.com.af,google.com.ag,google.com.ai,google.com.ar,google.com.au,google.com.bd,google.com.bh,google.com.bn,google.com.bo,google.com.br,google.com.bz,google.com.co,google.com.cu,google.com.cy,google.com.do,google.com.ec,google.com.eg,google.com.et,google.com.fj,google.com.gh,google.com.gi,google.com.gt,google.com.hk,google.com.jm,google.com.kh,google.com.kw,google.com.lb,google.com.ly,google.com.mm,google.com.mt,google.com.mx,google.com.my,google.com.na,google.com.nf,google.com.ng,google.com.ni,google.com.np,google.com.om,google.com.pa,google.com.pe,google.com.pg,google.com.ph,google.com.pk,google.com.pr,google.com.py,google.com.qa,google.com.sa,google.com.sb,google.com.sg,google.com.sl,google.com.sv,google.com.tj,google.com.tr,google.com.tw,google.com.ua,google.com.uy,google.com.vc,google.com.vn,google.cv,google.cz,google.de,google.dj,google.dk,google.dm,google.dz,google.ee,google.es,google.fi,google.fm,google.fr,google.ga,google.ge,google.gg,google.gl,google.gm,google.gp,google.gr,google.gy,google.hn,google.hr,google.ht,google.hu,google.ie,google.im,google.iq,google.is,google.it,google.je,google.jo,google.kg,google.ki,google.kz,google.la,google.li,google.lk,google.lt,google.lu,google.lv,google.md,google.me,google.mg,google.mk,google.ml,google.mn,google.ms,google.mu,google.mv,google.mw,google.ne,google.nl,google.no,google.nr,google.nu,google.pl,google.pn,google.ps,google.pt,google.ro,google.rs,google.ru,google.rw,google.sc,google.se,google.sh,google.si,google.sk,google.sm,google.sn,google.so,google.sr,google.st,google.td,google.tg,google.tk,google.tl,google.tm,google.tn,google.to,google.tt,google.vg,google.vu,google.ws##div.ampAdvContainer
+!
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/172947
+@@||rdrtr.com/*url=
+! https://github.com/AdguardTeam/AdguardFilters/issues/105330
+fmoviesto.cc###overlay-container
+! https://github.com/AdguardTeam/AdguardFilters/issues/73927
+||s3.amazonaws.com/*?cid=*&subaff=*&client=*&rsm=
+! https://github.com/AdguardTeam/AdguardFilters/issues/74317
+latimes.com##.google-dfp-ad-wrapper
+latimes.com##.google-dfp-ad-caption
+!
+/invoke.js|$third-party,domain=boards.4channel.org
+! https://github.com/AdguardTeam/AdguardFilters/issues/56564
+.com/*/*/*/*.js$domain=cimaclub.cam|govid.co
+! https://github.com/AdguardTeam/AdguardFilters/issues/47069
+! ai_adb anti-adblock
+@@||papunika.com^$generichide
+@@||ccthesims.com^$generichide
+@@||googledrivelinks.com^$generichide
+@@||adrianoluis.net^$generichide
+@@||animecast.net^$generichide
+@@||armyranger.com^$generichide
+@@||boxylucha.com^$generichide
+@@||duniailkom.com^$generichide
+@@||enciclopediaonline.com^$generichide
+@@||eyalo.com^$generichide
+@@||fotopixel.es^$generichide
+@@||freeiphone.fr^$generichide
+@@||ichberlin.com^$generichide
+@@||indostarmedia.com^$generichide
+@@||ireez.com^$generichide
+@@||keepkoding.com^$generichide
+@@||latribunadeautomocion.es^$generichide
+@@||linemarlin.com^$generichide
+@@||lumpiastudio.com^$generichide
+@@||mobility.com.ng^$generichide
+@@||mygardening411.com^$generichide
+@@||newstvonline.com^$generichide
+@@||organismes.org^$generichide
+@@||papagiovannipaoloii.altervista.org^$generichide
+@@||pictasty.com^$generichide
+@@||playlists.rocks^$generichide
+@@||rencah.com^$generichide
+@@||sarkarinaukry.com^$generichide
+@@||seamanmemories.com^$generichide
+@@||solnechnyj-kitaj.ru^$generichide
+@@||thefoodstorydotcom.wpcomstaging.com^$generichide
+@@||theorie-musik.de^$generichide
+@@||topperpoint.com^$generichide
+@@||vita-water.ru^$generichide
+@@||udoyoshi.com^$generichide
+@@||javhoho.com^$generichide
+@@||isekaisubs.web.id^$generichide
+@@||buydekhke.com^$generichide
+@@||plugincrack.com^$generichide
+@@||g.doubleclick.net/tag/js/gpt.js$domain=ccthesims.com
+@@/wp-content/plugins/ad-inserter/*$domain=plugincrack.com|buydekhke.com|isekaisubs.web.id|javhoho.com|udoyoshi.com|adrianoluis.net|animecast.net|armyranger.com|boxylucha.com|duniailkom.com|enciclopediaonline.com|eyalo.com|fotopixel.es|freeiphone.fr|ichberlin.com|indostarmedia.com|ireez.com|keepkoding.com|latribunadeautomocion.es|linemarlin.com|lumpiastudio.com|mobility.com.ng|mygardening411.com|newstvonline.com|organismes.org|papagiovannipaoloii.altervista.org|pictasty.com|playlists.rocks|rencah.com|sarkarinaukry.com|seamanmemories.com|solnechnyj-kitaj.ru|thefoodstorydotcom.wpcomstaging.com|theorie-musik.de|topperpoint.com|vita-water.ru|googledrivelinks.com|ccthesims.com|papunika.com
+@@||contextual.media.net/dmedianet.js$domain=plugincrack.com|buydekhke.com|isekaisubs.web.id|javhoho.com|udoyoshi.com|adrianoluis.net|animecast.net|armyranger.com|boxylucha.com|duniailkom.com|enciclopediaonline.com|eyalo.com|fotopixel.es|freeiphone.fr|ichberlin.com|indostarmedia.com|ireez.com|keepkoding.com|latribunadeautomocion.es|linemarlin.com|lumpiastudio.com|mobility.com.ng|mygardening411.com|newstvonline.com|organismes.org|papagiovannipaoloii.altervista.org|pictasty.com|playlists.rocks|rencah.com|sarkarinaukry.com|seamanmemories.com|solnechnyj-kitaj.ru|thefoodstorydotcom.wpcomstaging.com|theorie-musik.de|topperpoint.com|vita-water.ru|googledrivelinks.com|ccthesims.com|papunika.com
+@@||ib.adnxs.com^$image,domain=plugincrack.com|buydekhke.com|isekaisubs.web.id|javhoho.com|udoyoshi.com|adrianoluis.net|animecast.net|armyranger.com|boxylucha.com|duniailkom.com|enciclopediaonline.com|eyalo.com|fotopixel.es|freeiphone.fr|ichberlin.com|indostarmedia.com|ireez.com|keepkoding.com|latribunadeautomocion.es|linemarlin.com|lumpiastudio.com|mobility.com.ng|mygardening411.com|newstvonline.com|organismes.org|papagiovannipaoloii.altervista.org|pictasty.com|playlists.rocks|rencah.com|sarkarinaukry.com|seamanmemories.com|solnechnyj-kitaj.ru|thefoodstorydotcom.wpcomstaging.com|theorie-musik.de|topperpoint.com|vita-water.ru|googledrivelinks.com|ccthesims.com|papunika.com
+@@||router.infolinks.com/dyn/apn-usync?$image,domain=plugincrack.com|buydekhke.com|isekaisubs.web.id|javhoho.com|udoyoshi.com|adrianoluis.net|animecast.net|armyranger.com|boxylucha.com|duniailkom.com|enciclopediaonline.com|eyalo.com|fotopixel.es|freeiphone.fr|ichberlin.com|indostarmedia.com|ireez.com|keepkoding.com|latribunadeautomocion.es|linemarlin.com|lumpiastudio.com|mobility.com.ng|mygardening411.com|newstvonline.com|organismes.org|papagiovannipaoloii.altervista.org|pictasty.com|playlists.rocks|rencah.com|sarkarinaukry.com|seamanmemories.com|solnechnyj-kitaj.ru|thefoodstorydotcom.wpcomstaging.com|theorie-musik.de|topperpoint.com|vita-water.ru|googledrivelinks.com|ccthesims.com|papunika.com
+@@||google-analytics.com/analytics.js$domain=plugincrack.com
+@@||googletagmanager.com/gtag/js$domain=plugincrack.com
+! ai_front anti-adblock
+bi-girl.net,itbusiness.com.ua,wikirise.com,freebulksmsonline.com,freemagazines.top,ubuntudde.com,mettablog.com,secondlifetranslations.com,charbelnemnom.com,lowkeytech.com##[style*="cursor:"][style*="position: fixed;"][style*="z-index:"]
+@@||contextual.media.net/dmedianet.js$domain=bi-girl.net|itbusiness.com.ua|wikirise.com|freewebcart.com|wristreview.com|javnow.net|gcertificationcourse.com|secondlifetranslations.com|mettablog.com|freebulksmsonline.com|victor-mochere.com
+@@/ad-inserter*/*/*.js$domain=bi-girl.net|itbusiness.com.ua|wikirise.com|freewebcart.com|wristreview.com|javnow.net|gcertificationcourse.com|secondlifetranslations.com|mettablog.com|freebulksmsonline.com|victor-mochere.com
+@@/ad-inserter*/images/ads.png$domain=bi-girl.net|itbusiness.com.ua|wikirise.com|freewebcart.com|wristreview.com|javnow.net|gcertificationcourse.com|secondlifetranslations.com|mettablog.com|freebulksmsonline.com|victor-mochere.com
+@@||google-analytics.com/analytics.js$domain=bi-girl.net|itbusiness.com.ua|wikirise.com|freewebcart.com|javnow.net|freebulksmsonline.com|victor-mochere.com
+@@||ib.adnxs.com^$image,domain=bi-girl.net|itbusiness.com.ua|wikirise.com|freewebcart.com|javnow.net|gcertificationcourse.com|secondlifetranslations.com|mettablog.com|freebulksmsonline.com|victor-mochere.com
+@@||router.infolinks.com/dyn/apn-usync$image,domain=bi-girl.net|itbusiness.com.ua|wikirise.com|freewebcart.com|javnow.net|gcertificationcourse.com|secondlifetranslations.com|mettablog.com|freebulksmsonline.com|victor-mochere.com
+@@||bi-girl.net^$generichide
+@@||victor-mochere.com^$generichide
+@@||itbusiness.com.ua^$generichide
+@@||wikirise.com^$generichide
+@@||freebulksmsonline.com^$generichide
+@@||mettablog.com^$generichide
+@@||secondlifetranslations.com^$generichide
+@@||gcertificationcourse.com^$generichide
+gcertificationcourse.com###sticky-ad
+@@||javnow.net^$generichide
+@@||wristreview.com^$generichide
+@@||freewebcart.com^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/123558
+/:\/\/[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9].[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9].com\/.*.js/$third-party,script,domain=perverzija.com|xtremestream.co
+! https://github.com/AdguardTeam/AdguardFilters/issues/44019
+thememazing.com##.adsbygoogle
+! https://github.com/AdguardTeam/AdguardFilters/issues/35815
+reuters.com##.StandardArticleBody_body + div[id][class] > div[class*=" "]
+reuters.com##.StandardArticleBody_container + div > span ~ div
+! https://github.com/AdguardTeam/AdguardFilters/issues/38505
+magazinizmir.com##footer a[class^="BoomadsButtonLink"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/37789
+echo.msk.ru###first_ma
+echo.msk.ru###main_bottom_2
+echo.msk.ru##.adf_sg_vstg2
+echo.msk.ru##.comments-ad
+! https://github.com/AdguardTeam/AdguardFilters/issues/34823
+habermarmara.com.tr,murekkephaber.com,akdenizbulten.com,mansetizmir.com,denizliekspres.com.tr,izmirhabermerkezi.com,saatbasihaber.com,mahalligundem.com##img[alt="Reklam"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/30157
+reuters.com##body > div > div[class$=" "][style^="width: 100%; border: none;"]
+reuters.com##body > div > div[class$=" "][style^="width: 100%; border: none;"] + #spacerElement[style^="height:"]
+reuters.com##.TwoColumnLayout_container > .TwoColumnLayout_column + div[id] > div:not([class]):not([id]) + div[class$=" "]:last-child
+reuters.com##.TwoColumnLayout_container > .TwoColumnLayout_column > .StandardArticleBody_container > .StandardArticleBody_body + div:not([class]):not([id]) + div[class$=" "]
+reuters.com##.TwoColumnLayout_container > .TwoColumnLayout_column > .StandardArticleBody_container > .StandardArticleBody_body + div:not([class]):not([id]) + div[id] > div[class$=" "] ~ *
+! https://github.com/AdguardTeam/AdguardFilters/issues/31672
+newsru.co.il##.article_container > div > iframe[src*="platform.videoblock.co.il"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/26752
+worldjournal.com###wrapper > #popup-banner
+! t-online.de - Cyberweek ads at top
+t-online.de###Tall > #Tmainbox div.Tctiga[id][style] > .toiclaus a[href*="utm_source"] > img
+! https://github.com/AdguardTeam/AdguardFilters/issues/24197
+boston.com##.-mps-rdcipxctg
+! https://github.com/AdguardTeam/AdguardFilters/issues/23979
+theoutline.com##.post__body > p + div[class][data-id]
+! https://github.com/AdguardTeam/AdguardFilters/issues/22711
+iculture.nl##.ad-container
+! https://github.com/AdguardTeam/AdguardFilters/issues/19405
+||ltn.hitomi.la/thlYeSta6.js$important
+||ltn.hitomi.la/RaCtICanTi24.js$important
+! https://github.com/AdguardTeam/AdguardFilters/issues/13064
+forbes.com##.top-ad-container
+forbes.com##div[id^="google_ads_iframe_"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/12267
+m.timesofindia.com##div[data-secname="Top_Stories"] > ul > div[class*=" "][style="background: none;"] > div[class]:not([id]):not([style]) > iframe:not([src])
+! https://github.com/AdguardTeam/AdguardFilters/issues/10281
+gamedev.net##.ad_text
+gamedev.net##.ad_leaderboard
+! https://github.com/AdguardTeam/AdguardFilters/issues/7793
+motorradonline.de##.mps-banner > span
+! https://github.com/AdguardTeam/AdguardFilters/issues/5149
+convertfiles.com###advertisement_section
+convertfiles.com##div[id^="div-gpt-ad"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/5121
+tchgdns.de##.footer-pub
+tchgdns.de##.header-pub
+! https://github.com/AdguardTeam/AdguardFilters/issues/5025
+gesundheit.de##.adsense
+! https://github.com/AdguardTeam/AdguardFilters/issues/5006
+macrumors.com##.ad
+! sports.ru
+sports.ru##a[href^="http://media-rotate.com"]
+sports.ru##.bonuses-aside
+/\/\/s5o.ru\/source\/_desktop\/assets\/[0-9][0-9][0-9][0-9].(jpg)/$domain=sports.ru,image
+/\/\/s5o.ru\/source\/_desktop\/assets\/[0-9].(jpg)/$domain=sports.ru,image
+/\/\/s5o.ru\/source\/_desktop\/assets\/[0-9][0-9][0-9][0-9].(png)/$domain=sports.ru,image
+/\/\/s5o.ru\/source\/_desktop\/assets\/[0-9].(png)/$domain=sports.ru,image
+! https://github.com/AdguardTeam/AdguardFilters/issues/4764
+o2.pl##div[data-st-area="ST-Article-Body"] > div._1-MSN > div[style*="width: 970px;"]
+o2.pl##div[data-st-area="ST-Article-Body"] > div._1-MSN+div > div[style="padding-top: 20px;"] > div[class] > div[style*="height: 600px;"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/4061
+forbes.com###stackForbesAdvoice
+forbes.com##.article-speed-bump
+! https://github.com/AdguardTeam/AdguardFilters/issues/3880
+/\:\/\/[a-z0-9]*.[a-z]*\/[0-9]*\//$third-party,domain=mintmanga.com
+!
+! https://forum.adguard.com/index.php?threads/13017/
+torrentdownloads.me##a[href^="http://www.friendlyquacks.com/"]
+! https://github.com/AdguardTeam/AdguardForiOS/issues/128
+@@/:\/\/.*[.]wp[.]pl\/[a-z0-9_]+[.][a-z]+[/:&?]?/
+! https://github.com/AdguardTeam/AdguardFilters/issues/2766
+quoka.de###div-gpt-ad-banner
+! https://forum.adguard.com/index.php?threads/11186/
+uptobox.com##.ad-square
+! https://github.com/AdguardTeam/AdguardFilters/issues/2744
+kinopoisk.ru###brandingFlash
+kinopoisk.ru##.direct-kp-customize
+||st.kp.yandex.net/images/bnnr/$domain=kinopoisk.ru
+! https://github.com/AdguardTeam/AdguardFilters/issues/2669
+bnonews.com##.adsbygoogle
+bnonews.com##.advertisement
+bnonews.com##div[id^="div-gpt-ad"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/2574
+opensubtitles.org###scrubbuad
+opensubtitles.org###search_results > tbody > tr[style^="height:115px;text-align:center;margin:0px;padding:0px;"]
+opensubtitles.org##div[id$="-placeholder"]
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/1921
+konachan.net##iframe[src^="https://tbib.org/"]
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/1920
+apfelpage.de##.a4promo_ad
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/1918
+zhidao.baidu.com##div[class^="mm-content-box kmb5707e0 wm-"]
+||entry.baidu.com/rp/home?
+! http://forum.adguard.com/showthread.php?10163
+opensubtitles.org##iframe[width="160"][height="700"]
+||ads*.opensubtitles.org^
+! Ads in Moscow subway
+vmet.ro,wi-fi.ru###fullscreenBanner
+wi-fi.ru##.b-banner-full
+wi-fi.ru##.b-banner-middle
+wi-fi.ru##.b-bnr
+wi-fi.ru##.vb
+||static0.wi-fi.ru/static/000/ios/index.html
+! http://forum.adguard.com/showthread.php?5125 (the slider on the main page will be broket, but there is not other way to block fullscrean ad)
+||gamer.ru/alarmalarm/js/
+! http://forum.adguard.com/showthread.php?7471
+! We should add $subdocument modifier to block iframes from loading on Safari
+||sports.ru/desktop/special/$subdocument,domain=sports.ru
+! We should also hide that iframe because blocking by URL won't remove the whitespace
+m.sports.ru##iframe[src^="http://www.sports.ru/desktop/special/"]
+!#######################################################
+!############## Fixing blocking issues  ################
+!#######################################################
+!
+! White list. Fixing content blocking API issues.
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/220373
+@@||havenclick.com/www/delivery/*vast$xmlhttprequest,domain=hentaihaven.online|hentaihaven.com|hentaimama.tv
+! https://github.com/AdguardTeam/AdguardFilters/issues/201821
+@@||libgen.li/ads.php
+! https://github.com/AdguardTeam/AdguardFilters/issues/176956
+||thegay.com^$script,domain=thegay.com,badfilter
+! https://github.com/AdguardTeam/AdguardFilters/issues/162524
+@@||cdnjs.cloudflare.com/ajax/libs/$domain=f2movies.to
+! https://github.com/AdguardTeam/AdguardFilters/issues/161361
+@@||mein.mobile.de/*/*id=
+! https://github.com/AdguardTeam/AdguardFilters/issues/149105
+@@||bleepingcomputer.com/*/*/*/$~script,~stylesheet,~xmlhttprequest,~image
+! https://github.com/AdguardTeam/AdguardFilters/issues/144552
+@@||rev.evrensel.net/www/delivery/*.php
+! https://github.com/AdguardTeam/AdguardFilters/issues/118485
+@@||stackoverflow.com/questions/
+! https://github.com/AdguardTeam/AdguardFilters/issues/111695
+@@||arstechnica.com/*/*/*-banner-ad-
+! https://github.com/AdguardTeam/AdguardFilters/issues/105843
+@@||uptostream.com/assets/$script,stylesheet
+! https://github.com/AdguardTeam/AdguardFilters/issues/105046
+@@||jobregister.aas.org/ad/
+! https://github.com/AdguardTeam/AdguardFilters/issues/105299
+||thepiratebay.$script,domain=pirateproxy.live|thehiddenbay.com|thepiratebay.org,badfilter
+!#safari_cb_affinity(privacy)
+@@||thepiratebay.org/static/main.js$script,~third-party
+!#safari_cb_affinity
+! https://github.com/AdguardTeam/AdguardFilters/issues/102169
+! https://github.com/AdguardTeam/AdguardFilters/issues/32192
+@@||adguardteam.github.io/AnonymousRedirect/redirect.html?url=
+@@||m.wikipedia.org/wiki/
+@@||wikipedia.org/wiki/
+! https://github.com/AdguardTeam/AdguardFilters/issues/101522
+@@||klientboost.com/google/
+! https://github.com/AdguardTeam/AdguardFilters/issues/101521
+@@||at.adtech.redventures.io/lib/dist/prod/bidbarrel-zdnet-rv.min.js$domain=zdnet.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/101520
+@@||googletagservices.com/tag/js/gpt.js$domain=macworld.co.uk
+@@||securepubads.g.doubleclick.net/gpt/pubads_impl_*.js$domain=macworld.co.uk
+!#safari_cb_affinity(privacy)
+@@||js-sec.indexww.com/ht/p/*.js$domain=macworld.co.uk
+!#safari_cb_affinity
+! https://github.com/AdguardTeam/AdguardFilters/issues/100790
+!#safari_cb_affinity(privacy)
+@@||thegatewaypundit.com^$elemhide
+!#safari_cb_affinity
+! https://github.com/AdguardTeam/AdguardFilters/issues/99520
+@@||app.adjust.net.in/*?campaign=*&redirect=
+! https://github.com/AdguardTeam/AdguardFilters/issues/95904
+@@||technologyreview.com/*/adsense-
+! https://github.com/AdguardTeam/AdguardFilters/issues/94871
+@@||ad.adverticum.net/cc.js
+! Fixing docs on developers.google.com
+@@||developers.google.com^
+! https://github.com/AdguardTeam/AdguardFilters/issues/91482
+@@||support.google.com/google-ads/
+! https://github.com/AdguardTeam/AdguardFilters/issues/91360
+@@||boingboing.net/20*/*.html
+! https://github.com/AdguardTeam/AdguardFilters/issues/89859
+@@||publicwww.com/ad/finance/
+! https://github.com/AdguardTeam/AdguardFilters/issues/79997
+@@||smashingmagazine.com/20*-ad-$~script,domain=smashingmagazine.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/79509
+@@||macrumors.com/2021/*-ad-$domain=macrumors.com
+! https://forum.adguard.com/index.php?threads/19610/
+@@||4channel.org/adv/$domain=4channel.org
+@@||4chan.org/adv/$domain=4chan.org
+! macworld.co.uk - incorrect blocking
+@@||amazon-adsystem.com/aax2/apstag.js$domain=macworld.co.uk
+@@||googletagservices.com/tag/js/gpt.js$domain=macworld.co.uk
+! https://github.com/AdguardTeam/AdguardFilters/issues/76834
+!#safari_cb_affinity(privacy)
+@@||dixonsretail.*.omtrdc.net/b/ss/dixonsrtcurrysprod/*/REDIR/*currys.co.uk*api.dcg-search.co*curry
+!#safari_cb_affinity
+! https://github.com/AdguardTeam/AdguardFilters/issues/73727
+@@||ssl.p.jwpcdn.com/player/plugins/vast/*/vast.js$domain=hentaihaven.xxx
+! https://github.com/AdguardTeam/AdguardFilters/issues/71532
+@@||cnbc.com/20*-ad-
+! https://github.com/AdguardTeam/AdguardFilters/issues/69283
+@@||usdentaldepot.com/ads-
+! https://github.com/AdguardTeam/AdguardFilters/issues/67275
+!#safari_cb_affinity(privacy)
+@@||ad.adverticum.net/*.js$domain=metabro.hu
+@@||gemhu.adocean.pl/*.js$domain=metabro.hu
+@@||hit.gemius.pl/*.js$domain=metabro.hu
+@@||lv.adocean.pl/*/ad.js?$domain=metabro.hu
+@@||lv.adocean.pl/files/js/aomini.js$domain=metabro.hu
+@@||securepubads.g.doubleclick.net/gpt/pubads_impl_*.js$domain=metabro.hu
+@@||ads.projectagoraservices.com/?id=$domain=metabro.hu
+!#safari_cb_affinity
+! https://github.com/AdguardTeam/AdguardFilters/issues/67319
+!#safari_cb_affinity(privacy)
+@@||fedex.com/apps/fedextrack/
+!#safari_cb_affinity
+! https://github.com/AdguardTeam/AdguardFilters/issues/66392
+@@||bgnvrsk.ru/ads/
+! https://github.com/AdguardTeam/AdguardFilters/issues/65550
+! fixing scrolling
+@@||securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1$domain=joe.ie|joe.co.uk
+@@||securepubads.g.doubleclick.net/gpt/pubads_impl_*.js$domain=joe.ie|joe.co.uk
+@@||joe.*/assets/js/prebid*.js$domain=joe.ie|joe.co.uk
+! https://github.com/AdguardTeam/AdguardFilters/issues/63683
+@@||aachener-nachrichten.de/advertorials/
+! https://github.com/AdguardTeam/AdguardFilters/issues/62995
+@@||ftc.gov/tips-advice/
+! https://github.com/AdguardTeam/AdguardFilters/issues/61453
+@@||adguard.com/*/blog/
+@@||adguard.com/*/support/
+! https://github.com/AdguardTeam/AdguardFilters/issues/57915
+@@||switching.software/replace/google-analytics/
+! https://github.com/AdguardTeam/AdguardFilters/issues/57812
+@@||spareroom.co.uk/*/offered-$domain=spareroom.co.uk
+! https://github.com/AdguardTeam/AdguardFilters/issues/56173
+@@||cdn.movie-pass.live/scripts/nwm-fcn.min.js$domain=opensubtitles.org
+opensubtitles.org###fcnbox
+! https://github.com/AdguardTeam/AdguardFilters/issues/56611
+@@||cdn.mp4upload.com/pl/plyr*.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/53950
+@@||canadiantire.ca/*?adlocation=
+! https://github.com/AdguardTeam/AdguardFilters/issues/52181
+@@||forums.wyzecam.com/t/affiliate-program/
+! https://github.com/AdguardTeam/AdguardFilters/issues/50204
+@@||affiliates.bundlehunt.com/wp-json/$domain=bundlehunt.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/49884
+@@||anketa.alfabank.ru/alfaform/?*&bannerId=
+! https://github.com/AdguardTeam/AdguardFilters/issues/49123
+@@||evil-inc.com/comic/advertising-age/$~script
+! https://github.com/AdguardTeam/AdguardFilters/issues/48693
+!#safari_cb_affinity(social)
+@@||cdn.syndication.twimg.com/tweets.json
+!#safari_cb_affinity
+! fix showjet.ru player on myshows.me
+@@||myshows.me^$generichide
+myshows.me##.adsbygoogle
+@@||showjet.ru/css/ads-custom.css$domain=myshows.me
+! https://github.com/AdguardTeam/AdguardFilters/issues/43656
+@@||cdn.blueconic.net/pon.js$domain=seat.nl
+@@||pon.blueconic.net/DG/DEFAULT/rest/rpc/json$domain=seat.nl
+@@||pon.blueconic.net/plugin/$domain=seat.nl
+@@||pon.blueconic.net/plugins/*optout_responsive$domain=seat.nl
+! https://github.com/AdguardTeam/AdguardFilters/issues/43141
+@@||subito.it/account/manageads/
+! https://github.com/AdguardTeam/AdguardFilters/issues/42094
+||rotter.net/*.html$subdocument,domain=rotter.name|rotter.net,badfilter
+! https://github.com/AdguardTeam/AdguardFilters/issues/41138
+@@||popsci.com/gdpr.html?redirect=
+! https://github.com/AdguardTeam/AdguardFilters/issues/41109
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=rtlnieuws.nl
+! https://github.com/AdguardTeam/AdguardFilters/issues/41124
+@@||securepubads.g.doubleclick.net/gpt/pubads_impl_*.js$domain=eksisozluk.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/40735
+@@||takemehome.pl/*?offer_id=*&aff_id=
+! https://github.com/AdguardTeam/AdguardFilters/issues/40529
+@@||alaev.net/reklama/
+! https://github.com/AdguardTeam/AdguardFilters/issues/34795
+@@||twitter.com/adlink_tech
+! https://github.com/AdguardTeam/AdguardFilters/issues/39228
+@@||github.com/Yhonay/antipopads/
+! https://github.com/AdguardTeam/AdguardFilters/issues/33329
+@@||appleinsider.ru/advertisment/
+! https://github.com/AdguardTeam/AdguardFilters/issues/37790
+@@||biddr.brealtime.com/*.js$domain=airlinepilotforums.com
+@@||securepubads.g.doubleclick.net/gpt/pubads_impl_*.js$domain=airlinepilotforums.com
+! https://github.com/AdguardTeam/AdGuardForSafari/issues/192
+@@||theregister.co.uk/*_adtech_
+! https://github.com/AdguardTeam/AdguardFilters/issues/33093
+! Fanboy's Annoyances
+inequality.org#@#.social-hide
+! rbc.ru - fixing long-term loading
+@@||securepubads.g.doubleclick.net/gpt/pubads_impl_*.js$domain=rbc.ru
+@@||securepubads.g.doubleclick.net/gampad/ads$domain=rbc.ru
+! https://github.com/AdguardTeam/AdguardFilters/issues/34012
+@@||guce.engadget.com/consent
+@@||guce.advertising.com/collectIdentifiers
+! https://github.com/AdguardTeam/AdguardFilters/issues/31923
+@@||mbid.marfeelrev.com/hub/mbidder/adx$domain=cleantechnica.com
+@@||bc.marfeelcache.com/statics/marfeel/prebid-worker/webworker.js$domain=cleantechnica.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/31749
+@@||youtube.com^$domain=gsmarena.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/31573
+@@||assets.modelmayhem.com/includes/js/ad.min.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/31040
+@@||video.unrulymedia.com/native/native-loader.js$domain=mothership.sg
+! https://github.com/AdguardTeam/AdguardFilters/issues/28175
+@@||optim.pro/reklama/
+! https://github.com/AdguardTeam/AdguardFilters/issues/29613
+@@||ny1.com^$elemhide
+! https://github.com/AdguardTeam/AdguardFilters/issues/29537
+! https://github.com/AdguardTeam/AdguardFilters/issues/41975
+! https://github.com/AdguardTeam/AdguardFilters/issues/46711
+@@||baidu.com/tcx?appui=$domain=baidu.com
+@@||baidu.com/it/u=$domain=baidu.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/28796
+@@||mbid.marfeelrev.com/hub/mbidder/adx$domain=ghacks.net
+@@||b.marfeelcache.com/statics/marfeel/prebid-worker/webworker.js$domain=ghacks.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/24733
+@@||macitynet.it/pubblicita-
+! https://github.com/AdguardTeam/AdguardFilters/issues/26832
+@@||dailycaller.com/*/google-ads-
+! https://github.com/AdguardTeam/AdguardFilters/issues/26648
+@@||vporn.com^$domain=vporn.com,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/21575
+@@||kleinanzeigen.de/s-suchanfrage.html
+! https://github.com/AdguardTeam/AdguardFilters/issues/24317
+@@||spotify.com/ad/
+! https://github.com/AdguardTeam/AdguardFilters/issues/24168
+|http://$script,third-party,xmlhttprequest,domain=mediafire.com,badfilter
+|https://$script,third-party,xmlhttprequest,domain=mediafire.com,badfilter
+! https://github.com/AdguardTeam/AdguardFilters/issues/23978
+@@||sys.4chan.org/*/post$xmlhttprequest,domain=4chan.org
+! https://github.com/AdguardTeam/AdguardFilters/issues/23442
+@@||click.accesstrade.vn/adv.php?url=
+! https://github.com/AdguardTeam/AdguardFilters/issues/22756
+@@||index.hr/Scripts/prebid*.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/22371
+@@||pics.porn300.com^
+@@||cdn*.porn300.com^
+! https://github.com/AdguardTeam/AdguardFilters/issues/22168
+@@||games.tiscali.cz^$subdocument,domain=games.tiscali.cz
+! https://github.com/AdguardTeam/AdguardFilters/issues/19405
+@@||hitomi.la^$script
+! https://github.com/AdguardTeam/AdguardFilters/issues/20043
+@@||bleachernation.com/headerprebid/bn_prebid_logic_*.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/19823
+@@||ilovecreatives.com/ads?
+! https://github.com/AdguardTeam/AdguardFilters/issues/14567
+@@||v.fwmrm.net/ad^$domain=vplayer.nbcsports.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/14943
+@@||gannettdigital.com/universal-web-client/$domain=greenvilleonline.com
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=greenvilleonline.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/14912
+@@||oasjs.kataweb.it/cookielex/set-cookie.short.redir?backurl=
+@@||oasjs.repubblica.it/cookielex/set-cookie.short.redir?backurl=
+! https://github.com/AdguardTeam/AdguardFilters/issues/13495
+@@||kleinanzeigen.de/*.html?keywords=*&categoryId=*&adType=
+! https://github.com/AdguardTeam/AdguardFilters/issues/12789
+@@||x.sare25.com/x.php?url=
+! https://github.com/AdguardTeam/AdguardFilters/issues/11748#issuecomment-366602974
+@@||aktualne.cz^$subdocument,domain=aktualne.cz
+! https://github.com/AdguardTeam/AdguardFilters/issues/8073
+@@||tracking.asosconnect.com/aff_c?offer_id=*&aff_id=*&aff_sub=clickref&*&url=http%3a%2f%2fwww.asos.de%2fasos%2f
+! https://github.com/AdguardTeam/AdguardFilters/issues/6760
+@@||ahcdn.com/*.mp4$domain=xhamster.com
+@@||xhcdn.com/*.mp4$domain=xhamster.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/7211
+@@||google.com/recaptcha/$domain=pornhub.com|pornhub.org|pornhub.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/6731
+@@||cdnjs.cloudflare.com/ajax/libs/$domain=xmoviesforyou.com
+@@||fruithosted.net/dl/*.mp4
+@@||oloadcdn.net/dl/*.mp4
+@@||dato.porn/assets/js/mobile-detection.js
+@@||dato.porn/cdn-cgi/apps/head/*.js$domain=xmoviesforyou.com
+@@||dato.porn/hls/*.m3u8
+@@||dato.porn/js/jquery.cookie.js
+@@||dato.porn/js/jquery.min.js
+@@||dato.porn/js/xupload.js
+@@||dato.porn/player7may/jw-logo-bar.js
+@@||dato.porn/player7may/jwplayer.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/25019
+@@||gumtree.com*/p-post-ad*.html
+! https://github.com/AdguardTeam/AdguardBrowserExtension/issues/678
+! Prevent self-blocking of Adguard for Safari extension
+@@safari-extension://com.adguard.safari-$document
+@@safari-extension://com.adguard.safaridev-$document
+! https://github.com/AdguardTeam/AdguardFilters/issues/3460
+@@||motherlessmedia.com^$domain=motherless.xxx
+! Fixing Depositfiles
+@@://dfiles.ru^$domain=dfiles.ru,~third-party
+@@://dfiles.eu^$domain=dfiles.eu,~third-party
+@@://depositfiles.org^$domain=depositfiles.org,~third-party
+@@://depositfiles.com^$domain=depositfiles.com,~third-party
+! https://github.com/AdguardTeam/AdguardFilters/issues/4859
+@@|blob:https://www.twitch.tv
+! https://github.com/AdguardTeam/AdguardFilters/issues/4766
+! Fixing redirects via an.yandex.ru
+@@||an.yandex.ru/mapuid/*?location=*&jsredir=
+! https://github.com/AdguardTeam/AdguardFilters/issues/4611
+@@||olx.ua/static/olxua/naspersclassifieds-regional/olxeu-atlas-web/static/js/xgemius.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/4392
+@@||app.adjust.io/*&utm_source=desktop_kleiderkreisel.de
+! https://forum.adguard.com/index.php?threads/19610/
+@@||boards.4chan.org/adv/
+! https://github.com/AdguardTeam/AdguardFilters/issues/4384
+@@||mobilitymag.de/werbung/
+! https://github.com/AdguardTeam/AdguardFilters/issues/4375
+@@||basicthinking.de/blog/advertisment/
+! https://github.com/AdguardTeam/AdguardFilters/issues/4338
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=vod.pl
+! https://github.com/AdguardTeam/AdguardFilters/issues/4309
+@@||igen.fr/sites/www.igen.fr/files/advagg_js/
+! https://github.com/AdguardTeam/AdguardFilters/issues/4330
+@@||xhamster.com/ajax/
+@@||google.com/recaptcha/$domain=xhamster.com
+@@||google.com/js/bg/$domain=xhamster.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/4180
+@@||go.onelink.me/*?pid=
+! vmall.com - Fixing authorization
+@@.vmall.com/oauth
+! https://github.com/AdguardTeam/AdguardFilters/issues/3879
+@@||banner.dna.fi^
+! https://github.com/AdguardTeam/AdguardFilters/issues/3725
+@@||vectorstock.com^$domain=vectorstock.com
+! https://github.com/AdguardTeam/AdguardBrowserExtension/issues/466
+@@||11street.my/totalsearch/
+!https://forum.adguard.com/index.php?threads/accountkiller-com.16162/
+@@||google-analytics.com/analytics.js^$domain=accountkiller.com
+! https://forum.adguard.com/index.php?threads/pornve-com-nsfw.16118/
+@@||prscripts.com/pub.js$domain=pornve.com
+! https://forum.adguard.com/index.php?threads/resolved-afkortingen-nu.16065/#post-114528
+afkortingen.nu#@##cookie_popup_container
+afkortingen.nu#@##cookie_popup
+! https://github.com/AdguardTeam/AdguardFilters/issues/3529
+@@||espncdn.com/*/*.css
+! https://github.com/AdguardTeam/AdguardFilters/issues/3531
+@@||disquscdn.com^$script,domain=wccftech.com
+@@||disqus.com^$script,domain=wccftech.com
+! unblock cookie notices
+postnl.com#@#.cookiewall
+postnl.com#@#.cookie_wrapper
+postnl.com#@##cookiebar-container
+! unblock mobile app banner, bacause big empty space
+rt.com#@##offers
+! https://github.com/AdguardTeam/AdguardFilters/issues/3330
+@@||ssl.google-analytics.com/ga.js$domain=google.com|google.ad|google.ae|google.com.af|google.com.ag|google.com.ai|google.al|google.am|google.co.ao|google.com.ar|google.as|google.at|google.com.au|google.az|google.ba|google.com.bd|google.be|google.bf|google.bg|google.com.bh|google.bi|google.bj|google.com.bn|google.com.bo|google.com.br|google.bs|google.bt|google.co.bw|google.by|google.com.bz|google.ca|google.cd|google.cf|google.cg|google.ch|google.ci|google.co.ck|google.cl|google.cm|google.cn|google.com.co|google.co.cr|google.com.cu|google.cv|google.com.cy|google.cz|google.de|google.dj|google.dk|google.dm|google.com.do|google.dz|google.com.ec|google.ee|google.com.eg|google.es|google.com.et|google.fi|google.com.fj|google.fm|google.fr|google.ga|google.ge|google.gg|google.com.gh|google.com.gi|google.gl|google.gm|google.gp|google.gr|google.com.gt|google.gy|google.com.hk|google.hn|google.hr|google.ht|google.hu|google.co.id|google.ie|google.co.il|google.im|google.co.in|google.iq|google.is|google.it|google.je|google.com.jm|google.jo|google.co.jp|google.co.ke|google.com.kh|google.ki|google.kg|google.co.kr|google.com.kw|google.kz|google.la|google.com.lb|google.li|google.lk|google.co.ls|google.lt|google.lu|google.lv|google.com.ly|google.co.ma|google.md|google.me|google.mg|google.mk|google.ml|google.com.mm|google.mn|google.ms|google.com.mt|google.mu|google.mv|google.mw|google.com.mx|google.com.my|google.co.mz|google.com.na|google.com.nf|google.com.ng|google.com.ni|google.ne|google.nl|google.no|google.com.np|google.nr|google.nu|google.co.nz|google.com.om|google.com.pa|google.com.pe|google.com.pg|google.com.ph|google.com.pk|google.pl|google.pn|google.com.pr|google.ps|google.pt|google.com.py|google.com.qa|google.ro|google.ru|google.rw|google.com.sa|google.com.sb|google.sc|google.se|google.com.sg|google.sh|google.si|google.sk|google.com.sl|google.sn|google.so|google.sm|google.sr|google.st|google.com.sv|google.td|google.tg|google.co.th|google.com.tj|google.tk|google.tl|google.tm|google.tn|google.to|google.com.tr|google.tt|google.com.tw|google.co.tz|google.com.ua|google.co.ug|google.co.uk|google.com.uy|google.co.uz|google.com.vc|google.co.ve|google.vg|google.co.vi|google.com.vn|google.vu|google.ws|google.rs|google.co.za|google.co.zm|google.co.zw|google.cat
+! https://github.com/AdguardTeam/AdguardFilters/issues/3143
+@@//*.xvideos.com^$domain=xvideos.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/3074
+@@||ebay.co.uk/itm/like/*&adgroupid=$domain=ebay.com|ebay.co.uk
+@@||rover.ebay.com/rover/$domain=ebay.com|ebay.co.uk
+@@||rover.ebay.co.uk/rover/$domain=ebay.com|ebay.co.uk
+! https://github.com/AdguardTeam/AdguardFilters/issues/2988
+@@||awaps.yandex.net^$domain=awaps.yandex.net
+! https://forum.adguard.com/index.php?threads/13434/
+@@||top-shop.ru^$domain=top-shop.ru
+! https://github.com/AdguardTeam/AdguardFilters/issues/2889
+@@||feedburner.com/~r/
+! https://github.com/AdguardTeam/AdguardFilters/issues/2887
+@@||static-*.xvideos.com/*/js/
+! https://github.com/AdguardTeam/AdguardFilters/issues/2876
+@@||society6.com^$domain=society6.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/2811
+@@||cdnssl.mediafire.com/js/
+! https://github.com/AdguardTeam/AdguardFilters/issues/2112
+@@||xg4ken.com/trk/*&adgroupid=
+! https://github.com/AdguardTeam/AdguardFilters/issues/2751
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=foxnews.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/2707
+@@/google-adwords$domain=t3n.de,~third-party
+! https://forum.adguard.com/index.php?threads/12058/
+||mc.yandex.ru/watch/*$domain=internethaber.com
+||mc.yandex.ru/metrika/watch.js$domain=internethaber.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/2556
+@@||m.thepiratebay.org/search.php?
+! https://forum.adguard.com/index.php?threads/9166/
+@@||static.opensubtitles.org/libs/js/subbrowse.js
+@@||watch.opensubtitles.org/signup?ad_domain=
+@@||hlok.qertewrt.com/offer?prod=
+! https://github.com/AdguardTeam/AdguardFilters/issues/2363
+@@||netflix.com/*/Login
+! https://github.com/AdguardTeam/AdguardFilters/issues/2352
+@@||click.uol.com.br^$domain=uol.com.br
+! https://github.com/AdguardTeam/AdguardFilters/issues/2329
+@@||reklama5.mk^$domain=reklama5.mk
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/2108
+@@/crossdomain.xml$domain=phonearena.com
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/2024
+@@||static1-azcdn.newser.com/javascript/
+@@||static2-azcdn.newser.com/javascript/
+! https://github.com/AdguardTeam/AdguardBrowserExtension/issues/41#issuecomment-207644158
+! Buffer extension is broken by Adguard for Safari
+@@||buffer.com^$elemhide
+! fedex.com - fixing tracking (caused by EasyPrivacy)
+!#safari_cb_affinity(privacy)
+@@||fedex.com/Tracking?
+!#safari_cb_affinity
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/1085
+@@||imasdk.googleapis.com/js/$domain=cari.com.my
+cari.com.my###cvidloader
+! http://forum.adguard.com/showthread.php?7751
+! Fixing endless loading
+@@||b.kavanga.ru/exp?sid=$domain=deita.ru
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/917
+! ozon.ru - fixing products pictures
+@@||bundle.ozon.ru/ozon/$script,domain=ozon.ru
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/910
+! Fixing m.market.yandex.ru
+@@||mc.yandex.ru/metrika/watch.js$domain=m.market.yandex.ru|m.market.yandex.by|m.market.yandex.kz
+! Start: fixing Mobile Youtube video player delays.
+! We should re-evaluate this rules after next Safari release, I suspect it is Safari's bug
+@@||ad.doubleclick.net/*/pfadx/$domain=m.youtube.com
+! End: fixing Youtube video player delays.
+!
+!
+!#endif

@@ -1,0 +1,48 @@
+!
+! This section contains the list of generic blocking rules.
+!
+! Good: .org/ads/
+! Bad: .org/ads/$domain=example.org (for instance, should be in specific.txt)
+!
+!
+!
+! 91porny
+! https://github.com/AdguardTeam/AdguardFilters/issues/190664
+/^https:\/\/zz\d{4}bb\d{4}\.com/$third-party,image
+:8686/8888/*.gif$third-party,image
+! Ads on many porn sites
+/960x60.
+/template/chiav/img/*.png
+/template/chiav/img/*.mp4
+! https://github.com/AdguardTeam/AdguardFilters/issues/35526
+.icu/*?ssid=_$third-party
+://m.*.cn/*.xmtl?$third-party
+://m.*.cn/*/*.js?ssid=_
+://m.*.top/*.js?ssid=_
+://m.*.pw/*.js?ssid=_
+://m.*.pw/*/*.js?$third-party
+! e66mobi ads
+/vs.aspx?action=c&vs1=$third-party
+! https://github.com/AdguardTeam/AdguardFilters/issues/75538
+! https://c.acgshenshicha.cn/ConTypEv8IJtv-1_click940878MoBile.3921hm_1(com?1614788172719
+! '(com?$script' does not work in apps, because content type is detected as HTML
+_click*(com?
+/CoNTent*(com?
+! https://github.com/AdguardTeam/AdguardFilters/issues/44973
+/js/profit.js$~third-party
+/db.js?_dc=
+!
+/tt/ttfc.html?sc=$document,popup
+/ts/ttfc.html?sc=$document,popup
+/tj/tongji.js?v=$third-party
+.xyz:9002/*?x=$websocket,script,third-party
+/template/jable/angular.min.js$~third-party
+/template/jable/tj.js$~third-party
+.live/o.js
+.xyz/o.js
+.cn/o.js
+.com/m.aspx?action=$third-party,script
+=AdCode_sjdb
+.cn/v/*.xmtl?$third-party
+/source/plugin/drk_ledadv/*
+.com/stat-qq.html?*&click_url_final=$all

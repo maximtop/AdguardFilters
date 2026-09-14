@@ -1,0 +1,22 @@
+version: 2
+
+updates:
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      # No need to check for updates more often than once a month
+      interval: monthly
+    cooldown:
+      default-days: 7
+
+  # Maintain dependencies for NPM - typically AGLint updates
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+    cooldown:
+      default-days: 7
+      # TODO: npm does not yet support excluding specific dependencies
+      # exclude:
+      #   - '@adguard/*'

@@ -1,0 +1,33 @@
+!
+! This section contains the list of rules that fix incorrect blocking. Rules must be domain-specific.
+!
+! Good: example.org#@#.ad
+! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/228513
+@@||mirait-one.com/xj/$domain=mirait-one.com,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/220247
+@@||player.bidmatic.io/microplayer/*/stream.es.js$domain=play.tavr.media
+@@||files.bidmatic.io/microplayer/configs/*.jsonp|$domain=play.tavr.media
+! https://github.com/AdguardTeam/AdguardFilters/issues/208263
+tubator.com#@##player_ads_block
+! https://github.com/AdguardTeam/AdguardFilters/issues/198042
+@@||widget.getwhelp.com/init.js$domain=baktelecom.az
+! https://github.com/AdguardTeam/AdguardFilters/issues/197245
+flypgs.com#@#div[data-banner-name]
+! https://github.com/AdguardTeam/AdguardFilters/issues/195971
+@@||a.abbyads.com/vast.php?spot=$xmlhttprequest,domain=qwiketube.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/54436
+! https://github.com/AdguardTeam/AdguardFilters/issues/67983
+@@/videojs-contrib-ads.min.js$domain=gamak.tv|telek.top
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima3,domain=gamak.tv|telek.top
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=gamak.tv|telek.top
+! https://github.com/AdguardTeam/AdguardFilters/issues/192827
+consumer.huawei.com#@#div[data-banner-name]
+! https://github.com/AdguardTeam/AdguardFilters/issues/192322
+@@||tds.fandom.com/load.php
+! https://github.com/AdguardTeam/AdguardFilters/issues/171080
+oztech.ru#@##bottomBanners
+! https://github.com/AdguardTeam/AdguardFilters/issues/151923
+lib.seu.edu.cn#@#.one-search

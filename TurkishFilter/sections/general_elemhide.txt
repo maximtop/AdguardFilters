@@ -1,0 +1,273 @@
+!
+! This section contains generic element hiding rules that block ads.
+!
+! Good: ##.adv
+! Bad: example.org##.adv (should be in specific.txt)
+!
+! Streaming sites with casino ads
+##header > ul > li.blink > a[target]
+! https://github.com/AdguardTeam/AdguardFilters/issues/219628#issuecomment-3645462129
+##.playerTextReklam
+! Turkish online cinema sites
+! https://github.com/AdguardTeam/AdguardFilters/issues/218312
+##center > a[target="_blank"][style="color: red;"] > font[style="font-size: 15pt"]
+! Sport streaming sites
+##.pageskin-container
+##.player-ad-banner
+##.ads_single_font
+##body div#hellobar
+##body div.hellobar
+! https://github.com/AdguardTeam/AdguardFilters/issues/210145
+! hdfilmcehennemi3.com
+##body > div.body-clickable:empty
+! https://github.com/AdguardTeam/AdguardFilters/issues/205916
+##div[data-player-url] > a[class="x-embed-link"][target="_blank"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/204675
+##.volestream-gorsel
+! https://github.com/AdguardTeam/AdguardFilters/issues/160823
+##amp-img[width="728"][height="90"]
+##body > div[class^="item"] > a[target="_blank"][style^="padding: 4px 1px;text-align: center;"]
+##.link-group > div.features
+###uyarikutu
+##.link-group > div.table-container
+! https://github.com/AdguardTeam/AdguardFilters/issues/159052
+##.sayfa-arka
+##.noxstream-gorsel
+! https://github.com/AdguardTeam/AdguardFilters/issues/158748
+##div[data-fr33-b4nn3r]
+! https://github.com/AdguardTeam/AdguardFilters/issues/157146
+! https://github.com/AdguardTeam/AdguardFilters/issues/157147
+##body > a[style*="width: 100%;font-weight: bold;float: left;margin-bottom:"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/174383
+! https://github.com/AdguardTeam/AdguardFilters/issues/157188
+! https://github.com/AdguardTeam/AdguardFilters/issues/156507
+! ads in video player
+##pjsdiv[style*="top: 17px; opacity:"][style*="font-size: 14px; line-height: 1em;"]
+##pjsdiv[style*="top: 17px; opacity:"][style*="font-size: 14px; line-height: 1em;"] + pjsdiv[style*="opacity:"][style*="font-size: 14px; line-height: 1em;"]
+##pjsdiv[style="position: absolute; left: 0px; top: 0px;"] > pjsdiv[style^="position: absolute; top:"][style*="pointer-events: none; opacity:"][style*="transform:"] > img
+! https://github.com/AdguardTeam/AdguardFilters/issues/227650#issuecomment-4117290524
+! breaks controls
+! ##pjsdiv[style*="top: 378px; opacity:"][style*="font-size: 14px; line-height: 1em;"]
+! A workaround for the issue with applying the generic rules to small iframes - https://github.com/AdguardTeam/CoreLibs/issues/1721
+!#if (adguard_app_android)
+[$path=/embed]top##pjsdiv[style*="top: 378px; opacity:"][style*="font-size: 14px; line-height: 1em;"]
+[$path=/embed]top##pjsdiv[style*="top: 17px; opacity:"][style*="font-size: 14px; line-height: 1em;"]
+[$path=/embed]top##pjsdiv[style*="top: 17px; opacity:"][style*="font-size: 14px; line-height: 1em;"] + pjsdiv[style*="opacity:"][style*="font-size: 14px; line-height: 1em;"]
+[$path=/embed]top##pjsdiv[style="position: absolute; left: 0px; top: 0px;"] > pjsdiv[style^="position: absolute; top:"][style*="pointer-events: none; opacity:"][style*="transform:"] > img
+!#endif
+! betexpertv121.live / betexpertv113.live and clones
+##.pfixedd
+##div[data-splsh-dsktp-cntnr]
+##a[target="_blank"] > img[alt="asd"]
+##a[target="_blank"] > img[alt="bsd"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/139025
+! "sportframe*" sport streaming sites with different domains
+##.film-tab > a[target="_blank"]
+##.film-tab > div#livestream_wrapper ~ div.overlay-top
+##.cb_splash_ads
+##.arbet_tables
+###livevideo > div.overlay-bottom
+###livestream_wrapper > div.overlay-top
+##.playerimiz > div.first-notification
+##.playerimiz > a[style]
+##.playerimiz > div[aria-label="video player"] > div#overlay-top
+##.film-tab > div[aria-label="video player"] > div#overlay-top
+##.film-tab > div.playerimiz > div.overlay-top
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/7365
+###main > .wrap.cf > .reklam ~ p[style^="background-color:"]
+###main > .wrap.cf > .reklam ~ #content > .post > p[style^="background-color:"]
+! https://forum.adguard.com/index.php?threads/14597/
+##.rek-ivr
+##.rek-ivr ~ p[style^="background-color:"]
+##.fuck-ivr
+##.fuck-ivr ~ p[style^="background-color:"]
+!
+##div[style="margin: 10px; text-align: center;"] img.ads-img
+##div[data-free-banner]
+###preRollBd
+###footerFixedDivWrapper
+###mPlayerFd
+##.hrklm_oblong
+##body > div[style^="bottom:0;height:50px;left:0;position:fixed;right:0;"][style$="width:100%;z-index:999999"]
+###footer_fad
+##.play_ust_txt
+##.g-title > div.containerAds
+##.pageskin > div.mbl_psc
+##div[class^="menu_alti_reklam"]
+##.pageskin div[class^="r_reklam_"]
+##.rkm
+##.mst_ad
+##.st_ad
+##div[data-advert="temedya"]
+##div[class^="r_filmvideo-"]
+##body > div#pageskin_ayd
+##.medyanet-inline-adv
+###haber_ustu_reklam
+##.nokta-display-ad
+###adStarter
+##.textrek
+##.playerinads
+##.nogay-fixed-bottom-bar
+##.nogay-fixed-top-bar
+##.first-notification#nogay-notf
+##.topReklam
+##.widget-advert.text-center
+##.reklamalani
+##.reklamKodu3
+##.sagkulereklam
+##.solkulereklam
+##.reklamCerceve
+##.reklamKodu
+##body > a[target="_blank"] > div.pageskin
+##body > div.pageskin
+##body > div#pageskin
+##body > div.pgskn
+##body > div#footerFixedDiv
+##.bey-video-reklam
+##.saniye-reklam
+##.reklamcontainer
+##.yatay-reklam
+##a[href^="https://kingredirect.com/redirect/v2/?ads="]
+##a[href^="https://kingyonlendir.link/redirect/v2/?ads="]
+###reklamCodeiframe
+##.sol_reklam_160x600
+##.sag_reklam_160x600
+##.rkm-outer
+##ins[id^="rkm-par-"].rkm.par-ad
+###otoreklam
+##.saniyereklam
+##.frontendAd
+###prestitial_banner
+##.rk-300
+###backkapat
+###reklamarkaplan
+##.rek_300x350
+##.ivr > a > img
+##div.koddostu-splash.reklam-s-koddostu#amans
+##a[href*="/earn.php?zone"][target="_blank"] > img
+##a[href*="sporx.com/rdrct.php"][target="_blank"]
+###video_player + #after-video
+##a[target="_blank"] > img[alt^="banner"][src*=".gif"]
+##a[href*="dotabet"][href*=".com"] > img
+##a[href*="//track.bcvc.mobi/earn.php"]
+##.rkads
+##div[id^="floatLayer"]
+##div[class^="ad-1000x"]
+##img[alt="jigolo"]
+##a[href*="megabatorturkiyebay"] > img
+##a[href*="seriouslove.club"] > img
+##a[href*="penisbuyutucu"] > img
+##a[href*="canlisexsohbeti.org"] > img
+##img[alt="seks shop"]
+##.reklam-alani
+##a[href^="tel:00"][style*="color:"][rel="nofollow"]
+##.flash_aciklama
+##.telefon-reklam
+##.hizalanmis > div[class^="box"] > .fra
+##body > #rb_300:not([class])
+##.ivr-reklam
+##.reklam_a
+##a[href^="tel:00"] > img
+##.watch_video > center > a[rel="nofollow"] > img
+##.reklam-alt-sabit
+##.reklam-645x90
+##.reklam-300x250
+###PopWin
+###UstReklam
+###alt_kayan_reklam
+###alt_reklam
+###arkaplanreklam
+###backgroundPopup
+###bannerbuyuk
+###betreklam
+###kayan_reklam
+###kayan_reklam_sol
+###kayan_reklamsag
+###kayan_reklamsol
+###leftreklam1div
+###leftreklam2div
+###reklam
+###reklam300x250
+###reklam300x600
+###reklam_sol
+###reklami
+###reklamikapat
+###ReklamiKapat
+###reklamlar
+###reklamm
+###sagreklam
+###sol_kayan_reklam
+###solreklam
+###sreklam
+###toolbar[style*="opacity: 1"][style*="99999"]
+###top-banner
+###ustReklam
+###ust_ara_reklam
+###ustreklam
+###ustreklamlar
+##.adnet
+##.adsVideo
+##.adsindirim
+##.adsortalaindirim
+##.arkaplanreklam
+##.banner300x250
+##.banner_logo_top
+##.banneralan
+##.bannerkucuk
+##.detayreklam
+##.dikeyreklam
+##.intbetads-FIX
+##.kanalustureklam
+##.ortaReklam
+##.pmt-ad
+##.reklam1
+##.reklam300
+##.reklam728x90
+##.reklamSag
+##.reklamUst
+##.reklam_300_250
+##.reklam_300x250
+##.reklam_728_90
+##.reklamlar
+##.reklamoynama
+##.reklamyatay
+##.sRightAdSpace
+##.sagReklam300x250
+##.sag_reklam
+##.splash-banner
+##.splash-reklam
+##.tepebanner
+##.trgoolreklam
+##.ustOrtaSolReklam
+##.ustReklam
+##.yediyuzads
+##.yenireklam
+##a.yildiz-pageskin-link
+##a[href*="admost.com/adx/"]
+##a[href*="adsrv.eacdn.com"][rel="nofollow"]
+##a[href*="bbelements.com/please/track/adClick/"]
+##a[href*="med4ad.com/adv/"]
+##a[href*="//ad.donanimhaber.com"]
+##a[href^="http://adserv.ontek.com.tr/"]
+##a[href^="http://adserver.advrstcdn.com/getad.php"]
+##a[href^="http://izlenzi.com/campaign/"]
+##a[href^="http://record.commissionlounge.com"]
+##a[href^="https://record.commissionlounge.com/"]
+##a[href^="http://tfp.sapphirum.com/ref?"]
+##a[href^="http://www.installads.net/"]
+##a[href^="http://www.installadz.com/indir.php"]
+##body > #pageskin
+##body > div.pskinRekLam
+##body > div[class="toolbar"][style]
+##body > div[id="toolbar"][style]
+##div[class^="bireklam"]
+##div[class^="gogads"]
+##div[class^="reklam_"]
+##div[class^="sag-reklam"]
+##div[class^="vSagReklam-"]
+##div[id^="b-banner"]
+##div[id^="kayan_reklam"]
+##div[id^="toolbarr"]
+##img[title="similars powered by maxad"]
+##img[src][alt="bazuka"]

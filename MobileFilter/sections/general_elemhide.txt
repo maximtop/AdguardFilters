@@ -1,0 +1,48 @@
+!
+! This section contains generic element hiding rules that block ads on mobile devices.
+!
+! Good: ##.adv
+! Bad: example.org##.adv (should be in specific.txt)
+!
+##body > #js-adContainer.adBlock
+###mobile-adhesion:not(#style_important)
+###ad-300x250_mid_mobile
+##amp-iframe[src^="https://ad.vidverto.io/"]
+##.sp_ad_box_top
+##.happy-header-mobile
+##.standard-article-vertical-ad
+##.header-ad-mobile
+##.under-player-ad-mobile
+##.california-sticky-footer-ad-container
+##.happy-under-player-mobile
+##.b-mobile-spots
+###ad_inview_area
+! Tegna Inc.
+##body > div.page[data-ux-tracking-url^="https://abtesting.tegnadigital.com/"] > .page__top > .universal-ad
+##body > div.page[data-kochava-app-guid^="kotegna-web-prod-"] > .page__top > .universal-ad
+! Sinclair, Inc
+##div[class^="MidArticleAdUnit_mobile_"]
+##div[class^="PrimisMidArticleAdUnit_mobile_"]
+!--- popular banner sizes ---
+##img[width="320"][height="50"]
+##iframe[width="320"][height="50"]
+! AMP websites ad container class
+##amp-iframe[src^="https://html.redtram.com/"]
+###mgid_iframe1
+##amp-auto-ads
+##amp-embed[type="24smi"]
+##amp-embed[type="smi2"]
+##amp-embed[type="outbrain"]
+##amp-embed[type="engageya"]
+##amp-iframe[src^="https://ad.mediawayss.com/"]
+##amp-iframe[src^="https://widgets.outbrain.com"]
+##.amp-ad container
+##.amp_ad
+##amp-sticky-ad
+!
+!+ NOT_OPTIMIZED
+##amp-ad
+!+ NOT_OPTIMIZED
+###ad-300x250_mobile
+!+ NOT_OPTIMIZED
+##body > style + div[id="ics"]

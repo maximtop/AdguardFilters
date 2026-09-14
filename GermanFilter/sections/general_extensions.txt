@@ -1,0 +1,398 @@
+!
+! This section contains the list of ad blocking rules that fall under "advanced" category.
+! By advanced we mean the following rule types: CSS, scriptlets, HTML filtering (`$$` marker), JS.
+!
+! Good: example.org#$##rek { display: none !important; }; example.org#%#//scriptlet('set-cookie', 'ad', '0'); example.org$$script[tag-content="ad"][max-length="3000"].
+! Bad: example.org###rek (should be in specific.txt)
+!
+!--------------------------------------!
+!------- JS rules ---------------------!
+!--------------------------------------!
+!
+! VAST video ads - e. g. https://github.com/AdguardTeam/AdguardFilters/issues/135687
+! can cause pause on video when ad video should be shown
+!+ NOT_PLATFORM(ios)
+geo.de,brigitte.de,kicker.de,desired.de,pcgames.de,t-online.de,vox.de,spieletipps.de,wetter.de,golem.de,autobild.de,buffed.de,gamesaktuell.de,kino.de,pcgameshardware.de,videogameszone.de,familie.de,welt.de#%#//scriptlet('prevent-xhr', '.damoh.')
+! new version (both rules are working on their own)
+fitforfun.de,plus.rtl.de#%#//scriptlet('trusted-replace-xhr-response', 'true', 'false', 'homadClientConfig-plusrtlde.json')
+fitforfun.de,brigitte.de#%#//scriptlet('trusted-replace-xhr-response', 'true', 'false', 'global_config.json')
+fitforfun.de,plus.rtl.de#%#//scriptlet('abort-on-stack-trace', 'Object.prototype.adReinsertion', 'createSdk')
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/219375
+abendblatt.de#%#//scriptlet('set-constant', 'Spark.deactivateRubicon', 'true')
+! https://github.com/AdguardTeam/AdguardFilters/issues/212667
+!+ NOT_PLATFORM(ext_ff)
+player.motorsport-magazin.com#%#(()=>{document.addEventListener("DOMContentLoaded",(()=>{"function"==typeof initPage&&initPage()}));})();
+!+ PLATFORM(ext_ff)
+player.motorsport-magazin.com#%#//scriptlet('trusted-create-element', 'head', 'script', '', '(()=>{document.addEventListener("DOMContentLoaded",(()=>{"function"==typeof initPage&&initPage()}));})();')
+! https://github.com/AdguardTeam/AdguardFilters/issues/198374
+! It looks like that PHPSESSID is checked on the server side
+! I guess that it works like that - if specific PHPSESSID was registered and few/several seconds passed (I suppose 10 seconds or so)
+! then it redirects to video content, otherwise it displays ads
+! So, as a workaround a PHPSESSID is set to 1 for every video
+! and it checks if the video content is available, if not, it tries again after 10 seconds,
+! if it's available, it redirects to the video content
+filstalwelle.de#$##mejsplayer:has(> video > source[src^="/video/content/a/"]) { display: none !important; }
+filstalwelle.de#%#//scriptlet('trusted-replace-node-text', 'div', 'WERBUNG', 'WERBUNG', 'Trying to skip ads...')
+!#if (adguard_app_windows || adguard_app_mac || adguard_app_android || adguard_app_cli)
+||filstalwelle.de/video/video$replace=/PHPSESSID=.*?'/PHPSESSID=1'/,document
+filstalwelle.de#%#(()=>{if(!location.pathname.includes("/video/video"))return;let e=0;const t=async o=>{const c=await fetch(o);!(await c.text()).includes('src="content/')||document.querySelector('.mejs__video video > source[src^="content/"]')?e<=2&&(e++,setTimeout(t,1e4,o)):location.replace(o)};window.addEventListener("load",(()=>{const e=document.querySelector("body > :is(.mejs__video, #mejsplayer) ~ script:not([type], [src])"),o=e?.textContent.match(/\$\('#bodyTarget'\)\.load\('(.+?)'.+?\);/)?.[1];if(o){let e=location.href.replace(/videoin\.php\?video=.*/,o);e=e.replace(/PHPSESSID=.*/,"PHPSESSID=1");const c=document.querySelector('.mejs__video video:has(> source[src^="/video/content/a/"])');c&&(c.muted=!0),t(e)}else console.debug("Required part not found in the script.")}))})();
+!#endif
+!#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android && !adguard_app_cli)
+filstalwelle.de#%#//scriptlet("trusted-replace-node-text", "script", "doPostRoll", "/\?PHPSESSID=.*?'/", "?PHPSESSID=1'")
+filstalwelle.de#%#//scriptlet("trusted-create-element", "head", "script", "", "(()=>{if(!location.pathname.includes('/video/video'))return;let e=0;const t=async o=>{const c=await fetch(o);!(await c.text()).match(/src=.content\//)||document.querySelector('.mejs__video video > source[src^=\"content/\"]')?e<=2&&(e++,setTimeout(t,1e4,o)):location.replace(o)};window.addEventListener('load',(()=>{const e=document.querySelector('body > :is(.mejs__video, #mejsplayer) ~ script:not([type], [src])'),o=e?.textContent.match(/\$\('#bodyTarget'\)\.load\('(.+?)'.+?\);/)?.[1];if(o){let e=location.href.replace(/videoin\.php\?video=.*/,o);e=e.replace(/PHPSESSID=.*/,'PHPSESSID=1');const c=document.querySelector('.mejs__video video:has(> source[src^=\"/video/content/a/\"])');c&&(c.muted=!0),t(e)}else console.debug('Required part not found in the script.')}))})();")
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/190034
+promiflash.de#%#//scriptlet('set-constant', 'adHandler.service', 'emptyObj')
+promiflash.de#%#//scriptlet('set-constant', 'adHandler.service.destroy', 'noopFunc')
+promiflash.de#%#//scriptlet('set-constant', 'adHandler.service.request', 'noopFunc')
+promiflash.de#%#//scriptlet('set-constant', 'adHandler.service.destroyPageType', 'noopFunc')
+! https://github.com/AdguardTeam/AdguardFilters/issues/189789
+t-online.de#%#//scriptlet('json-prune', 'props.pageProps.page.thirdParty.homad')
+! https://github.com/AdguardTeam/AdguardFilters/issues/183745
+focus.de#%#//scriptlet('trusted-replace-node-text', 'script', 'galleryv2Init', '/adsEnabled:true/', 'adsEnabled:false')
+! https://github.com/AdguardTeam/AdguardFilters/issues/179303
+tvspielfilm.de,tvtoday.de,chip.de,focus.de#%#//scriptlet('set-constant', '__gv_hdInited', 'true')
+tvspielfilm.de,tvtoday.de,chip.de,focus.de#%#//scriptlet('abort-on-stack-trace', 'String.prototype.substr', '/load[\s\S]*?hd-main\.js/')
+! https://github.com/AdguardTeam/AdguardFilters/issues/178312
+! remove non-scriptlet when nothing breaks until 2025-02-22
+! stern.de#%#(()=>{Object.defineProperty=new Proxy(Object.defineProperty,{apply:(a,b,c)=>{const[d,e,f]=c;return"createAdPlayer"===e&&"function"==typeof c[2]?.get&&(c[2].get=()=>{}),Reflect.apply(a,b,c)}})})();
+! damoh ads
+n-tv.de,rtl.de,brigitte.de,geo.de,stern.de#%#//scriptlet('set-constant', 'foundation.adPlayer.bitmovin', 'emptyArr')
+n-tv.de,rtl.de,brigitte.de,geo.de,stern.de#%#//scriptlet('trusted-replace-argument', 'Promise.prototype.then', '0', 'noopFunc', 'AdReinsertion')
+! https://github.com/uBlockOrigin/uAssets/issues/22883
+alpin.de#%#//scriptlet('abort-current-inline-script', 'document.querySelector', 'DisplayAcceptableAdIfAdblocked')
+! https://github.com/AdguardTeam/AdguardFilters/issues/171888
+bluray-disc.de#%#//scriptlet("abort-current-inline-script", "popunder")
+! https://github.com/uBlockOrigin/uAssets/issues/21862#issuecomment-1903805346
+restegourmet.de#%#//scriptlet("adjust-setInterval", "invoke", "1000", "0.01")
+! https://github.com/AdguardTeam/AdguardFilters/issues/166369
+ddl-warez.cc#%#//scriptlet('prevent-window-open', 'af.php')
+! https://github.com/AdguardTeam/AdguardFilters/issues/164427
+3c-bap.gmx.ch,3c-bap.gmx.at,3c-bap.gmx.net,3c.web.de#%#//scriptlet('hide-in-shadow-dom', 'list-inbox-pga-ad-item')
+! infranken.de - removing amazon link, so the incredients are visible in a recipe
+infranken.de#%#//scriptlet('remove-attr', 'href', 'a[rel*="sponsored"]')
+! https://github.com/AdguardTeam/AdguardFilters/issues/154072
+prosieben.de#%#//scriptlet('set-constant', 'Object.prototype.checkAdProxyAvailability', 'noopFunc')
+! https://github.com/AdguardTeam/AdguardFilters/issues/157906
+! 20min.ch - fixes video player
+20min.ch#%#(()=>{window.TATM=window.TATM||{},TATM.init=()=>{},TATM.initAdUnits=()=>{},TATM.pageReady=()=>{},TATM.getVast=function(n){return new Promise((n=>{n()}))},TATM.push=function(n){if("function"==typeof n)try{n()}catch(n){console.debug(n)}};})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/148783
+data-load.*#%#//scriptlet('set-cookie', '_xflora', '1')
+! https://github.com/AdguardTeam/AdguardFilters/issues/146229
+gmx.net,gmx.at,web.de#%#//scriptlet('inject-css-in-shadow-dom', '.list-programmatic-ad-item--multi-line, .list-inbox-ad-item--multi-line, list-inbox-ad-item, .list-inbox-ad-item--single-line { display: none !important; }')
+! https://github.com/AdguardTeam/AdguardFilters/issues/158944
+chip.de#%#//scriptlet('abort-current-inline-script', 'document.querySelector', 'DisplayAcceptableAdIfAdblocked')
+chip.de#%#//scriptlet('trusted-replace-node-text', 'style', '/a [\s\S]* padding-top[\s\S]*aspect-ratio/', '/.*(\..*?) [\s\S]*padding-top[\s\S]*aspect-ratio[\s\S]*/', '$1 { display: none !important; }')
+chip.de#%#(()=>{const t={construct:(t,n,e)=>{const o=n[0],r=o?.toString();return r&&r.length>500&&r.length<1e3&&/=>[\s\S]*?for[\s\S]*?\[.+\]/.test(r)&&(n[0]=()=>{}),Reflect.construct(t,n,e)}};window.MutationObserver=new Proxy(window.MutationObserver,t)})();
+!+ NOT_PLATFORM(ext_ff)
+chip.de#%#(()=>{document.addEventListener('DOMContentLoaded',()=>{const o=[];[...document.scripts].forEach((c=>{const n=c.innerText,t=/window\..*\["(.*)"]/;if(n.includes('"impr":')){const c=n.match(t)[1];o.push(c)}})),o.forEach((o=>{const c=document.querySelector(`.${o}`);c&&c.remove()}))})})();
+! chip.de - ad popup when pressing download
+chip.de#%#//scriptlet('set-cookie', 'chipde-r2d2-view-state ', '1')
+! https://github.com/AdguardTeam/AdguardFilters/issues/135749
+! https://github.com/AdguardTeam/AdguardFilters/issues/135687
+giga.de#%#//scriptlet('abort-on-stack-trace', 'document.dispatchEvent', 'requestAds')
+giga.de,spiegel.de,welt.de,t-online.de#%#(()=>{window.XMLHttpRequest.prototype.send=new Proxy(window.XMLHttpRequest.prototype.send,{apply:(a,b,c)=>{const d=b.urlCalled;return"string"!=typeof d||0===d.length?Reflect.apply(a,b,c):d.match(/\.damoh\./)?void 0:Reflect.apply(a,b,c)}})})();
+!+ PLATFORM(ext_ff)
+giga.de,spiegel.de,welt.de,t-online.de#%#//scriptlet('abort-on-stack-trace', 'XMLHttpRequest', 'onreadystatechange')
+! https://github.com/AdguardTeam/AdguardFilters/issues/131890
+eispop.com#%#//scriptlet('set-constant', 'Object.prototype.AdOverlay', 'noopFunc')
+! https://github.com/uBlockOrigin/uAssets/issues/6541#issuecomment-1140420880
+vip.de#%#//scriptlet('prevent-xhr', 'svonm')
+! https://github.com/AdguardTeam/AdguardFilters/issues/117511
+nachtkritik.de#%#//scriptlet('set-cookie', 'the_cookie10470', 'true')
+! https://github.com/AdguardTeam/AdguardFilters/issues/108760
+web.de,gmx.net,gmx.ch,gmx.at#%#//scriptlet("set-constant", "ui.AdServiceConfig.enabled", "false")
+! https://github.com/AdguardTeam/AdguardFilters/issues/112598
+wetter.com#%#//scriptlet('set-constant', 'wcomAdFrameworkInit', 'undefined')
+wetter.com#%#//scriptlet('abort-on-stack-trace', 'Element.prototype.setAttribute', 'wcomAdFrameworkInit')
+! https://github.com/AdguardTeam/AdguardFilters/issues/108788
+spielen.com#%#//scriptlet("set-constant", "idhb", "emptyObj")
+! https://github.com/AdguardTeam/AdguardFilters/issues/102180
+duden.de#%#//scriptlet('remove-class', 'pageskin', 'body.pageskin')
+! blick.ch - video ads
+blick.ch#%#//scriptlet("set-constant", "Object.prototype.adsEnabled", "false")
+! https://github.com/AdguardTeam/AdguardFilters/issues/148571
+moviepilot.de#%#!function(){var n={cmd:[],public:{getVideoAdUrl:function(){},createNewPosition:function(){},refreshAds:function(){},setTargetingOnPosition:function(){},getDailymotionAdsParamsForScript:function(n,t){if("function"==typeof t)try{1===t.length&&t({preroll:"moviepilot"})}catch(t){}},setConfig:function(){},loadPositions:function(){},displayPositions:function(){}}};n.cmd.push=function(n){let t=function(){try{"function"==typeof n&&n()}catch(n){}};"complete"===document.readyState?t():window.addEventListener("load",(()=>{t()}))},window.jad=n}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/124356
+! https://github.com/AdguardTeam/AdguardFilters/issues/107055
+! https://github.com/AdguardTeam/AdguardFilters/issues/94882
+gamepro.de,gamestar.de#%#//scriptlet("set-constant", "wgm.initAds", "noopFunc")
+! Rule below fixes issue with video player if user has DNS filtering enabled, but it seems that at the moment it's not required
+! gamepro.de,gamestar.de#%#(function(){const b={cmd:[],public:{getVideoAdUrl:function(){},createNewPosition:function(){},refreshAds:function(){},setTargetingOnPosition:function(){},setConfig:function(){},loadPositions:function(){},displayPositions:function(){},getDailymotionAdsParamsForScript:function(b,c){if(b&&"function"==typeof c)try{c({a:b})}catch(b){console.error(b)}}}};b.cmd.push=function(a){try{window.addEventListener("load",()=>{a()})}catch(a){console.error(a)}},window.jad=b})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/93347
+joyn.de#%#//scriptlet('prevent-fetch', 'zomap.de')
+! https://github.com/AdguardTeam/AdguardFilters/issues/92118
+spielaffe.de#%#//scriptlet("adjust-setTimeout", "loadGameFile", "8000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/92109
+spiele.rtl.de#%#//scriptlet('remove-class', 'js-game-detail-link', '.game-startbutton a.js-game-detail-link')
+! popunder
+blasensex.com#%#//scriptlet("abort-on-property-read", "jsUnda")
+! https://github.com/AdguardTeam/AdguardFilters/issues/90034
+rtl.de#%#//scriptlet('abort-on-stack-trace', 'Array.prototype.find', 'checkAndStartAdSlotAtOffset')
+wetter.de#%#//scriptlet("set-constant", "cbcAdvertisingAdapter.smartClientCoreFacade.config.adReinsertion.homad.enabled", "false")
+! https://github.com/AdguardTeam/AdguardFilters/issues/89311
+!+ NOT_PLATFORM(windows, mac, android, cli, ext_ff)
+focus.de#%#//scriptlet("json-prune", "enabled", "testhide")
+! https://github.com/AdguardTeam/AdguardFilters/issues/204506
+! https://github.com/AdguardTeam/AdguardFilters/issues/111225
+! https://github.com/AdguardTeam/AdguardFilters/issues/84213
+! damoh
+welt.de#%#//scriptlet('set-constant', 'Object.prototype.isHomadScriptLoaded', 'true')
+welt.de#%#//scriptlet('set-constant', 'weltConfig.switches.videoAdBlockBlocker', 'false')
+! https://github.com/AdguardTeam/AdguardFilters/issues/82457
+chip.de#%#//scriptlet("abort-on-property-read", "htmlEntities")
+! https://github.com/AdguardTeam/AdguardFilters/issues/81081
+reifporn.de,sexvideos-hd.com,tube8-pornos.com,meinyouporn.com,hd-sexfilme.com,beeg-pornos.com,deinesexfilme.com,einfachtitten.com,gutesexfilme.com,halloporno.com,hd-pornos.net,hdpornos.net,herzporno.com,lesbenhd.com,milffabrik.com,nursexfilme.com,porn-monkey.com,porndrake.com,pornoaffe.com,pornodavid.com,pornoente.tv,pornofelix.com,pornofisch.com,pornohammer.com,pornohans.com,pornohelm.com,pornohirsch.net,pornoklinge.com,pornoschlange.com,pornotom.com,pornotom.com,pornotommy.com,pornovideos-hd.com,pornozebra.com,xhamsterdeutsch.xyz#%#//scriptlet("abort-current-inline-script", "document.cookie", "delete a.llEvLisnrs")
+! https://github.com/AdguardTeam/AdguardFilters/issues/61907
+chip.de#%#//scriptlet('set-constant', 'installerConfig.cid', '')
+! https://github.com/AdguardTeam/AdguardFilters/issues/64063
+fitforfun.de#%#//scriptlet("json-prune", "enabled", "testhide")
+! https://github.com/AdguardTeam/AdguardFilters/issues/58463
+streamkiste.cx#%#//scriptlet('remove-attr', 'href', '#clickfakeplayer')
+! https://github.com/AdguardTeam/AdguardFilters/issues/56644
+computerbase.de#%#//scriptlet("prevent-addEventListener", "load", "/service-worker.js")
+! https://github.com/AdguardTeam/AdguardFilters/issues/54376
+bs.to#%#//scriptlet("abort-current-inline-script", "parseInt", "bsduid")
+! stern.de video vast ads
+!+ NOT_PLATFORM(windows, mac, android, cli, ext_ff)
+stern.de#%#//scriptlet("json-prune", "enabled", "testhide")
+! https://github.com/AdguardTeam/AdguardFilters/issues/31070
+!+ NOT_PLATFORM(windows, mac, android, cli, ext_ff)
+chip.de#%#//scriptlet("json-prune", "enabled", "force_disabled")
+! https://github.com/AdguardTeam/AdguardFilters/issues/53011
+gload.to#%#//scriptlet("abort-on-property-write", "bullads")
+! https://github.com/AdguardTeam/AdguardFilters/issues/52959
+!+ NOT_PLATFORM(windows, mac, android, cli, ext_ff)
+tele5.de#%#//scriptlet("json-prune", "testhide")
+! https://github.com/AdguardTeam/AdguardFilters/issues/53012
+! https://github.com/AdguardTeam/AdguardFilters/issues/51634
+movie-blog.tv,movie-blog.sx#%#//scriptlet("abort-on-property-read", "vavpo")
+! https://github.com/AdguardTeam/AdguardFilters/issues/36737
+pornoente.tv#%#//scriptlet("set-constant", "vpUsePreRoll", "false")
+! https://github.com/AdguardTeam/AdguardFilters/issues/28804
+maniac.de#%#//scriptlet('set-constant', 'td_ad_background_click_link', '')
+! krone.at - ad reinjection
+krone.at#%#//scriptlet("set-constant", "googletag.impl.pubads.callbackProxy1", "undefined")
+! https://github.com/AdguardTeam/AdguardFilters/issues/157812
+! https://github.com/AdguardTeam/AdguardFilters/issues/94953
+! https://github.com/AdguardTeam/AdguardFilters/issues/66639
+!+ NOT_PLATFORM(ios, ext_android_cb)
+plus.rtl.de#%#//scriptlet("set-constant", "cbcAdvertisingAdapter.smartClientCoreFacade.config.adReinsertion.homad.enabled", "false")
+! https://github.com/AdguardTeam/AdguardFilters/issues/79647
+pcwelt.de#?##sidebarwrap > div.box:has(> div.heading:contains(/Anzeige|Angebot/))
+! https://github.com/AdguardTeam/AdguardFilters/issues/3471
+java-forum.org#%#var st = ".sidebar > div.widget-container:first-of-type, .sidebar > a[href^=\"http://future-sale-system.de\"], #messageList > li.message:not([id]), .sidebar > a[target=\"_blank\"] > img {display: none!important; }", a=document.createElement("style");a.type="text/css";a.styleSheet?a.styleSheet.cssText=st:a.innerHTML=st;document.getElementsByTagName("head")[0].appendChild(a);
+! https://forum.adguard.com/index.php?threads/13917/
+news.de#%#window.disablePopUnder = true;
+! https://forum.adguard.com/index.php?threads/14298/
+stern.de#%#//scriptlet("remove-attr", "data-clickcommand", "a")
+! http://forum.adguard.com/showthread.php?6896
+||videogameszone.de/common/saturn/
+! http://forum.adguard.com/showthread.php?6814
+chip.de#%#var originalUserAgent = navigator.userAgent; Object.defineProperty(navigator, 'userAgent', { get: function() { return originalUserAgent + ' Edge'; } });
+!
+!--------------------------------------!
+!------- CSS fixes --------------------!
+!--------------------------------------!
+!
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/193572
+android-hilfe.de#$#.js-replyNewMessageContainer > div[style^="min-height:"]:has(> div[id^="ah_incontent_"]) { min-height: 0 !important; padding: 4px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/176885
+games.ch#$##wallpaper ~ nav#submenu { top: 0 !important; }
+! jpgames.de - left-over at top
+jpgames.de#$##takeover { padding-top: unset!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/171888
+bluray-disc.de#$#.content-wrapper { padding-top: 0px !important; }
+bluray-disc.de#$#.wallpaper-adv { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/164563
+ratgeber.bunte.de#$##G32 { --topbanner-height-min: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/159998
+! https://github.com/AdguardTeam/CoreLibs/issues/1800
+! TODO: remove when/if it will be fixed in CoreLibs
+!#if (adguard_app_windows || adguard_app_mac || adguard_app_android || adguard_app_cli)
+android-hilfe.de#$#.message-main { height: auto !important; }
+android-hilfe.de#$#.p-body-sidebar .block-container { height: auto !important; }
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/158944
+chip.de#$#section.Chapter.wrapper-safe[style^="min-height:"] { min-height: auto !important; }
+! xnxx-sexfilme.com preroll ad
+xnxx-sexfilme.com#$#.preroll-blocker { display: none !important; }
+xnxx-sexfilme.com#$#.preroll-skip-button { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/146985
+kino.de#$#body.alice-navbar-sticky,body nav[data-position="smart-sticky"] { margin-top: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/146632
+lecker.de#$#.dikr-responsive-ads-slot { position: absolute !important; left: -9999px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/146375
+finanzen.net#$#body.page-layout { grid-template-rows: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/141835
+berliner-zeitung.de#$#div[class^="article-right-column_rightColumnContainer"] { margin-top: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/141539
+mobile.de#$##root > div > div[class] > div[class][style="display: none !important;"] + article { margin-top: 0px !important; }
+! heise.de - big left-over at bottom
+heise.de#$#body[style*="padding-bottom"] { padding-bottom: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/pull/139865
+maniac.de#$#body { cursor: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/139202
+hardwareluxx.de#$#body { margin-top: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/136708
+computerwoche.de#$#.idgGoogleAdTag { position: absolute !important; left: -9999px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/136684
+promipool.de#$#.desktop-sidebar-ad-wrapper { position: absolute !important; left: -9999px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/134058
+bluray-disc.de#$#html { cursor: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/132098
+! https://github.com/AdguardTeam/AdguardFilters/issues/124639
+3c.web.de#$#html.can-have-sky .section-content { margin-right: 0px !important; }
+3c-bap.web.de,3c-bap.gmx.net#$#.page-body > .section-content { margin-right: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/120779
+giga.de#$#nav[data-role="alice-sub-navbar"][data-position="smart-sticky"] { margin-top: auto !important; }
+! wooco.de - ad banner top
+wooco.de#$##bannerTop { min-height: calc(100%) !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/107964
+schnittberichte.com#$#body::after { background-image: none !important; }
+! gmx.net left-overs when opening inbox (need to zoom a bit)
+3c.gmx.net#$#.page-body > .section-1 > .section-container { bottom: 0px !important; }
+3c.gmx.net#$#.page-body > .section-1 { margin-right: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/84712
+baulinks.de#$#body > #holder[style^="top"] { top: 40px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/81282
+deine-tierwelt.de#$#.header-leaderboard { position: absolute !important; left: -3000px!important; }
+! spin.de - reduzing footer size due to hidden ads
+spin.de#$##footer { position: relative !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/68373
+chip.de#$#.NewsIndex { --topbanner-height-min: 0 !important; }
+chip.de#$#.Portal { --topbanner-height-min: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/63190
+wetteronline.de#$#.fullscreen-ad iframe { min-height: calc(100%) !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/56888
+schnittberichte.com#$#.bgwrapper { top: 0px !important; }
+! wetter.de - hiding left-over in article
+wetter.de#$#.outbrain-ad-slot { height: 1px !important; min-height: 1px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/43895
+keyforsteam.de#$#.custom-background { background-image: none!important; }
+! spiele.stern.de - removing left-over
+spiele.stern.de#$#.webBanner { position: absolute!important; left: -3000px!important; }
+! kurier.de - left-over at top
+kurier.de#$#html[data-layout] .grid { top: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/49630
+! https://github.com/AdguardTeam/AdguardFilters/issues/47729
+! https://github.com/AdguardTeam/AdguardFilters/issues/37776
+gmx.net,web.de#$#html[data-status="nomessage"] section#loginsearch { top: -290px!important; }
+gmx.net,web.de#$#.ad-component { visibility: hidden!important; height: 130px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/34000
+duden.de#$#aside[class*="likaka"] + .vignette { margin: 0px!important; border-top: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/36615
+laborjournal.de#$#.inhalt > .luft_inhalt { padding-top: 80px!important; }
+! drwindows.de - left-over in forum
+drwindows.de#$#.drw_firstpost { min-height: 0px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/28804
+maniac.de#$#body.td-ad-background-link { background-image: none!important; }
+maniac.de#$#body.td-ad-background-link #td-outer-wrap { cursor: auto!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/29519
+news.guidants.com#$##wrapper { margin-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/25425
+aktiencheck.de#$#body > #main { top: 0px!important; }
+! forum.digitalfernsehen.de - left-over in first post
+forum.digitalfernsehen.de#$#.messageContent blockquote > div[id][style*="width:300px;height:250px"] { position: absolute!important; left: -3000px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/22185
+giga.de#$#.show-navbar-subnav.show-teaserheld-header { padding-top:100px!important; }
+giga.de#$#.show-teaserheld-header .navbar-sub { margin-top: 0!important; padding-top: 0!important; }
+giga.de#$#.show-teaserheld-header .navbar-main { margin-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/21935
+wn.de#$#body > div#top-position { margin-top: 0!important; min-height:50px!important;}
+! ffh.de - ad left-over at top
+ffh.de#$##adContainer { height:1px!important; }
+! stuttgarter-nachrichten.de - removing ad left-over
+stuttgarter-nachrichten.de#$#.lay-wrapper { padding-right: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/20802
+planetradio.de#$##adContainer { position: absolute!important; left: -3000px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/18217
+silicon.de#$#[id^="div-gpt-ad-DESKTOP_MEGA"] { min-height: 0!important; height: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/18210
+dasoertliche.de#$#body > #oetbwrap[style="position:absolute;top:98px;"] { top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/17150
+woxikon.de#$#.ads-wrapper { position: absolute!important; left: -3000px!important; }
+! https://forum.adguard.com/index.php?threads/freenet-de-ad-blocking.28729
+freenet.de#$##frnBanner { height: 25px!important; min-height: 0px !important;}
+! winfuture.de - video is vanishing after play button when hidden by normal means
+winfuture.de#$#.spoods-deeplinks { visibility: hidden!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/10278
+onvista.de#$#body > #ONVISTA { margin-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/10099
+katholisches.info#$#.pf-content > span[style*="color:"][style*="important"] { position: absolute!important; left: -4000px!important;}
+! https://github.com/AdguardTeam/AdguardFilters/issues/8975
+t-online.de#$##Tovscr-inner {background:none!important;}
+! https://github.com/AdguardTeam/AdguardFilters/issues/8830
+nordbayerischer-kurier.de#$#.topAd {padding-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/7832
+boehms-dax-strategie.de#$##top-werbung { display: none!important; }
+boehms-dax-strategie.de#$##nav-main-sticky-wrapper > #nav-main[style*="top: 35px;"] { top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/7637
+bz-berlin.de#$#.bcode-zwischenblock { min-height: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/7303
+handelsblatt.com#$#.vhb-indicator { height: 0!important; width: 0!important; visibility: hidden; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/7009
+giga.de#$##outertop > #top { margin-top: auto!important; }
+giga.de#$#body .SubmenuNews.mfixed { top: 0!important; }
+! https://forum.adguard.com/index.php?threads/25381/
+preussische-allgemeine.de#$#body { padding-top: 0!important; }
+! https://forum.adguard.com/index.php?threads/25083/
+achgut.com#$#.column > .banner { position: absolute!important; left: -3000px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/6589
+main-echo.de#$#div#page { padding-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/5913
+gamekeyfinder.de#$##container > #content { top: 0!important; }
+gamekeyfinder.de#$#body #bottom { bottom: -20px!important; }
+! https://forum.adguard.com/index.php?threads/19957/
+bild.de#$#.eyecatcher { position: absolute!important; left: -3000px!important; }
+bild.de#$#.tea-rectangle { position: absolute!important; left: -3000px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/5442
+wetter.de#$#body #adcontrol-site-columns.adcontrol-active {top:0px;}
+! https://github.com/AdguardTeam/AdguardFilters/issues/5366
+fr.de#$#.abo_link{visibility:hidden!important;height: 0!important; padding:0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/5077
+tvmovie.de#$#header > nav[role="navigation"] { margin-top: auto!important; }
+! https://forum.adguard.com/index.php?threads/journal-frankfurt-de.21579/
+journal-frankfurt.de#$#body {margin-top: 0!important; }
+journal-frankfurt.de#$#.supersize {top: 0!important; }
+journal-frankfurt.de#$#.top-suche-komplett {margin-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/4163
+rtl.de#$#div[class^="rtlde-medium-rectangle"]{height: 0!important; margin: 0!important; padding: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/4932
+hifi-forum.de#$##content-outer { margin: auto auto 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/4891
+news.de#$#.wrapper { padding: 0px 15px!important; }
+! https://forum.adguard.com/index.php?threads/heise-de.20764/
+heise.de#$##container_content {top: 0!important; }
+! browsergames.de - remove background image
+browsergames.de#$#body { background-image: none!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/4323
+gamona.de#$#div.sitepos { padding-top: 0!important; }
+! https://forum.adguard.com/index.php?threads/cleverdialer-de.19689/
+cleverdialer.de#$#.header-spam {min-height: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/4223
+deutscherskiverband.de#$#.container-head { height: auto!important; }
+! https://forum.adguard.com/index.php?threads/tagesspiegel-de.19065/
+tagesspiegel.de#$#.ts-article-body::before {height: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/4165
+vox.de#$#.voxde-masonry > .voxde-medium-rectangle { left: -9999px!important; top: -9999px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/4167
+n-tv.de#$#.wrapper-page { margin-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/3447
+forum.digitalfernsehen.de#$#.messageText > div[style*="width:300px;height:250px;"] { height: 0!important; }
+! https://forum.adguard.com/index.php?threads/18009/
+giga.de#$#.adsbygoogle { position: absolute!important; left: -3000px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/3918
+winfuture-forum.de,winfuture.de#$##container { margin-top: auto!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/3607
+mathematik-wissen.de#$#body { margin-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/3506
+kostenlose-online-rechner.de#$##maincontent { min-height:auto!important; }
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/1998
+freenet.de#$##frnMain { min-height: 0!important; }
+!--------------------------------------!
+!------- Content filtering rules ------!
+!--------------------------------------!
+!

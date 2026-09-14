@@ -1,0 +1,29 @@
+!
+! This file contains all filters other than English, Social, Spyware and Russian.
+! Also filters by platforms https://github.com/AdguardTeam/AdguardBrowserExtension/issues/917
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/169842
+/videojs8/nuevo.min.js
+/videojs/plugins/vastpro.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/142875
+imdb.com#?#div[data-testid="promptable"]:has(.ipc-rating-display-with-poster__image)
+imdb.com#$?#body:has(div[data-testid="promptable"] .ipc-rating-display-with-poster__image) { overflow: auto !important; }
+!
+! Special rules for AdGuard websites' test pages. The only purpose of these
+! rules is to make test pages work so that users could verify that AdGuard
+! is properly working.
+!
+!+ NOT_OPTIMIZED
+adguard.info,adguard.com,adguard.app##.hello_from_adguard_experimental
+! Detect of using AdGuard products
+!+ PLATFORM(windows, mac, android, cli, ios) NOT_OPTIMIZED
+adguard.info,adguard.com,adguard.app##.hello_from_adguard_apps
+!+ NOT_PLATFORM(windows, mac, android, cli, ios, ext_ublock) NOT_OPTIMIZED
+adguard.info,adguard.com,adguard.app##.hello_from_adguard_ext
+! Detect HTTPS filtering
+!+ PLATFORM(windows, mac, android, cli) NOT_OPTIMIZED
+||https-filtering-check.adtidy.org^
+! Detect Advanced Protection of AdGuard for iOS
+!+ PLATFORM(ios) NOT_OPTIMIZED
+adguard.info,adguard.com,adguard.app#$#.hello_from_adguard_advanced_protection_ios { display: none !important; }
+!

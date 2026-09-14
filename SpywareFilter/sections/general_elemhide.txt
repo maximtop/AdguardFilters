@@ -1,0 +1,25 @@
+!
+! This section contains generic element hiding rules that block counters leftovers.
+!
+! Good: ##.adv
+! Bad: example.org##.adv (should be in specific.txt)
+!
+!
+##div[data-testid="prism-taboola"]
+##.ninja-recommend-block
+##img[src^="//counter.ukr.net/"]
+##amp-embed[type="taboola"]
+###qoo-counter
+###ramblerCounter
+###top100counter
+##.plugin-daily_count
+##a[href^="http://click.hotlog.ru/"]
+##a[href^="http://hitcounter.ru/top/stat.php"]
+~yandex.by,~yandex.com,~yandex.kz,~yandex.ru##a[href^="http://metrika.yandex.ru/stat/"]
+##a[href^="http://top.mail.ru/jump"]
+##a[href^="http://top100.rambler.ru/"]
+~diary.ru##a[href^="http://www.liveinternet.ru/stat/"]
+~yandex.by,~yandex.com,~yandex.kz,~yandex.ru##a[href^="https://metrika.yandex.ru/stat/"]
+##a[href^="https://top.mail.ru/jump"]
+##img[src*="counter.yadro.ru"]
+##img[src^="http://c.bigmir.net/"]

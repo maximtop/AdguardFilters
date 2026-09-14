@@ -1,0 +1,53 @@
+!
+! This section contains the list of generic blocking rules (mobile sites or apps).
+!
+! Good: .org/ads/
+! Bad: .org/ads/$domain=example.org (for instance, should be in speficic.txt)
+!
+!
+||s.*.com/pp.php?uid=$third-party
+.cn/?ss=
+/adfurikun/*
+/aff_c?*offer_id=*&aff_id=
+/aff_r?*offer_id=*&aff_id=
+||rt.api.glispa.com/native/v1/ad
+||doodlemobile.com/feature_server/fullScreen/get.php
+||doodlemobile.com/feature_server/geo-ip/test.php
+||cloud.rovio.com/ads/
+||cloudads-a.akamaihd.net^
+||banner.globalsolutions.uz/api/getbanners/
+||api.taboola.com/*/recommendations.multiple-get^
+||api.taboola.com/*/recommendations.get^
+||api.tinyhoneybee.com/api/getADConfig
+||api.tinyhoneybee.com/api/getADResource
+||50.17.161.250/appodeal/
+||52.87.215.72/oapi/getAd
+||78.138.126.253/www/
+||83.222.115.150/?type=
+||apps.outfit7.com/rest/ad/
+||cdn.outfit7.com/promo-nc
+||cm.ksmobile.com/api/GetCloudMsgAdv^
+||amazonaws.com/appodeal
+||f.doodlemobile.com:8080/feature_server_v3/
+||fotoable.com/Advertise/
+||gluservices.s3.amazonaws.com/PushNotifications
+||google.com/ads/search/app?*&caps=*sdkAdmobApiForAds
+||hoiplay.com/tm_popup.html$popup
+||hoodrunner.kiloo.com/newonlinesettings.php?platform=android
+||launchermsg.3g.cn/golaunchermsg/advservice.do
+||m.tubemate.net/c.jsp
+||mads.*.pinenutsdev.net/md.request.php
+||mobilityware.com/adparams/
+||presselite.com/iphone/pushnotification/interstitiel_android.php
+||rayjump.com/openapi/ad/
+||sinst.fwdcdn.com/_uploaded_files/ads/
+||smart.tinyhoneybee.com/log/
+||tb.beeline.ru/Scripts/App/AnchorCompiled.min.js
+||youtube.com/api/stats/ads
+!
+! For blocking ads in mobile apps with HTTPS filtering on Android
+! Facebook Ad Choices
+||graph.facebook.com/network_ads
+! Yandex Ads
+://yandex.ru/appcry|
+!

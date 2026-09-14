@@ -1,0 +1,288 @@
+!
+! This section contains the list of ad blocking rules that fall under "advanced" category.
+! By advanced we mean the following rule types: CSS, scriptlets, HTML filtering (`$$` marker), JS.
+!
+! Good: example.org#$##rek { display: none !important; }; example.org#%#//scriptlet('set-cookie', 'ad', '0'); example.org$$script[tag-content="ad"][max-length="3000"].
+! Bad: example.org###rek (should be in specific.txt)
+!
+!--------------------------------------!
+!------- JS rules ---------------------!
+!--------------------------------------!
+! SECTION: Chinese - JS
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/179866
+cnys.tv#%#//scriptlet('set-constant', 'config.group', '')
+! https://github.com/AdguardTeam/AdguardFilters/issues/179385
+applnn.cc#%#//scriptlet('trusted-set-cookie', 'gg_info', '$now$')
+applnn.cc#%#//scriptlet('prevent-eval-if', 'encodeURIComponent')
+! https://github.com/AdguardTeam/AdguardFilters/issues/178988
+now.com#%#//scriptlet('set-constant', 'preBid', 'emptyObj')
+now.com#%#//scriptlet('set-constant', 'preBid.displayAd', 'noopFunc')
+now.com#%#//scriptlet('set-constant', 'preBid.getPrerollVASTUrl', 'noopFunc')
+! https://github.com/AdguardTeam/AdguardFilters/issues/169652
+3dmgame.com#%#//scriptlet('abort-on-property-write', 'adStart')
+! https://github.com/AdguardTeam/AdguardFilters/issues/168192
+m.lwxs.com#%#//scriptlet('abort-current-inline-script', 'eval', '_0x')
+m.lwxs.com#%#//scriptlet('abort-current-inline-script', 'document.write', '_0x')
+! https://github.com/AdguardTeam/AdguardFilters/issues/168280
+ofiii.com#%#//scriptlet('trusted-replace-fetch-response', '"play_ads":true', '"play_ads":false')
+! https://github.com/AdguardTeam/AdguardFilters/issues/163589
+jmcomic1.me#%#//scriptlet('remove-node-text', '#text', '中間廣告')
+! https://github.com/AdguardTeam/AdguardFilters/issues/162373
+player.hboav.com#%#//scriptlet('set-constant', 'player.VastADPlugin', 'noopFunc')
+! https://github.com/AdguardTeam/AdguardFilters/issues/162094
+x99av.com#%#//scriptlet('set-constant', 'ADSOBJET', 'emptyObj')
+! https://github.com/AdguardTeam/AdguardFilters/issues/160509
+embedrise.com#%#//scriptlet('prevent-window-open')
+! https://github.com/AdguardTeam/AdguardFilters/issues/158639
+yfsp.tv,aiyifan.tv,iyf.tv#%#//scriptlet('abort-on-stack-trace', 'Object.prototype.pgmp', 'invokeInterstitial')
+!#if (!adguard_app_windows && !adguard_app_mac && !adguard_app_android && !adguard_app_cli)
+yfsp.tv,aiyifan.tv,iyf.tv#$#.bg-overlayer { pointer-events: unset !important; }
+yfsp.tv,aiyifan.tv,iyf.tv#%#//scriptlet('remove-class', 'publicplay', '#main-player')
+yfsp.tv,aiyifan.tv,iyf.tv#%#//scriptlet('abort-on-property-read', 'Object.prototype.ShouldLoadAds')
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/154174
+9xav.cc#%#//scriptlet('remove-class', 'q-body--prevent-scroll', 'body')
+! https://github.com/AdguardTeam/AdguardFilters/issues/150757
+m.91zww.com#%#//scriptlet('abort-on-property-write', 'delCookie')
+! https://github.com/AdguardTeam/AdguardFilters/issues/150387
+pornbest.org#%#//scriptlet('abort-current-inline-script', 'jQuery', 'injectPops')
+! https://github.com/AdguardTeam/AdguardFilters/issues/135612
+hamivideo.hinet.net#%#//scriptlet("set-constant", "myPlayer.adDisplay", "undefined")
+! https://github.com/AdguardTeam/AdguardFilters/issues/134441
+jianshu.com#%#//scriptlet("set-constant", "NEWS_FEED", "noopFunc")
+! https://github.com/AdguardTeam/AdguardFilters/issues/132438
+nunuyy3.org#%#//scriptlet("abort-current-inline-script", "$", "infoid")
+! https://github.com/AdguardTeam/AdguardFilters/issues/121492
+dogfight360.com#%#//scriptlet("abort-current-inline-script", "document.write", "document.write(ad);")
+! https://github.com/AdguardTeam/AdguardFilters/issues/119195
+xkyn.com#%#//scriptlet("set-constant", "conone_lmg", "noopFunc")
+! malicious redirect on first visit
+85tube.com#%#//scriptlet('prevent-addEventListener', 'DOMContentLoaded', 'document.createElement')
+! https://github.com/AdguardTeam/AdguardFilters/issues/109829 popunder
+520cc.cc#%#//scriptlet("prevent-setTimeout", "location.href", "3000")
+! https://github.com/AdguardTeam/AdguardFilters/issues/105329
+51zxw.net#%#//scriptlet("adjust-setTimeout", "adCountDown", "", "0.02")
+! tangdoucdn.com - skip ad timer
+! https://www.tangdoucdn.com/h5/play?vid=8709180
+tangdoucdn.com#%#//scriptlet("adjust-setInterval", ".s--", "", "0.02")
+tangdoucdn.com#%#//scriptlet("set-constant", "Object.prototype.ad_switch", "0")
+! https://github.com/AdguardTeam/AdguardFilters/issues/101013
+dianyingim.com#%#//scriptlet("set-constant", "dy_card_dyrun", "undefined")
+! https://github.com/AdguardTeam/AdguardFilters/issues/99153
+fapiao.bangnimang.net#%#(function(){window._czc={push:function(){}}})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/98514
+iwatchme2u.com#%#//scriptlet("prevent-window-open", "/bit\.ly|kbtv/")
+iwatchme2u.com#%#//scriptlet("adjust-setTimeout", "video-ad-timeout", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/94617
+o8tv.com#%#//scriptlet("abort-current-inline-script", "document.write", "tips")
+! popup
+xvideo.cc#%#//scriptlet("set-constant", "poped", "true")
+! https://github.com/AdguardTeam/AdguardFilters/issues/182779
+! https://github.com/uBlockOrigin/uAssets/issues/9650
+msn.cn#%#//scriptlet('inject-css-in-shadow-dom', '.ad-container, .vd-ad, cs-native-ad-card-no-hover, display-ads, .display-ad-container, .display-ads-container, .views-right-rail-top-display, #entry-point-hp-wc-banner, .me-stripe-title-subtitle, #displayAdCard, a[href*=".booking.com/"], a[href^="https://amzn.to/"] { display: none !important; }')
+msn.cn#%#//scriptlet('inject-css-in-shadow-dom', 'cs-native-ad-card { visibility: hidden !important; }')
+msn.cn#%#//scriptlet('inject-css-in-shadow-dom', '#entry-point-hp-wc-header[style^="top:"] { top: 0 !important; }')
+msn.cn#%#//scriptlet('inject-css-in-shadow-dom', '#entry-point-hp-wc-root-wrapper[style^="margin-top:"] { margin-top: 0 !important; }')
+msn.cn#%#//scriptlet('json-prune', '*.*', 'adFeedbackData adType adServedUrls')
+msn.cn#%#//scriptlet('json-prune', '*', 'list.*.link.ad list.*.link.kicker')
+msn.cn#%#//scriptlet('hide-in-shadow-dom', 'msft-article-card:not([class="contentCard"])')
+! Removes ad placeholders in sliders
+! Current path is "properties.componentConfigs.slideshowConfigs.slideshowSettings.interstitialNativeAds"
+! Other paths probably can be removed, but keep them just in case for some time
+msn.cn#%#//scriptlet('json-prune', 'configs.*.properties.slideshowWCSettings.interstitialNativeAds configs.*.properties.fullScreenSlideshowSettings.interstitialNativeAds properties.componentConfigs.slideshowConfigs.interstitialNativeAds properties.componentConfigs.slideshowConfigs.slideshowSettings.interstitialNativeAds')
+! Removes ad placeholders on the main page
+||assets.msn.cn/service/news/feed/pages/$jsonprune=\$.sections..subSections..cards..[?(key-substr 'type' 'nativead')]
+! Removes ad placeholders in articles in "More for You" section
+||assets.msn.cn/serviceak/news/feed/pages/viewspage$jsonprune=\$.sections..cards..[?(key-substr 'type' 'PartnerUpsell')]
+! Removes ad placeholders in sliders
+! Current path is "properties.componentConfigs.slideshowConfigs.slideshowSettings.interstitialNativeAds"
+! Other rules probably can be removed, but keep them just in case for some time
+||msn.cn/resolver/api/resolve/$jsonprune=\$.configs['GalleryPage/ntpmsn'].properties.slideshowWCSettings.interstitialNativeAds
+||msn.cn/resolver/api/resolve/$jsonprune=\$.configs['GalleryPage/ntpmsn'].properties.fullScreenSlideshowSettings.interstitialNativeAds
+||msn.cn/resolver/api/resolve/$jsonprune=\$.configs['SlideShow/ntpmsn'].properties.additionalChildExperiences..children..childExperienceConfigInfo.configRef[?(key-substr '\$' 'NativeAd')]
+||assets.msn.cn/periconfigs/feature-configs/consumptionpage/gallery_default/config.json$jsonprune=\$.properties.componentConfigs.slideshowConfigs.interstitialNativeAds
+||assets.msn.cn/periconfigs/feature-configs/consumptionpage/gallery_default/config.json$jsonprune=\$.properties.componentConfigs.slideshowConfigs.slideshowSettings.interstitialNativeAds
+! https://github.com/AdguardTeam/AdguardFilters/issues/233247
+! TODO: use "trusted-json-set" once it will be available for all platforms
+v.youku.com#%#(()=>{const t={apply:(t,o,a)=>{try{const t=o?.[0]?.data?.data??o?.data;t?.ad&&(t.ad={}),t?.ykad&&(t.ykad={})}catch(t){}return Reflect.apply(t,o,a)}};window.Array.prototype.slice=new Proxy(window.Array.prototype.slice,t),window.Object.prototype.hasOwnProperty=new Proxy(window.Object.prototype.hasOwnProperty,t)})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/198422
+! Rule below is required in case if DNS filtering is enabled.
+! To play video website requires "cna" cookie (antiadblock/VPN message is displayed without this cookie)
+! which is set by "https://log.mmstat.com/eg.js" script, but it's blocked on DNS level, so we need to set cookie manually.
+! Original cookie value is the same as ETag value from "https://log.mmstat.com/eg.js" response, but it's not static.
+! So as a workaround we use hardcoded value from "https://g.alicdn.com/kplayer/kuplayer/4.5.26-xmedia/index.js" script.
+www.youku.com,v.youku.com#%#(()=>{const e="cna",t=()=>null!==document.cookie.match(new RegExp(`^${e}=|; ${e}=`));if(t())return;const o=new MutationObserver((()=>{const o=document.querySelector("preplay-layer > error-layer .preLayer-title");o&&o.textContent.includes("请关闭VPN代理软件或广告拦截插件后重试")&&!t()&&(document.cookie=`${e}=MwCHGEQKugYCAWoLKcbU0UGk;`,window.location.reload())})),n=document.documentElement;o.observe(n,{attributes:!0,childList:!0,subtree:!0}),setTimeout((()=>o.disconnect()),1e4)})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/34910
+goodav17.com#%#//scriptlet("abort-on-property-read", "popunder")
+! https://github.com/AdguardTeam/AdguardFilters/issues/132934
+v-wb.youku.com#%#//scriptlet('set-constant', 'Object.prototype.adData', 'emptyObj')
+! https://github.com/AdguardTeam/AdguardFilters/issues/141905
+! https://github.com/AdguardTeam/AdguardFilters/issues/121307
+! https://github.com/AdguardTeam/AdguardFilters/issues/87176
+! https://github.com/AdguardTeam/AdguardFilters/issues/54359
+! https://github.com/AdguardTeam/AdguardFilters/issues/26318
+! https://forum.adguard.com/index.php?threads/youku-com-v-qq-com.30749/
+||ott.cibntv.net/*/ad/*.ts?ccode=$xmlhttprequest,domain=v.youku.com
+youku.com#%#//scriptlet('adjust-setTimeout', '', '', '0.02')
+m.youku.com,v.youku.com#%#//scriptlet('set-constant', 'Object.prototype._adData', 'emptyObj')
+! https://github.com/AdguardTeam/AdguardFilters/issues/87232
+qciss.net#%#//scriptlet("prevent-window-open", "0", "qciss.net")
+! https://github.com/AdguardTeam/AdguardFilters/issues/15213
+88files.net#%#//scriptlet("prevent-window-open")
+! https://github.com/AdguardTeam/AdguardFilters/issues/19010
+subhd.com#%#//scriptlet('set-session-storage-item', 'hassession', '1')
+! https://github.com/AdguardTeam/AdguardFilters/issues/31004
+m.86kl.com#%#//scriptlet('abort-on-property-read', 'akumtagcc')
+! https://github.com/AdguardTeam/AdguardFilters/issues/33510
+! https://github.com/AdguardTeam/AdguardFilters/issues/33458
+axjbt.com,avcao.cc#%#//scriptlet('abort-on-property-read', 'myclick')
+! https://github.com/AdguardTeam/AdguardFilters/issues/45024
+javlibrary.com#%#//scriptlet('abort-current-inline-script', 'document.write', '/getCookie[\s\S]*?\("\\x/')
+! https://github.com/AdguardTeam/AdguardFilters/issues/48562
+edc1014070.pixnet.net#%#//scriptlet("set-constant", "MM_openBrWindow", "noopFunc")
+! https://github.com/AdguardTeam/AdguardFilters/issues/106842
+hentaicomic.*,wnacg1.cc,wnacg.*#%#//scriptlet("abort-current-inline-script", "document.write", "/\.(gif|php)/")
+! https://github.com/AdguardTeam/AdguardFilters/issues/74672
+pixnet.net#%#//scriptlet('abort-current-inline-script', 'window.leave')
+! https://github.com/AdguardTeam/AdguardFilters/issues/87033
+freejavbt.com#%#//scriptlet('prevent-window-open')
+! https://github.com/AdguardTeam/AdguardFilters/issues/84970
+zhenbuka3.com,bukaivip.com#%#//scriptlet("adjust-setTimeout", "CloseAd", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/81172
+m.biqiugege8.com#%#//scriptlet("set-constant", "lists", "undefined")
+! popup/popunder
+ggjav.com,porn87.com#%#//scriptlet('abort-current-inline-script', '$', 'popunder')
+! https://github.com/AdguardTeam/AdguardFilters/issues/65715
+bde4.com#%#//scriptlet("adjust-setInterval", "timerAdCountdown", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/64825
+5278.cc#%#//scriptlet("prevent-window-open", "88p2p.com")
+! https://github.com/AdguardTeam/AdguardFilters/issues/57243
+! NOTE: JS end ⬆️
+! !SECTION: Chinese - JS
+!
+!--------------------------------------!
+!------- CSS fixes --------------------!
+!--------------------------------------!
+! SECTION: Chinese - CSS
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/162965
+baidu.com#$#.ec_wise_ad { position: absolute !important; left: -3000px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/155793
+csgoob.com#$##ADback { background: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/155154
+gameapps.hk#$#body { background-image: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/154174
+9xav.cc#$##alert_windows { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/152939
+udn.com#$#.main-content { background-image: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/152889
+ezneering.com#$#.pum-overlay { display: none !important; }
+ezneering.com#$#html { overflow: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/149584#issuecomment-1527176582
+money.163.com#$#.finance_header_gg { display: none !important; }
+money.163.com#$#.finance_header { height: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/149288
+tieba.baidu.com#$#.special_conf_skin .wrap1 { background: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/146457
+iqihang.com#$#.app.padding { margin-top: 0 !important; }
+iqihang.com#$#.app.padding > .header { top: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/145654
+dm5.com#$#body[style*="overflow"] { overflow: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/138799
+ghxi.com#$#.wpcom_ad_wrap { position: absolute !important; left: -3000px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/136795
+jieav.com#$##comment { margin-bottom: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/131531
+iyf.tv#$#.player-side > .block { visibility: hidden !important; min-height: 390px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/130277
+huaban.com#$#div[data-content-source="导航栏"] > a.modalOpenWidth { display: none !important; }
+huaban.com#$#.wrapper > div[data-content-source] > .modalOpenWidth[style*="top:"] { top: 80px !important; }
+! https://github.com/abp-filters/abp-filters-anti-cv/issues/1124
+theav.xyz,69xx.one,theporn.cc#%#//scriptlet("set-constant", "is_show", "false")
+theav.xyz,69xx.one,theporn.cc#$##alert_windows { display: none !important; }
+theav.xyz,69xx.one,theporn.cc#$#.q-body--prevent-scroll { position: static !important; }
+! https://github.com/uBlockOrigin/uAssets/issues/14023
+ulifestyle.com.hk#$#body { overflow: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/127464
+book.qidian.com#$##j-topBgBox + .crumbs-nav.top-op { margin-bottom: 10px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/125768
+nxpaaq.com#$#iframe[src="/close.html"] { display: none !important; }
+nxpaaq.com#$##mainContent { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/108123
+4399.com#$#body { background-image: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/100164
+pansci.asia#$##firstSingle { padding: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/94092
+com.tw#$#img[width="960"][height="90"] { height: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/29572
+ltn.com.tw#$#.whitecon > .related[data-desc="相關新聞"] > li:nth-child(5) { margin-right: 0!important; margin-left: 20px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/13236
+kocpc.com.tw#$##header > nav.floated-navbar { top: 0!important; }
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/846
+macapp.so#$##m2 { height: 5px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/3129
+mobile01.com#$#body { overflow: visible!important; }
+mobile01.com#$#.modal-backdrop { display: none!important; }
+! sync with video.fc2.com in Japanese filters
+liaoningmovie.net#$#.main_ad_head_wide { padding-top: 0 !important; }
+liaoningmovie.net#$#.c-ad-103 { height: 0 !important; }
+liaoningmovie.net#$#.app-container[aria-expanded="false"] section.with-ad { width: calc(100% - 20px) !important; }
+liaoningmovie.net#$#.with-ad[data-layout="list"] .main-header { width: 100% !important; }
+liaoningmovie.net#$#.with-ad[data-layout="list"][data-section-type="new-video"] .content-wrap:nth-child(-n+2) { width: 100% !important; }
+!
+gamer.com.tw#$##flyRightBox { position: absolute!important; left: -3000px!important; }
+!
+discuss.com.hk#$#iframe[width="728"][height="90"] { position: absolute!important; left: -3000px!important; }
+!
+sina.cn#$#[data-href*="://sax"] { position: absolute!important; left: -3000px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/15807
+baidu.com#$##content_left > div[style*="display:block !important;"]:not(.result) { position: absolute!important; left: -4000px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/33456
+weihemenye.com#$##player_div { display: block!important; }
+weihemenye.com#$##player_ad_div { display: none!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/39860
+sutin0831.pixnet.net#$#div[class*="-ad-sidebar-"] { position: absolute!important; left: -3000px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/53539
+buzzorange.com#$#.sidebar > section#text-8[style*="bottom: 240px;"] { position: static !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/46341
+m.lelekan.com#$#body { padding-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/47732
+h5.17k.com#$#body { overflow: visible!important; }
+h5.17k.com#$#html { overflow: visible!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/48953
+duodada.com#$#body { padding-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/52840
+haoweichi.com#$#.adsbygoogle { height: 1px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/53723
+v2rayssr.com#$##wrapfabtest { height: 1px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/83713
+51cto.com#$#.top_bg { height: 60px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/90063
+! https://github.com/AdguardTeam/AdguardFilters/issues/68621
+applefans.today#$#body { overflow: auto !important; }
+applefans.today#$#.tipi-overlay { display: none !important; }
+applefans.today#$#.timed-pup { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/76228
+apple.com.cn#$#html { margin-top: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/142606
+! https://github.com/AdguardTeam/AdguardFilters/issues/78741#issuecomment-817156648
+apple.com.cn#$#html #globalnav { top: 0 !important; }
+apple.com.cn#$##ac-globalnav { top: 0 !important; }
+apple.com.cn#$#.ac-gn-blur { top: 0 !important; }
+! NOTE: CSS end ⬆️
+! !SECTION: Chinese - CSS
+!
+!--------------------------------------!
+!------- Content filtering rules ------!
+!--------------------------------------!
+! SECTION: Chinese - HTML
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/106842
+hentaicomic.*,wnacg1.cc,wnacg.*$$script[wildcard="*tips[1]*document.write(tips*"][min-length="1000"][max-length="2000"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/34910
+goodav17.com$$script[tag-content="getPopunderCookie"][max-length="2500"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/3129
+mobile01.com$$script[tag-content="$.cookie(""fullscreenad"""][max-length="550"]
+! NOTE: HTML end ⬆️
+! !SECTION: Chinese - HTML

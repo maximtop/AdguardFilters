@@ -1,0 +1,181 @@
+!
+! This section contains the list of rules that are supposed to work on Bulgarian websites.
+!
+! Good: any type of the rules will be good
+! Bad: @@||example.org^$stealth
+!
+! NOTE: Ad servers
+!
+||ads2native.com^
+||hdvmyo.com^
+||adsy.mail.bg^
+!
+! NOTE: Allow-list
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/51510
+!+ PLATFORM(windows, mac, android, cli)
+@@||mail.bg/message/$jsinject,elemhide,extension
+!+ PLATFORM(windows, mac, android, cli)
+@@||mail.bg/message/$xmlhttprequest,other
+!
+! NOTE: Anti-adblock
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/229499
+||filmifen.com/templates/filmi/js/adb.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/216027
+@@||seir-sanduk.com/*.js$~third-party
+@@||ads.poshtata.online/*.js$domain=seir-sanduk.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/214657
+! https://github.com/AdguardTeam/AdguardFilters/issues/214602
+@@||cdn.gledaitv.*/embed.php$generichide
+@@||cdn.bg-gledai.*/embed.php$generichide
+cdn.gledaitv.*,cdn.bg-gledai.*#%#//scriptlet('abort-on-stack-trace', 'document.querySelector', 'Modal')
+cdn.gledaitv.*,cdn.bg-gledai.*#%#//scriptlet('abort-on-stack-trace', 'document.createElement', 'initBait')
+cdn.gledaitv.*,cdn.bg-gledai.*##body > div[style^="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%;"]
+cdn.gledaitv.*,cdn.bg-gledai.*###ad-detection-bait ~ div[id*="-"][style^="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%;"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/206003
+topsport.bg$$script:contains(baitTest)
+topsport.bg#%#//scriptlet('remove-node-text', 'script', 'baitTest')
+! https://github.com/AdguardTeam/AdguardFilters/issues/212776
+@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$domain=btvplus.bg
+! https://github.com/AdguardTeam/AdguardFilters/issues/194919
+!#if (adguard_app_ios || adguard_ext_safari || adguard_ext_android_cb)
+@@||btv.bg/static/bg/shared/js/admanager/ads.js
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=btv.bg
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/191545
+! https://github.com/AdguardTeam/AdguardFilters/issues/190807
+! https://github.com/AdguardTeam/AdguardFilters/issues/187565
+@@||www.btv.bg^$elemhide,badfilter
+@@||btv.bg^$generichide
+btvnovinite.bg,businessnovinite.bg,btv.bg,btvsport.bg#%#//scriptlet('set-constant', 'branDetective.detected', 'noopFunc')
+@@/js/admanager/ads.js$domain=businessnovinite.bg|btv.bg|btvsport.bg|btvplus.bg|btvnovinite.bg
+btvnovinite.bg,businessnovinite.bg,btv.bg,btvsport.bg#$#.vjs-control-bar { z-index: 1; }
+btvnovinite.bg,businessnovinite.bg,btv.bg,btvsport.bg#$#.vjs-continue-watching-bar { display: none !important; }
+btvnovinite.bg,businessnovinite.bg,btv.bg,btvsport.bg#$?#div[id^="leading_video_player_autoplay_wrapper"] { remove: true; }
+btvnovinite.bg,businessnovinite.bg,btv.bg,btvsport.bg#$#div[id^="leading_video_player_autoplay_"][id*="_main_wrapper"] { display: block !important; }
+btvnovinite.bg,btvplus.bg,businessnovinite.bg,btv.bg,btvsport.bg#%#//scriptlet('set-constant', 'isEnhancedContentAvailable', 'undefined')
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima3,domain=businessnovinite.bg|btv.bg|btvsport.bg|btvplus.bg|btvnovinite.bg
+!+ PLATFORM(ios, ext_android_cb)
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$xmlhttprequest,domain=btv.bg
+! https://github.com/AdguardTeam/AdguardFilters/issues/213815
+! https://github.com/AdguardTeam/AdguardFilters/issues/204147
+! https://github.com/AdguardTeam/AdguardFilters/issues/190638
+! https://github.com/AdguardTeam/AdguardFilters/issues/178821
+play.nova.bg#%#//scriptlet('prevent-fetch', '/adsbygoogle|googima\.js/')
+play.nova.bg#%#//scriptlet('prevent-xhr', '/adsbygoogle|googima\.js/')
+play.nova.bg#%#//scriptlet('prevent-element-src-loading', 'script', 'pagead2.googlesyndication.com')
+!+ NOT_PLATFORM(ext_ff)
+play.nova.bg#%#(()=>{const t={apply:(t,e,n)=>"data:text/javascript;base64,KCk9Pnt9"!==e&&Reflect.apply(t,e,n)};window.String.prototype.includes=new Proxy(window.String.prototype.includes,t)})();
+!+ PLATFORM(ext_ff)
+play.nova.bg#%#//scriptlet('trusted-create-element', 'head', 'script', '', '(()=>{const t={apply:(t,e,n)=>"data:text/javascript;base64,KCk9Pnt9"!==e&&Reflect.apply(t,e,n)};window.String.prototype.includes=new Proxy(window.String.prototype.includes,t)})();')
+!#if (adguard_app_ios || adguard_ext_safari || adguard_ext_android_cb)
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=play.nova.bg
+@@||ssl.p.jwpcdn.com/player/v/*/googima.js$xmlhttprequest,domain=play.nova.bg
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/171750
+pik.bg#%#//scriptlet('prevent-element-src-loading', 'script', 'ima3.js')
+!+ PLATFORM(ios, ext_safari, ext_android_cb)
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=pik.bg
+! https://github.com/AdguardTeam/AdguardFilters/issues/161796
+! https://github.com/AdguardTeam/AdguardFilters/issues/161641
+! https://github.com/AdguardTeam/AdguardFilters/issues/159344
+@@||vivo.bg/gpt.js
+money.bg,webcafe.bg,topsport.bg#%#//scriptlet('set-constant', 'isuBlock', 'false')
+! https://github.com/AdguardTeam/AdguardFilters/issues/157410
+gledaitv.live##div[id^="anti-adblock-"]
+gledaitv.live###abDetectorModal
+gledaitv.live#%#//scriptlet('prevent-setTimeout', 'advertisement')
+gledaitv.live#%#//scriptlet('set-constant', 'ABDetector', 'noopFunc')
+! https://github.com/AdguardTeam/AdguardFilters/issues/170783
+||cdn.bg-gledai.*/fuck_
+/rotate.php?id=$script,domain=bg-gledai.*
+! play.nova.bg - anti adblock
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=play.nova.bg
+!
+@@||smartadserver.com/call/pubx/*/M/$domain=vbox7.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/7027
+@@||seirsanduk.com/ad-server.js
+seirsanduk.com#%#//scriptlet('set-constant', 'canRunAds', 'true')
+! https://github.com/AdguardTeam/AdguardFilters/issues/148045
+bg-gledai.*#%#//scriptlet('set-constant', 'chp_adblock_browser', 'noopFunc')
+!#if (adguard_ext_android_cb)
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=bg-gledai.*
+@@||bg-gledai.$generichide
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/64914
+@@||play.nova.bg/prebid-ads.js
+play.nova.bg#%#//scriptlet("set-constant", "_spabia", "true")
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/60574
+blitz.bg#$#div[id^="div-gpt-ad"] { position: absolute!important; left: -3000px!important; }
+!
+! NOTE: Specific
+!
+bulnews.bg###inbet_sticky_small
+bulnews.bg###inbet_sticky_big
+||bulnews.bg/images.inbet/
+||kaldata.com/img/banners/banners.js
+fakti.bg##video-banner[ad-tag-url]
+seir-sanduk.com#?##program > p:contains(Реклама:)
+seir-sanduk.com###program > center
+||seir-sanduk.com/adblockaclib.js
+plovdiv24.bg##div[style$="min-height: 250px;"]
+plovdiv24.bg#$#.v5_fashad2 { min-height: 0 !important; }
+plovdiv24.bg#$#.mobban12 { min-height: 0 !important; }
+24chasa.bg##.sidebar:has(> div.ad)
+btvsport.bg###zora-banner
+btvnovinite.bg##.technopolis
+btvsport.bg,btvnovinite.bg###kaufland
+btvnovinite.bg##.mj-pf-widget
+news.bg,lifestyle.bg,topsport.bg,webcafe.bg#%#//scriptlet('remove-node-text', 'script', 'function initsite')
+news.bg,lifestyle.bg,topsport.bg##div[class*="banner-"]
+manager.bg##.central-banner
+pik.bg##div[class^="banners"]
+zamunda.ch##a[href^="https://bgkoleda.bg/"]
+telegraph.bg##.banner
+zamunda.ch##.top_blocks a[href="redirecto.php"]
+zamunda.ch##.unique-centerpos
+zamunda.ch##.unique-searchpos
+||media.mediadirectory.net/js/code.min.js
+24rodopi.com,rodopi24.blogspot.com##.sidebar-inner
+24rodopi.com,rodopi24.blogspot.com##a[style="float:left;width:254px;"]
+24rodopi.com,rodopi24.blogspot.com###HTML14
+bg-gledai.*##.squarebanner
+bg-gledai.*##.featbox
+zamunda.*##a[href^="https://dmsbg.com/"]
+||arenabg.com/ws.js
+arenabg.com##iframe[data-src="https://webcafe.bg/arena.html"]
+novsport.com##div[style^="float: left; width: 300px; height: 250px;"][style$="overflow: hidden"]
+novsport.com#?#h1[class]:contains(Реклама)
+novsport.com#?#.rounded-left:has(> div[class] > h1[class]:contains(Реклама))
+gotvach.bg##.sidecolumn > div[class^="gid"]
+gotvach.bg##div[class$="-content"] > .gidm
+gotvach.bg##div[class$="-content"] > .text .giwrp
+zamunda.ch,zamunda.net##.clickads
+zamunda.ch,zamunda.net##.speur
+capital.bg##.banner-box
+vbox7.com##.vbox-cap-adw
+arenabg.com##div[id^="spot-"]
+||trud.bg/public/images/autodoc.bg_300x50.gif
+gotvach.bg###artbot
+gotvach.bg###mplx
+gotvach.bg###comm
+gotvach.bg###artvert
+gotvach.bg###dvdt
+gotvach.bg###embed
+||mail.bg/images/brandings/
+mail.bg##.branding_content_link
+mail.bg###main-billboard-spacer
+mail.bg###mail_ad
+||webcafe.bg^$domain=arenabg.com
+arenabg.com#?#.row > div[class] > div.panel-arena:has(> div.panel-heading > a[target="_blank"])
+seirsanduk.us#?##program > center:contains(Реклама)
+cars.bg#$#body { background: #fafafa!important; }
+cars.bg##a[href^="http://www.ads.bg/"]
+seirsanduk.com###fbox-background
+||dir.bg/js_ext.php?placeid=*&affiliate_id=*
+digital.bg##.banner-holder
+kliuki.bg##img[width="650"][height="80"]
+kliuki.bg##img[width="960"][height="90"]
+kliuki.bg###container > div[style="float:left;"] > div[style]

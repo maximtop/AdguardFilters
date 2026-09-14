@@ -1,0 +1,15 @@
+!
+! Common javascript rules
+! http://adguard.com/filterrules.html#javascriptInjection
+!
+! Javascript rules which are not restricted to specific domains.
+! Be VERY cautious with this type of rules.
+!
+!
+! YouTube ads (for old and new ads)
+! youtube.com - white screen with skip button
+
+! I am not sure why we need this, commented out
+! !#if (!adguard_app_ios && !adguard_ext_android_cb)
+! @@||youtube.com/get_video_info
+! !#endif

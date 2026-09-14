@@ -1,0 +1,21 @@
+!
+! This section contains generic element hiding rules that block ads.
+!
+! Good: ##.adv
+! Bad: example.org##.adv (should be in specific.txt)
+!
+!
+##body > div#inplayer[align="center"]
+##.Zi_ad_a_H
+##a[href^="https://adm.beimg.com/"]
+! Porn sites with the same template on short-living domains
+##.main-container div[id^="z-extra-"]
+##.main-container div[id^="core-zone-"]
+##.main-container ~ div[class^="z"][class$="-root"]
+##.main-container ~ div.z-gate-mask
+! 17kp.vip
+icu##.banner-layout-box
+! 91porny
+##html[lang="zh-cn"] > body  > header.Mobile-Header + main > div[id][class]
+##.videoPlayContainer > div#video-play + div[data-nosnippet]
+##.row > div.colVideoList:has(> div.video-elem > a[target="_blank"])

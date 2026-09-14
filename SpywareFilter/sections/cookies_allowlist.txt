@@ -1,0 +1,86 @@
+!
+! This section contains the list of rules that fix incorrect blocking of tracking cookies by generic rules.
+!
+! Good: @@||example.org^$cookie=track
+! Bad:  example.org#@##cookie
+!
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/238722
+@@||hilton.com^$cookie=/^AMCVS?_.*AdobeOrg/
+! https://github.com/AdguardTeam/AdguardFilters/issues/231330
+@@||m.happymh.com^$cookie=/^_ga_/
+! https://github.com/AdguardTeam/AdguardFilters/issues/222085
+@@||hood.de^$cookie=DSID
+! https://x.com/Tightnaven/status/1974739387994030253
+@@||scrapbox.io^$cookie=connect.sid
+! https://github.com/AdguardTeam/AdguardFilters/issues/211274
+@@||play.history.com^$cookie=/^AMCVS?_.*AdobeOrg/
+! https://github.com/AdguardTeam/AdguardFilters/issues/229893
+! https://github.com/AdguardTeam/AdguardFilters/issues/215550
+! https://github.com/AdguardTeam/AdguardFilters/issues/210553
+@@||play.fyi.tv^$cookie=/^AMCVS?_.*AdobeOrg/
+@@||play.mylifetime.com^$cookie=/^AMCVS?_.*AdobeOrg/
+@@||play.aetv.com^$cookie=/^AMCVS?_.*AdobeOrg/
+! https://github.com/AdguardTeam/AdguardFilters/issues/207126
+@@||googletagmanager.com/gtm.js$domain=oto.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/205194
+! Website requires "_gid" and "_ga_" cookies, otherwise images are not loaded
+@@||moegirl.org.cn^$cookie=/^_ga_/
+@@||moegirl.org.cn^$cookie=_gid
+! https://github.com/AdguardTeam/AdguardFilters/issues/201854
+@@||adobe.com^$cookie=/^AMCVS?_.*AdobeOrg/
+! https://github.com/AdguardTeam/AdguardFilters/issues/199403
+@@||1login.wp.pl^$cookie
+! https://github.com/AdguardTeam/AdguardFilters/issues/198595
+@@||dizzylab.net^$cookie=_ga
+@@||dizzylab.net^$cookie=_ga_Y1BLF2VWNB
+! https://github.com/AdguardTeam/AdguardFilters/issues/198454
+@@||shop.app^$cookie=_shopify_y
+! https://github.com/AdguardTeam/AdguardFilters/issues/183187
+@@||help.twilio.com^$cookie=_dd_s
+! https://github.com/AdguardTeam/AdguardFilters/issues/178519
+@@||microsoft.com^$cookie=MUIDB
+! https://github.com/AdguardTeam/AdguardFilters/issues/176294
+@@$cookie=__gads,domain=godstoryinfo.com|laweducationinfo.com|rsgames.xyz|vichitrainfo.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/174219
+@@||haisenryakuzu.net^$cookie=_ga
+! https://github.com/AdguardTeam/AdguardFilters/issues/171285
+@@||godaddy.com^$cookie=_gid
+@@||godaddy.com^$cookie=/^_ga_/
+@@||godaddy.com^$cookie=_ga
+! https://github.com/AdguardTeam/AdguardFilters/issues/170920
+@@||endesaclientes.com^$cookie=dtCookie
+! https://github.com/AdguardTeam/AdguardFilters/issues/175430
+! https://github.com/AdguardTeam/AdguardFilters/issues/164914
+! TODO: Uncomment the exception rule once the issue is fixed - https://github.com/AdguardTeam/AdguardBrowserExtension/issues/2552
+! @@||epuap.gov.pl^$cookie=dtCookie
+! https://github.com/AdguardTeam/AdguardFilters/issues/164711
+!+ PLATFORM(ext_ff)
+@@||vattenfall.nl^$cookie=dtCookie
+! https://github.com/AdguardTeam/AdguardFilters/issues/160319
+||maccabi4u.co.il^$cookie=DSID
+! https://github.com/AdguardTeam/AdguardFilters/issues/145151
+@@||snyk.io^$cookie=ajs_anonymous_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/142640
+@@||itmedia.co.jp^$cookie=cX_G
+! https://github.com/AdguardTeam/AdguardFilters/issues/140782
+@@||dell.com^$cookie=/^AMCVS?_.*AdobeOrg/
+! https://github.com/AdguardTeam/AdguardFilters/issues/140059
+@@||pracuj.pl^$cookie=gptrackCookie
+! https://github.com/AdguardTeam/AdguardFilters/issues/129422
+@@||tatacliq.com^$cookie=/^AMCVS?_.*AdobeOrg/
+! https://github.com/AdguardTeam/AdguardFilters/issues/128154
+@@||auth.vodafone.hu^$cookie=dtCookie
+! https://github.com/easylist/easylist/pull/11359
+@@||cmoa.jp^$cookie=_ga
+! https://github.com/AdguardTeam/AdguardFilters/issues/108624
+! https://github.com/AdguardTeam/AdguardFilters/issues/164150
+!@@||store-jp.nintendo.com^$cookie
+! https://github.com/AdguardTeam/AdguardFilters/issues/101014
+@@||gigabyte.*^$cookie=/^_ga_/
+! https://github.com/AdguardTeam/AdguardFilters/issues/101455
+@@||stacksocial.com^$cookie=ajs_anonymous_id
+! https://github.com/AdguardTeam/AdguardFilters/issues/91367
+@@||dkb.de^$cookie=dtCookie
+! https://github.com/AdguardTeam/AdguardFilters/issues/90058
+@@||centrum24.pl^$cookie=dtCookie

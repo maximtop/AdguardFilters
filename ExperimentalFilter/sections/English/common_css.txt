@@ -1,0 +1,7 @@
+!
+! Common CSS rules
+!
+! This section contains CSS rules without domain restrictions.
+! Be cautious and add rules here even if you are sure that this
+! rule could be used for more than one web site.
+!

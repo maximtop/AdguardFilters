@@ -1,0 +1,185 @@
+!
+! This section contains the list of the content replacement rules that block ads. Rules must be domain-specific.
+!
+! Good: ||example.org/video-links$replace=/vast":/vast_":/
+! Bad:  ||example.org/video-links (should be in specific.txt)
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/159998
+! https://github.com/AdguardTeam/CoreLibs/issues/1800
+! TODO: remove when/if it will be fixed in CoreLibs
+!#if (adguard_app_windows || adguard_app_mac || adguard_app_android || adguard_app_cli)
+||android-hilfe.de^$replace=/<head\/><link/<head><link/,document
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/158739
+||videos.giga.de/homad/giga-ssl.json$replace=/"enabled":true\,/"enabled":false\,/i
+! https://github.com/AdguardTeam/AdguardFilters/issues/154072
+||oasis-player-prod.p7s1.io/web/*/monetization/monetization.js$replace=/enableAdProxy:!!./enableAdProxy:!1/
+! t-online.de ad video
+||hgc-cf-cache-1.svonm.com/www.t-online.de/config.json$replace=/"enabled":[\s\S]*true\,/"enabled": false\,/i
+! https://github.com/AdguardTeam/CoreLibs/issues/1671
+||imi-online.de^$replace=/(<html xmlns="http:.*?" lang=".*?")/\$1>/,document
+! Glomex video ads - kabeleins.de,prosieben.de,prosiebenmaxx.de,ran.de,sat1.de,sixx.de,the-voice-of-germany.de,wetter.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/21525
+config.player.p7s1.io/sat1-de.js$replace=/"adScheduler":\{"cobra":\{"advertiser":"[\s\S]*?_[\s\S]*?"/"adScheduler":\{"cobra":\{"advertiser":"x"/,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/21494
+config.player.p7s1.io/prosieben-de.js$replace=/"adScheduler":\{"cobra":\{"advertiser":"[\s\S]*?_[\s\S]*?"/"adScheduler":\{"cobra":\{"advertiser":"x"/,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/20595
+!+ NOT_PLATFORM(ext_ff)
+||config.player.p7s1.io/wetter-de.js$replace=/"adScheduler":\{"cobra":\{"advertiser":"[\s\S]*?_[\s\S]*?"/"adScheduler":\{"cobra":\{"advertiser":"x"/,domain=wetter.com
+! https://forum.adguard.com/index.php?threads/prosieben-de.20468/
+! https://forum.adguard.com/index.php?threads/resolved-wetter-com.17669/
+! https://forum.adguard.com/index.php?threads/ads-on-kabeleins-de-tv.23357/
+/\:\/\/config-vvs\.glomex\.com\/[a-z0-9]*\.js/$replace=/"adScheduler":\{"cobra":\{"advertiser":"[\s\S]*?_[\s\S]*?"/"adScheduler":\{"cobra":\{"advertiser":"x"/,domain=7tv.de|kabeleins.de|prosieben.de|prosiebenmaxx.de|ran.de|sat1.de|sixx.de|the-voice-of-germany.de
+! wetter.com has different script than websites above
+/\:\/\/config-vvs\.glomex\.com\/[a-z0-9]*\.js/$replace=/"adScheduler"\:/"adScheduler":\{"cobra":\{\}\}\,"x":/,domain=wetter.com
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/171409
+||winfuture.de/video/homadConfigWinfuture.json$replace=/"enabled": true\,/"enabled": false\,/i
+||svonm.com/www.winfuture.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=winfuture.de
+! blick.ch - video ads
+||ssaimanifest.prod.boltdns.net/playback/once/v*/vmap/hls/$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/,domain=blick.ch
+! https://github.com/AdguardTeam/AdguardFilters/issues/93347
+||zomap.de^$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/,xmlhttprequest,domain=joyn.de
+! https://github.com/AdguardTeam/AdguardFilters/issues/65811
+||amazonaws.com/homad-global-configs-*.schneevonmorgen.com/global_config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=giga.de,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/64743
+||amazonaws.com/homad-global-configs-*.schneevonmorgen.com/global_config.json$replace=/"enabled":( )?true\,/"enabled": false\,/i,domain=spieletipps.de,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/48581
+||svonm.com/www.vip.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=vip.de,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/31669
+||amazonaws.com/homad-global-configs.schneevonmorgen.com/www.gamona.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=gamona.de,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/31668
+||svonm.com/www.spieletipps.de/config.json$replace=/"enabled":( )?true\,/"enabled": false\,/i,domain=spieletipps.de,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/31667
+||svonm.com/www.giga.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=giga.de,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/63444
+! https://github.com/AdguardTeam/AdguardFilters/issues/31666
+||amazonaws.com/homad-global-configs-*.schneevonmorgen.com/global_config.json$replace=/"enabled": ?true\,/"enabled": false\,/i,domain=kino.de,important
+||svonm.com/www.kino.de/config.json$replace=/"enabled": ?true\,/"enabled": false\,/i,domain=kino.de,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/29816
+||svonm.com/www.n-tv.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=n-tv.de,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/14897
+svonm.com/www.watchbox.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i
+svonm.com/www.watchbox.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/9237
+||watchbox.de/homad*.json$replace=/"enabled": true\,/"enabled": false\,/i,important
+! https://forum.adguard.com/index.php?threads/resolved-chip-de-chrome-extension.23472/
+||filestorage.chip.de/videoplayer//config/homadConfig.json$replace=/"enabled": true\,/"enabled": false\,/i,important
+! comedycentral.tv
+||comedycentral.tv/homad/config.json$replace=/"enabled":true\,/"enabled":false\,/i
+||comedycentral.tv/homad/config.json$replace=/"enabled":true\,/"enabled":false\,/i,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/2304
+||computerbild.de/assets/homad/homadConfig-computerbild.json$replace=/"enabled": true\,/"enabled": false\,/i
+||computerbild.de/assets/homad/homadConfig-computerbild.json$replace=/"enabled": true\,/"enabled": false\,/i,important
+! ||damoh.computerbild.de^$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/,important
+! ||damoh.computerbild.de^$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/
+||s3.amazonaws.com/homad-global-configs.schneevonmorgen.com/global_config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=computerbild.de
+||s3.amazonaws.com/homad-global-configs.schneevonmorgen.com/global_config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=computerbild.de,important
+! autobild.de
+||schneevonmorgen.com/www.autobild.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i
+||schneevonmorgen.com/www.autobild.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,important
+! n24.de
+||homad-global-configs.schneevonmorgen.com.s3.amazonaws.com/global_config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=n24.de
+||homad-global-configs.schneevonmorgen.com.s3.amazonaws.com/global_config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=n24.de,important
+! gamesaktuell.de
+||amazonaws.com/www.gamesaktuell.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=gamesaktuell.de
+||amazonaws.com/www.gamesaktuell.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=gamesaktuell.de,important
+! videogameszone.de
+||amazonaws.com/www.videogameszone.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=videogameszone.de
+||amazonaws.com/www.videogameszone.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=videogameszone.de,important
+! pcgames.de
+||amazonaws.com/www.pcgames.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=pcgames.de
+||amazonaws.com/www.pcgames.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=pcgames.de,important
+! pcgameshardware.de
+||amazonaws.com/www.pcgameshardware.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=pcgameshardware.de
+||amazonaws.com/www.pcgameshardware.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=pcgameshardware.de,important
+! sueddeutsche.de
+||amazonaws.com/www.sueddeutsche.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=sueddeutsche.de
+! vox.de
+||amazonaws.com/www.vox.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=vox.de
+||amazonaws.com/www.vox.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=vox.de,important
+||cdn.videoplaza.tv/contrib/de-ipd/svm/homadConfigVideoplaza-vox.json$replace=/"enabled": true\,/"enabled": false\,/i
+||cdn.videoplaza.tv/contrib/de-ipd/svm/homadConfigVideoplaza-vox.json$replace=/"enabled": true\,/"enabled": false\,/i,important
+! gmx.net
+||amazonaws.com/www.gmx.net/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=gmx.net
+||amazonaws.com/www.gmx.net/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=gmx.net,important
+! web.de
+||amazonaws.com/www.web.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=web.de
+||amazonaws.com/www.web.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=web.de,important
+! http://forum.adguard.com/showthread.php?8979
+||amazonaws.com/homad-global-configs.schneevonmorgen.com/www.focus.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=focus.de
+||amazonaws.com/homad-global-configs.schneevonmorgen.com/www.focus.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=focus.de,important
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/1344
+||schneevonmorgen.com.s3.amazonaws.com/*config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=rtl.de
+||schneevonmorgen.com.s3.amazonaws.com/*config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=rtl.de,important
+! http://forum.adguard.com/showthread.php?8784
+||cdn.videoplaza.tv/contrib/de-ipd/svm/homadConfigVideoplaza-n-tv.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=n-tv.de
+||cdn.videoplaza.tv/contrib/de-ipd/svm/homadConfigVideoplaza-n-tv.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=n-tv.de,important
+! http://forum.adguard.com/showthread.php?7285
+/global_config.json$replace=/"enabled":\s*true\,/"enabled": false\,/i,domain=spiegel.de
+/global_config.json$replace=/"enabled":\s*true\,/"enabled": false\,/i,domain=spiegel.de,important
+/homadconfig.json$replace=/"enabled":\s*true\,/"enabled": false\,/i,domain=spiegel.de
+/homadconfig.json$replace=/"enabled":\s*true\,/"enabled": false\,/i,domain=spiegel.de,important
+||adfarm*.adition.com/banner$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/,domain=spiegel.de,important
+||adfarm*.adition.com/banner$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/,domain=spiegel.de
+! https://github.com/AdguardTeam/AdguardFilters/issues/3094
+! https://github.com/AdguardTeam/AdguardFilters/issues/78871
+||homad-global-configs.schneevonmorgen.com.s3.amazonaws.com/global_config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=golem.de
+||homad-global-configs.schneevonmorgen.com.s3.amazonaws.com/global_config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=golem.de,important
+! winfuture.de
+||s3.amazonaws.com/homad-global-configs.schneevonmorgen.com/global_config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=winfuture.de
+||s3.amazonaws.com/homad-global-configs.schneevonmorgen.com/global_config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=winfuture.de,important
+! chip.de
+||s3.amazonaws.com/homad-global-configs.schneevonmorgen.com/global_config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=chip.de
+||s3.amazonaws.com/homad-global-configs.schneevonmorgen.com/global_config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=chip.de,important
+! plus.rtl.de
+||rtlplus-homad-client-config-prod.s3.eu-central-1.amazonaws.com/homadClientConfig-plusrtlde.json$replace=/\"enabled\": true/"enabled": false/,domain=plus.rtl.de
+||rtlplus-homad-client-config-prod.s3.eu-central-1.amazonaws.com/homadClientConfig-plusrtlde.json$replace=/\"enabled\": true/"enabled": false/,domain=plus.rtl.de,important
+! https://github.com/AdguardTeam/AdguardFilters/issues/3012
+! !+ PLATFORM(windows, mac, android, cli)
+! ||damoh.welt.de^$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/,important
+! !+ PLATFORM(windows, mac, android, cli)
+! ||damoh.welt.de^$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/
+||s3.amazonaws.com/homad-global-configs.schneevonmorgen.com/global_config.json$replace=/"enabled":[\s\S]*true\,/"enabled": false\,/i
+||s3.amazonaws.com/homad-global-configs.schneevonmorgen.com/global_config.json$replace=/"enabled":[\s\S]*true\,/"enabled": false\,/i,important
+! ||smartadserver.com/ac?siteid=$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/,important
+! ||smartadserver.com/ac?siteid=$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/
+||svonm.com/www.welt.de/config.json$replace=/"enabled":[\s\S]*true\,/"enabled": false\,/i
+||svonm.com/www.welt.de/config.json$replace=/"enabled":[\s\S]*true\,/"enabled": false\,/i,important
+||welt.de/homadConfigEnabled$replace=/"enabled":[\s\S]*true\,/"enabled": false\,/i
+||welt.de/homadConfigEnabled$replace=/"enabled":[\s\S]*true\,/"enabled": false\,/i,important
+! t-online.de
+||amazonaws.com/www.t-online.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=t-online.de
+||amazonaws.com/www.t-online.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=t-online.de,important
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/1774
+! ||damoh.aws.stern.de^$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/,important
+! ||damoh.aws.stern.de^$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/
+! ||homad-global-configs.schneevonmorgen.com.s3.amazonaws.com/www.stern.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i
+! ||homad-global-configs.schneevonmorgen.com.s3.amazonaws.com/www.stern.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,important
+! https://github.com/AdguardTeam/ExperimentalFilter/issues/1812
+||svonm.com/www.giga.de/config.json$replace=/"enabled": true/"enabled": false/,domain=giga.de
+||amazonaws.com/www.giga.de/config.json$replace=/"enabled": true\,/"enabled": false\,/,important
+||amazonaws.com/www.giga.de/config.json$replace=/"enabled": true\,/"enabled": false\,/
+||s3.amazonaws.com/homad-global-configs.schneevonmorgen.com/global_config.json$replace=/"enabled": true/"enabled": false/i,domain=giga.de
+!
+||cdn.videoplaza.tv/contrib/de-ipd/svm/homadConfigVideoplaza-rtl2.json$replace=/"enabled": true\,/"enabled": false\,/i
+||cdn.videoplaza.tv/contrib/de-ipd/svm/homadConfigVideoplaza-rtl2.json$replace=/"enabled": true\,/"enabled": false\,/i,important
+||damoh.rtl2.de^$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/,important
+||damoh.rtl2.de^$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/
+||homad-global-configs.schneevonmorgen.com.s3.amazonaws.com/global_config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=rtl2.de
+||homad-global-configs.schneevonmorgen.com.s3.amazonaws.com/global_config.json$replace=/"enabled": true\,/"enabled": false\,/i,domain=rtl2.de,important
+!
+homad-global-configs-eu-fra.schneevonmorgen.com.s3.amazonaws.com/*/config.json$replace=/"enabled": true\,/"enabled": false\,/i
+homad-global-configs-eu-fra.schneevonmorgen.com.s3.amazonaws.com/*/config.json$replace=/"enabled": true\,/"enabled": false\,/i,important
+!
+||amazonaws.com/www.buffed.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i
+||amazonaws.com/www.buffed.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,important
+||amazonaws.com/www.gamezone.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i
+||amazonaws.com/www.gamezone.de/config.json$replace=/"enabled": true\,/"enabled": false\,/i,important
+! https://forum.adguard.com/index.php?threads/10477/
+||adserver.adtech.de/?advideo/$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/,important
+||adserver.adtech.de/?advideo/$replace=/(<VAST[\s\S]*?>)[\s\S]*<\/VAST>/\$1<\/VAST>/
+!
+! https://forum.adguard.com/index.php?threads/7957/
+@@||cdn.videoplaza.tv/contrib/de-ipd/svm/homadConfigVideoplaza-wetter.json
+||cdn.videoplaza.tv/contrib/de-ipd/svm/homadConfigVideoplaza-wetter.json$replace=/"enabled": true\,/"enabled": false\,/i,important

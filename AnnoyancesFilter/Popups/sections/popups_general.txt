@@ -1,0 +1,119 @@
+!
+! This section contains the list of generic rules that block in-page popups (like banners with special offers) and floating elements.
+! At the bottom of this file, you can find the allowlist that fixes issues caused by the rules from this file.
+!
+! Good: any type of the rules will be good
+! Bad:  example.org#@##credential_picker_container (should be in popups_allowlist.txt)
+!
+!
+! SECTION: Popups - generic rules
+!
+##body.wp-embed-responsive > div#actionbar
+##.gliaplayer-container
+##.ays-fpl-modal
+##.fix_swell_banner
+###wpd-bubble-wrapper
+##.tmblr-iframe--follow-teaser
+###siradaki-haberler
+###trd-exitintentbox
+###wbounce-modal
+##.gs-subscribe
+##.td-more-articles-box
+!
+/wp-content/plugins/ays-facebook-popup-likebox/*
+.ru/?iam=$script
+/cdn-cgi/pe/bag2?r[]=*mailget.net
+/download.plagin.js
+/plugins/facebook-page-promoter-$~stylesheet
+/wp-content/plugins/arscode-ninja-popups/*
+/wp-content/plugins/chimpmatepro/*
+/wp-content/plugins/facebook-fanbox-popup/*
+/wp-content/plugins/icegram/*
+/wp-content/plugins/mailchimp/*
+/wp-content/plugins/modesco-zen-subscribe/*
+/wp-content/plugins/newspack-popups/*
+/wp-content/plugins/popup-maker/*$~stylesheet,domain=~schornsteinfeger-liv-bayern.de
+/wp-content/plugins/thrive-leads/*
+/wp-content/themes/Newspaper-child/*$~stylesheet,~font,domain=~dyvys.info|~capital.de|~inside-digital.de|~expressvpn.com|~botanichka.ru|~misionesonline.net|~probasket.pl|~serbestiyet.com
+! AppNexus CMP popups
+/cmp/cmp.*.js
+/cmp/cmp.js
+!
+||rival-contents.com^$third-party
+||cdn.shopify.com/extensions/*/assets/pushowl-
+||controlpush.com^$third-party
+||js.flashyapp.com^$third-party
+||sdk.postscript.io^$third-party
+||cdn.wheelio-app.com^$third-party
+||pop.unitedgate.co.jp^$third-party
+||chatboost-cv.algoage.co.jp^$third-party
+||pop-convert.com^$third-party
+||kameleoon.eu^$third-party
+||webwidget.shanon-services.com^$third-party
+||bot.agerun.jp^$third-party
+||pop.devil.services^$third-party
+||web.telemetric.dk^$third-party
+||pt.wisernotify.com^
+||ex1tp.com^$third-party
+||ga2.getresponse.com^$third-party
+||fastemu.co^$third-party
+||7pisem.com^$third-party
+||7pisem.ru^$third-party
+||a.mailmunch.co/app/$script,third-party
+||api.callpage.io/*/widgets^$third-party
+||api.cazamba.com^$third-party
+||api.sorunapp.com^$third-party
+||borgan.ru^$third-party
+||cdn*.pdmntn.com^$third-party
+||cdn-library.su/plusonet/lib/$domain=~pluso.net
+||cdn-promote.weebly.com/js/dist/lead-form.js$third-party
+||cdn.pn.vg^$third-party
+||cdn.swellrewards.com^$third-party
+||chatinator.com^$third-party
+||code.clicktex.ru^$third-party
+||data.pendo.io/data/guide.js^$third-party
+||downloads.mailchimp.com/js/signup-forms/
+||elp.evolok.net^$third-party
+||files.jumpoutpopup.ru^$third-party,domain=~makedreamprofits.com
+||form.typeform.com^$domain=theoryandpractice.ru
+||inffuse-fbpopup.appspot.com/widget.html
+||mailganer.com/jsapi/*?ref=
+||mailget.net^$third-party
+||messenger.ngageics.com^$third-party
+||milotree.com^$third-party
+||my.hellobar.com^$third-party
+||my.leadpages.net^$third-party
+||optmstr.com^$third-party
+||optnmnstr.com^$third-party
+||optnmstr.com^$third-party
+||panel.smartpoint.pro^$third-party
+||pdmntn.com/popups^
+||penglue.jp^$third-party
+||popcard.unibuddy.co^$third-party
+||popup.wisepops.com^$third-party
+||popupmaker.com^$third-party
+||s3.amazonaws.com/mailmunch/
+||salesmanago.pl/*/popups.js
+||salesmanago.pl/static/sm.js
+||sdk.*.braze.com^$third-party
+||server.connecto.io^$third-party
+||socialsend.ru^$third-party
+||splash-screen.net^$third-party
+||static.popmechanic.ru/service/loader.js$third-party
+||static.superbot.works^$third-party
+||tradeins.ru^$third-party
+||traq.li^$third-party
+||trbo.com^$third-party
+||unpkg.com/@textback/notification-widget
+||widget.pico.tools^$third-party
+||widget.privy.com^$third-party
+! https://github.com/AdguardTeam/AdguardFilters/issues/185155
+||cdn.jsdelivr.net/gh/Joe12387/detectIncognito@main/dist/es5/detectIncognito.min.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/90111
+! https://github.com/AdguardTeam/AdguardFilters/issues/90110
+! https://github.com/AdguardTeam/AdguardFilters/issues/90109
+! https://github.com/AdguardTeam/AdguardFilters/issues/90108
+://journey.*.com/compiler-$script,~third-party
+! NOTE: Generic rules end ⬆️
+! !SECTION: Popups - Generic rules
+!

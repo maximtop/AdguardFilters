@@ -1,0 +1,89 @@
+!
+! This section contains the list of generic rules that block the promotion of subscriptions, newsletters.
+! Examples: "subscribe to our blog", "subscribe to our newsletter" blocks in all kinds of blocks.
+!
+! Good: any type of the rules will be good
+! Bad:  @@||signup.e2ma.net^$domain=example.org (should be in AdGuard Base - subscriptions_allowlist.txt)
+!
+! Genegic rules
+! SECTION: Subscriptions - Generic
+!
+##a[href^="https://yandex.ru/news/?favid="]
+##.google-preferred-source
+##.article__info-goog
+##div[data-testid="google-news-widget"]
+##.article-content__widget-group--newsletter-slot
+##form[aria-label="Sign up for newsletter: Daily Briefing"]
+##.breadcrumb__google-news
+##.footer-cta
+##.post-end-cta-full
+##.google-news-button
+##.newsletter-simple
+##.verbum-simple-subscribe-modal
+##.home-subscribe
+##a[href^="https://twitter.com/intent/follow?"]
+##a[href^="https://x.com/intent/follow?"]
+##.google-news-block
+##.jetpack_subscription_widget
+##.Sailthru_Subscribe
+##.wp-block-xwp-newsletter-subscription
+##.w-newsletter-in_article
+##.smartmag-widget-newsletter
+##.newsletter-slice
+##.newsletter-inbodyContent-slice
+##.skinny-signup
+##.mailpoet_form_popup_overlay
+##.mailpoet_form
+##.sqs-popup-overlay
+##.followit--follow-form-container
+##.widget_blog_subscription
+###mc_embed_signup
+! generic cooking sites
+##body[class*="adthrive-device-"] .block-subscribe
+##body[class*="adthrive-device-"] .block-ebook
+##body[class*="adthrive-device-"] .enews-widget
+##body[class*="adthrive-device-"] .sidebar-newsletter
+##body[class*="adthrive-device-"] > .site-container .block-email
+##.wpforms-location-save_recipe_wprm
+##.slick-on-page
+##.seva-form
+##.dpsp-email-save-this-tool
+##.block-save-recipe
+###savetherecipe
+##.save-recipe
+##.seva-overlay
+!
+/wp-content/plugins/mailoptin/*
+!
+||voltmail.io/static/js/form-embed.js$third-party
+||zeropartyforms.com/*/lightbox.js
+||bloomreach.com/campaigns/banners/
+||exponea.com/campaigns/banners/
+||wheelify-front.carecart.io^
+||cdn.embedly.com/widgets/media.html?src=*upscri.be*as_embed*&schema=upscri
+||ext.spinwheelapp.com^$third-party
+||cdn.shopify.com/extensions/*/tydal-popups-email-pop-ups-4/assets/pop-app-embed.js
+||substack.com/embed$third-party
+||omnisnippet1.com^$third-party
+||maillist-manage.com^$third-party
+||images.tcdn.com.br/files/*/js/newsletter-popup.js
+||my.sendinblue.com/users/subscribe/$third-party,subdocument
+||embed.secondstreetapp.com^$third-party
+||acumbamail.com^$third-party
+||kamogawa.mag2.com/editor/pub-form/$third-party
+||mail-wind.com/js/rss_regist_$third-party
+||forms.aweber.com^$third-party
+||inyourarea.co.uk^$third-party
+||js.emailable.com^$third-party
+||loader.wisepops.com^$third-party
+||cp.unisender.com/*/form-widget-loader.js$third-party
+! Postmedia.com
+##.newsletter-widget__new-story-page
+! e2ma subscription forms
+||system.promio-connect.com^$third-party
+||signup.e2ma.net^$third-party
+/e2ma.js
+||static-cdn.e2ma.net/signups/$third-party
+! NOTE: Generic end ⬆️
+! !SECTION: Subscriptions - Generic
+!

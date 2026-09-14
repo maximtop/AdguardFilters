@@ -1,0 +1,42 @@
+!
+! This section contains the list of generic rules are against banners that promote mobile apps.
+!
+! Good: ##amp-app-banner
+! Bad:  example.org###amp-app-banner (should be in mobile-app_specific.txt)
+!
+! SECTION: Mobile apps - generic rules
+!
+/wp-content/plugins/ioimedia-app-banner/*
+/js/jquery.smartbanner.js
+||br.app.link^$third-party
+!
+##.duyuru_kutusu
+##.ldapp-article
+###xm_app_stickyHeader
+##.app-ad-container-desktop
+##.appBanner:not(body)
+###app-follow-banner
+##amp-app-banner
+##.smartbanner--ios
+##div[class^="smartbanner"][class*="-android"]
+###smartbanner.ios
+###smartbanner.windows
+##head[prefix~="medium-com:"] ~ body .js-openInAppButton
+##head[prefix~="medium-com:"] ~ body .js-postActionsBarContent > .js-readNextInteractions
+!
+!#if (adguard_app_android || adguard_app_ios || adguard_ext_android_cb || ext_ublock)
+jp,com##.header__banner[href^="https://play.google.com/store/apps/details?id=jp.co.ibg_m.daisy"]
+jp,com##.header__banner[href="https://apps.apple.com/jp/app/fanmily/id1485686155"]
+###SmBnLink
+! https://github.com/AdguardTeam/AdguardFilters/issues/212907
+! Used in many mirrors of the Chinese site like in the issue
+###appss
+##[onclick="goAppHtml();"]
+! https://developer.apple.com/documentation/webkit/promoting_apps_with_smart_app_banners
+!+ PLATFORM(ios)
+#$?#meta[name="apple-itunes-app"] { remove: true; }
+!#endif
+!
+! NOTE: Generic rules end ⬆️
+! !SECTION: Mobile apps - Generic rules
+!

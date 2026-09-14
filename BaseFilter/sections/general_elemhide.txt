@@ -1,0 +1,544 @@
+!
+! This section contains generic element hiding rules that block ads.
+!
+! Good: ##.adv
+! Bad: example.org##.adv (should be in specific.txt)
+!
+!
+!
+!+ NOT_OPTIMIZED
+##.ad-pos-top
+!+ NOT_OPTIMIZED
+##.pm-ad
+!+ NOT_OPTIMIZED
+##.adthrive-placeholder-content
+!+ NOT_OPTIMIZED
+##.addbanner
+!+ NOT_OPTIMIZED
+###inlinead
+!+ NOT_OPTIMIZED
+##.ad-content-rectangle
+!+ NOT_OPTIMIZED
+##.exco-container
+!+ NOT_OPTIMIZED
+##.banner-advert
+!+ NOT_OPTIMIZED
+##.ad_large
+!+ NOT_OPTIMIZED
+##[href^="https://www.mypatriotsupply.com/"] > img
+!+ NOT_OPTIMIZED
+##.inline-advert
+!+ NOT_OPTIMIZED
+###footer_adv
+!+ NOT_OPTIMIZED
+##.ads-narrow
+!+ NOT_OPTIMIZED
+##.vf-promo-wrapper
+!+ NOT_OPTIMIZED
+##.interstitial-ad
+!+ NOT_OPTIMIZED
+##.ads970
+!+ NOT_OPTIMIZED
+###top_google_ads
+!+ NOT_OPTIMIZED
+##.adace-slideup-slot-wrap
+!+ NOT_OPTIMIZED
+##.in_article_ad
+!+ NOT_OPTIMIZED
+##.entry_ad
+!+ NOT_OPTIMIZED
+###ad-top-right-container
+!+ NOT_OPTIMIZED
+##.headad
+!+ NOT_OPTIMIZED
+##.adun
+!+ NOT_OPTIMIZED
+##.zergnet-widget
+!+ NOT_OPTIMIZED
+##.ad--wrapper
+!+ NOT_OPTIMIZED
+##.ad--topmobile
+!+ NOT_OPTIMIZED
+##.story__top__ad
+!+ NOT_OPTIMIZED
+##.amazon-auto-links
+!+ NOT_OPTIMIZED
+###ad1-placeholder
+!+ NOT_OPTIMIZED
+##.c-adSkyBox
+!+ NOT_OPTIMIZED
+###splashy-ad-container-top
+!+ NOT_OPTIMIZED
+###middle_ad
+!+ NOT_OPTIMIZED
+##.GRVVideo
+!+ NOT_OPTIMIZED
+##.div_pop
+!+ NOT_OPTIMIZED
+###ad_middle
+!+ NOT_OPTIMIZED
+##.ads-cont
+!+ NOT_OPTIMIZED
+##.adsense_block
+!+ NOT_OPTIMIZED
+##.banner-player
+!+ NOT_OPTIMIZED
+##.view-ads
+!+ NOT_OPTIMIZED
+###wp_adbn_root
+!+ NOT_OPTIMIZED
+##.AdPlaceholder
+!+ NOT_OPTIMIZED
+##.button-ad
+!+ NOT_OPTIMIZED
+##.adWrapper
+!+ NOT_OPTIMIZED
+##.center-ad
+!+ NOT_OPTIMIZED
+###div-leader-ad
+!+ NOT_OPTIMIZED
+##.ads_place_top
+!+ NOT_OPTIMIZED
+###ad-large-header
+!+ NOT_OPTIMIZED
+###ad_large
+!+ NOT_OPTIMIZED
+##.wc-adblock-wrap
+!+ NOT_OPTIMIZED
+##.ads-wrapper-top
+!+ NOT_OPTIMIZED
+##.top-site-ad
+!+ NOT_OPTIMIZED
+##.js_midbanner_ad_slot
+!+ NOT_OPTIMIZED
+##.ad-slot-wrapper
+!+ NOT_OPTIMIZED
+##.adverts_header_advert
+!+ NOT_OPTIMIZED
+##.adverts_side_advert
+!+ NOT_OPTIMIZED
+##.adverts_footer_advert
+!+ NOT_OPTIMIZED
+##.adverts_footer_scrolling_advert
+!+ NOT_OPTIMIZED
+##.bordered-ad
+!+ NOT_OPTIMIZED
+##.zox-post-ad-wrap
+!+ NOT_OPTIMIZED
+##.post__article-top-ad-wrapper
+!+ NOT_OPTIMIZED
+##.zox-post-bot-ad
+!+ NOT_OPTIMIZED
+##.ads-two
+!+ NOT_OPTIMIZED
+##AD-SLOT
+!+ NOT_OPTIMIZED
+##.ad-horizontal-top
+!+ NOT_OPTIMIZED
+##.dfpAdspot
+!+ NOT_OPTIMIZED
+##.amp-adv-wrapper
+!+ NOT_OPTIMIZED
+##.storyAd
+!+ NOT_OPTIMIZED
+##.fixadheightbottom
+!+ NOT_OPTIMIZED
+##.adHolder
+!+ NOT_OPTIMIZED
+##.connatix-wysiwyg-container
+!+ NOT_OPTIMIZED
+##.parade-ad-container
+!+ NOT_OPTIMIZED
+##.pb-slot-container
+!+ NOT_OPTIMIZED
+##.mrec-scrollable-cont
+!+ NOT_OPTIMIZED
+##.ad-dog__cnx-container
+!+ NOT_OPTIMIZED
+##.adwrap-mrec
+!+ NOT_OPTIMIZED
+##.ATF_wrapper
+!+ NOT_OPTIMIZED
+##.c-ad--header
+!+ NOT_OPTIMIZED
+##.mobile-ad-negative-space
+!+ NOT_OPTIMIZED
+##.mrf-adv__wrapper
+!+ NOT_OPTIMIZED
+###advert-banner-container
+!+ NOT_OPTIMIZED
+##.legion_primiswrapper
+!+ NOT_OPTIMIZED
+##.inarticlead
+!+ NOT_OPTIMIZED
+##.videos-ad
+!+ NOT_OPTIMIZED
+##.google-ad-manager
+!+ NOT_OPTIMIZED
+##.js_movable_ad_slot
+!+ NOT_OPTIMIZED
+###fixed-ad
+!+ NOT_OPTIMIZED
+##.movv-ad
+!+ NOT_OPTIMIZED
+##.van_vid_carousel
+!+ NOT_OPTIMIZED
+##.van_taboola
+!+ NOT_OPTIMIZED
+###mobile-swipe-banner
+!+ NOT_OPTIMIZED
+##.header-advert-wrapper
+!+ NOT_OPTIMIZED
+##.ads_inline_640
+!+ NOT_OPTIMIZED
+##.AdCenter
+!+ NOT_OPTIMIZED
+##.adCenter
+!+ NOT_OPTIMIZED
+##.adCenterAd
+!+ NOT_OPTIMIZED
+##.adCentertile
+!+ NOT_OPTIMIZED
+##.adcenter
+!+ NOT_OPTIMIZED
+##.rectangle_ad
+!+ NOT_OPTIMIZED
+##.top-ads-amp
+!+ NOT_OPTIMIZED
+##.aniview-inline-player
+!+ NOT_OPTIMIZED
+###advertisementTop
+!+ NOT_OPTIMIZED
+##.adv_top
+!+ NOT_OPTIMIZED
+##.vertbars
+!+ NOT_OPTIMIZED
+##.view-video-advertisements
+!+ NOT_OPTIMIZED
+##.footer-advertisements
+!+ NOT_OPTIMIZED
+##.instream_ad
+!+ NOT_OPTIMIZED
+##section[data-e2e="advertisement"]
+!+ NOT_OPTIMIZED
+##.belowMastheadWrapper
+!+ NOT_OPTIMIZED
+##.first_post_ad
+!+ NOT_OPTIMIZED
+##iframe[src^="//ad.a-ads.com/"]
+!+ NOT_OPTIMIZED
+##.ad_sidebar_bigbox
+!+ NOT_OPTIMIZED
+##amp-fx-flying-carpet
+!+ NOT_OPTIMIZED
+##.leaderboard-ad-component
+!+ NOT_OPTIMIZED
+##.top-ads-mobile
+!+ NOT_OPTIMIZED
+##.boxAd
+!+ NOT_OPTIMIZED
+##.amp-ad
+!+ NOT_OPTIMIZED
+##.ad-bottom-container
+!+ NOT_OPTIMIZED
+##.amazon_ad
+!+ NOT_OPTIMIZED
+##.headerads
+!+ NOT_OPTIMIZED
+##.story-ad
+!+ NOT_OPTIMIZED
+##.lates-adlabel
+!+ NOT_OPTIMIZED
+##.Ad-adhesive
+!+ NOT_OPTIMIZED
+##.ggads
+!+ NOT_OPTIMIZED
+##.top250Ad
+!+ NOT_OPTIMIZED
+##.dfp_ATF_wrapper
+!+ NOT_OPTIMIZED
+##.home-ad-region-1
+!+ NOT_OPTIMIZED
+##.sidebar-big-box-ad
+!+ NOT_OPTIMIZED
+###ad-after
+!+ NOT_OPTIMIZED
+###ad-p3
+!+ NOT_OPTIMIZED
+##.topAd
+!+ NOT_OPTIMIZED
+##.article-advert-container
+! fly.inc
+##div[style="margin: 10px 0; position: relative;"] > div[id="overlay"][style="position: absolute; width: 100%; height: 100%; z-index: 99999;"]
+##div[style="text-align:center;margin:0 0 8px 0;"] > div[class^="ad-"][class$="-wrapper"]
+! Fake buttons on pirate video services
+##.mvic-btn > a.btn-successful
+! https://github.com/AdguardTeam/AdguardFilters/issues/223175
+!+ NOT_OPTIMIZED
+##.outbrain
+! https://www.rbtv77news.com/superabbit77-link/
+! https://www.fctv33.work/
+##.czlll-rlselse
+! https://github.com/AdguardTeam/AdguardFilters/issues/212010
+##body[onbeforeunload="return myFunction()"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/208157
+###awe-customiframe-container
+! https://github.com/AdguardTeam/AdguardFilters/issues/170792
+!+ NOT_OPTIMIZED
+##.kt-player ~ div.spot-box
+! https://github.com/AdguardTeam/AdguardFilters/issues/102462
+!+ NOT_OPTIMIZED
+##.gallery-bns-bl
+! https://github.com/AdguardTeam/AdguardFilters/issues/99291
+!+ NOT_OPTIMIZED
+##.articleads
+! https://github.com/AdguardTeam/AdguardFilters/issues/99199
+!+ NOT_OPTIMIZED
+##.b-advertising__down-menu
+! https://github.com/AdguardTeam/AdguardFilters/issues/95728
+!+ NOT_OPTIMIZED
+##.ad-cls
+! https://github.com/AdguardTeam/AdguardFilters/issues/95444
+!+ NOT_OPTIMIZED
+##.tncls_ad
+!+ NOT_OPTIMIZED
+##.tncls_ad_250
+!+ NOT_OPTIMIZED
+##.tncls_ad_300
+! https://github.com/AdguardTeam/AdguardFilters/issues/84882
+!+ NOT_OPTIMIZED
+##.stky-ad-footer
+! https://github.com/AdguardTeam/AdguardFilters/issues/71832
+!+ NOT_OPTIMIZED
+##.bodyads
+! https://github.com/AdguardTeam/AdguardFilters/issues/69648
+!+ NOT_OPTIMIZED
+##.Ad__Wrapper
+! https://github.com/AdguardTeam/AdguardFilters/issues/63897
+!+ NOT_OPTIMIZED
+##.ad-disclaimer-container
+! disqus ads(for apps)
+##iframe[src^="//tempest.services.disqus.com/ads-iframe/"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/58506
+!+ NOT_OPTIMIZED
+###content_ad_container
+! https://github.com/AdguardTeam/AdguardFilters/issues/56937
+!+ NOT_OPTIMIZED
+###interads
+! https://github.com/AdguardTeam/AdguardFilters/issues/51287#issuecomment-599896371
+!+ NOT_OPTIMIZED
+##.ad-container--leaderboard
+! https://github.com/AdguardTeam/AdguardFilters/issues/47225
+!+ NOT_OPTIMIZED
+###videopageadblock
+!+ NOT_OPTIMIZED
+###floatingAdContainer
+! winfuture.de - left-over
+!+ NOT_OPTIMIZED
+##.ad_w300i
+!+ NOT_OPTIMIZED
+##ins.adsbygoogle[data-ad-slot]
+! https://github.com/AdguardTeam/AdguardFilters/issues/40726
+!+ NOT_OPTIMIZED
+##.ad-300
+! https://github.com/AdguardTeam/AdguardFilters/issues/30864
+!+ NOT_OPTIMIZED
+##.mobile-instream-ad-holder-single
+! https://github.com/AdguardTeam/AdguardFilters/issues/26257
+!+ NOT_OPTIMIZED
+###ad_wp_base
+! https://github.com/AdguardTeam/AdguardFilters/issues/25532
+!+ NOT_OPTIMIZED
+###adxtop
+! https://github.com/AdguardTeam/AdguardFilters/issues/19482
+!+ NOT_OPTIMIZED
+###ad_728h
+!+ NOT_OPTIMIZED
+###ad_336_singlebt
+! https://github.com/AdguardTeam/AdguardFilters/issues/16974
+!+ NOT_OPTIMIZED
+##.tjads
+!+ NOT_OPTIMIZED
+##topadblock
+! https://github.com/AdguardTeam/AdguardFilters/issues/14993
+!+ NOT_OPTIMIZED
+###ad-fullbanner2-billboard-outer
+! https://github.com/AdguardTeam/AdguardFilters/issues/14979
+!+ NOT_OPTIMIZED
+##.loop_google_ad
+! https://github.com/AdguardTeam/AdguardFilters/issues/10524
+!+ NOT_OPTIMIZED
+##.amp_ad_wrapper
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/7752
+!+ NOT_OPTIMIZED
+##.ad-engage
+! https://forum.adguard.com/index.php?threads/23528/
+!+ NOT_OPTIMIZED
+###gads_middle
+! https://github.com/AdguardTeam/AdguardFilters/issues/7826
+!+ NOT_OPTIMIZED
+##.add_300x250
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/7613
+!+ NOT_OPTIMIZED
+##.ContentAd
+!
+! MixDrop
+###videojs ~ div[style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; z-index: 2147483646;"]
+! Porn farms
+##.full-bns-block
+##.video-brs
+##.brs-block
+!
+! Fansided network
+! https://github.com/AdguardTeam/AdguardFilters/issues/222591
+##div[data-target="ad"]
+!
+! Many porn sites
+###inPlayerGGzone
+!
+! sadbl / aclib.runPop
+##iframe[style="position: absolute; top: -1000px; left: -1000px; visibility: hidden; border: medium none; background-color: transparent;"]
+!
+! Porngox sites
+##.video-info > div.video-link:has(> b > a[href][target="_blank"][rel="sponsored"])
+##.player-holder > div.vcover2
+##.wrapper-player div.before-player
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/192351
+##body ~ div[style^="z-index: 2147483647 !important; position: fixed !important; width:"]
+##body ~ iframe[id][style^="width: 100% !important; height:"][style*="inset:"]
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/186475
+##body > div[style="position: fixed; display: block; width: 100%; height: 100%; inset: 0px; background-color: rgba(0, 0, 0, 0); z-index: 300000;"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/186160
+! Popups in the video player, related to #%#//scriptlet("abort-on-property-read", "AaDetector")
+##body > div[style^="position: fixed; inset: 0px; z-index: 2147483647; background: black; opacity: 0.01;"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/233249
+! Popups in the video player, related to filemoon
+##body > div[style^="position: fixed; inset: 0px; z-index: 2147483647; background-color: transparent; pointer-events: auto; cursor: auto; margin: 0px; padding: 0px;"]
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/185471
+! Popups in the video player - streamwish.com
+! Related to #%#//scriptlet('abort-on-property-read', '__Y')
+##body > div[style^="position:fixed;inset:0;z-index:2147483647;background:black;opacity:0.01"][style*=";cursor:pointer"]:empty
+##body > div[style^="position:fixed;inset:0px;z-index:2147483647;background:black;opacity:0.01"][style*=";cursor:pointer"]:empty
+!
+! Clones like movies123.video, primewire.pics
+##html[data-lt-installed="true"] > body[style=""] img[style="width: 100%;max-width: 728px;"]
+! Ads on many porn sites
+##.full-ave-pl
+##.wps-player__happy-inside
+! https://github.com/easylist/easylist/commit/9e80ee067015e85804a862bb76753f0915a89b10#commitcomment-86804558
+##.ad970
+! https://github.com/AdguardTeam/FiltersRegistry/pull/435
+##.div-gpt-ad:not([style^="width: 1px; height: 1px;"])
+##[class^="div-gpt-ad"]:not([style^="width: 1px; height: 1px;"], .div-gpt-ad_adblock_test)
+! Popular ad on streaming services
+##button[data-openuri="|BTN_URL|"]
+! Postmedia
+! https://www.postmedia.com/brands/
+##aside[data-aqa="widget-breaking-banner"]
+! Cox Media Group.
+##.arcad_feature
+! GliaCloud
+##.gliaplayer-container
+! Sinclair, Inc
+###\31-rightrail_pos4_ddb_0
+###premium_mid_ddb_0
+##div[class^="DisplayAdvert"]
+##div[class^="index-module_openwebAd_"]
+##div[class^="TaboolaHomepageFeed_taboolaWrapper"]
+! Block parked domains. Sometimes it is not immediately obvious that it is dead
+! https://rawasiansex.com/
+###fallbackTerms.fallback-term-holder
+!
+##.tbl-floating-unit
+##.adbg
+###tdsAdContainer
+##.wp-block-gamurs-ad
+##a[href^="https://z.cdn.secured-ad.com/"]
+##div[data-type="_mgwidget"]
+##iframe[src^="https://creative."][src*="/widgets/v4/Universal?"]
+###floating-ad-container
+##.kt-player > div.spot
+##div[data-clickadilla-banner]
+##.player-section__ad-b
+##.video.ad-w
+##.advMasthead
+##iframe[src^="https://mmmdn.net/"]
+##body .top-advert
+##iframe[src^="//tsyndicate.com/"]
+##iframe[src^="https://tsyndicate.com/"]
+##.roxot-dynamic
+##body > div#fixedban
+###close-fixedban
+###soldakayan
+###sagdakayan
+##.top-header-ads-mobile
+##.happy-footer
+##.gmr-bannerpopup
+##.idmuvi-topbanner
+##.idmuvi-topbanner-aftermenu
+##iframe[src^="https://vidsservices.space/"]
+##iframe[src^="https://av.ageverify.co/"]
+##.remove-spots
+##.breakout-ad
+##.ae-player__itv
+##a[href^="mailto:support@netu.tv"]
+##a[onclick*="openAuc();"]
+##a[href^="https://l.tapdb.net/"]
+##a[href^="https://ad.22betpartners.com/redirect.aspx?"]
+##.happy-player-beside
+##.happy-inside-player
+##.gads
+##.full-bns-block
+##.video-brs
+##a[href^="http://click.dtiserv2.com/"]
+##div[data-e2e="advertisement"]
+##.puFloatLine > #puFloatDiv
+##a[href*=".ufinkln.com/"]
+##.stripper > a[href*="istripper"] > img
+##a[href*="/fdh/wth.php?"]
+##.BetterJsPopOverlay
+##.videojs-hero-overlay
+##div[id^="M"][id*="Composite"]
+##.wpcnt > .wpa
+###BannerBox
+###ad-topper
+###ad_300X250
+###ad_google
+###advertRightTopPosition
+###banner-top-right
+###bb_banner
+###blox-top-promo
+###bp_banner
+###campaign-banner
+###extensible-banner
+###fb_300x250
+###footer-banner
+###scorecard-ad
+###topBanners
+###total_banner
+##.SC_TBlock
+##.ad_register_prompt
+##.ad_showthread_firstpost_start_placeholder
+##.b-header-banner
+##.baners_block
+##.banner_header
+##.banners-middle
+##.banners_block
+##.main_promo_image_container
+##.menu-ads
+##.reclamTable
+##.sidebar-ads-container
+##.special-ads
+##.sponsor-div
+##.sponsored-home-page-inner
+##.sponsored-items
+##.top-adv-app
+##.top-banners
+##.top-r-ads
+##.topbannerad
+##.widget-sidebar-right-banner

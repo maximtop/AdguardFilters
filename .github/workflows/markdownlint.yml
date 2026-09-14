@@ -1,0 +1,96 @@
+name: markdownlint
+
+env:
+  NODE_VERSION: 24
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "**/*.md"
+      - ".markdownlint.json"
+      - ".markdownlintignore"
+      - "package.json"
+      - "package-lock.json"
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "**/*.md"
+      - ".markdownlint.json"
+      - ".markdownlintignore"
+      - "package.json"
+      - "package-lock.json"
+
+jobs:
+  lint:
+    name: Run markdownlint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out to repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # If the linter found any errors, it will exit with a non-zero code, which will cause the job to fail
+      - name: Run markdownlint
+        run: npm run markdownlint
+
+  notify:
+    name: Send Slack notification on failure
+    runs-on: ubuntu-latest
+    needs: lint
+    # Run this job only if the previous job failed and the event was triggered by the 'AdguardTeam/AdguardFilters' repository
+    # Note: 'always()' is needed to run the notify job even if the lint job was failed
+    if:
+      ${{
+        always() &&
+        needs.lint.result == 'failure' &&
+        github.repository == 'AdguardTeam/AdguardFilters' &&
+        (
+          github.event_name == 'push' ||
+          github.event.pull_request.head.repo.full_name == github.repository
+        )
+      }}
+    steps:
+      - uses: slackapi/slack-github-action@v4
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload: |
+            text: "❌ markdownlint failed"
+            attachments:
+              - color: "danger"
+                fields:
+                  - title: "Workflow"
+                    value: "${{ github.workflow }}"
+                    short: true
+                  - title: "Repo"
+                    value: "<${{ github.server_url }}/${{ github.repository }}|${{ github.repository }}>"
+                    short: true
+                  - title: "Message"
+                    value: "${{ github.event.head_commit.message }}"
+                    short: false
+                  - title: "Commit"
+                    value: "<${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>"
+                    short: true
+                  - title: "Author"
+                    value: "${{ github.actor }}"
+                    short: true
+                  - title: "Event"
+                    value: "${{ github.event_name }}"
+                    short: true
+                  - title: "Ref"
+                    value: "${{ github.ref }}"
+                    short: true
+                  - title: "Job"
+                    value: "markdownlint"
+                    short: true

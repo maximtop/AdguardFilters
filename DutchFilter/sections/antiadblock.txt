@@ -1,0 +1,161 @@
+!
+! First of all, this section has common rules that prevent most known ad block detections. In that case domain should be added to the common rules.
+! The section contains the list of the rules are against all kinds of ads reinjection or ad-blocking circumvention scripts. If such a script does not cripple the website, we add rules to the Annoyances filter.
+! Rules should generally be domain-specific. In some exceptional cases, it's allowed to add generic ones, but this should be approved by most of the maintainers.
+!
+! Good: ||example.org/adblock/detect.js
+! Good: @@/adblocker/detect.js$domain=example.org
+! Bad: ||ad.doubleclick.net^ (should be in adservers.txt)
+!
+! Prevent AdFender detection
+@@/ad_pics/*$image,domain=computerworld.nl|webwereld.nl
+@@||tweakers.net/i^$image
+@@||content.hwigroup.net/images^$domain=hardware.info
+hardware.info,tweakers.net#@#.AdBar
+!
+! https://github.com/uBlockOrigin/uAssets/issues/34154
+||waldnet.nl/assets/js/abd.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/216106
+webcams-vlissingen.nl#%#//scriptlet('abort-current-inline-script', 'document.createElement', 'adsbygoogle.js')
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=webcams-vlissingen.nl
+! https://github.com/AdguardTeam/AdguardFilters/issues/203606
+forum.fok.nl#%#//scriptlet('prevent-setTimeout', 'ckad')
+forum.fok.nl#@##advertentie
+! https://github.com/AdguardTeam/AdguardFilters/issues/202820
+autotrader.nl#%#//scriptlet('abort-on-property-read', 'Object.prototype.autoRecov')
+autotrader.nl$$script[tag-content="Flags."][min-length="10000"][max-length="300000"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/234442
+! https://github.com/AdguardTeam/AdguardFilters/issues/208455
+! https://github.com/AdguardTeam/AdguardFilters/issues/201966
+! https://github.com/AdguardTeam/AdguardFilters/issues/197442
+nieuwsvandedag.nl,radio10.nl,kijk.nl,hartvannederland.nl,538.nl,vandaaginside.nl#%#//scriptlet('prevent-xhr', 'assets.prod.webx.talpa.digital/ad/view/')
+!+ NOT_OPTIMIZED
+vandaaginside.nl,538.nl,hartvannederland.nl#@##topbanner_ad
+!+ NOT_OPTIMIZED
+@@||assets.prod.webx.talpa.digital/ad/view/$domain=hartvannederland.nl|538.nl|vandaaginside.nl|nieuwsvandedag.nl
+!+ NOT_OPTIMIZED PLATFORM(ios, ext_android_cb, ext_safari)
+@@||nieuwsvandedag.nl^$generichide
+!+ NOT_OPTIMIZED PLATFORM(ios, ext_android_cb, ext_safari)
+@@||538.nl^$generichide
+!+ NOT_OPTIMIZED PLATFORM(ios, ext_android_cb, ext_safari)
+@@||hartvannederland.nl^$generichide
+!+ NOT_OPTIMIZED PLATFORM(ios, ext_android_cb, ext_safari)
+@@||vandaaginside.nl^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/178088
+topkleurplaat.nl#%#//scriptlet('prevent-setTimeout', '.height() === 0')
+! https://github.com/AdguardTeam/AdguardFilters/issues/177923
+filmvandaag.nl#%#//scriptlet('prevent-fetch', 'securepubads.g.doubleclick.net')
+!+ PLATFORM(ios, ext_android_cb)
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$xmlhttprequest,domain=filmvandaag.nl
+! https://github.com/AdguardTeam/AdguardFilters/issues/192874
+! https://github.com/AdguardTeam/AdguardFilters/issues/163031
+@@||looopings.nl/*.js$script,~third-party
+looopings.nl#%#//scriptlet('remove-node-text', 'script', 'if(!document.getElementById')
+! https://github.com/AdguardTeam/AdguardFilters/issues/160271
+webcam-binnenvaart.nl#%#//scriptlet('prevent-element-src-loading', 'script', 'adsbygoogle')
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=webcam-binnenvaart.nl
+! https://github.com/AdguardTeam/AdguardFilters/issues/158525
+vtmgo.be#%#//scriptlet('prevent-fetch', 'v.fwmrm.net')
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||5e124.v.fwmrm.net/ad/g/1?prof=385316%3Adpg_csai_html5&nw=$domain=vtmgo.be
+! https://github.com/AdguardTeam/AdguardFilters/issues/144629
+webcams-texel.nl#%#//scriptlet('abort-current-inline-script', 'document.createElement', 'adsbygoogle')
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||pagead2.googlesyndication.com/pagead/js/adsbygoogle.js$domain=webcams-texel.nl
+! https://github.com/AdguardTeam/AdguardFilters/issues/142982
+! https://github.com/AdguardTeam/AdguardFilters/issues/120455
+tweakers.net#%#(function(){const a=Function.prototype.toString;window.EventTarget.prototype.addEventListener=new Proxy(window.EventTarget.prototype.addEventListener,{apply:(b,c,d)=>{const e=d[1],f=/detail.adblockDetected|handleAdblockDetect|Flags.autoRecov/;return e&&"function"==typeof e&&(f.test(a.call(e))||f.test(e.toString()))&&(d[1]=function(){}),Reflect.apply(b,c,d)}});Function.prototype.bind=new Proxy(Function.prototype.bind,{apply:(b,c,d)=>{const e=a.call(c),f=Reflect.apply(b,c,d);return f.toString=function(){return e},f}})})();
+tweakers.net#@#.widebnr
+tweakers.net#$##b_re { display: block !important; min-height: 2px !important; }
+tweakers.net#$?#.widebnr > * { remove: true; }
+tweakers.net#$#.widebnr { display: block !important; min-height: 2px !important; }
+tweakers.net#%#//scriptlet('prevent-fetch', '/a[ab]\.tweakers\.nl/')
+||tweakers.net/*/build/frontpage.*.js$replace=/this\.forceBannerBlockMessage\(\)/(()=>{})/
+||tweakers.net/*/build/frontpage.*.js$replace=/(detail:{adblockDetected:)[\s\S]*?(}|\,)/\$1!1\$2/
+!+ NOT_PLATFORM(windows, mac, android, cli, ext_chromium)
+@@||aa.tweakers.nl/json$domain=tweakers.net
+! https://github.com/AdguardTeam/AdguardFilters/issues/99141
+nieuwsvandedag.nl,radio10.nl,kijk.nl,hartvannederland.nl,538.nl,vandaaginside.nl#$#body .pub_300x250.pub_300x250m.pub_728x90.text-ad.textAd.text_ad.text_ads.text-ads.text-ad-links { display: initial !important; }
+nieuwsvandedag.nl,radio10.nl,kijk.nl,hartvannederland.nl,538.nl,vandaaginside.nl#%#(()=>{const t={apply:(t,e,n)=>{try{if((new Error).stack.includes("Popup"))return Reflect.apply(t,e,n);"function"==typeof e&&e.toString().includes(".offsetHeight||0===")&&(e=()=>new Promise((t=>t(!1))))}catch(t){}return Reflect.apply(t,e,n)}};window.Function.prototype.apply=new Proxy(window.Function.prototype.apply,t)})();
+!#if (adguard_app_ios || adguard_ext_safari || adguard_ext_android_cb)
+@@||axed.nl^$generichide
+@@||kijk.nl^$generichide
+@@||shownieuws.nl^$generichide
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/215774
+! https://github.com/AdguardTeam/AdguardFilters/issues/167987
+||securepubads.g.doubleclick.net/tag/js/gpt.js$script,redirect=googletagservices-gpt,domain=goplay.be|play.tv
+! https://github.com/AdguardTeam/AdguardFilters/issues/160901
+||pagead2.googlesyndication.com/omsdk/releases/live/omweb-v1.js$script,domain=goplay.be|play.tv,redirect=noopjs
+@@||pubads.g.doubleclick.net/ondemand/*/content/*/vid/*/streams$domain=goplay.be|play.tv
+||pubads.g.doubleclick.net/ondemand/*/content/*/vid/*/streams/*/time-events.json$important,domain=goplay.be|play.tv
+||dai.google.com/ondemand/dash/content/*/time-events.json$domain=goplay.be|play.tv
+play.tv,goplay.be#%#//scriptlet('xml-prune', 'Period[id*="-ad-"]', '', '.mpd')
+! https://github.com/AdguardTeam/AdguardFilters/issues/118874
+play.tv,goplay.be#%#//scriptlet('prevent-fetch', 'pubads.g.doubleclick.net/gampad/ads')
+@@||imasdk.googleapis.com/js/sdkloader/ima3_dai.js$script,domain=goplay.be|play.tv
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=noopjs,domain=goplay.be|play.tv
+!+ PLATFORM(ios, ext_android_cb, ext_safari)
+@@||imasdk.googleapis.com/js/sdkloader/ima3.js$domain=goplay.be|play.tv
+@@||pagead2.googlesyndication.com/omsdk/releases/live/omweb-v1.js$script,domain=goplay.be|play.tv
+!#if (adguard_app_ios || adguard_ext_android_cb)
+@@||sdk.privacy-center.org^$script,domain=goplay.be
+@@||pubads.g.doubleclick.net/gampad/ads?*&output=vast&$domain=goplay.be
+!#endif
+! https://github.com/uBlockOrigin/uAssets/issues/31124
+@@||securepubads.g.doubleclick.net/*gpt$script,domain=play.tv
+! https://github.com/AdguardTeam/AdguardFilters/issues/74633
+||goplay.be/js/sourcepoint/msg?v=
+! https://github.com/AdguardTeam/AdguardFilters/issues/69783
+vier.be#@#.googleAd
+! https://github.com/AdguardTeam/AdguardFilters/issues/64292
+hardware.info$$script[tag-content="Flags."][min-length="10000"][max-length="300000"]
+hardware.info#%#//scriptlet("abort-on-property-read", "Object.prototype.autoRecov")
+hardware.info#%#//scriptlet("prevent-addEventListener", "", "Flags.autoRecov")
+! https://github.com/AdguardTeam/AdguardFilters/issues/62479
+tweakers.net#%#//scriptlet("abort-on-property-read", "Object.prototype.autoRecov")
+!#if (adguard_app_ios || adguard_ext_safari || adguard_ext_android_cb)
+@@||tweakers.net^$generichide
+@@||ab.tweakers.nl/pool/lib/
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/56379
+forum.fok.nl#%#//scriptlet("set-constant", "DAB", "noopFunc")
+! https://github.com/AdguardTeam/AdguardFilters/issues/61434
+@@||videoplayer.dpgmedia.net/*/ad_smartads_.js$domain=vtm.be
+! https://github.com/AdguardTeam/AdguardFilters/issues/40543
+||knack.be/js/responsive/rmgAdCheck.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/29317
+indeleiderstrui.nl$$script[tag-content="Flags.networkListener"][min-length="20000"][max-length="150000"]
+indeleiderstrui.nl#%#//scriptlet("abort-on-property-read", "Object.prototype.disableAb")
+indeleiderstrui.nl#%#//scriptlet("abort-current-inline-script", "Math", "Flags.newInject")
+@@||indeleiderstrui.nl/media/$image
+! https://github.com/AdguardTeam/AdguardFilters/issues/32191
+@@||videoplayer.persgroep.be/*/ad_smartads_.js$domain=vtm.be
+||a.medialaancdn.be^
+! https://github.com/AdguardTeam/AdguardFilters/issues/28645
+@@||embed.kijk.nl/talpa-jw-skin/js/adsbygoogle.js$script,domain=embed.kijk.nl
+! https://github.com/AdguardTeam/AdguardFilters/issues/17023
+icttipsandtricks.nl###iawodj-blanket
+! https://github.com/AdguardTeam/AdguardFilters/issues/13007
+@@||static.webwereld.nl/javascripts/advert.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/12387
+@@||v.fwmrm.net/ad/g/1$domain=player.medialaancdn.be|vtm.be
+player.medialaancdn.be,vtm.be#$#.pub300x250.pub300x250m.pub728x90.text-ad.textAd.textad.textads.text-ads.text-ad-links { display: block !important; }
+!+ PLATFORM(ios, ext_android_cb)
+@@||vtm.be^$generichide
+!+ PLATFORM(ios, ext_android_cb)
+@@||player.medialaancdn.be^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/11545
+!+ PLATFORM(ios, ext_android_cb)
+@@||eurosport.nl^$generichide
+! https://github.com/AdguardTeam/AdguardFilters/issues/10738
+!+ PLATFORM(ext_ff, ext_opera, ios, ext_android_cb, ext_ublock)
+@@||voipsipclient.blogspot.nl^$generichide
+! https://forum.adguard.com/index.php?threads/26050/
+voetbalwedstrijdenvandaag.nl#@##sponsorText
+! https://forum.adguard.com/index.php?threads/25361/
+icttipsandtricks.nl##body #adblock_screen
+! https://forum.adguard.com/index.php?threads/11357/
+@@||static.buienradar.nl/resources/js/advertisement.js

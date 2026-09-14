@@ -1,0 +1,2109 @@
+!
+! This section contains the list of rules that are used for UI tweaks and other similar cases. For instance, we unblock the right context menu or unblock selecting text on a webpage.
+!
+! Good: any type of the rules will be good
+! Bad:  @@||example.org^$stealth (should be in AdGuard Base - allowlist_stealth.txt)
+!
+!##############################
+!######### CSS tweaks #########
+!##############################
+! SECTION: Tweaks - CSS
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/239808
+mahitiplus.com,recruitmentaim.in#%#//scriptlet('adjust-setInterval', 'timer', '*', '0.001')
+! https://github.com/uBlockOrigin/uAssets/issues/32331
+mundoperfecto.net#$##download { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/227506
+getwallpapers.com#%#//scriptlet("adjust-setInterval", "counter--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/226388
+aksam.com.tr#%#//scriptlet('remove-class', 'fixed-footer-video', '#embedVideoFooter')
+aksam.com.tr#$##embedVideo.fixed-video { position: absolute !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/223667
+newsfront.xyz#$#button#file { background-color: green !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/220404
+topshare.in,tempmaile.me#$#.this-an-container { display: none !important; }
+topshare.in,tempmaile.me#$#.btn-download { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/219399
+otakufilmes.org#$##lite-single-sora-wait { display: none !important; }
+otakufilmes.org#$##lite-single-sora-button { display: unset !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/218209
+cbsnews.com#$#.story__right-rail-video { position: static !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/217478
+finance.yahoo.com#$#.readmore { display: none !important; }
+finance.yahoo.com#$#.read-more-wrapper { display: block !important; }
+! support website ticket view (e. g. streamfab) - scrolling not working - not caused by filters
+web-service.aiportrait.online#$#html { overflow: auto !important; }
+web-service.aiportrait.online#$#body { overflow: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/213540
+asd.ink,asd.pics,asd.homes#$##clickme + a#btn[style*="display: none;"] { display: table !important; }
+asd.ink,asd.pics,asd.homes#$##clickme:has(+ a#btn[style*="display: none;"]) { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/210222
+odiadance.com#$##btn6 { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/209271
+gamezizo.com#$##oiistepone { display: none !important; }
+gamezizo.com#$##oiisteptwo { display: none !important; }
+gamezizo.com#$#body :is(#oiicontinue, #surl) { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/207601
+@@||starfilx.in/wp-content/plugins/wccp-pro/$domain=starfilx.in
+! https://github.com/AdguardTeam/AdguardFilters/issues/198152
+! https://github.com/AdguardTeam/AdguardFilters/issues/201810
+lzmods.com,iseekgames.com#%#//scriptlet('trusted-click-element', '.wfl_button')
+lzmods.com,iseekgames.com#$#.wfl_pretimer { display: none !important; }
+lzmods.com,iseekgames.com#$#.wfl_active-timer { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/199020
+megafire.net#$#.show_download_links { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/196638
+appbrain.com##body > div[style="height:145px"]:empty
+! https://github.com/AdguardTeam/AdguardFilters/issues/196709
+! https://github.com/AdguardTeam/AdguardFilters/issues/196698
+journaldesfemmes.fr,journaldunet.com#$#.cp_videopremium { position: static !important; }
+! game8.co - big white space on mobile in article
+game8.co#$##react-new_map_tool-wrapper { min-height: unset !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/189221
+surinenglish.com#$#div[data-mrf-recirculation="Autor"] { margin-bottom: 0px !important; }
+surinenglish.com#$#div[data-voc-adbd-layer] > div[class]  { margin-bottom: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/187687
+blog.springsfern.in#%#//scriptlet('trusted-click-element', '#generateLinkBtn')
+blog.springsfern.in#$##generateLinkBtn { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/187649
+3dsfree.org#$##waittime { display: none !important; }
+3dsfree.org#$#.download_dem { display: block !important; }
+! chip.de - show download button without waiting
+chip.de#$#.dl-btn-countdown { display: none !important; }
+chip.de#$#.Button--Download { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/183581 - copy/right text
+||i38.ru/templates/teleinform/js/cprgt.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/183012
+! fly.inc
+djbassking.club,nidbdcheck.com,9sblog.com,newselab.com,glowandglamcorner.com,dadinthemaking.com,listofthis.com,beautifulfashionnailart.com,batmanfactor.com#%#//scriptlet('remove-attr', 'disabled', 'button')
+djbassking.club,nidbdcheck.com,9sblog.com,newselab.com,glowandglamcorner.com,dadinthemaking.com,listofthis.com,beautifulfashionnailart.com,batmanfactor.com#$#.text-center > div[id][style^="display:"] { display: block !important; }
+esladvice.com,djbassking.club,nidbdcheck.com,9sblog.com,newselab.com,glowandglamcorner.com,dadinthemaking.com,listofthis.com,beautifulfashionnailart.com,batmanfactor.com#$#form[id][style^="display:"] { display: block !important; }
+[$domain=/^(vibe|noble|stellar|halo|echo)\.[^.]+\.[a-z]/]#$#form[id][action][style^="display:"]:has(> center > div[style^="margin: 10px 0 10px 0;"]) { display: block !important; }
+biosjourney.com,esladvice.com,postalcode.com.pk,bispehsaasprogram.com,poetryinurdu.pk,resultlogin.com.bd,redboxtvapks.com,dailyictpost.com,multiplayercarparking.com#%#//scriptlet('set-constant', 'document.hasFocus', 'trueFunc')
+! https://github.com/AdguardTeam/AdguardFilters/issues/179738 (left-over)
+forbes.com##.for-you__component:empty
+! https://github.com/AdguardTeam/AdguardFilters/issues/175114
+||static.haoword.com/pc/js/fwdibu.js
+! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-8650815
+hosty.uprwssp.org#$##btnfianl { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/178827
+tudogostoso.com.br,cumhuriyet.com.tr,lepoint.fr,lpnt.fr#$#.dailymotion-player-wrapper { height: 100% !important; position: absolute !important; width: 100% !important; transform: translate(0px, 0px) !important; z-index: auto !important; }
+tudogostoso.com.br#%#//scriptlet('remove-class', 'js-header-is-sticky|js-is-sticky--change', '.header-stickable')
+beinsports.com,hobbyconsolas.com###dailymotion-pip-large-viewport
+! https://go.tinys.click/jzEDHsQHbNTokEJrRorG timer
+! https://github.com/AdguardTeam/AdguardFilters/issues/183825
+! https://github.com/AdguardTeam/AdguardFilters/issues/201607
+ryuugames.com,worldmak.com,sigaptech.com,tutorialsaya.com#$##wpsafe-link { display: block !important; }
+ryuugames.com,worldmak.com,sigaptech.com,tutorialsaya.com#$##wpsafe-generate { display: block !important; }
+ryuugames.com,worldmak.com,sigaptech.com,tutorialsaya.com#$#div[id^="wpsafe-wait"] { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/167083
+novelas-brasilieras.ru#$#.header { margin-bottom: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/166077
+automoto.it,moto.it#$#body > div#main-content { padding-top: 0px !important; }
+! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-7478083
+coingraph.us#$#form > [id] { display: block !important; }
+coingraph.us#$##wpsafe-link3 { display: block !important; }
+coingraph.us#$#.wpsafelink-button { display: block !important; }
+coingraph.us#$#.base-timer { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/164000
+rockmods.net#$##go-link > .asbutton { display: inline-flex !important; }
+[$path=/p/rblink]rockmods.net#$#.separator > *:not(.blockLink) { display: none !important; }
+! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-6862552
+cdrab.com,offerinfo.net#$##wpsafe-link { display: block !important; }
+cdrab.com,offerinfo.net#$##wpsafe-generate { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/160028
+capital.fr#$##prisma-player-widget { display: none !important; }
+! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-6780052
+blog.panytourism.online#$##link1s-snp { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/158925
+elperiodicoextremadura.com,laopiniondemalaga.es#$#footer { padding-bottom: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/157019
+tvbanywherena.com#$##player-parent { padding-top: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/156240
+redheadsound.studio#$#.header { margin-bottom: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/156256
+moegirl.org.cn#$##moe-global-background { background-color: unset !important; --background-url: none !importnat; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/155925
+cuic.eu#$#@media (min-width: 1000px) { .tool { position: absolute !important; top: 20% !important; } }
+! https://github.com/AdguardTeam/AdguardFilters/issues/155841
+finsurances.co#$##getlink { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/166159#issuecomment-1816173751
+! https://github.com/AdguardTeam/AdguardFilters/issues/157024
+nypost.com#%#//scriptlet('remove-class', 'jw-flag-floating', '.jwplayer')
+time.com,nypost.com#$#.jw-wrapper.jw-reset { transform: unset !important; width: unset !important; max-width: unset !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/155623
+gamingbible.com#$#.reddit-embed-bq { height: calc(100%) !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/155360
+la.lv#$#.article-embed-video-iframe iframe { position: absolute !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/153669
+smartpress.by#$##header.fixed .header-bottom { position: static !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/153148
+net.hr#$#.video-js-container.videoContent_player_fixed { position: static !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/151695
+||animespirit.tv/templates/animespirit/images/background
+animespirit.tv#$##wrapper { margin-top: 0 !important; }
+! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-5871745
+phineypet.com#$?##content > form[id]:has(> center > button) { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/150380
+tasteofhome.com#$#.jw-float-bar { display: none !important; }
+tasteofhome.com#$#.jw-wrapper { transform: unset !important; width: unset !important; max-width: unset !important; bottom: unset !important; }
+! https://youshort.me/rCsn => bantenexis.com
+meevor.com#$##wpsafe-generate { display: block !important; }
+meevor.com#$##wpsafe-link { display: block !important; }
+meevor.com#$#div[id^="wpsafe-wait"] { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/149631
+cnews.fr#$#.header-menu { top: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/149208
+veterinarians.org#$#.single-post .menu-floating-single { bottom: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/148483
+infomusic.ro##div[id="mvp-video-embed-wrap"].mvp-vid-height
+! https://github.com/AdguardTeam/AdguardFilters/issues/148137
+theverge.com#$#.mb-60 { margin-bottom: 0px !important; }
+theverge.com#$#.mt-80 { margin-top: 50px !important; }
+theverge.com#$#.md\:mb-40 { margin-bottom: 20px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/159669
+! https://github.com/AdguardTeam/AdguardFilters/issues/148098
+ofreok.online,ka3boly.site,safary.site,shabory.site,marshoush.site,gameflare.cam,mastaba.site,dl4all.online,maftou7.site,playarena.cam,shallal.site,joyarcade.cam,marcmello.site,hawsa.site,hegry.site,muhager.site,mar3a.site,cheapou.site,mal3oub.site,be7alat.site,moshakes.site,gamevault.cam,kalosha.site,ofre15.online,forgee.xyz,monafes.site,regenzi.site,hegra.cam,migration.cam,reviewpalace.net,techplanet.cam,techland.live,gamehub.cam,gameland.click,gamesera.online,reviewhub.vip,reviewstation.me#$#.downloadbtn { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/146297
+oneslidephotography.com,apasih.my.id,financekami.com#$##wpsafe-wait1 { display: none !important; }
+oneslidephotography.com,apasih.my.id,financekami.com#$##wpsafe-generate { display: block !important; }
+! infranken.de - decreasing size of site-footer
+infranken.de#$##site-footer { padding: 1rem 0 1rem 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/145124
+mixnews.lv#$#.amp-wp-footer > div.menu-footer-menu-container > ul:not([id]):not([class]) { margin-bottom: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/140347
+naruto-base.tv#$#[href^="/Diz_nb"] { display: none !important; }
+naruto-base.tv#$##fll { margin-top: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/139346
+bleepingcomputer.com#$#.cz-main-left-section { min-height: unset !important; }
+bleepingcomputer.com#$#.bc_right_sidebar { min-height: unset !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/138903
+blog.nationapk.com#$##wpsafelink-landing { display: none !important; }
+blog.nationapk.com#$##wpsafe-link { display: block !important; }
+! https://github.com/uBlockOrigin/uAssets/issues/16166
+adzz.in,proappapk.com#$##gotolink { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/135745
+sampnews24.com#$#iframe[id^="footballco-video-player-"][class="main-iframe"] { position: static !important; width: 100% !important; height: 100% !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/135490
+der-postillon.com#$#.mrf-embed { height: calc(100%) !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/134003
+theweathernetwork.com#$#.jw-wrapper { transform: none !important; width: auto !important; max-width: none !important; }
+theweathernetwork.com#$#.jw-float-bar { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/133653
+||mtb-news.de/news/*/Radon_
+mtb-news.de###cb-outer-container > div[id][style*="height"][style*="background"]
+! https://github.com/AdguardTeam/AdguardFilters/issues/132763
+||ecogolik.ru/upload/iblock/628/Sentio_Adv.jpg
+ecogolik.ru#$#.main-page-wrap__wrapper { padding-top: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/130861
+fakty.com.ua#$#.footer-wrapper { margin-bottom: 0px !important;}
+! https://github.com/uBlockOrigin/uAssets/issues/14790
+techvybes.com#$##lite-end-sora-button { display: block !important; margin-left: auto !important; margin-right: auto !important; }
+techvybes.com#$##lite-end-sora-wait { display: none !important; }
+techvybes.com#$##lite-human-verif-button { display: block !important; margin-left: auto !important; margin-right: auto !important; }
+techvybes.com#$##lite-human-verif-wait { display: none !important; }
+techvybes.com#$##lite-start-sora-wait { display: none !important; }
+techvybes.com#$##lite-start-sora-a { display: block !important; }
+! https://github.com/uBlockOrigin/uAssets/issues/14660#issuecomment-1243031757
+hashhackers.com,katdrive.net#$##btnhide { display: none !important; }
+hashhackers.com,katdrive.net#$##getlink { display: none !important; }
+hashhackers.com,katdrive.net#$##verify_button2 { display: none !important; }
+hashhackers.com,katdrive.net#$##verify_text { display: none !important; }
+hashhackers.com,katdrive.net#$##verify_button { display: block !important; }
+hashhackers.com,katdrive.net#?#.row > center:has(> a#verify_button) ~ div#primary
+hashhackers.com,katdrive.net#?#.row > center:has(> a#verify_button) ~ aside#secondary
+! https://www.neo-blood.co.jp/2022-8-19mail/ anti-copy etc.
+footballchannel.jp,rightrasta.com,neo-blood.co.jp#$#html { -webkit-touch-callout: default !important; -webkit-user-select: auto !important;-moz-user-select: text !important; -ms-user-select: text !important; user-select: auto !important; -webkit-tap-highlight-color: black !important; }
+footballchannel.jp,rightrasta.com,neo-blood.co.jp#$#.unselectable { -webkit-touch-callout: default !important; -webkit-user-select: auto !important;-moz-user-select: text !important; -ms-user-select: text !important; user-select: auto !important; -webkit-tap-highlight-color: black !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/123316
+!#if (adguard_app_windows || adguard_app_mac || adguard_app_android || adguard_app_cli || adguard_ext_chromium)
+work.ink#$#span#popup { display: none !important; }
+work.ink#$#span#notification-blackout { display: none !important; }
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/127474
+abcnews.go.com#$#.SingleVideo .MediaPlaceholder .StickyVideoPlayer { position: absolute !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/122755
+klops.ru#$#.section-one-news > .page-detail .section-detail-news { margin-left: 0 !important; }
+! bild.de - restore video meta
+bild.de#$#.videometa > [style="height: 0px;"] { height: calc(100%) !important; }
+! https://github.com/AdguardTeam/AdguardFilters/pull/121585
+webtoon.kakao.com#$#.pointer-events-none { pointer-events: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/120973
+gs.statcounter.com#$##main-el { padding-bottom: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/119883
+o-pro.online#$##makingdifferenttimer { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/118968
+asdfiles.com#$##page-content { display: block !important; }
+asdfiles.com#$#.ttconaiwent { display: none !important; }
+asdfiles.com#$#.full-screen ~ footer { padding-top: 400px !important; }
+! accuweather.com - https://forum.adguard.com/index.php?threads/disable-cache-for-specific-sites-or-render-offscreen-before-displaying.48364/
+accuweather.com#$#.ads-not-loaded .non-ad { -webkit-filter: none !important; filter: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/116595
+inform.kz#$#.cont_news_t { height: auto!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/116495
+teknoblog.com#$#.wpb_wrapper { min-height: unset!important; }
+! facebook.com - allows right clicking image to open it directly in a new tab
+facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#$#.ssr #screen-root { pointer-events: auto !important; }
+facebook.com,facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion#$#.ssr #screen-root img { pointer-events: auto !important; }
+! m.facebook.com - allows to highlight text
+!! reenable rule in case wanted text is unselectable again
+! m.facebook.com#$#div { -moz-user-select: text !important; -webkit-user-select: text !important; }
+m.facebook.com#$#div[data-type] { -moz-user-select: text !important; -webkit-user-select: text !important; }
+m.facebook.com#$#div[dir="auto"] { -moz-user-select: text !important; -webkit-user-select: text !important; }
+m.facebook.com#$#.touch a[href*="story.php"] { position: relative !important; }
+m.facebook.com#$#div[dir="auto"] > span { -moz-user-select: text !important; -webkit-user-select: text !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/115570
+news.kstyle.com##div[style*="width:640px;"][style*="height:253px;"] + aside > div.MdMN12Line
+! https://github.com/AdguardTeam/AdguardFilters/issues/115284
+itigic.com#$#body { padding-bottom: 0!important; }
+! https://github.com/uBlockOrigin/uAssets/issues/12468
+tapepops.com,watchadsontape.com,advertisertape.com,tapeadvertisement.com,adblockplustape.xyz,tapelovesads.org,gettapeads.com,tapeadsenjoyer.com,noblocktape.com,antiadtape.com,tapewithadblock.org,shavetape.*,adblockstrtape.link,adblockstrtech.link,adblockstreamtape.*,stape.fun,strcloud.link,streamtape.*#%#//scriptlet("adjust-setTimeout", "counter", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/112415
+markezine.jp#$#.l-sidebar_inner > div.ad-job-board-wrap + div.c-secondarysection { margin-top: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/112175
+rajsayt.xyz#$##wpsafe-generate { display: block !important; }
+rajsayt.xyz#$##wpsafe-link { display: block !important; }
+rajsayt.xyz#$#div[id^="wpsafe-wait"] { display: none !important; }
+! go.insurance-space.xyz/?link=XBST
+go.insurance-space.xyz#$##wpsafe-generate { display: block !important; }
+go.insurance-space.xyz#$##wpsafe-link { display: block !important; }
+go.insurance-space.xyz#$##wpsafelinkhuman { display: none !important; }
+go.insurance-space.xyz#$#div[id^="wpsafe-wait"] { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/108330
+studyis.xyz#$##wpsafe-generate { display: block !important; }
+studyis.xyz#$##wpsafe-link { display: block !important; }
+studyis.xyz#$#div[id^="wpsafe-wait"] { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/108210
+apkandroidhub.in#$##wpsafe-generate { display: block !important; }
+apkandroidhub.in#$##wpsafe-link { display: block !important; }
+apkandroidhub.in#$#div[id^="wpsafe-wait"] { display: none !important; }
+! circumvent countdown
+ac-illust.com,photo-ac.com,silhouette-ac.com#?##eachDownloadedModal .ac-btn[href^="https://premium."]:upward(#eachDownloadedModal)
+ac-illust.com,photo-ac.com,silhouette-ac.com#$#.modal-backdrop  {display: none !important; }
+ac-illust.com,photo-ac.com,silhouette-ac.com#$#body.modal-open * { filter: none !important; }
+ac-illust.com,photo-ac.com,silhouette-ac.com#$#body.modal-open { overflow: auto !important; }
+! https://www.reddit.com/r/uBlockOrigin/comments/r43gcd/how_do_i_prevent_the_adblock_detector_and_the/
+isi7.net#$##wpsafe-wait1 {display: none !important; }
+isi7.net#$##wpsafe-generate {display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/100236
+cinemakottaga.*#$##wpsafe-link { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/100856
+techymedies.com#$##timer { display: none !important; }
+techymedies.com#$##getlink { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/99417
+yokugames.com#$##countdown { display: none !important; }
+yokugames.com#$##downloadbtn { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/97768
+tomshardware.com#$#.xenforo-comment-widget { height: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/98000
+skymetweather.com###articledetails ~ br
+! https://github.com/AdguardTeam/AdguardFilters/issues/96392
+social-unlock.com#$#form#link a.submit { opacity: 1 !important; pointer-events: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/93038
+kingtalks.net#$##mybutton { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/93826
+nestoria.de#$##js-filters-view { padding-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/91434
+designwizard.com#$#.main-header { top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/144932
+! https://github.com/uBlockOrigin/uAssets/issues/4501
+aulete.com.br#$##coluna_central_conteudo_home > div[style*="height:"] { height: auto !important; }
+aulete.com.br#$#body .definicao_verbete_homologado_interna:not(#style_important) { height: 100% !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/88786
+dl03.magix.net#$#header { margin-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/85775
+telegraphindia.com#$#.ttdheader { height: 120px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/85967
+thephoblographer.com#$#body { overflow: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/85488
+downloadtutorials.net#$##download { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/83965
+5play.ru#$#.page-cdn-notimer { display: none !important; }
+5play.ru#$#.counter { display: none !important; }
+5play.ru#$#div[class="download-btn-group"][style="display:none;"] { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/83335
+gidonline.fun#$#body { padding-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/81249
+adomainscan.com#$##wpsafe-snp { display: block !important; }
+adomainscan.com#$##wpsafe-wait1 { display: none !important; }
+! zshort.io - unblock captcha
+zshort.io#$##showContainer { display: none !important; }
+zshort.io#$##showMe div[id][style="display:none;"] { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/79235
+vsetors.org#$#.container { margin-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/79222
+37.1.206.95#$#body { padding-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/78571
+cimavids.live,cnvids.com#$##downloadbtn { display: block !important; }
+cimavids.live,cnvids.com#$##countdown > canvas, h3 { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/77455
+soccer.ru#$##site { margin-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/74877
+kotaku.com##.js_video-sticky-trigger
+! https://github.com/AdguardTeam/AdguardFilters/issues/72365
+adshrink.it#$##system_center_card_bounce { display: block !important; }
+adshrink.it#?#.stackable .red.floating.message > p > .adversal:upward(2)
+! https://github.com/AdguardTeam/AdguardFilters/issues/71454
+nicotv.me#$#.gg_margin_nav { margin-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/70540
+keybr.com#$#.Body-app > #root > section.Practice { margin: auto; }
+! sports.ru - gap under the main nav
+sports.ru#$#div[data-accordion-id="teaser"] { padding-top: 30px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/69701
+onlinestreams.ru#$#.wrapper { margin-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/67867
+liveresult.ru#$#.header { margin-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/67395
+uzone.id#$#body { margin-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/71629
+! https://github.com/AdguardTeam/AdguardFilters/issues/103187
+cossa.ru,nevasport.ru#$#.main-wrapper { margin-top: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/66030
+naver.com#$#body #NM_INT_RIGHT > div.column_fix_wrap { position: relative!important; }
+naver.com#$#body #NM_INT_RIGHT > div.column_fix_wrap { top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/64379
+dota2.ru#$##dappo { padding-top: 0px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/62915
+znak.com#$#body:not(.mobile) header { margin-top: 20px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/61267
+zfile.in.ua#$#.filelist > div#filelist2 { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/54342
+software-on.com#$#a.btn-success { display: block!important; }
+software-on.com#$#div[style^="display:inline-block"] > .loading { display: none!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/53974
+business-mortgage.info#$##Proceed { display: inline!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/53501
+imgtorrnt.in#$##clkk { display: block!important; }
+imgtorrnt.in#$##clkk3 { display: none!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/52771
+subsvip.com#$##botaoLink { display: block!important; }
+subsvip.com#$##botaoBloqueio { display: none!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/50148
+lnk.news#$##skip_form { display: block!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/48741
+ixbt.com#$#.b-footer > div.block__describe { height: 100px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/47483
+download.3dzip.org#$#.download_dem { display: block!important; }
+download.3dzip.org#$##waittime { display: none!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/47357
+1ink.cc#$##countingbtn { display: block!important; }
+1ink.cc#$##countingsec { display: none!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/47172
+romsemulator.net#$#.wait > .wait__text { display: block!important; }
+! saechsische.de - allowing scrolling without waiting
+saechsische.de#$#body { overflow: visible!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/45873
+tinder.com#$#div[class*="NetHeight(100%,82px)"] { height: 100%!important; }
+! focus.de - removing double border at end of article
+focus.de#$##teaserRss { border-top: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/45235
+conradconnect.com#$#.body-blur { filter: none!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/44589
+sopasti.com#$##link { display: block!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/44351
+mangarock.com#$#div[id^="vertical-page-"] > div[class][style] > div[style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px;"]:empty { display: none!important; }
+! spiele.stern.de - increasing game instruction gap size ( game: #!Rushtower)
+spiele.stern.de#$#.seoGameInstruction { margin-top: 20px !important; }
+! nnm-club - increase height of categirues list
+nnmclub.to#$#select[id="fs"][name="f[]"][multiple="multiple"] { height: 250px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/43688
+2plus2.ua#$#body > header { top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/39569
+wikitrik.com#$##download { display: block!important; }
+wikitrik.com#$#button#btn[onclick="generate()"] { display: none!important; }
+! stylebook.de - removing white space at top
+stylebook.de#$#div.container[role="page"] > div.container[role="page"] { padding: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/36897
+beeg.com#$#.i-footer { margin: 0px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/34901
+hg6384.com-www.6u7u.com#$#body > div.g-head { background: #15253a!important; }
+! reddit.com - removing large spaces in footer
+reddit.com,reddittorjg6rue252oqsxryoxengawnmo46qy4kyii5wtqnwfj4ooad.onion#$#body > .footer-parent { height: calc(100%)!important; padding:0px!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/22766
+classicfm.com#$#.radioplayer { height:calc(100%)!important; }
+! politicaluk.com reenabling nav-bar buttons at end of article
+politicaluk.com#$#.post-nav .nav-links { visibility: visible!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/16558
+pu.nl#$#.article-meta { height: auto!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/15059
+gesundheitsfrage.net,gutefrage.net,finanzfrage.net#$#gf-deferred-content.u-invisible { visibility: visible!important;}
+gesundheitsfrage.net,gutefrage.net,finanzfrage.net#$#gf-shortened-block.is-short { max-height: none!important; }
+gesundheitsfrage.net,gutefrage.net,finanzfrage.net#$#.is-short::after { background:none!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/14804
+fotomac.com.tr#$#.content { padding-bottom: 0!important; }
+! winfuture.de - removing margin at top
+winfuture.de#$##container { margin: auto auto!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/11164
+themeslide.com#$#div[style="text-align: center;"] > div[style^="display:inline-block;width: 100%;"] > .loading { display: none!important; }
+themeslide.com#$#div[style="text-align: center;"] > div[style^="display:inline-block;width: 100%;"] > .loading + a[href].btn-success { display: block!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/10435
+nowymarketing.pl#$#.article-articleBody > .blured[style="filter: blur(3px);"] { filter: none!important; }
+nowymarketing.pl#$#.article-articleBody > .accessInfoBox.group { display: none!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/10073 https://github.com/AdguardTeam/AdguardFilters/issues/10466 https://github.com/AdguardTeam/AdguardFilters/issues/10923
+gesundheitsfrage.net,gutefrage.net,finanzfrage.net##gf-loading-indicator
+! https://github.com/AdguardTeam/AdguardFilters/issues/9338
+ilikewallpaper.net#$##divWalllist { padding: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/8773
+xgaytube.com##.videoPlayer > .uwrap ~ br
+! https://github.com/AdguardTeam/AdguardFilters/issues/8564
+edeka.de#$#.touchevents {margin-top: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/7718
+watchfaces.be#$#.post-attachment > #filedownload { display: block!important; }
+watchfaces.be#$#.post-attachment > .coinhive-captcha { display: none!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/6976
+marinetraffic.com#$#body[style^="padding-top: 144px;"] { padding-top: 47px!important; }
+marinetraffic.com#$#.banner > div > nav.navbar-fixed-top[style="padding-top: 97px;"] { padding-top: 0!important; }
+! https://forum.adguard.com/index.php?threads/19534/
+yadi.sk#$#.folder-public_has-padding { padding-top: 0!important; }
+! http://forum.ru-board.com/topic.cgi?forum=2&topic=5372&start=240#8
+youtube.com#$##appbar-guide-menu { margin-top: 50px!important; }
+! https://forum.adguard.com/index.php?threads/12185/
+! softpedia.com - move articles list to the top
+softpedia.com#$#iframe.swipebox-rightxd[id="relcontent"] { top: 60px!important; height: 535px!important; }
+! для капчи при заходе с не российских IP - через несколько секунд символы прячутся наложением картинки -> можно убрать.
+letitbit.net##img[class="mcmp_postrol_img"]
+! newsweek.com - hide the popup which limits the number of articles that can be read
+newsweek.com##iframe[src="http://sns.europe.newsweek.com/newsletter?popup=1"]
+! NOTE: CSS end ⬆️
+! !SECTION: Tweaks - CSS
+!
+!
+!
+!
+!##############################
+!######### JS tweaks ##########
+!##############################
+! SECTION: Tweaks - JS
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/240012
+! https://github.com/AdguardTeam/AdguardFilters/issues/238935
+financeehelp.com,cloudhostt.com,selfhostt.com#%#//scriptlet('adjust-setInterval', 'countdown', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/238502
+otakufilmes.org#%#//scriptlet('adjust-setTimeout', 'Counter', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/238012
+masrawytrend.com#%#//scriptlet('adjust-setInterval', 'clearInterval')
+! https://github.com/AdguardTeam/AdguardFilters/issues/235899
+melhoresreceitas.blog#%#//scriptlet('adjust-setInterval', 'clearInterval')
+melhoresreceitas.blog#%#//scriptlet('adjust-setTimeout', 'tick')
+! https://github.com/AdguardTeam/AdguardFilters/issues/238586
+! https://github.com/AdguardTeam/AdguardFilters/issues/237021
+! https://github.com/AdguardTeam/AdguardFilters/issues/235632
+fireflix.pages.dev,aurorascreen.org,moviebite.cc#%#//scriptlet('prevent-addEventListener', 'contextmenu', 'preventDefault')
+! https://github.com/AdguardTeam/AdguardFilters/issues/233761
+romsdroid.com#%#//scriptlet('adjust-setTimeout', 'download_loading', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/233678
+cloudfam.io#%#//scriptlet('adjust-setInterval', 'remain--', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/233481
+hanopatch4u.com#%#//scriptlet('adjust-setTimeout', 'elementor-invisible', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/233300
+kio.ac#%#//scriptlet('remove-attr', 'disabled', 'div[data-slot="dialog-footer"] > div.flex > button')
+! https://github.com/AdguardTeam/AdguardFilters/issues/232917
+hostviro.com,crizyman.online,ryfex.online#%#//scriptlet('adjust-setInterval', '/timeLeft|progress/', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/232888
+ipaomtk.com#%#//scriptlet('adjust-setInterval', 'timeLeft--', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/232585
+!+ NOT_PLATFORM(ext_chromium_mv3, ext_ff)
+embed.wcostream.com#%#(()=>{if(!location.href.includes("://embed.wcostream.com/inc/embed/index.php?file="))return;const e=`/inc/embed/video-js-new.php${location.search}`;location.href=e})();
+!+ PLATFORM(ext_chromium_mv3, ext_ff)
+embed.wcostream.com#%#//scriptlet('trusted-create-element', 'head', 'script', '', '(()=>{if(!location.href.includes("://embed.wcostream.com/inc/embed/index.php?file="))return;const e=`/inc/embed/video-js-new.php${location.search}`;location.href=e})();')
+! https://github.com/AdguardTeam/AdguardFilters/issues/232249
+techypopat.in#%#//scriptlet('adjust-setInterval', 'timeLeft', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/231771
+filexstream.sujanbotx.workers.dev#%#//scriptlet('adjust-setInterval', 'timeLeft', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/231254
+tophostdeal.com#%#//scriptlet('adjust-setInterval', 'countdown', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/231018
+skym3u.top#%#//scriptlet('adjust-setInterval', 'adWindow', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/229430
+file-me.top#%#//scriptlet('adjust-setTimeout', 'downloadbtn', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/229423
+vpzserver.com#%#//scriptlet('adjust-setInterval', 'countdown')
+! FreeDlink
+fredl.ru,frdl.hk#%#//scriptlet('adjust-setTimeout', 'seconds', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/229154
+ddownload.com#%#//scriptlet('adjust-setInterval', 'timer', '*', '0.001')
+! devuploads.com
+djxmaza.in#%#//scriptlet('adjust-setInterval', '', '*', '0.001')
+! 9gag.com - enable video controls
+9gag.com#%#//scriptlet('set-attr', 'video[poster]:not([controls])', 'controls', 'true')
+! https://github.com/AdguardTeam/AdguardFilters/issues/225410
+luggames.com#%#//scriptlet('adjust-setInterval', 'countdown', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/223958
+5play.app#%#//scriptlet('adjust-setInterval', 'counter', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/223728
+rxbabu.com#%#//scriptlet('adjust-setInterval', 'clearInterval(countdownTimer)')
+! https://github.com/AdguardTeam/AdguardFilters/issues/223670
+meverge.com,shopizo.fun,thebiharstudy.in,gkvpyqs.com,crimejasoos.in,famemingles.com#%#//scriptlet('adjust-setInterval', '/count|wpsafe/i', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/223667
+newsfront.xyz#%#//scriptlet('remove-attr', 'disabled', 'button#file')
+newsfront.xyz#%#//scriptlet('adjust-setInterval', 'counter', '*', '0.001')
+! https://sharemods.com/ddihgwollsp0
+sharemods.com#%#//scriptlet('adjust-setTimeout', 'tick', '1000', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/222009
+fullformsmarathi.in,usanowday.com,bhadohimusic.in.net#%#//scriptlet('trusted-click-element', '.tp-blue, form .btn-primary')
+fullformsmarathi.in,usanowday.com,bhadohimusic.in.net#%#//scriptlet("set-constant", "count", "0")
+! https://github.com/AdguardTeam/AdguardFilters/issues/222008
+rojgarhindi.in#%#//scriptlet('set-cookie', 'adclicked', 'true')
+rojgarhindi.in#%#//scriptlet('adjust-setInterval', 'btnx', '', '0.025')
+! https://github.com/AdguardTeam/AdguardFilters/issues/220003
+cloudhostingz.com,sharedwebs.com,fitnessplanss.com#%#//scriptlet('adjust-setTimeout', 'nextpage', '*', '0.001')
+cloudhostingz.com,sharedwebs.com,fitnessplanss.com#%#//scriptlet('adjust-setInterval', 'countdown', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/219059
+ispazio.net#%#//scriptlet('adjust-setInterval', 'countdown', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/218285
+crystalmark.info#%#//scriptlet('adjust-setTimeout', 'Math.min((elapsed / delay)', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/217186
+[$path=/download]datanodes.to#%#//scriptlet('trusted-click-element', '.adsBox ~ div:last-child > button:first-child')
+! https://github.com/AdguardTeam/AdguardFilters/issues/216618
+dashflix.top#%#//scriptlet('remove-attr', 'oncontextmenu', 'body')
+! https://github.com/AdguardTeam/AdguardFilters/issues/216028
+3isk.icu,3isk.info#%#//scriptlet('adjust-setTimeout', 'secondsWait', '*', '0.001')
+3isk.icu,3isk.info#%#//scriptlet('adjust-setInterval', 'secondsWait', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/214632
+okpeliz.com#%#//scriptlet('adjust-setTimeout', '/countdown|progressLine/', '*', '0.001')
+okpeliz.com#%#//scriptlet('adjust-setInterval', '/countdown|progressLine/', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/214587
+nexusmods.com#%#//scriptlet('adjust-setInterval', 'remaining--;')
+! https://github.com/AdguardTeam/AdguardFilters/issues/214159
+arahcloud.com#%#//scriptlet('adjust-setInterval', 'downloadTime', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/219085
+! https://github.com/AdguardTeam/AdguardFilters/issues/213838
+topshare.in,tempmaile.me,filydot.fun#%#//scriptlet('adjust-setInterval', '/count|downloadButton/', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/213796
+crystal-launcher.pl#%#//scriptlet('adjust-setTimeout', 'timerCount', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/213540
+asd.ink,asd.pics,asd.homes#%#//scriptlet('trusted-replace-node-text', 'script', 'downloadbtn', '/seconds: \d+/g', 'seconds: 0')
+! https://github.com/AdguardTeam/AdguardFilters/issues/213170
+financewada.com,utkarshonlinetest.com,techbezzie.com#%#//scriptlet('adjust-setInterval', '/time--|timeto--/', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/212391
+sporx.com#%#//scriptlet('set-constant', 'Object.prototype.isStickyModeTemporarilyDisabled', 'true')
+! https://github.com/AdguardTeam/AdguardFilters/issues/228011
+file4go.lol#%#//scriptlet('adjust-setInterval', 'seconds', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/212056
+remiz.co.kr#%#//scriptlet('adjust-setInterval', 'clearInterval(gda.countdownTimer)', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/211950
+serverguidez.com#%#//scriptlet('adjust-setTimeout', 'nextpage', '*', '0.001')
+serverguidez.com#%#//scriptlet('adjust-setInterval', 'countdown', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/211065
+modapk48.com,felizmodapk.com#%#//scriptlet('adjust-setInterval', 'waitTime', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/210732
+fikfak.net#%#//scriptlet('adjust-setInterval', 'show_download_links', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/210680
+cdnstream.top#%#//scriptlet('adjust-setInterval', 'timer', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/210649
+sportswordz.com,raftarsamachar.in#%#//scriptlet('trusted-replace-node-text', 'script', 'startCountdown', 'startCountdown("top-container-timer", "topButton", 15', 'startCountdown("top-container-timer", "topButton", 0')
+! https://github.com/AdguardTeam/AdguardFilters/issues/218218
+! Timer on download
+tayleewood.com,daftsex.biz#%#//scriptlet('adjust-setInterval', 'timeleftlink', '1000', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/208985
+carbikenation.com#%#//scriptlet('adjust-setInterval', 'timer', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/209099
+kecapku.com#%#//scriptlet('adjust-setInterval', 'counter', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/208960
+windowsxlite.com#%#//scriptlet('set-constant', 'disableRightClick', 'false')
+! https://github.com/AdguardTeam/AdguardFilters/issues/208730
+asiaon.top#%#//scriptlet('href-sanitizer', 'a[href^="https://link.asiaon.top/full?api="][href*="&url=aHR0c"]', '?url', 'base64decode')
+! https://github.com/AdguardTeam/AdguardFilters/issues/208570
+uploadcloud.pro#%#//scriptlet("adjust-setTimeout", ".show('drop')", "*", "0.001")
+! https://github.com/AdguardTeam/AdguardFilters/issues/208461
+zetrrent.com#%#//scriptlet('adjust-setInterval', '.html())-1', '*', '0.001')
+! https://blog.nicovideo.jp/niconews/236495.html
+safeframe.googlesyndication.com#%#//scriptlet('adjust-setInterval', '()=>{var c=Kb', '1000', '0.2')
+! https://github.com/AdguardTeam/AdguardFilters/issues/204233#issuecomment-2986576488
+facebook.com#%#//scriptlet('trusted-click-element', 'div[data-ad-comet-preview] div[style="text-align:start"] > [role="button"][tabindex="0"]', 'containsText:/See more|Mehr anzeigen|Ещё|查看更多/')
+! https://github.com/AdguardTeam/AdguardFilters/issues/207564
+romsfun.com#%#//scriptlet('adjust-setTimeout', 'download', '*', '0.001')
+! https://github.com/easylist/easylist/issues/21910
+m.4khd.com#%#//scriptlet('adjust-setInterval', 'countdown', '1000', '0.001')
+m.4khd.com#%#//scriptlet('adjust-setTimeout', 'window.location.reload()', '*', '0.05')
+! https://github.com/AdguardTeam/AdguardFilters/issues/207241
+00m.in#%#//scriptlet('adjust-setInterval', 'show', '1000', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/207093
+gyanitheme.com#%#//scriptlet('adjust-setTimeout', '/getElementById|gotoo/', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/206610
+autotop.net#%#//scriptlet('adjust-setInterval', 'downloadContainer', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/206196
+pormo.xyz#%#//scriptlet('adjust-setInterval', 'timeleft', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/205886
+apkhosto.com#%#//scriptlet('adjust-setInterval', 'downloadTime', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/205718
+briefly.co.za#%#//scriptlet('prevent-addEventListener', 'copy', '.concat')
+! https://github.com/AdguardTeam/AdguardFilters/issues/205512
+fileink.com#%#//scriptlet('adjust-setInterval', 'generateDownloadLink', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/205047
+5wip-file.ru#%#//scriptlet('adjust-setInterval', '.df-wrap')
+! https://github.com/AdguardTeam/AdguardFilters/issues/204557
+datanodes.to#%#//scriptlet('adjust-setTimeout', '/downloadForm|seconds--/', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/204724
+romsfun.me#%#//scriptlet('adjust-setTimeout', 'download', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/204546
+megaup.net#%#//scriptlet('adjust-setInterval', '/display\(\)|btnDownload/', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/204332
+siliconera.com#%#//scriptlet('set-attr', 'iframe[data-src^="https://www.youtube.com/embed/"].lazy-loaded-embed', 'src', '[data-src]')
+! https://github.com/AdguardTeam/AdguardFilters/issues/202743
+leakshaven.com#%#//scriptlet('adjust-setInterval', '(clearInterval(', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/202433
+recut.ru#%#//scriptlet('trusted-click-element', '#open_link', '', '500')
+! https://github.com/AdguardTeam/AdguardFilters/issues/202740
+shorttrick.in#%#//scriptlet('adjust-setInterval', 'wpsafe', '*', '0.001')
+sampledrive.org#%#//scriptlet('adjust-setInterval', 'downloadButton', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/202421
+travelironguide.com,kreditexperte.online#%#//scriptlet('adjust-setInterval', 'get-link', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/202260
+miuithemez.com#%#//scriptlet('adjust-setInterval', 'addClass("loaded")', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/202235
+mediafire.com#%#//scriptlet('adjust-setTimeout', 'download_link', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/202200
+skycall.online#%#//scriptlet('adjust-setInterval', 'wpsafe', '*', '0.001')
+weshare.is#%#//scriptlet('adjust-setInterval', 'downloadTimer', '*', '0.001')
+! https://github.com/uBlockOrigin/uAssets/issues/23033#issuecomment-2772386731
+new.lewd.ninja#%#//scriptlet('adjust-setInterval', 'next', '1000', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/201682
+gamesmain.xyz,foodtechnos.in#%#//scriptlet('adjust-setInterval', '/countdownDisplay|\[_0x/', '*', '0.001')
+gamesmain.xyz,foodtechnos.in#%#//scriptlet('adjust-setTimeout', '/createLinkButton|buttonGroup|\("\d+"\)/', '*', '0.001')
+!+ PLATFORM(windows, mac, android, cli)
+||gamesmain.xyz^$replace=/(setTimeout\(function[\s\S]*?createLinkButton[\s\S]*?}\,) \d+\);/\$1 1\);/,document
+! https://github.com/AdguardTeam/AdguardFilters/issues/201278
+asianetnews.com#%#//scriptlet('trusted-click-element', '.btnreadfull', '', '500')
+! https://github.com/AdguardTeam/AdguardFilters/issues/200962
+jestful.net#%#//scriptlet('adjust-setInterval', 'countDownSeconds', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/199388
+talksport.com#%#//scriptlet('remove-class', 'pip-active', '#featured-video-cta')
+! https://github.com/AdguardTeam/AdguardFilters/issues/199072
+ziggame.com#%#//scriptlet('prevent-addEventListener', 'blur', 'counter')
+! https://github.com/AdguardTeam/AdguardFilters/issues/198980
+adultcomixxx.com,lewdsteam.com,skiplinks.xyz#%#//scriptlet('adjust-setTimeout', 'timer', '*', '0.001')
+adultcomixxx.com,lewdsteam.com,skiplinks.xyz#%#//scriptlet('trusted-click-element', '#timer ~ a#skip.skipad[href^="http"]')
+skiplinks.xyz#%#(()=>{if(!location.href.includes("/download-"))return;document.addEventListener("DOMContentLoaded",(()=>{document.querySelectorAll('#downloadpage > form[action][method="POST"] > input[value^="https://"]').forEach((e=>{const o=e.closest("form");var t,n;o&&(t=o,n=e.value,t.addEventListener("click",(e=>{e.preventDefault(),window.location.href=n})))}))}))})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/199020
+megafire.net#%#//scriptlet('adjust-setInterval', 'show_download_links', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/198759
+gamezfull.com#%#//scriptlet('adjust-setInterval', '-progress', '*', '0.001')
+gamezfull.com#%#//scriptlet('href-sanitizer', 'a[href^="https://www.gamezfull.com/exit.php?url="]', '?url')
+! https://github.com/AdguardTeam/AdguardFilters/issues/198318
+filespayouts.com#%#//scriptlet('adjust-setTimeout', 'tick', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/198352
+scribd.com#%#//scriptlet('set-constant', 'docManager.doDynamicBlurring', 'noopFunc')
+! https://github.com/AdguardTeam/AdguardFilters/issues/197355
+ranoz.gg#%#//scriptlet('trusted-click-element', 'div[class^="page_box_wrapper"] a[aria-label="Download button"]:not([href])', '', '500')
+! https://github.com/AdguardTeam/AdguardFilters/issues/197048
+osmanonline.me#%#//scriptlet('adjust-setTimeout', 'redirectButton', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/197068
+legendei.net#%#//scriptlet('adjust-setInterval', 'countdown', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/196388
+alex71.com#%#//scriptlet('remove-attr', 'style', '#download-link')
+alex71.com#%#//scriptlet('remove-attr', 'disabled', '#download-btn')
+! https://github.com/AdguardTeam/AdguardBrowserExtension/issues/3089
+leakedpacks.com#%#//scriptlet('adjust-setInterval', 'counter', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/195744
+updown.fun#%#//scriptlet('adjust-setInterval', 'downloadTime', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/195185
+lnk2.cc#%#//scriptlet('set-constant', 'secs', '0')
+lnk2.cc#%#//scriptlet('remove-class', 'd-none', '#pass')
+lnk2.cc#%#//scriptlet('remove-attr', 'disabled', '#getLink')
+! https://github.com/AdguardTeam/AdguardFilters/issues/194436
+dood.li#%#//scriptlet('set-constant', 'check', 'noopFunc')
+! https://github.com/AdguardTeam/AdguardFilters/issues/194326
+locall.host#%#//scriptlet('prevent-addEventListener', 'scroll', 'requestAnimationFrame')
+! https://github.com/AdguardTeam/AdguardFilters/issues/194006
+sabkiyojana.com#%#//scriptlet('prevent-addEventListener', 'blur', 'event.dispatch.apply')
+! Joyreactor - enable video controls
+fapreactor.com,pornreactor.cc,joyreactor.cc,reactor.cc#%#//scriptlet('set-attr', 'video[autoplay]:not([controls])', 'controls', 'true')
+! https://github.com/AdguardTeam/AdguardFilters/issues/191178
+newzviz.com#%#//scriptlet('adjust-setInterval', '(time)', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/191090
+meawfy.com#%#//scriptlet('adjust-setInterval', 'counter--', '*', '0.001')
+meawfy.com#%#//scriptlet('prevent-addEventListener', 'blur', 'stopCounter')
+! https://github.com/AdguardTeam/AdguardFilters/issues/190843
+atomohd.ink#%#//scriptlet('adjust-setTimeout', '#counter', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/190788
+arabtalking.com#%#//scriptlet('adjust-setTimeout', 'secondsWait', '*', '0.001')
+arabtalking.com#%#//scriptlet('adjust-setInterval', 'secondsWait', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/190077
+zippyshare.day#%#//scriptlet('adjust-setInterval', '.html(Number', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/188477
+veev.to#%#//scriptlet('adjust-setInterval', 'download', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/188611
+bcvc.ink#%#//scriptlet('adjust-setInterval', 'bcvcCountDown', '*', '0.001')
+bcvc.ink#%#//scriptlet('trusted-click-element', '.redirectSc a[href="#getLink"]#getLink:not([style="display: none"])')
+! https://github.com/AdguardTeam/AdguardFilters/issues/188255
+meteomedia.com#%#//scriptlet('set-constant', 'jwplayer.defaults.autostart', '')
+! https://github.com/AdguardTeam/AdguardFilters/issues/187267
+top-mods.com#%#//scriptlet('adjust-setInterval', 'timer_num', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/186443
+cloutgist.com#%#//scriptlet('adjust-setInterval', 'counter', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/186247
+turismando.net#%#//scriptlet('adjust-setInterval', 'className', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/182950
+abplive.com#%#//scriptlet('trusted-click-element', '#read-full-article')
+! https://github.com/AdguardTeam/AdguardFilters/issues/184901
+techbloogs.com,tutwuri.id,lokerwfh.net#%#//scriptlet('adjust-setInterval', '/Wait...|clearInterval/', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/184186
+iir.la#%#//scriptlet('adjust-setInterval', 'timeSec--', '*', '0.001')
+iir.la#%#//scriptlet('adjust-setTimeout', '/nextPageForm|getlink|getmylink/', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/183664
+tech5s.co#%#//scriptlet('adjust-setInterval', 'timer', '*', '0.001')
+tech5s.co#$##go_d { display: none !important; }
+tech5s.co#$##tp-snp1 { display: none !important; }
+tech5s.co#%#//scriptlet('trusted-click-element', '#t_modal_close_x')
+! https://github.com/AdguardTeam/AdguardFilters/issues/166635
+odiadance.com,sayphotobooth.com,edukaroo.com,tech5s.co,themezon.net#%#//scriptlet('adjust-setInterval', 'tp-time', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/183044
+torrentgalaxy.to#%#//scriptlet('adjust-setInterval', 'loader', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/182815
+nayisahara.com#%#//scriptlet('adjust-setInterval', 'counter', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/182737
+oceantogames.com#%#//scriptlet('adjust-setTimeout', 'showText', '*', '0.001')
+oceantogames.com#%#//scriptlet('adjust-setInterval', 'downloadTimer', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/182533
+emturbovid.com#%#//scriptlet('adjust-setInterval', 'download', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/181695
+timesnownews.com#%#//scriptlet('trusted-click-element', '#read-more-btn', '', '1000')
+! https://github.com/AdguardTeam/AdguardFilters/issues/181134
+! https://github.com/AdguardTeam/AdguardFilters/issues/180915
+avclub.com,deadspin.com,gizmodo.com,jalopnik.com,jezebel.com,kinja.com,kotaku.com,lifehacker.com,qz.com,splinternews.com,theinventory.com,theonion.com,theroot.com,thetakeout.com#%#//scriptlet('trusted-click-element', '.js_expandable-container button.js_expandable-container-button', '', '1000')
+! https://github.com/AdguardTeam/AdguardFilters/issues/181328
+dl.apkmoddone.com#%#//scriptlet('adjust-setTimeout', 'tick()', '*', '0.001')
+dl.apkmoddone.com#%#//scriptlet('adjust-setInterval', 'clearInterval', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/180944
+webhostsec.com#%#//scriptlet("set-constant", "timeSec", "0")
+! https://github.com/AdguardTeam/AdguardFilters/issues/183075
+! https://github.com/AdguardTeam/AdguardFilters/issues/180583
+myandroid.org,onworks.net#%#//scriptlet('adjust-setTimeout', 'rewritebutton', '*', '0.002')
+! https://github.com/AdguardTeam/AdguardFilters/issues/180144
+ndtv.com#%#//scriptlet('trusted-click-element', '.story__content > div > a.expand-btn__link')
+! https://github.com/AdguardTeam/AdguardFilters/issues/180127
+appdoze.com#%#//scriptlet('adjust-setInterval', 'show_download_links', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/179600#issuecomment-2121022000
+cbsnews.com#%#//scriptlet('remove-class', 'floating', '.embed__sticky-content')
+! pimpandhost.com timer to show image
+pimpandhost.com#%#//scriptlet('adjust-setTimeout', 'count', '1000', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/177874
+mywatchseries.cyou#%#//scriptlet('adjust-setInterval', 'counter', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/177548
+dwgshare.com#%#//scriptlet('adjust-setInterval', 'secounds', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/176233
+shortix.co#%#//scriptlet('adjust-setInterval', 'count', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/175031
+mp4upload.com#%#//scriptlet('adjust-setTimeout', 'tick', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/174343
+file-mods.ru#%#//scriptlet('adjust-setInterval', 'timer', '1000', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/174126
+bfmtv.com#%#//scriptlet('remove-attr', 'autoplay', '.video_block')
+bfmtv.com#%#//scriptlet('set-attr', '.video_block', 'autoplay', 'false')
+! gplinks - gplinks.co/fi3p
+! https://github.com/AdguardTeam/AdguardFilters/issues/170980
+aquaguardservices.co.in,fakepe.com,rajcet.com#%#//scriptlet('prevent-addEventListener', 'visibilitychange')
+skrresults.com,procinehub.com,sololevelinghindi.pro#%#//scriptlet('adjust-setInterval', 'myTimer', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/172260
+imgdrive.net#%#//scriptlet('trusted-click-element', '#redirect-close > a[onclick="closeOverlay()"]', '', '500')
+! https://github.com/AdguardTeam/AdguardFilters/issues/171810
+ipalibrary.me#%#//scriptlet('adjust-setInterval', 'countdown', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/171550
+sanemoku.com#%#//scriptlet('adjust-setInterval', 'countdown', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/170596
+shareus.io#%#//scriptlet('trusted-click-element', '.adunit-container >.card img', '','500')
+! https://github.com/AdguardTeam/AdguardFilters/issues/170389
+mcafee-com.com#%#//scriptlet('set-constant', 'document.hasFocus', 'trueFunc')
+! https://github.com/AdguardTeam/AdguardFilters/issues/170143
+panda.studyis.xyz#%#//scriptlet('adjust-setInterval', 'wpsafe-countdown2', '*', '0.002')
+! https://github.com/AdguardTeam/AdguardFilters/issues/170094
+! https://github.com/AdguardTeam/AdguardFilters/issues/116036
+! Streamplay - speed up loading captcha
+straemplay.*,powwideo.*,powcloud.*,powstream.*,stre4mplay.*,streampiay.*,stemplay.*,steamplay.*,steanplay.*,streamp1ay.*,streanplay.*,steampiay.cc,pouvideo.cc#%#//scriptlet('adjust-setTimeout', '/letgo|grecaptcha/', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/169882
+privatemoviez.*#%#//scriptlet('adjust-setInterval', 'count', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/169605
+modapkvn.com,apkmodvn.com#%#//scriptlet('set-constant', 'waktu', '-1')
+apkmoddone.phongroblox.com,file.apkmoddone.com#%#//scriptlet('adjust-setInterval', '=--', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/169278
+anonymfile.com#%#//scriptlet('set-constant', 'countDown', '1')
+! https://github.com/AdguardTeam/AdguardFilters/issues/167091
+file-upload.in#%#//scriptlet('adjust-setInterval', 'timer', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/166721
+urlcut.ninja#%#//scriptlet('adjust-setInterval', 'pleasewait', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/165861
+tutwuri.id#%#//scriptlet('adjust-setInterval', 'innerHTML=`Wait')
+! https://github.com/AdguardTeam/AdguardFilters/issues/165773
+mbjremix.com#%#//scriptlet('adjust-setInterval', '/wpsafe|wait|timer/', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/178948
+! https://github.com/AdguardTeam/AdguardFilters/issues/165588
+bestfile.io,cloudpaten.pro#%#//scriptlet('adjust-setInterval', '.html()', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/167445
+! https://github.com/AdguardTeam/AdguardFilters/issues/165730
+mangoai.co#%#//scriptlet('adjust-setInterval', 'return e-1', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/164651
+melongmovie.site#%#//scriptlet('prevent-addEventListener', 'DOMContentLoaded', 'adlinkfly_api_token')
+! https://github.com/AdguardTeam/AdguardFilters/issues/163764
+uploadhaven.com#%#//scriptlet('adjust-setInterval', 'countDown()', '*', '0.28')
+! https://github.com/AdguardTeam/AdguardFilters/issues/185912
+babup.com#%#//scriptlet('adjust-setInterval', 'timer', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/163761
+file-upload.com#%#//scriptlet('adjust-setTimeout', 'tick', '', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/176403
+! https://github.com/AdguardTeam/AdguardFilters/issues/163755
+lelmak.com,elbadr.xyz,abda3.xyz,wisw.online,stelux.online,gooltok.com,loiz.store,businessnews-nigeria.com,day4news.com,net4you.xyz,mamahawa.com,10short.pro#%#//scriptlet('adjust-setInterval', '/proceed|timer|count/', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/163470
+terbit21.app,lk21static.*#%#//scriptlet('adjust-setInterval', 'time', '*', '0.02')
+! https://present.rssing.com/transit.php?url=http%3A%2F%2Fggs7.c.blog.so-net.ne.jp%2F_images%2Fblog%2F_c18%2Fggs7%2FE7A8B2E5B79DE4BC9AE7A0B4E99680E78AB6.jpg%3Fc%3Da1
+present.rssing.com#%#//scriptlet('adjust-setTimeout', 'setC', '1000', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/161433
+thecustomrom.com#%#//scriptlet('adjust-setTimeout', 'window.location.href', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/160927
+vstdrive.in#%#//scriptlet('adjust-setInterval', 'time--', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/160924
+zeroupload.com#%#//scriptlet('adjust-setInterval', 'display', '1000', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/163646
+! https://github.com/uBlockOrigin/uAssets/discussions/17361#discussioncomment-6912053
+antonimos.de#%#//scriptlet('set-constant', 'waitTime', '0')
+! https://github.com/AdguardTeam/AdguardFilters/issues/160334
+mcafee-com.com#%#//scriptlet('set-constant', 'count', '0')
+! https://github.com/AdguardTeam/AdguardFilters/issues/159577
+! https://github.com/AdguardTeam/AdguardFilters/issues/211359
+1fichier.com#%#//scriptlet('adjust-setTimeout', 'ctt()', '1000', '0.001')
+! https://github.com/uBlockOrigin/uAssets/issues/19422
+nicekkk.com#%#//scriptlet('prevent-setInterval', 'debugger;')
+! https://github.com/AdguardTeam/AdguardFilters/issues/159121
+mixdroop.*#%#//scriptlet('adjust-setTimeout', 'DOWNLOAD', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/157933
+bhojpuritop.in,amritadrino.com#%#//scriptlet('adjust-setInterval', 'count', '*', '0.001')
+! brightdays.jp copy/right click
+brightdays.jp#%#//scriptlet('remove-attr', 'onCopy|onContextmenu', 'body')
+! https://github.com/AdguardTeam/AdguardFilters/issues/156634
+bloginkz.com#%#//scriptlet('adjust-setInterval', 'timer', '', '0.02')
+bloginkz.com#%#//scriptlet('remove-attr', 'disabled', '#captcha_container + button.btn')
+! https://github.com/AdguardTeam/AdguardFilters/issues/156768
+sabah.com.tr#%#//scriptlet('set-attr', '.player > div[data-videoid]', 'data-autoplay', '0')
+! https://github.com/AdguardTeam/AdguardFilters/issues/156791
+plog.com.br#%#//scriptlet('adjust-setInterval', 'countdown', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/156283
+theparking.eu#%#//scriptlet('remove-class', 'viously-sticked-top-right', '.viously-ui-container')
+! https://github.com/AdguardTeam/AdguardFilters/issues/156256
+moegirl.org.cn#%#//scriptlet('remove-class', 'skin-moeskin', 'body')
+! https://github.com/AdguardTeam/AdguardFilters/issues/155841
+finsurances.co#%#//scriptlet('remove-attr', 'disabled', '#getlink')
+finsurances.co#%#//scriptlet('adjust-setInterval', 'counter')
+! https://github.com/AdguardTeam/AdguardFilters/issues/155666
+pling.com#%#//scriptlet('adjust-setTimeout', 'Download', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/166097
+! https://github.com/AdguardTeam/AdguardFilters/issues/156959
+! https://github.com/AdguardTeam/AdguardFilters/issues/154877
+fansonlinehub.com,teralink.me,teraearn.com,terashare.me,hotmediahub.com,terabox.fun#%#//scriptlet('adjust-setTimeout', 'value', '*', '0.001')
+fansonlinehub.com,teralink.me,teraearn.com,terashare.me,hotmediahub.com,terabox.fun#%#//scriptlet('adjust-setInterval', 'clearInterval', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/154319
+covemarkets.com#%#//scriptlet('adjust-setInterval', 'wait', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/152764
+androjungle.com#%#//scriptlet('adjust-setInterval', 'download', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/152484
+m4cut.com#%#//scriptlet("set-constant", "timer", "0")
+! https://github.com/AdguardTeam/AdguardFilters/issues/157576
+tv-asahi.co.jp#%#//scriptlet('remove-attr', 'oncontextmenu')
+! https://github.com/AdguardTeam/AdguardFilters/issues/152260
+mixrootmods.com#%#//scriptlet('adjust-setInterval', 'timeLeft', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/152252
+iggtech.com#%#//scriptlet('adjust-setTimeout', 'window.location.href', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/151580
+flixhub.*#%#//scriptlet('adjust-setTimeout', 'counter', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/151095
+pluska.sk#%#//scriptlet('remove-class', 'floating', 'video-livebox > div[data-endscreen="plus1_endscreen"]')
+! https://github.com/AdguardTeam/AdguardFilters/issues/150962
+apkmody.fun#%#//scriptlet('adjust-setTimeout', 'download_loading', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/150865
+vsthemes.org#%#//scriptlet('adjust-setTimeout', 'autoload-wait', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/149734
+vinstartheme.com#%#//scriptlet('adjust-setInterval', 'Download', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/148864
+lalibre.be#%#//scriptlet('trusted-click-element', '#digiteka_visible_video_title_parent .digiteka_visible_video_title_close')
+! https://github.com/AdguardTeam/AdguardFilters/issues/148761
+ipamod.com#%#//scriptlet('adjust-setTimeout', 'window.location.href', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/148560
+player.repelis24.rs#%#//scriptlet('adjust-setInterval', 'count--', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/146811
+comohoy.com#%#//scriptlet('adjust-setTimeout', 'content', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/146765
+standard.co.uk#%#//scriptlet('remove-class', 'sticky', '.video-top-container')
+! https://github.com/AdguardTeam/AdguardFilters/issues/173238
+! https://github.com/AdguardTeam/AdguardFilters/issues/146829
+dl.lk21static.*#%#//scriptlet('adjust-setInterval', 'time', '*', '0.02')
+dl.lk21static.*#%#//scriptlet('trusted-click-element', '.content > #skip > a[href^="http"]')
+! https://github.com/AdguardTeam/AdguardFilters/issues/146777
+dyp.li#%#//scriptlet('adjust-setInterval', 'p--', '', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/146297
+linku.to#%#//scriptlet('adjust-setInterval', 'current()', '*', '0.02')
+oneslidephotography.com,apasih.my.id,financekami.com#%#//scriptlet('adjust-setInterval', 'wpsafe-', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/146298
+surl.li#%#//scriptlet('adjust-setInterval', 'disabled', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/144987
+starfiles.co#%#//scriptlet('adjust-setInterval', 'download_progress', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/145035
+nguyenvanbao.com#%#//scriptlet('adjust-setInterval', 'count', '1600', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/144925
+androidecuatoriano.xyz#%#//scriptlet('adjust-setInterval', 'downloadButton', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/143935
+getmodsapk.com#%#//scriptlet('adjust-setInterval', 'download', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/144195
+diudemy.com#%#//scriptlet('adjust-setInterval', '_0x', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/143676
+amritadrino.com#%#//scriptlet('adjust-setInterval', 'wpsafe-generate', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/210213
+! https://github.com/AdguardTeam/AdguardFilters/issues/143606
+frdl.my,upapk.io#%#//scriptlet('adjust-setTimeout', 'seconds', '*', '0.02')
+instamod.net#%#//scriptlet('adjust-setInterval', 'Download', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/143542
+3dzip.org#%#//scriptlet('adjust-setInterval', 'document.hidden', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/143445
+3rabsnews.com#%#//scriptlet('adjust-setInterval', '#mdtimer', '', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/142811
+bakenor.com#%#//scriptlet('adjust-setTimeout', 'myTimer', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/142474
+dosya.hizliresim.com#%#//scriptlet('adjust-setInterval', 'Number', '', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/141244
+dynamo.kiev.ua#%#//scriptlet('set-constant', 'Object.prototype.embedPlayer.autoplay', 'false')
+! https://github.com/AdguardTeam/AdguardFilters/issues/140575
+bico8.com,techyinfo.in,smallinfo.in#%#//scriptlet('adjust-setInterval', 'wpsafe-', '*', '0.02')
+! https://github.com/uBlockOrigin/uAssets/issues/16373
+vebma.com#%#//scriptlet('adjust-setInterval', '/counter|wait/', '*', '0.02')
+vebma.com#%#//scriptlet('prevent-addEventListener', 'blur', 'counter')
+! https://github.com/AdguardTeam/AdguardFilters/issues/140037
+prod.danawa.com#%#//scriptlet('adjust-setTimeout', 'goLink(', '3000')
+! https://github.com/AdguardTeam/AdguardFilters/issues/139845
+blogmado.com#%#//scriptlet('adjust-setTimeout', 'get-link', '*', '0.02')
+blogmado.com#%#//scriptlet('adjust-setInterval', 'get-link', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/139739
+vp.rambler.ru#%#//scriptlet('set-constant', 'Object.prototype.minPlayingVisibleHeight', '')
+! https://github.com/AdguardTeam/AdguardFilters/issues/139256
+fikper.com#%#//scriptlet("adjust-setInterval", "downloadToken", "*", "0.02")
+! https://github.com/uBlockOrigin/uAssets/issues/16166
+adzz.in,proappapk.com#%#//scriptlet("remove-attr", "disabled", "#gotolink")
+! https://github.com/AdguardTeam/AdguardFilters/issues/136952
+tech24us.com#%#//scriptlet('set-constant', 'counter', '-1')
+! https://github.com/AdguardTeam/AdguardFilters/issues/136502
+financerites.com#%#//scriptlet("adjust-setTimeout", "getlink", "*", "0.02")
+financerites.com#%#//scriptlet("adjust-setInterval", "timeSec--", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/136885
+polsatnews.pl,polsatsport.pl#%#//scriptlet('remove-class', 'is--persistent', '.videoPlayer')
+! https://github.com/AdguardTeam/AdguardFilters/issues/136199
+codingnepalweb.com#%#//scriptlet('adjust-setInterval', 'cnDownloadBtn', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/135988
+apkmaza.co#%#//scriptlet("adjust-setTimeout", "download", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/135437
+techymedies.com,disheye.com#%#//scriptlet("adjust-setInterval", "wpsafe-", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/135131
+bakemain.com#%#//scriptlet("adjust-setTimeout", "/Please wait|myTime--/", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/135094
+link-descarga.site#%#//scriptlet("adjust-setTimeout", "updateClock", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/133921
+independent.co.uk#%#//scriptlet('remove-class', 'sticky', '.video-top-container')
+! https://github.com/AdguardTeam/AdguardFilters/issues/134445
+fontshub.pro#%#//scriptlet('set-local-storage-item', 'payed', '2')
+!+ NOT_PLATFORM(ext_ublock)
+fontshub.pro#$#.download-share-box { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/134283
+speedtorrent.ru#%#//scriptlet("adjust-setInterval", "counter", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/133857
+w.acortaz.eu#%#(function(){try{var a=location.href.split("/#");if(a[1]){a=a[1];for(var b=0;10>b;b++){a=atob(a);try{new URL(decodeURIComponent(a));var c=!0}catch(d){c=!1}if(c)try{location.assign(decodeURIComponent(a));break}catch(d){}}}}catch(d){}})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/132493
+listas.pro#%#//scriptlet("adjust-setInterval", "counter", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/131116
+bestmobilenew.com#%#//scriptlet("adjust-setInterval", "#mdtimer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/130155
+digworm.io#%#//scriptlet("adjust-setInterval", "timer--", "*", "0.02")
+zertalious.xyz#%#//scriptlet("adjust-setTimeout", "status.innerHTML", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/130181
+xatakamovil.com#%#//scriptlet('remove-attr', 'style', '.js-dailymotion')
+xatakamovil.com#$#.close-corner { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/130108
+br0wsers.com#%#//scriptlet("adjust-setInterval", "success", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/129840
+ufacw.com#%#//scriptlet("adjust-setInterval", "wpsafe-", "*", "0.02")
+! https://github.com/uBlockOrigin/uAssets/issues/14660#issuecomment-1243031757
+hashhackers.com,katdrive.net#%#//scriptlet("adjust-setInterval", "/verify_text|isCompleted/", "*", "0.02")
+hashhackers.com,katdrive.net#%#//scriptlet("adjust-setTimeout", "document[_0x", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/128080
+course-downloader.com#%#//scriptlet("adjust-setTimeout", "countDown", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/128026
+modshost.net#%#//scriptlet("adjust-setInterval", "timeleft", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/128036
+codenova-center.web.app#%#//scriptlet("adjust-setInterval", "contador", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/125660
+aeromods.app,whatsaero.com#%#//scriptlet("adjust-setInterval", "count", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/125122
+recipesdelite.com#%#//scriptlet("adjust-setInterval", "/download|Please/", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/125037
+edumaz.com#%#//scriptlet("adjust-setInterval", "downloadButton", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/pull/125964
+malzero.xyz#%#//scriptlet("adjust-setTimeout", "count", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/125496
+notipostingt.com#%#//scriptlet("adjust-setInterval", "window.location.href= atob(", "1000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/123883
+mein-schoener-garten.de#%#//scriptlet('prevent-addEventListener', 'scroll', 'return"undefined"!=typeof')
+! https://github.com/AdguardTeam/AdguardFilters/issues/124297
+cmacked.com#%#//scriptlet("adjust-setInterval", ".show_download_links", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/123709
+doibihar.org#%#//scriptlet("adjust-setInterval", "count", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/124228
+gocmod.com#%#//scriptlet('prevent-addEventListener', 'blur', 'event.dispatch.apply')
+gocmod.com#%#//scriptlet('adjust-setInterval', '/\.text\(\)&&\(clearInterval|download-btn/', '*', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/123887
+gawbne.com,forex-trnd.com#%#//scriptlet("adjust-setInterval", "count", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/122844
+healthy4pepole.com#%#//scriptlet("adjust-setInterval", "counter", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/122833
+xmod.in#%#//scriptlet("adjust-setInterval", "updatePercentage", "100", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/122674
+blisseyhusband.in#%#//scriptlet("adjust-setInterval", "downloadButton", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/206724
+! https://github.com/AdguardTeam/AdguardFilters/issues/122461
+anime-sanka.com#%#//scriptlet("adjust-setInterval", "decodeURIComponent(link)", "", "0.02")
+ouo.io#%#(()=>{if(location.href.includes("?s=http")){const a=location.href.split("?s=").slice(1);try{location.assign(decodeURIComponent(a))}catch(a){}}})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/122250
+modyolo.com#%#//scriptlet("adjust-setTimeout", "#download-loading", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/122187
+filemoon.sx#%#//scriptlet("adjust-setInterval", ".download", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/121539
+uptomega.me#%#//scriptlet('adjust-setTimeout', 'Tick', '', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/120819
+manga2day.com#%#//scriptlet("set-constant", "timer", "0")
+! https://github.com/AdguardTeam/AdguardFilters/issues/121236
+discordbotlist.com#%#//scriptlet("adjust-setInterval", "countdown", "*", "0.02")
+! romsget.io/romsgames.net timer on DL - not always work
+romsget.io,romsgames.net#%#//scriptlet("adjust-setTimeout", "submit", "5000", "0.02")
+! consoleroms.com,romspedia.com timer on DL
+consoleroms.com,romspedia.com#%#//scriptlet("adjust-setInterval", "timeLeft ", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/120530
+truongblogger.top#%#//scriptlet("adjust-setInterval", "/base-timer-label|waktu--/", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/120148
+mcrypto.club#%#//scriptlet("adjust-setTimeout", "wpsafe", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/120125
+techboyz.xyz#%#//scriptlet("adjust-setInterval", "_0x", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/120433
+koyi.pub#%#//scriptlet("adjust-setInterval", "curCount", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/120351
+thizissam.in#%#//scriptlet("adjust-setInterval", "Please wait", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/119883
+o-pro.online#%#//scriptlet("adjust-setInterval", "mdtimer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/119656
+ontools.net#%#//scriptlet("adjust-setInterval", "gotolink", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/118968
+asdfiles.com#%#//scriptlet("adjust-setInterval", "seconds--", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/118072
+11bit.co.in#%#//scriptlet("adjust-setInterval", "claim_button", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/117862
+spantechie.com#%#//scriptlet("adjust-setTimeout", "_0x", "*", "0.02")
+spantechie.com#%#//scriptlet("adjust-setInterval", "/Please Wait|Generating Links/", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/118043
+googledrivelinks.com#%#//scriptlet("adjust-setInterval", "wpsafe-", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/118028
+note1s.com#%#//scriptlet("adjust-setInterval", "#second", "", "0.02")
+haonguyen.top#%#//scriptlet("adjust-setInterval", "counter", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/59858
+x86.co.kr#%#//scriptlet("set-constant", "count", "0")
+! musixmatch.com - right context menu, select/copy text
+musixmatch.com#%#//scriptlet('remove-attr', 'style|oncontextmenu', 'body')
+! https://github.com/AdguardTeam/AdguardFilters/issues/116391
+imgadult.com,imgdrive.net,imgtaxi.com#%#//scriptlet("adjust-setTimeout", "redirect", "4000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/115679
+uploadrar.com#%#//scriptlet("adjust-setTimeout", "tick", "1000")
+! https://github.com/AdguardTeam/AdguardFilters/issues/115711
+cheatermad.com#%#//scriptlet("adjust-setInterval", "#upbtn", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/114874
+earnme.club#%#//scriptlet("adjust-setInterval", "tp-", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/114082
+techacode.com#%#//scriptlet("adjust-setTimeout", "#proceed", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/113948
+azmath.info#%#//scriptlet("adjust-setTimeout", "#proceed", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/112849
+bonus-tv.ru#%#//scriptlet('remove-attr', 'autoplay', 'video')
+! https://github.com/AdguardTeam/AdguardFilters/issues/111736
+freetp.org#%#//scriptlet('adjust-setTimeout', 'timer', '1000', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/109099
+adlice.com#%#//scriptlet("adjust-setInterval", "counter", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/113045
+akwam.news,re.two.re,khsm.io#%#//scriptlet('trusted-click-element', '.content > a[href^="http"].download-link')
+! https://github.com/AdguardTeam/AdguardFilters/issues/112831
+techhelpbd.com#%#//scriptlet("adjust-setInterval", "/counter--|downloadButton/", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/111584
+vipr.im#%#//scriptlet('set-cookie', 'overlay', 'true')
+! https://github.com/AdguardTeam/AdguardFilters/pull/110051
+joongang.co.kr#%#//scriptlet("abort-on-property-write", "history.pushState")
+! https://github.com/AdguardTeam/AdguardFilters/issues/111851
+pahe.win#%#//scriptlet("adjust-setInterval", "count", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/163948
+premads.com#%#//scriptlet('adjust-setInterval', 'myCounter', '*', '0.001')
+infortechno.com#%#!function(){if(location.href.includes("wpsafelink")){var e=new MutationObserver((function(){try{var t=document.querySelector('form#landing > input[name="go"][value]'),n=document.querySelector("body > script");t&&t.value.startsWith("aHR0c")&&n&&n.textContent.includes("document.getElementById('landing').submit();")&&(n.remove(),e.disconnect(),location.assign(atob(t.value)))}catch(e){}}));e.observe(document,{childList:!0,subtree:!0}),setTimeout((function(){e.disconnect()}),1e4)}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/111705
+technoashwath.com#%#//scriptlet("adjust-setTimeout", "/waiting|\.classList\.remove|gotoo/", "*", "0.02")
+technoashwath.com#%#!function(){if(-1<location.href.indexOf("?data=aHR0c")){var a=(new URL(window.location.href)).searchParams.get("data");if(a)try{window.location.assign(atob(a))}catch(b){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/110891
+uploadflix.org#%#//scriptlet("adjust-setTimeout", "seconds", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/110402
+thizissam.in#%#//scriptlet("adjust-setInterval", "counter--", "", "0.02")
+thizissam.in#%#//scriptlet("remove-attr", "disabled", "button#downloadf[disabled]")
+! https://github.com/AdguardTeam/AdguardFilters/issues/110169
+vrcmods.com#%#//scriptlet("adjust-setInterval", "timePassed", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/110284
+wondervelocity.com#%#//scriptlet("adjust-setInterval", "counter", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/108502
+yifysubtitles.me#%#//scriptlet("adjust-setInterval", "timer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/109848
+apkmody.io#%#//scriptlet("adjust-setTimeout", "download_loading", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/109625
+short-ly.co#%#//scriptlet("adjust-setInterval", "pleasewait", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/109128
+flightsim.to#%#//scriptlet("adjust-setInterval", "count ", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/109155
+jojo-themes.net#%#//scriptlet("adjust-setInterval", "bb_download_delay", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/108674
+diglink.blogspot.com#%#//scriptlet("adjust-setInterval", "0x", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/117565
+! https://github.com/AdguardTeam/AdguardFilters/issues/78304
+bildirim.*#%#//scriptlet("set-constant", "Notification", "undefined")
+! https://github.com/uBlockOrigin/uAssets/issues/11443#issuecomment-1020980034
+apkadmin.com#%#//scriptlet('remove-attr', 'disabled', '#downloadbtn')
+apkadmin.com#$##countdown { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/107736
+rezence.com#%#//scriptlet("adjust-setInterval", "counter", "2000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/116173
+premiumebooks.*#%#//scriptlet("adjust-setTimeout", "st2", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/105262
+samfirms.com#%#//scriptlet("adjust-setTimeout", "startTimer", "*", "0.02")
+samfirms.com#%#//scriptlet("adjust-setInterval", "downloadLinkButton", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/104410
+! Annoying timer when video is loaded in frame
+4shared.com#%#//scriptlet("adjust-setTimeout", "goVideoJS", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/105979
+bingotingo.com#%#//scriptlet("adjust-setInterval", "downloadButton", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/104500
+filessrc.com,srcimdb.com#%#//scriptlet("adjust-setInterval", "counter--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/104336
+askpaccosi.com#%#!function(){if(-1<location.href.indexOf("?wpsafelink=http")){var a=(new URL(window.location.href)).searchParams.get("wpsafelink");if(a)try{window.location.assign(a)}catch(b){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/201808
+! https://github.com/AdguardTeam/AdguardFilters/issues/195780
+m1xdrop.bz,mixdrop.*#%#//scriptlet('trusted-click-element', '.download-top .download-wrapper > a.download-btn:not([href])', '', '500')
+! https://github.com/AdguardTeam/AdguardFilters/issues/105185
+m1xdrop.*,md3b0j6hj.com,mixdrop21.net,mixdropjmk.pw,mdzsmutpcvykb.net,mdfx9dc8n.net,mixdrop.*#%#//scriptlet('adjust-setTimeout', 'Please wait', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/104839
+cararegistrasi.com#%#//scriptlet("adjust-setInterval", "timer", "1000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/102921
+healdad.com#%#//scriptlet("adjust-setInterval", "timeleft", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/102706
+healthfirstweb.com,yogablogfit.com,howifx.com,imperialstudy.com#%#//scriptlet("adjust-setTimeout", "getlink", "*", "0.001")
+healthfirstweb.com,yogablogfit.com,howifx.com,imperialstudy.com#%#//scriptlet("adjust-setInterval", "timeSec--", "*", "0.001")
+! https://github.com/AdguardTeam/AdguardFilters/issues/102362
+arhplyrics.in#%#//scriptlet("adjust-setInterval", "wpsafe-", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/101846
+boobychristmas.com#%#//scriptlet("adjust-setInterval", "REDIRECTING", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/101665
+ethereumfaucet.info#%#//scriptlet("adjust-setInterval", "ct", "1000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/101236
+sama-pro.com,7misr4day.com#%#//scriptlet("adjust-setInterval", "downloadTimer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/99790
+udemycourses.me#%#//scriptlet('set-constant', 'counter', '-1')
+udemycourses.me#%#//scriptlet("adjust-setInterval", "counter--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/99760
+tutcourse.com#%#//scriptlet("adjust-setInterval", "sec--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/100856
+techymedies.com#%#//scriptlet("adjust-setTimeout", "/gotoo|pop-button|stickyadin/", "*", "0.02")
+techymedies.com#%#//scriptlet('trusted-click-element', '#form a.bt-success[href*="?gentoken="]', '', '300')
+! https://github.com/AdguardTeam/AdguardFilters/issues/99542
+ibomma.*#%#//scriptlet("adjust-setInterval", "mdtimer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/100116
+player.vgtrk.com#%#//scriptlet('set-constant', 'Object.prototype.IS_CHECK_REGISTRATION', 'false')
+! https://github.com/AdguardTeam/AdguardFilters/issues/99128
+courseforfree.com#%#//scriptlet("adjust-setInterval", "wpsafe-", "*", "0.02")
+courseforfree.com#%#!function(){if(-1<window.location.href.indexOf("/?go=")){var a=location.href.split("?go=");if(a&&a[1])try{window.location=atob(a[1])}catch(b){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/99695
+tutorial.siberuang.com#%#//scriptlet("adjust-setInterval", "wpsafe-", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/99417
+yokugames.com#%#!function(){if(-1<window.location.href.indexOf("/?redirect=aHR0c")){var a=location.href.split("/?redirect=");if(a&&a[1])try{window.location=atob(a[1])}catch(b){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/99090
+segurosdevida.site#%#//scriptlet("adjust-setInterval", "wpsafe-", "*", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/98373
+getthot.com#%#//scriptlet("adjust-setTimeout", "$('.skip-btn').", "*", "0.02")
+getthot.com#%#//scriptlet('trusted-click-element', 'a[href^="http"].skip-btn', '', '1000')
+! https://github.com/AdguardTeam/AdguardFilters/issues/98101
+telepisodes.org#%#//scriptlet("adjust-setInterval", "counter", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/96787
+videezy.com#%#//scriptlet("adjust-setTimeout", "download_file", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/96859
+crazyblog.in,studyuo.com#%#//scriptlet("adjust-setInterval", "wpsafe-", "", "0.02")
+crazyblog.in,studyuo.com#%#//scriptlet("adjust-setInterval", "wpsafe-", "2000", "0.02")
+crazyblog.in,studyuo.com#%#//scriptlet("adjust-setInterval", "updatePercentage", "100", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/96717
+ebookmela.co.in#%#//scriptlet("set-constant", "wt", "-1")
+! https://github.com/AdguardTeam/AdguardFilters/issues/96370
+yifysub.net#%#//scriptlet("adjust-setInterval", "get-link", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/96059
+informatikamu.id#%#//scriptlet("adjust-setInterval", "wpsafe-", "", "0.02")
+informatikamu.id#%#//scriptlet("adjust-setInterval", "wpsafe-", "2000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/94721
+cdmstudy.site#%#//scriptlet("adjust-setInterval", "download", "2000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/94723
+uploadbaz.me#%#//scriptlet("adjust-setTimeout", "seconds", "", "0.02")
+insurance.recipesdelite.com#%#//scriptlet("adjust-setInterval", "download", "2000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/95852
+file.bospedia.com#%#//scriptlet("adjust-setInterval", "Link", "550", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/95475
+fdocuments.in#%#//scriptlet("adjust-setTimeout", "waitting_download", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/95561
+animeuploader.com#%#//scriptlet("adjust-setInterval", "mdtimer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/95485
+tgsup.group#%#//scriptlet("adjust-setTimeout", "CountBack", "990", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/95727
+michaelemad.com#%#//scriptlet("adjust-setInterval", "timer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/94481
+androidauthority.com#%#//scriptlet('remove-class', 'has-dealbar')
+! https://github.com/AdguardTeam/AdguardFilters/issues/94848
+techmody.io#%#//scriptlet("adjust-setInterval", "counter", "1800", "0.02")
+techmody.io#%#//scriptlet("adjust-setInterval", "counter", "2000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/94604
+upshrink.com#%#//scriptlet("adjust-setInterval", "pleasewait", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/93258
+howtofree.org#%#//scriptlet("adjust-setInterval", "downloadButton", "1500", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/93038
+kingtalks.net#%#//scriptlet("adjust-setInterval", "counter", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/71344
+||destyy.com^$removeheader=request:user-agent
+||gestyy.com^$removeheader=request:user-agent
+destyy.com,gestyy.com#%#//scriptlet("set-constant", "app.window.isVisible", "trueFunc")
+! https://github.com/AdguardTeam/AdguardFilters/issues/92528
+rethmic.com#%#//scriptlet("adjust-setInterval", "sp-count-down", "", "0.02")
+! mcpedl.com - skip timer
+mcpedl.com#%#//scriptlet("adjust-setInterval", "countdown", "", "0.02")
+! lostfilm - right menu, copy/highlight text
+lostfilm.life,lostfilm.download,lostfilmtv5.site,lostfilm.pro,lostfilm.uno,lostfilm.today,lostfilm.tv#%#//scriptlet('remove-attr', 'style|oncontextmenu', '.body[itemprop]')
+! https://github.com/AdguardTeam/AdguardFilters/issues/93040
+majidzhacker.com#%#//scriptlet("adjust-setInterval", "gotolink", "", "0.02")
+majidzhacker.com#%#//scriptlet("adjust-setInterval", "btngetlink", "30", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/114803
+itscybertech.com#%#!function(){if(-1<location.href.indexOf("?data=")){var b=(new URL(window.location.href)).searchParams.get("data");if(b)try{var a=atob(b);a=a.split("&ulink=")[1];a.startsWith("http")&&window.location.assign(a)}catch(c){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/92381
+itscybertech.com#%#//scriptlet("adjust-setInterval", "btn", "", "0.02")
+itscybertech.com#%#//scriptlet("adjust-setTimeout", "btn", "3000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/92167
+gold-24.net,forexrw7.com,fx-22.com,linkjust.com#%#//scriptlet("adjust-setInterval", "sec--", "", "0.001")
+! https://github.com/AdguardTeam/AdguardFilters/issues/92141
+shtms.co,gitizle.vip,ay.live#%#//scriptlet("adjust-setInterval", "timer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/90818
+oiipdf.com#%#//scriptlet("adjust-setInterval", "timeinterval", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/90772
+10desires.org#%#!function(){if(-1<window.location.href.indexOf("/?r=aHR0c")){var a=location.href.split("/?r=");if(a&&a[1])try{window.location=atob(a[1])}catch(b){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/90816
+upstore.net#%#//scriptlet('adjust-setInterval', 'countDown', '1150', '0.5')
+! https://github.com/AdguardTeam/AdguardFilters/issues/90039
+subs4series.com#%#//scriptlet("adjust-setInterval", "makingdifferenttimer", "50", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/89700
+c1ne.co#%#//scriptlet('adjust-setInterval', 'countdown', '', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/89317
+gdfreak.xyz#%#//scriptlet("adjust-setInterval", "sec--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/89158
+gamingforecast.com#%#//scriptlet("adjust-setInterval", "Link()", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/88883
+policiesforyou.com#%#//scriptlet("adjust-setTimeout", "fade", "5000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/46874
+icutlink.com#%#//scriptlet("adjust-setInterval", "time", "", "0.02")
+icutlink.com#%#//scriptlet("set-constant", "sec", "0")
+zegtrends.com#%#//scriptlet("adjust-setInterval", "time", "2500", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/88658
+pearos.xyz#%#//scriptlet("adjust-setInterval", "countdown", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/88324
+gamemodding.com#%#//scriptlet("adjust-setTimeout", "timer_end", "20000", "0.02")
+! lenta.ru and motor.ru - disable autolay
+vp.rambler.ru#%#//scriptlet('set-constant', 'Object.prototype.autoPlay', 'noopFunc')
+! https://github.com/AdguardTeam/AdguardFilters/issues/85703
+lawebdelprogramador.com#%#//scriptlet("adjust-setInterval", "contador--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/85695
+codingnepalweb.com#%#//scriptlet("adjust-setInterval", "counter--", "1300", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/85988
+win10.vn#%#//scriptlet("adjust-setInterval", "seconds", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/84446
+blogchiasekienthuc.com#%#//scriptlet("abort-current-inline-script", "document.getElementById", "lock_content")
+! https://github.com/AdguardTeam/AdguardFilters/issues/83512
+appofmirror.com#%#//scriptlet("adjust-setTimeout", "countdown()", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/83382
+yindex.xyz#%#//scriptlet("adjust-setInterval", "timer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/81711
+downloadfreecourse.com#%#//scriptlet("adjust-setTimeout", "countDown", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/80942
+apkmaza.net#%#//scriptlet("adjust-setInterval", "downloadTimer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/80955
+claimbits.io,i-bits.io,gobits.io,faucet.shorterall.com#%#//scriptlet("adjust-setInterval", "seconds", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/146128
+! https://github.com/AdguardTeam/AdguardFilters/issues/81186
+adslink.pw#%#//scriptlet('adjust-setInterval', '_0x', '*', '0.02')
+jpopsingles.eu#%#//scriptlet("adjust-setInterval", "downloadTimer", "", "0.02")
+jpopsingles.eu#%#(function(){if(location.href.includes("/to/aHR0c"))try{var a=location.href.split("/to/");a=atob(a[1]);location=decodeURIComponent(a)}catch(b){}})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/80037
+psdly.com#%#//scriptlet("adjust-setInterval", "counter--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/79999
+unityassetcollection.com#%#//scriptlet("adjust-setInterval", "timer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/79335
+mcrypto.club#%#//scriptlet("adjust-setInterval", "wpsafe-generate", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/79304
+faucetcrypto.com#%#//scriptlet("adjust-setInterval", "timerText", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/79342
+forex-trnd.com#%#//scriptlet("adjust-setInterval", "#mdtimer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/79196
+oeko-planet.com#%#//scriptlet('remove-class', 'async-hide', 'html')
+! https://github.com/AdguardTeam/AdguardFilters/issues/87661
+!+ PLATFORM(windows, mac, android, cli, ext_chromium)
+skmedix.pl#%#//scriptlet('adjust-setTimeout', '/runCounter|Math.random\(\)/', '*', '0.001')
+! go.leechpremium.link - skip timer
+go.leechpremium.link#%#(function(){"function"===typeof fetch&&location.href.includes("/?id=")&&fetch(location.href).then(function(e){e.headers.forEach(function(a,f){if("refresh"===f&&a.includes("url=http"))try{if(a.includes("&url=aHR0c")){var b,c=null==(b=a.split(/&url=/))?void 0:b[1];location=atob(c)}else{var d;location=c=null==(d=a.split(/url=(.+)/))?void 0:d[1]}}catch(g){}})})})();
+! android-apk.org -> aapks.com timer boost
+android-apk.org#%#//scriptlet("adjust-setInterval", "time", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/78189
+sbkaise.in#%#//scriptlet("adjust-setInterval", "updatePercentage", "100", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/77852
+programasvirtualespc.net#%#!function(){if(-1<window.location.href.indexOf("out/?aHR0c")){var a=location.href.split("out/?");if(a&&a[1])try{window.location=atob(decodeURIComponent(a[1]))}catch(b){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/77715
+download.modsofapk.com#%#//scriptlet("adjust-setInterval", "counter--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/77713
+techbigs.com#%#//scriptlet("adjust-setInterval", "download-count-down", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/77714
+apkdone.com#%#//scriptlet("adjust-setTimeout", "countdown", "1400", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/77364
+online-fix.me#%#//scriptlet('adjust-setTimeout', 'timer', '1000', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/76969
+exe.io#%#!function(){if(window.location.href.includes("api")&&window.location.href.includes("&url=")){var b=location.href.split("&url=")[1];a:{try{var a=new URL(b)}catch(c){a=!1;break a}a="http:"===a.protocol||"https:"===a.protocol}if(a)try{window.location=b}catch(c){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/77099
+semawur.com#%#//scriptlet("adjust-setInterval", "time", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/82049
+lootlinks.*#%#//scriptlet("adjust-setInterval", "count", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/87752 - https://link1s.com/EAM4pvN4
+cazzette.com,restorbio.com,staaker.com,thegoneapp.com,nousdecor.com#%#//scriptlet("adjust-setInterval", "counter", "2000", "0.02")
+! boost host2.jptorrent.org timer
+jptorrent.org#%#//scriptlet('adjust-setTimeout', 'updateinfo', '1000', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/76211
+wallpaperaccess.com#%#//scriptlet("adjust-setInterval", "#download", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/75931
+animesanka.*#%#//scriptlet("adjust-setInterval", "percentVal", "30", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/75778
+pinsystem.co.uk#%#//scriptlet("adjust-setTimeout", "count--", "1000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/75436
+fcportables.com#%#//scriptlet("set-constant", "gsecs", "0")
+! https://github.com/AdguardTeam/AdguardFilters/pull/74794
+zeefiles.download#%#//scriptlet('adjust-setTimeout', 'tick', '1000', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/103486
+! https://github.com/AdguardTeam/AdguardFilters/issues/74765
+extralinks.*,extramovies.*#%#!function(){if(-1<window.location.href.indexOf("/download.php?")&&-1<window.location.href.indexOf("link=aHR0c")){var a=location.href.split("link=");if(a&&a[1])try{window.location=atob(a[1])}catch(b){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/74715
+otomi-games.com#%#//scriptlet("adjust-setInterval", "wpsafe-", "2000", "0.02")
+otomi-games.com#%#//scriptlet("adjust-setInterval", "wpsafe-generate", "1000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/74708
+th-world.com#%#//scriptlet("adjust-setInterval", "0x", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/74031
+dlfiles.online#%#//scriptlet("adjust-setTimeout", "Tick", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/73685
+gamefront.com#%#//scriptlet('adjust-setTimeout', 'window.location.href', '10000', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/73691
+mad4wheels.com#%#//scriptlet("adjust-setInterval", "second--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/73214
+psychpoint.com#%#//scriptlet("set-constant", "counter", "-1")
+! https://github.com/AdguardTeam/AdguardFilters/issues/72523
+data.morsodifame.com#%#//scriptlet("adjust-setInterval", "waktu--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/176519
+! https://github.com/AdguardTeam/AdguardFilters/issues/72252
+sonixgvn.net#%#//scriptlet('adjust-setInterval', 'count--', '*', '0.001')
+sonixgvn.net#%#//scriptlet('adjust-setTimeout', 'EzoIvent', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/72211
+dlsharefile.com#%#//scriptlet("adjust-setInterval", "#Download-Card", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/193719
+! https://github.com/AdguardTeam/AdguardFilters/issues/72365
+! https://gist.github.com/AdamWr/980e793d14527b22f517247e560beada
+adshnk.com,adshrink.it#%#(()=>{document.addEventListener('DOMContentLoaded',()=>{const a=function(a){const b=new DOMParser().parseFromString(a,"text/html");return b.documentElement.textContent},b=function(){if("object"==typeof _sharedData&&"string"==typeof _sharedData[0]?.destination){const b=a(_sharedData[0].destination);if(b.startsWith("http"))try{window.location=b}catch(a){}}};if(window._sharedData)b();else{const a=new MutationObserver(function(){window._sharedData&&(a.disconnect(),b())});a.observe(document,{childList:!0,subtree:!0}),setTimeout(function(){a.disconnect()},1E4)}})})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/72159
+render-state.to#%#//scriptlet("adjust-setTimeout", "params.redirect", "5000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/71050
+eco-area.com#%#//scriptlet("adjust-setInterval", ".stop()", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/70455
+7misr4day.com#%#//scriptlet("adjust-setInterval", "sec--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/70363
+safelink.rezkozpatch.xyz#%#//scriptlet("adjust-setInterval", "Link will appear", "510", "0.02")
+safelink.rezkozpatch.xyz#%#//scriptlet("adjust-setInterval", "Link will appear", "1010", "0.02")
+safelink.rezkozpatch.xyz#%#!function(){if(-1<window.location.href.indexOf(".html?url=aHR0c")){var a=location.href.split(".html?url=");if(a&&a[1])try{window.location=atob(a[1])}catch(b){}}}();
+! fcc.lc - skip timers
+short.fc-lc.com#%#//scriptlet('trusted-click-element', '#submitbtn', '', '300')
+! https://github.com/AdguardTeam/AdguardFilters/issues/59717
+welib.org,anonymous-links.com#%#//scriptlet("set-constant", "waitSeconds", "0")
+! https://github.com/AdguardTeam/AdguardFilters/issues/70370
+gplinks.co#%#//scriptlet("adjust-setInterval", "downloadTimer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/70243
+c.newsnow.co.uk#%#//scriptlet("adjust-setTimeout", "doRedirect", "3000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/70082
+pentafaucet.com#%#//scriptlet("adjust-setTimeout", "timer--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/70085
+onlinecoursebay.com#%#//scriptlet("adjust-setInterval", "countdown", "2000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/69823
+sundryfiles.com#%#//scriptlet("set-constant", "document.hidden", "false")
+! https://github.com/AdguardTeam/AdguardFilters/issues/69184
+@@||statesman.com/section/widget-eedition-ads$domain=statesman-tx.newsmemory.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/69223
+tnaflix.com#%#//scriptlet('remove-class', 'withRightBar', '#vidPlayer > div')
+! https://github.com/AdguardTeam/AdguardFilters/issues/69105
+uzunversiyon.xyz#%#//scriptlet("adjust-setInterval", "timer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/67719
+emulatorgames.net#%#//scriptlet("adjust-setInterval", "#eg-timer", "", "0.3")
+emulatorgames.net#%#//scriptlet("adjust-setTimeout", ".eg-manually-get", "7000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/67516
+infopedia24.com#%#//scriptlet("adjust-setInterval", "counter--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/66868
+iptv4best.com#%#//scriptlet("adjust-setInterval", "#CountDown", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/66447
+wenku.baidu.com#%#//scriptlet('remove-class', 'zsj-act')
+! https://github.com/AdguardTeam/AdguardFilters/issues/66363
+4download.net#%#//scriptlet("adjust-setInterval", "#timer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/66129
+uncensored-hentai.com#%#//scriptlet("adjust-setTimeout", "#counter", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/65825
+desiupload.co#%#//scriptlet("adjust-setTimeout", "downloadbtn", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/65822
+bdupload.asia#%#//scriptlet("adjust-setTimeout", "downloadbtn", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/65821
+indishare.org#%#//scriptlet("adjust-setTimeout", "downloadbtn", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/65682
+leechall.com#%#//scriptlet("adjust-setInterval", "dllink", "", "0.02")
+leechall.com#%#!function(){if(-1<location.href.indexOf("/aHR0c")){var a=location.href.split("/").pop();if(a&&a.includes("aHR0c"))try{location=decodeURIComponent(atob(a))}catch(b){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/65564
+w4files.ws#%#//scriptlet("adjust-setTimeout", "link_button", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/65487
+easylinks.in#%#//scriptlet("adjust-setTimeout", "#get_btn", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/65099
+kpopstan.com#%#//scriptlet("adjust-setInterval", "time--", "", "0.02")
+kpopstan.com#%#!function(){if(-1<window.location.href.indexOf("/gotothedl.html?url=")){var a=location.href.split("/gotothedl.html?url=");if(a&&a[1])try{window.location=atob(a[1])}catch(b){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/64701
+ouo.io#%#//scriptlet("adjust-setInterval", "stop()", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/64764
+short-url.link#%#//scriptlet('adjust-setInterval', 'second', '1000', '0.02')
+! https://github.com/AdguardTeam/AdguardFilters/issues/64619
+findicons.com#%#//scriptlet("adjust-setInterval", "wait_seconds", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/64459
+nulleb.com#%#//scriptlet("adjust-setInterval", "download-countdown", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/64306
+gitlink.pro,aylink.co#%#//scriptlet("adjust-setInterval", "timer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/63994
+novafusion.pl#%#//scriptlet("adjust-setTimeout", "counter", "2000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/63693
+sub4unlock.com#%#//scriptlet('remove-attr', 'disabled', 'button[onclick="fun2()"]')
+! https://github.com/AdguardTeam/AdguardFilters/issues/62854
+cgtips.org#%#//scriptlet("set-constant", "countdown", "0")
+! https://github.com/AdguardTeam/AdguardFilters/issues/62793
+samapkstore.com#%#//scriptlet("adjust-setInterval", "progressbar", "30", "0.02")
+samapkstore.com#%#//scriptlet("adjust-setInterval", "#countdown", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/161864
+! https://github.com/AdguardTeam/AdguardFilters/issues/62435
+surfline.com#%#//scriptlet('set-constant', 'Object.prototype.isPremium', 'true')
+surfline.com#%#//scriptlet("adjust-setTimeout", "adFreePopup", "15000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/62230
+hubfiles.ws#%#//scriptlet("adjust-setTimeout", "Tick", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/61869
+healthy4pepole.com#%#//scriptlet("adjust-setInterval", "downloadTimer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/61254
+onlinefreecourse.net#%#//scriptlet("adjust-setTimeout", "downloadbtn", "", "0.02")
+onlinefreecourse.net#%#//scriptlet("adjust-setInterval", ".countdown", "2000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/61102
+thingiverse.com#%#//scriptlet("adjust-setInterval", "Downloading", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/60877
+me.fo#%#//scriptlet('prevent-addEventListener', 'scroll', '/function\([a-z]?\){return"undefined"/')
+! https://github.com/AdguardTeam/AdguardFilters/issues/60810
+linkjust1.com#%#//scriptlet("adjust-setInterval", "#mdtimer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/60734
+linksaya.com#%#//scriptlet("adjust-setInterval", "downloadButton", "2400", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/60612
+iklandb.com#%#//scriptlet("adjust-setInterval", "sec--", "", "0.02")
+iklandb.com#%#!function(){if(-1<window.location.href.indexOf("/link/?link=aHR0c")){var a=location.href.split("/link/?link=");if(a&&a[1])try{window.location=atob(a[1])}catch(b){}}}();
+! rambler.ru - autoplay
+media.eagleplatform.com#%#//scriptlet("abort-on-property-read", "Object.prototype.autoplay_position")
+! https://github.com/AdguardTeam/AdguardFilters/issues/60515
+catcut.net#%#//scriptlet("adjust-setTimeout", "go_url", "15000", "0.3")
+! https://github.com/AdguardTeam/AdguardFilters/issues/60443
+dosya.co#%#//scriptlet("adjust-setTimeout", "countDown", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/62956
+freewebcart.com#%#//scriptlet("adjust-setInterval", "counter", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/60415
+rekonise.com#%#//scriptlet('remove-attr', 'disabled', '.unlock-button')
+! https://github.com/AdguardTeam/AdguardFilters/issues/60113
+apkshki.com#%#//scriptlet('adjust-setTimeout', 'window.location.href=t,clearTimeout', '10000')
+! https://github.com/AdguardTeam/AdguardFilters/issues/60343
+5mod-file.ru#%#//scriptlet("adjust-setInterval", ".fcounter span", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/59869
+safe.kangkimin.com#%#//scriptlet("adjust-setInterval", "counter", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/59634
+pngitem.com#%#//scriptlet("adjust-setTimeout", "adpop-content-left", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/58354
+zedge.net#%#//scriptlet("adjust-setInterval", "(i-1)", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/57596
+br0wsers.com#%#//scriptlet("adjust-setInterval", "show_ag", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/57423
+ph.tpaste.net#%#//scriptlet("adjust-setInterval", "#countdown", "", "0.02")
+ph.tpaste.net#%#//scriptlet("adjust-setInterval", "progressbar", "30", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/57280
+tr.link#%#//scriptlet("adjust-setInterval", "timer", "700", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/56976
+akwam.*#%#//scriptlet("adjust-setInterval", "clock()", "1000", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/56557
+apps2app.com#%#//scriptlet('adjust-setInterval', '/#countdown|show_download_links/', '*', '0.001')
+! mage.si - skip timer
+mage.si#%#//scriptlet("adjust-setInterval", "countdown", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/56155
+myvidplay.com,dsvplay.com,vide0.net,do7go.com,dooodster.com,d0000d.com,do0od.com,ds2play.com,doods.pro,dooood.com,dood.yt,dood.re,dood.wf,dood.la,dood.pm,dood.so,dood.to,dood.watch,dood.ws#%#//scriptlet("adjust-setInterval", ".countdown", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/55954
+anomize.xyz#%#//scriptlet("adjust-setInterval", "#timer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/54403
+verteleseriesonline.com#%#//scriptlet("adjust-setTimeout", "updateReloj", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/54186
+apkmb.com#%#//scriptlet("adjust-setInterval", "show_download_links", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/54176
+uploadking.net#%#//scriptlet("adjust-setTimeout", "downloadbtn", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/53896
+memoriadatv.com#%#//scriptlet("adjust-setTimeout", "countdown", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/56432
+www.ixbt.com#%#//scriptlet('remove-attr', 'onclick', '.rebrand_article_content_block > div[align="center"] > a.big_img,a.resize-image')
+! https://github.com/AdguardTeam/AdguardFilters/issues/53513
+urapk.com#%#//scriptlet("adjust-setInterval", "sec--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/53501
+imgtorrnt.in#%#!function(){if(-1<location.pathname.indexOf("/view.php")){var a=(new URL(window.location.href)).searchParams.get("id");if(a&&-1==document.cookie.indexOf(a))try{document.cookie=a+"=user; path=/;";location.reload();}catch(b){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/53444
+filehorse.com#%#//scriptlet("adjust-setTimeout", "dlcntdwn", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/53259
+retrostic.com#%#//scriptlet("adjust-setInterval", "timeLeft--", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/53145
+! #%#//scriptlet("set-constant", "blurred", "false")
+vplink.in,mydverse.com,link99.bid,fbol.top,cuttlinks.com,cuttty.com,exe-links.com,mrproblogger.com,kecapku.com,cuttyy.com,cutynow.com,travelironguide.com,kreditexperte.online,telcit.site,shortnest.com,exnion.com,wordcount.im,shrinkme.ink,megafire.net,firepaste.com,zovo.ink,upfiles.app,exe-urls.com,link.codevn.net,oii.la,upfiles-urls.com,tpi.li,evernia.site,falpus.com,cloutgist.com,tvi.la,iir.la,oei.la,clk.kim,ijvam.com,exuce.com,kiddyshort.com,cl1ca.com,4br.me,fir3.net,seulink.*,encurtalink.*,link.paid4link.com,doshrink.com,link.almaftuchin.com,easycut.io,linkpoi.me,casperhd.com,link4earn.com,safelink.asia,xpshort.com,animerigel.com,linx.cc,rgl.vn,wu8.in,paid4file.com,atglinks.com,tii.la,exeo.app,smallinfo.in,adrinolinks.in,disheye.com,veganab.co,faucetcrypto.net,download.windowslite.net,oko.sh,ckk.ai,forex-trnd.com,paylinnk.com,loptelink.com,adslink.pw,shortx.net,haonguyen.top,bestcash2020.com,wealthystyle.online,easysky.in,techgeek.digital,csd.xmod.in,defaultfreeshort.in,adsafelink.com,akashort.com,insurance-space.xyz,rajsayt.xyz,insurglobal.xyz,clk.asia,wplink.*,filmyzilla-in.xyz,samaa-pro.com,earnme.club,myshrinker.com,adshort.*,seulink.online,encurta.eu,adurly.cc,linkjust.com,crazyblog.in,swzz.xyz,try2link.com,baominh.tech,bblink.com,za.uy,upshrink.com,link.turkdown.com,beingtek.com,insuranceblog.xyz,linkfly.*,link1s.com,enagato.com,dl.tech-story.net,123link.biz,go.gets4link.com,musicc.xyz,xfiles.io,upfiles.com,dz-linkk.com,cslink.in,shrink.icu,hoastie.com,tei.ai,exey.*,claimfreebits.com,zshort.io,jameeltips.us,payskip.org,shrinke.me,oncehelp.com,enrt.eu,tui.click,short.food-royal.com,galaxy-link.space,linkebr.com,smoner.com,charexempire.com,gplinks.co,adomainscan.com,linkshorts.*,cuts-url.com,gainbtc.click,modapk.link,gplinks.co,miklpro.com,afly.pro,exe.app,adcorto.xyz,cuturl.in,apkshrt.com,droplink.co,linksfire.co,linksly.co,ilinks.in,bitfly.io,imagenesderopaparaperros.com,c-ut.com,shrinkme.in,fir3.net,link1s.net,clk.ink,apksvip.com,pkr.pw,stfly.me,bolssc.com,cutdl.xyz,shrinkurl.org,srt.leechpremium.link,tmearn.com,samapro.me,mondainai.moe,popimed.com,aii.sh,miuiku.com,slink.bid,7r6.com,iir.ai,biroads.com,win10.vn,mitly.us,tii.ai,linkrex.net,shorterall.com,fc.lc,shrinkme.io#%#//scriptlet("set-constant", "blurred", "false")
+! https://github.com/AdguardTeam/AdguardFilters/issues/53141
+4shared.com#%#(function(){-1==document.cookie.indexOf("exUserId")&&(document.cookie="exUserId=1; domain=.4shared.com; path=/;")})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/52387
+worldofmods.com#%#//scriptlet("adjust-setTimeout", "tick()", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/52152
+boardgamesonline.net#%#//scriptlet("adjust-setInterval", "#timer", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/51982
+beermoneyforum.com#%#!function(){if(-1<location.pathname.indexOf("/redirect")){var a=(new URL(window.location.href)).searchParams.get("to");if(a)try{window.location=atob(a)}catch(b){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/51281
+prueba.pixelshost.com#%#!function(){if(-1<window.location.href.indexOf("?url=")){var a=location.href.split("?url=");if(a&&a[1])try{window.location=atob(a[1])}catch(b){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/50721
+lg-firmwares.com,sfirmware.com#%#//scriptlet("adjust-setInterval", "#download-popup", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/81702
+imgouhmde.sbs,imagehaha.com,imgblaze.net,pixsera.net,imgfrost.net,imgair.net#%#//scriptlet("adjust-setInterval", ".timer", "", "0.02")
+imgouhmde.sbs,imagehaha.com,imgblaze.net,pixsera.net,imgfrost.net,imgair.net#%#//scriptlet('trusted-click-element', 'a[href].url-link')
+! https://github.com/AdguardTeam/AdguardFilters/issues/50154
+wallpaperplay.com#%#//scriptlet("adjust-setInterval", "#download_menu", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/50150
+apkmos.com#%#//scriptlet("adjust-setInterval", "downloadButton", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/62192
+! https://github.com/AdguardTeam/AdguardFilters/issues/50148
+lnk.parts,lnk.news#%#//scriptlet("adjust-setInterval", "r--", "", "0.02")
+lnk.parts,lnk.news#%#(()=>{document.addEventListener('DOMContentLoaded',()=>{if(-1<location.pathname.indexOf("/go/")){var b=new MutationObserver(function(){if(document.querySelector("#get_link_btn"))try{[].slice.call(document.getElementsByTagName("script")).some(function(a){a.text.match(/goToUrl \("/)&&(a=a.text.split(/goToUrl \("([\s\S]*?)"\);/),location=a[1])})}catch(a){}});b.observe(document,{childList:!0,subtree:!0});setTimeout(function(){b.disconnect()},1E4)}})})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/50105
+sammobile.com#%#//scriptlet("adjust-setInterval", "showDownloadButton", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/49717
+videouroki.net#%#//scriptlet("adjust-setTimeout", "/action-downloadFile?")
+! daz3d.ru - snow animation
+daz3d.ru#%#//scriptlet("set-constant", "snow", "undefined")
+! https://github.com/AdguardTeam/AdguardFilters/issues/49352
+romhustler.org#%#//scriptlet("adjust-setInterval", "timer.remove", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/47640
+mastercoria.com#%#//scriptlet("adjust-setInterval", "countdown", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/47357
+1ink.cc#%#//scriptlet('trusted-click-element', '#countingbtn')
+! https://github.com/AdguardTeam/AdguardFilters/issues/47028#issuecomment-571357678
+dailymail.co.uk###chromelessPlayer
+dailymail.co.uk#%#//scriptlet("abort-on-property-read", "Object.prototype.videoAdvertisingMode")
+! https://github.com/AdguardTeam/AdguardFilters/issues/46745
+translit.net,translit.ru#%#//scriptlet("set-constant", "setblur", "noopFunc")
+! https://github.com/AdguardTeam/AdguardFilters/issues/46996
+wowroms.com#%#document.addEventListener('DOMContentLoad', function() { setTimeout(function() { second = 0; }, 300); });
+! https://github.com/AdguardTeam/AdguardFilters/issues/46530
+!+ NOT_PLATFORM(windows, mac, android, cli)
+sfile.mobi#%#//scriptlet("adjust-setInterval", "downloadButton", "", "0.02")
+!+ PLATFORM(windows, mac, android, cli)
+sfile.mobi#%#(function(){var c=window.setInterval;window.setInterval=function(f,g){return g===1e3&&/downloadButton/.test(f.toString())&&(g*=0.01),c.apply(this,arguments)}.bind(window)})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/45532
+goodssh.com#%#//scriptlet("set-constant", "counter", "-1")
+! newsjizz.in - skip timer
+a2zupload.com#%#//scriptlet("adjust-setInterval", "download", "", "0.02")
+! https://github.com/AdguardTeam/AdguardFilters/issues/45486
+katfile.*#%#//scriptlet('adjust-setTimeout', '/#(freebtn|btn_download)/', '*', '0.001')
+! https://github.com/AdguardTeam/AdguardFilters/issues/43273
+!+ NOT_PLATFORM(windows, mac, android, cli)
+coolrom.com.au#%#//scriptlet("adjust-setTimeout", "download()")
+!+ PLATFORM(windows, mac, android, cli)
+coolrom.com.au#%#(function(){var c=window.setTimeout;window.setTimeout=function(f,g){return g===1e3&&/download\(\)/.test(f.toString())&&(g*=0.01),c.apply(this,arguments)}.bind(window)})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/43131
+!+ NOT_PLATFORM(windows, mac, android, cli)
+freeroms.com#%#//scriptlet("adjust-setTimeout", "download()")
+!+ PLATFORM(windows, mac, android, cli)
+freeroms.com#%#(function(){var c=window.setTimeout;window.setTimeout=function(f,g){return g===1e3&&/download\(\)/.test(f.toString())&&(g*=0.01),c.apply(this,arguments)}.bind(window)})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/42766
+uxglow.com#%#!function(){if(-1<window.location.href.indexOf("/?r=")){var a=location.href.split("?r=");if(a&&a[1])try{window.location=atob(a[1])}catch(b){}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/41759
+faucetcrypto.com,faucet.gold#%#(function(){var c=window.setInterval;window.setInterval=function(f,g){return g===1e3&&/removeAttr\('disabled'\)/.test(f.toString())&&(g*=0.01),c.apply(this,arguments)}.bind(window)})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/41751
+trucnet.net#%#//scriptlet('trusted-click-element', 'a[href].btn.redirect')
+! Unsure if still required
+! https://github.com/AdguardTeam/AdguardFilters/issues/41369
+gyanitheme.com,meclipstudy.in,proappapk.com,recursosinformaticos.org,m.appsmodz.com#%#(()=>{document.addEventListener('DOMContentLoaded',()=>{setTimeout(function(){if("undefined"!==typeof aesCrypto&&"function"===typeof aesCrypto.decrypt&&-1<window.location.href.indexOf("#?o="))try{window.location=aesCrypto.decrypt(window.location.href.split("#?o=")[1].replace(/^\s+/,"").replace(/\s+$/,""),"root".replace(/^\s+/,"").replace(/\s+$/,""))}catch(a){}},300)})})();
+rulesofcheaters.net,ontools.net,5ggyan.com,majidzhacker.com,links.iembra2or.com,ph.apps2app.com#%#(()=>{document.addEventListener('DOMContentLoaded',()=>{setTimeout(function(){if("undefined"!==typeof aesCrypto&&"function"===typeof aesCrypto.decrypt&&-1<window.location.href.indexOf("#?o="))try{window.location=aesCrypto.decrypt($.urlParam("o").replace(/^\s+/,"").replace(/\s+$/,""),"root".replace(/^\s+/,"").replace(/\s+$/,""))}catch(a){}},300)})})();
+ph.samapkstore.com,safe.kangkimin.com,ph.tpaste.net,go.myviptuto.com,apps2app.com#%#(()=>{document.addEventListener('DOMContentLoaded',()=>{setTimeout(function(){if("function"===typeof convertstr&&"function"===typeof aesCrypto.decrypt&&-1<window.location.href.indexOf("html#?o="))try{window.location=aesCrypto.decrypt(convertstr($.urlParam("o")),convertstr("root"))}catch(a){}},300)})})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/41279
+thesimarchitect.com#%#(function(){var c=window.setInterval;window.setInterval=function(f,g){return g===1e3&&/'#timer'/.test(f.toString())&&(g*=0.01),c.apply(this,arguments)}.bind(window)})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/41215
+file4go.com,file4go.net#%#//scriptlet("set-constant", "time", "0")
+! https://github.com/AdguardTeam/AdguardFilters/issues/127886
+! https://github.com/AdguardTeam/AdguardFilters/issues/38558
+boost.ink#%#(()=>{const a=new MutationObserver(function(){const b=document.querySelector("script[src^=\"/assets/js/unlock.js\"]");if(b){a.disconnect();let c;for(let a of b.attributes)if(a.textContent.includes("aHR0c")){c=a.textContent;break}c&&setTimeout(function(){location.assign(atob(c))},500)}});a.observe(document,{childList:!0,subtree:!0})})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/164463
+! https://github.com/AdguardTeam/AdguardFilters/issues/123405
+! https://github.com/AdguardTeam/AdguardFilters/issues/110006
+! https://github.com/AdguardTeam/AdguardFilters/issues/34644
+onet.pl#%#(()=>{document.addEventListener('DOMContentLoaded',()=>{if(-1!==window.location.href.indexOf("onet.pl/?utm_source=")){const o=new MutationObserver(function(){var e=document.querySelector('a[href][onclick*="Nitro_clickmore"][onclick*="czytaj_wiecej"], a[href][class^="NitroCard_sectionLink_"], article[class^="NitroCard_nitroCard__"] > a[href][class^="Common_sectionLink__"]:not([href^="undefined"])');e&&(o.disconnect(),location.replace(e.href))});o.observe(document,{childList:!0,subtree:!0}),setTimeout(function(){o.disconnect()},1e4)}})})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/35141
+davisonbarker.pro,eloypatrick.pro,elbaestes.pro#%#!function(){if(-1<location.pathname.indexOf("/pushredirect/")){var url=new URL(window.location.href); var dest=url.searchParams.get('dest'); if(dest){location=dest;}}}();
+rudyvalencia.pro,ramirocampos.pro#%#!function(){if(-1<location.pathname.indexOf("/pushredirect/")){var url=new URL(window.location.href); var dest=url.searchParams.get('dest'); if(dest){location=dest;}}}();
+ecleneue.com#%#!function(){if(-1<location.pathname.indexOf("/pushredirect/")){var url=new URL(window.location.href); var dest=url.searchParams.get('dest'); if(dest){location=dest;}}}();
+! https://github.com/AdguardTeam/AdguardFilters/issues/34918
+win10.vn#%#//scriptlet("set-constant", "fiveSecs", "0")
+! link-to.net - skip timer
+linkvertise.com,link-to.net#%#!function(){if(-1<window.location.href.indexOf("dynamic?r=")&&!/https?:\/\/(www\.)?h-gen\.xyz\//.test(document.referrer)){var a=location.href.split("?r=");if(a&&a[1])try{window.location=atob(a[1])}catch(b){}}}();
+linkvertise.com#%#//scriptlet("json-prune", "data.meta.require_addon data.meta.require_video data.meta.require_notifications data.meta.require_og_ads data.meta.require_web data.meta.require_countdown data.meta.require_related_topics data.meta.require_custom_ad_step data.meta.og_ads_offers data.displayAds data.linkCustomAdOffers")
+linkvertise.com#%#!function(){const t={apply:(t,e,n)=>{const a=Reflect.apply(t,e,n);return a?.data?.getDetailPageContent?.linkCustomAdOffers&&(a.data.getDetailPageContent.linkCustomAdOffers=[]),a}};window.JSON.parse=new Proxy(window.JSON.parse,t)}();
+||linkvertise.com/main.*.js$replace=/\(.\.linkCustomAdOffers\)/([])/
+||linkvertise.com/main.*.js$replace=/this\.adService\.getAdData\(.+?\)/this.adService.getAdData([])/
+! https://github.com/AdguardTeam/AdguardFilters/issues/32710
+pandora.com.tr#%#//scriptlet('abort-current-inline-script', 'document.createElement', '.ondragstart = function')
+! https://github.com/AdguardTeam/AdguardFilters/issues/31050
+kisalt.xyz#%#//scriptlet("set-constant", "count", "0")
+! https://github.com/AdguardTeam/AdguardFilters/issues/25825
+bankier.pl,claudia.pl,dyskusje24.pl,edziecko.pl,haps.pl,infozdrowie24.pl,kobieta.pl,moto.pl,gazeta.pl,tokfm.pl,sport.pl,plotek.pl#%#//scriptlet("set-constant", "ONTVminiatureBlocked", "trueFunc")
+! https://github.com/AdguardTeam/AdguardFilters/issues/16740
+!+ NOT_PLATFORM(windows, mac, android, cli)
+doviz.com#%#(() => {document.addEventListener("DOMContentLoaded", (() => {setTimeout(function() { if(typeof player.pause != 'undefined') { player.pause(); } }, 3000);}));})();
+! https://github.com/AdguardTeam/AdguardFilters/issues/14682
+cocoleech.com#%#//scriptlet("set-constant", "width", "100")
+! https://github.com/AdguardTeam/AdguardFilters/issues/14668
+prem.link#%#//scriptlet("set-constant", "waiting_time", "0")
+! https://github.com/AdguardTeam/AdguardFilters/issues/12814
+bluedownload.*,urlbluemedia.*,bluemediadownload.*,dl.pcgamestorrents.org,bluemediafile.*,bluemediafiles.*#%#//scriptlet("adjust-setTimeout", "['href']", "*", "0.001")
+bluedownload.*,urlbluemedia.*,bluemediadownload.*,dl.pcgamestorrents.org,bluemediafile.*,bluemediafiles.*#%#//scriptlet('trusted-click-element', 'form[action="get-url.php"] > input#url[value] + input[id][type="image"][src]')
+bluedownload.*,urlbluemedia.*,bluemediadownload.*,dl.pcgamestorrents.org,bluemediafile.*,bluemediafiles.*#%#(function(){var a="http"+(new URL(window.location.href)).searchParams.get("xurl");try{new URL(a);var b=!0}catch(c){b=!1}if(b)try{window.location=a}catch(c){}})();
+bluedownload.*,urlbluemedia.*,bluemediadownload.*,dl.pcgamestorrents.org,bluemediafile.*,bluemediafiles.*#%#//scriptlet('trusted-replace-node-text', 'script', 'btnDownload', '/(-timeStart\)<).{1,10}(\))/', '$1-1$2')
+!+ NOT_PLATFORM(ext_ublock)
+bluedownload.*,urlbluemedia.*,bluemediadownload.*,dl.pcgamestorrents.org,bluemediafile.*,bluemediafiles.*#%#//scriptlet("adjust-setInterval", "i--", "", "0.02")
+! dailypost.co.uk - stop autoplay
+dailypost.co.uk#%#//scriptlet('trusted-click-element', 'span.autoplay-cancel', '', '3300')
+! rutracker.org - allow pages preview in NewsFox RSS reader in FireFox
+rutracker.org#%#window.self = window.top;
+!
+! Remove timer, during which ads or self-promos were shown
+imslp.org#%#(()=>{document.addEventListener("DOMContentLoaded",(()=>{var b=document.getElementById("sm_dl_wait");if(b){var c=document.createElement("a");c.setAttribute("href",b.getAttribute("data-id"));c.innerHTML="<b>"+("function"==typeof window.a?IMSLPGetMsg("js-s"):"Click here to continue your download.")+"</b>";var d=document.createElement("style");d.innerHTML="#sm_dl_wait{display:none!important;}";b.parentNode.insertBefore(c,b);b.parentNode.insertBefore(d,b)}}));})();
+!
+! NOTE: JS end ⬆️
+! !SECTION: Tweaks - JS
+!
+!
+!
+!
+!##############################
+!######### HTML tweaks ########
+!##############################
+! SECTION: Tweaks - HTML
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/153170
+||knowbaike.com/jzfz.js
+! Disable autoplay
+t24.com.tr#%#//scriptlet('set-constant', 'Object.prototype.autoplay', '0')
+||get.x-link.pl/*,embed.html$replace=/video:"(autoplay|scroll_pause)"\,/video:""\,/
+||static.doviz.com/js/common.*.js$replace=/autoPlay:true/autoPlay:false/,domain=doviz.com
+||focus.de$replace=/autoPlay:[\s\S]*\,autoStickiness/autoPlay:false\,autoStickiness/,important,~script,~stylesheet,~xmlhttprequest
+||oe24.at$replace=/"autostart":"true"/"autostart":"false"/,important,~script,~stylesheet,~xmlhttprequest
+! ||video.golem.de$replace=/autoPl:\s"true"/autoPl:"false"/,important,~script,~stylesheet,~xmlhttprequest
+! lenta.ru and motor.ru - disable autolay
+||api.vp.rambler.ru/api/*/getPlayerData?params=$replace=/"autoPlay":"(scroll|scroll_mute)"/"autoPlay":"no"/
+! NOTE: HTML end ⬆️
+! !SECTION: Tweaks - HTML
+!
+!
+!
+!
+! SECTION: Tweaks - Context menu (mixed rules)
+!
+!* Unblock context menu and other mouse limitations
+!
+! NOTE: Context menu - basic rules
+/wp-content/plugins/swiftninjapro-inspect-element-console-blocker/assets/*
+/wp-content/plugins/wccp-pro/*
+/wp-content/plugins/content-copy-protection-disable-right-click/assets/*
+/wp-content/plugins/ungrabber/js/ungrabber.min.js
+/wp-content/plugins/image-watermark/js/no-right-click.js
+/wp-content/plugins/wp-content-copy-protection/assets/*
+/wp-content/plugins/jcwp-copy-paste-blocker/*
+/wp-content/plugins/digiproveblog/*$domain=~wordpress.org
+/wp-content/plugins/disable-right-click/*
+/wp-content/plugins/right-click-disable-orignal/*
+!
+flickermini.pages.dev,1tube.org,1flex.org,1shows.org#%#//scriptlet('prevent-navigation', 'youtube.com')
+||mastiraja.com/wp-content/plugins/disabled-source-disabled-right-click-and-content-protection/
+||nepu.*/requirements/bap.js
+||xn--b1aew.xn--p1ai/media/mvd-2015/js/nocopy.js
+/disable-devtool$domain=rgshows.ru|1shows.ru|abflix.*|2embed.*|rivestream.*|brocoflix.*|vidsrc.*|superflixapi.*|nontongo.*|mocine.cam|vercel.app|maxflix.*|fmovies-net.com|autoembed.cc|animixplayer.top|xporn.to|animejoker.com|nepu.*|cinevibe.*|vidsrcme.ru|roxiestreams.*|nextgencloudfabric.com|vsembed.ru|cloudorchestranova.com
+||rgshows.ru/js/protected_devtoolsdetector.js
+||rgshows.ru/js/nocheats.js
+||gazetasp.com.br/application/themes/gazetasp.com.br/js/noticia.js
+||klmanga.app/js/script.js
+||mangarawjp.tv/js/script.js
+||mantan-web.jp/assets/js/no_contextmenu.js
+||topcarweb.com/Content/js/nocopy.js
+||descargas.pntic.mec.es/*/libot_drag.js
+||script.gmarket.co.kr/js/itemdweb/ItemBase.js
+||theaircurrent.com/wp-content/themes/slate/print.css
+||tv-asahi.co.jp/wp-content/themes/favclip-master/js/front.js
+||xn--80aebkobnwfcnsfk1e0h.xn--p1ai/media/gibdd/build/js/nocopy.js
+||a24.com.ua/design/imed/js/ncp.js
+||cafe.naver.com/static/js/mycafe/javascript/autosourcing*.js
+||securitylab.ru/js/cpb.js
+||suntory.co.jp/softdrink/craftboss/flash/assets/img/mouse.gif
+||suntory.co.jp/softdrink/craftboss/flash/assets/js/main.js
+||tmgrup.com.tr/*/pageProtection.js
+||profilki.pl/kody/niekopiuj.js
+||bajery.net/adds/copy_b.php
+||xn--b1aew.xn--p1ai/media/*/js/nocopy.js
+!
+lezhinus.com,lezhin.com###viewer-coach
+qanda.ai##div[class^="Picture__Protector-"]
+codedosa.com###wpcp-error-message
+!--- CSS ---
+! NOTE: Context menu - CSS
+!
+joysound.com#$##lyrics { user-select: auto !important; }
+vivamaxstream.com#$#body *:not(input):not(textarea) { user-select: text !important; -webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text!important; }
+tv-tokyo.co.jp#$#html { cursor: auto !important; }
+google.*#$#div[data-attrid="kc:/music/recording_cluster:lyrics"] > div[data-lang-code-from="ja"] > div[class] { user-select: text !important; -webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text!important; }
+google.*#$#div[data-lyricid] { user-select: text !important; -webkit-touch-callout: default !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; }
+divatoon.com,revistaoeste.com#$#.select-none { -webkit-user-select: auto !important; user-select: auto !important; }
+zdescargas.org#$#html { user-select: auto!important; -webkit-touch-callout: default!important; -webkit-user-select: auto!important; -moz-user-select: text!important; -ms-user-select: text!important; }
+zdescargas.org#$#body { user-select: auto!important; -webkit-touch-callout: default!important; -webkit-user-select: auto!important; -moz-user-select: text!important; -ms-user-select: text!important; }
+recut.ru#$##skip_panel { display: block !important; }
+novelpia.com#$#font[id] { -webkit-touch-callout: default !important; -moz-user-select: text !important; -webkit-user-select: text !important; -ms-user-select: text !important; -o-user-select: text !important; user-select: text !important; -khtml-user-select: text !important; }
+videocardz.com#$##videocardz-article * { user-select: auto !important; }
+oricon.co.jp#$#.all-lyrics { -webkit-touch-callout: default !important; -webkit-user-select: auto !important;-moz-user-select: text !important; -ms-user-select: text !important; user-select: auto !important; -webkit-tap-highlight-color: black !important; }
+kkbox.com#$#.lyrics { user-select: auto !important; }
+open.spotify.com#$#div[data-testid="lyrics-container"] p:is(.encore-text, [data-encore-id="text"]) { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+sportskeeda.com#$##article-content p { user-select: auto !important; }
+teammy.ru#$?#head > style:contains(user-select:none) { remove: true; }
+afrikalyrics.com#$#div[style*="user-select:"] { user-select: auto !important; }
+utaten.com#$#.lyricBody { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+interface31.ru#$?#body { user-select: auto !important; }
+naurok.com.ua#$#.document-content-block { user-select: unset !important; }
+contents.premium.naver.com#$##_SE_VIEWER_CONTENT { touch-action: auto !important; pointer-events: auto !important; -webkit-touch-callout: default !important; -moz-user-select: text !important; -webkit-user-select: auto !important; -ms-user-select: text !important; -o-user-select: auto !important; user-select: auto !important; -khtml-user-select: auto !important; }
+vandal.elespanol.com#$#.articulo_wrapper { margin-top: 88px !important; }
+author.today#$#.page-content { -webkit-user-select: text !important; -moz-user-select: text !important; -o-user-select: text !important; user-select: text !important; }
+author.today#$#.noselect { -webkit-user-select: text !important; -moz-user-select: text !important; -o-user-select: text !important; user-select: text !important; }
+nbcnews.com#$#.videoPlayer { position: static !important; }
+moidom.citylink.pro#$#.player-balloon { min-height: auto !important; }
+fibabanka.com.tr#$#html { margin-top: 0px !important; }
+gsminfo.com.ua,on.od.ua#$#.footer_wrapper { padding-bottom: 0px !important; }
+olympics.com#$#.b2p-main { margin-top: 0 !important; }
+iqihang.com#$#.el-popup-parent--hidden { overflow: auto !important; }
+iqihang.com#$#.homeIndex.padding[data-v-3f7c92dc] .header {top: 0 !important;}
+iqihang.com#$#.homeIndex.padding[data-v-3f7c92dc] { padding-bottom: 0 !important; margin-top: 0 !important; }
+theaircurrent.com#$?#body > style:contains(@media print) { remove: true; }
+offshoreleaks.icij.org#$#.disclaimer-card { position: static !important; }
+ufret.jp,tekniknot.com,toptoon.com#$#html * { user-select: auto !important; -webkit-touch-callout: default !important; -webkit-user-select: auto !important; -moz-user-select: text !important; -ms-user-select: text !important; }
+toptoon.com#$#.document_img { pointer-events: auto !important; }
+brunch.co.kr#$#.article_view_disable_selection { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: auto!important; -ms-user-select: text!important; -o-user-select: auto!important; user-select: auto!important; -khtml-user-select: auto!important; }
+britg.kr#$#.content { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: auto!important; -ms-user-select: text!important; -o-user-select: auto!important; user-select: auto!important; -khtml-user-select: auto!important; }
+comico.jp#$#.comic-image * { pointer-events: auto!important; }
+immigrantinvest.com,97fm.com.br#$#body { -webkit-touch-callout: default !important; -moz-user-select: text !important; -webkit-user-select: auto !important; -ms-user-select: text !important; -o-user-select: auto !important; user-select: auto !important; -khtml-user-select: auto !important; }
+bomtoon.com#$#.no-drag { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: auto!important; -ms-user-select: text!important; -o-user-select: auto!important; user-select: auto!important; -khtml-user-select: auto!important; }
+toonnbook.nate.com#$#div#wrap.viewer { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: auto!important; -ms-user-select: text!important; -o-user-select: auto!important; user-select: auto!important; -khtml-user-select: auto!important; }
+toomics.com,bufftoon.plaync.com#$#img { touch-action: auto!important; pointer-events: auto!important; -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: auto!important; -ms-user-select: text!important; -o-user-select: auto!important; user-select: auto!important; -khtml-user-select: auto!important; }
+m.novel.naver.com#$#._not_select { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: auto!important; -ms-user-select: text!important; -o-user-select: auto!important; user-select: auto!important; -khtml-user-select: auto!important; }
+page.kakao.com#$#.disableImageSave { pointer-events: auto!important; }
+tistory.com#$#img { pointer-events: auto!important; }
+habuteru.com,play.hbomax.com,mathbang.net,ab-in-den-urlaub.de,ladyblog.me,plantaomaringa.com,tistory.com#$#html * { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: auto!important; -ms-user-select: text!important; -o-user-select: auto!important; user-select: auto!important; -khtml-user-select: auto!important; }
+genuineactivator.com,lapandilladelarejilla.es#$?#head > style:contains(.unselectable) { remove: true; }
+vtuber-world.jp,earphones-review.ru,codedosa.com#$#html { user-select: auto!important;-webkit-touch-callout: default!important;-webkit-user-select: auto!important;-moz-user-select: text!important;-ms-user-select: text!important; }
+open.spotify.com#$#span[dir="auto"][draggable="true"] { user-select: auto!important;-webkit-touch-callout: default!important;-webkit-user-select: auto!important;-moz-user-select: text!important;-ms-user-select: text!important; }
+kakaowebtoon.com,webtoon.kakao.com#$#img[class^="ViewerImage_image"] { pointer-events: auto!important; }
+lezhinus.com,lezhin.com#$#body.is-comic * { pointer-events: auto!important; }
+appofmirror.com#$#body * { user-select: auto!important;-webkit-touch-callout: default!important;-webkit-user-select: auto!important;-moz-user-select: text!important;-ms-user-select: text!important; }
+my-expert.ru#$#html { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+vtuber-world.jp,devilnovels.com,shemalepower.xyz,hiraethtranslation.com,brokensilenze.net,pabrikarang.com,allaboutshaving.kr,codedosa.com,my-expert.ru#$#.unselectable { -webkit-touch-callout: default !important; -moz-user-select: text !important; -webkit-user-select: text !important; -ms-user-select: text !important; -o-user-select: text !important; user-select: text !important; -khtml-user-select: text !important; cursor: auto !important; }
+fmkorea.com#$##bd_capture { background: none!important; }
+page.kakao.com#$#div[id="epubViewerBody"][class^="css-"] { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: auto!important; -ms-user-select: text!important; -o-user-select: auto!important; user-select: auto!important; -khtml-user-select: auto!important; }
+cafe.daum.net#$#body * { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: auto!important; -ms-user-select: text!important; -o-user-select: auto!important; user-select: auto!important; -khtml-user-select: auto!important; }
+gamejksokuhou.com,shoneekapoor.com,extrememanual.net,kakaowebtoon.com,cafe.daum.net,webtoon.kakao.com,page.kakao.com#$#body { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: auto!important; -ms-user-select: text!important; -o-user-select: auto!important; user-select: auto!important; -khtml-user-select: auto!important; }
+retrip.jp,rtrp.jp,bestxiaomiproducts.com#$?#body style:contains(::selection) { remove: true; }
+novel.naver.com#$#body { user-select: auto !important; }
+healthfeed.co.kr,cafe.naver.com#$#body[style*="user-select: none;"] { user-select: auto !important; }
+gamefinity.id#$#html > body *:not(input):not(textarea) { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+xiebruce.top#$##main .entry-content p { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+sajuplus.net,tistory.com,bingotingo.com,promocode99.in,nawalakarsa.id#$#html > body * :not(input):not(textarea) { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+satupiston.com,enttechub.com,geograpik.blogspot.com#$#.post-body { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+ltnovel.com,lightnovelpub.com#$#.chapter-content { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+comeinsidebox.com#$#:not(input, select, textarea):not(#style_important) { -webkit-touch-callout: default !important; -moz-user-select: text !important; -webkit-user-select: text !important; -ms-user-select: text !important; -o-user-select: text !important; user-select: text !important; -khtml-user-select: text !important; }
+mediafire.com#$#.nonDLContentWrap { min-height: 1300px !important; }
+lanacion.com.ar#$#.sidebar__aside { background: none!important; }
+gamegame.kr#$#body div { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+world4.eu,tunovelaligera.com#$#body.unselectable * { -webkit-touch-callout: default !important; -moz-user-select: text !important; -webkit-user-select: text !important; -ms-user-select: text !important; -o-user-select: text !important; user-select: text !important; -khtml-user-select: text !important; }
+kazanabilirsin.com,proserialkey.com,exlyrics.com,plantaomaringa.com#$#html > body *:not(input):not(textarea)::selection { background-color: #3297FD!important; }
+plantaomaringa.com#$#html > body *:not(input):not(textarea):not(button) { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+lectortmo.com#$#.element { -webkit-touch-callout: default !important; -moz-user-select: text !important; -webkit-user-select: text !important; -ms-user-select: text !important; -o-user-select: text !important; user-select: text !important; -khtml-user-select: text !important; }
+amp.n-tv.de#$#.wrapper-page { min-height: calc(100%) !important; }
+jucagototranslations.fukou-da.net#$#html > body { -webkit-touch-callout: default !important; -moz-user-select: text !important; -webkit-user-select: text !important; -ms-user-select: text !important; -o-user-select: text !important; user-select: text !important; -khtml-user-select: text !important; }
+readwn.com#$#.chapter-content { -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+tmofans.com#$#.element { -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+siyasetcafe.com#$#body.body-prevent { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+nhk.or.jp,jucagototranslations.fukou-da.net,quotev.com,nontongratis88.live,freecourser.com#$#body * { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+m.blog.naver.com,filmzone.com,habuteru.com,allaboutshaving.kr,pcprogramasymas.net,legionscans.com#$#html { -webkit-touch-callout: default !important; -moz-user-select: text !important; -webkit-user-select: text !important; -ms-user-select: text !important; -o-user-select: text !important; user-select: text !important; -khtml-user-select: text !important; }
+joysound.com,hulu.jp,pap.pl,read.qidian.com,firmwarefile.com,nubng.com,invado.pl,blisseyhusband.in,9docu.org,template.city,teepr.com,amigurumi.today,thememazing.com,chiaseapk.com#$#body { -webkit-touch-callout: default!important; -moz-user-select: text!important; -webkit-user-select: text!important; -ms-user-select: text!important; -o-user-select: text!important; user-select: text!important; -khtml-user-select: text!important; }
+riwyat.com,vernamagazine.com,filmzone.com,mangacrab.com,flinsetyadi.com,theturtleislandnews.com,animeactua.com,7misr4day.com,michaelemad.com,lazytranslations.com,world4.eu,elektrikmen.com,wartaterkini.news,iptv4best.com,sysnettechsolutions.com,aihristdreamtranslations.com,audioreview.m1001.coreserver.jp#$#body.unselectable { -webkit-touch-callout: default !important; -moz-user-select: text !important; -webkit-user-select: text !important; -ms-user-select: text !important; -o-user-select: text !important; user-select: text !important; -khtml-user-select: text !important; }
+firmwarefile.com,m.rtl.be,procrackerz.org,chapterupdates.com,babelnovel.com,katzen-fieber.de,xn--80aaxitdbjk.xn--p1ai,devicespecifications.com,androidmtk.com,themeslide.com,openssource.biz,kinogo-online.online,lavka-invaitov.ru#$#body * { -webkit-touch-callout: default !important; -moz-user-select: text !important; -webkit-user-select: text !important; -ms-user-select: text !important; -o-user-select: text !important; user-select: text !important; -khtml-user-select: text !important; }
+!
+!--- JS ----
+! NOTE: Context menu - JS
+!
+! #%#//scriptlet('abort-current-inline-script', 'document.oncontextmenu')
+vtuber-world.jp,tv-tokyo.co.jp,streamm4u.page,m4uhdtv.tv,m4ufree.page,m4uhd.*,dorabash.com,zdescargas.org,cgdownload.ru,seriesperu.com,peliculas8k.com,mbs.jp,mostrodifirenze.com,rightrasta.com,daotranslate.com,habuteru.com,ufchgu.ru,mangahentai.me,themodellingnews.com,descopera.ro,volt-index.ru,universaladbdriver.com,firmwarefile.com,bg-gledai.co,victorytale.com,clujust.ro,mi-faq.ru,mathbang.net,seriesgratis.biz,mangacrab.com,legionscans.com,footy.to,osomatsusan.hatenablog.com,flinsetyadi.com,bingotingo.com,carfixer.co.kr,urbanbrush.net,now.rememberapp.co.kr,tecnoprogramas.com,animeactua.com,creativestudio.kr,onna.kr,info-beihilfe.de,funfunhan.com,blofinder.com,bookpost.kr,ex-nihil0.com,donghun.kr,zoommastory.com,deutschaj.com,kokone.co.kr,stevenh.net,ideas0419.com,raycat.net,hosii.info,blahblah.pe.kr,geniusjw.com,blog.esherloon.com,centrair.kr,softwarebits.net,tunovelaligera.com,krtopic.com,healthfeed.co.kr,my-expert.ru,bimiacg.net,promocode99.in,downloadtutorials.net,nawalakarsa.id,jpopsingles.eu,wartaterkini.news,pcprogramasymas.net,tistory.com,ghostspectre.the-ninja.jp,eduardo-monica.com,foxaholic.com,gamegame.kr,eoreuni.com,animeuniverse.it,aihristdreamtranslations.com,indcit.com,audio-sound-premium.com,filmboxoffice.web.id,kakpishem.ru,teepr.com,texte.work,sysnettechsolutions.com,reinodekovel.com,elektrikmen.com,world4.eu,secondlifetranslations.com,globaledu.jp,lazytranslations.com#%#//scriptlet('abort-current-inline-script', 'document.oncontextmenu')
+! #%#//scriptlet('prevent-addEventListener', 'contextmenu')
+ibizatv1.com,animedex.fun,aniwaves.ru,onisaga.com,sportsonline.*,sportsonlinee.click,dollardescent.net,sportsbite.*,animextv.tech,xullys.xyz,opstream.fun,anisnatch.to,livosports30.live,bingr.one,basementx.xyz,basementx.pro,topvid.tv,porndude.tv,deluxtube.com,pornlore.com,xoxocomic.com,movish.to,lilymanga.net,mkissa.to,anisnatch.top,roxiestreams.*,flickermini.pages.dev,paradoxscans.com,onionplay.st,player.videasy.*,miixdrop.net,johnfullwonder.com,rebeccasciencestreet.com,nicholasbreakplan.com,benjaminreducecommunity.com,animesaturn.cx,maryspecialwatch.com,brittanyaheadnew.com,charlessheimprove.com,richardquestionbuilding.com,timmaybealready.com,charlestoughrace.com,ianrequireadult.com,marissasharecareer.com,jessicaclearout.com,tpead.net,erosxsun.xyz,hivetoons.org,rokaricomics.com,galaxymanga.io,kagane.org,manta.net,rawinu.com,silentquill.net,reader.mangaplaza.com,weloma.art,klz9.com,godamh.org,manhuascans.org,mangakawaii.io,nihonkuni.com,spoilerplus.tv,nicomanga.com,lancewhosedifficult.com,lauradaydo.com,leakedzone.com,crystaltreatmenteast.com,streamtape.*,megacloud.blogulugogu.ro,p1y.top,anime.nexus,aether.mom,myvidplay.com,advertape.net,walterprettytheir.com,murciatoday.com,tmovie.tv,bookwalker.jp,m-zone.org,christopheruntilpoint.com,mangagojo.com,bzmh.org,g-mh.org,baozimh.org,dramacool.asia,mapple.rip,mapplee.com,cinemaos.*,mangafox.la,watch.autoembed.cc,manhwabtt.cc,mangakakalot.to,mangareader.to,desenefaine.net,lunaranime.ru,1flex.ru,ask4movie.app,flixvo.live,hexawatch.cc,alienflix.net,1shows.ru,mikaylaarealike.com,lukesitturn.com,dsvplay.com,rivestream.*,kazanabilirsin.com,pantieshub.net,vide0.net,jilliandescribecompany.com,kellywhatcould.com,johnalwayssame.com,mariatheserepublican.com,jonathansociallike.com,diananatureforeign.com,sarahnewspaperbeat.com,richardsignfish.com,jennifercertaindevelopment.com,novelpia.com,nathanfromsubject.com,adrianmissionminute.com,kristiesoundsimply.com,do7go.com,heatherwholeinvolve.com,alejandrocenturyoil.com,maxfinishseveral.com,robertordercharacter.com,dooodster.com,sandratableother.com,brittneystandardwestern.com,jamessoundcost.com,toddpartneranimal.com,kimberlyonlocal.com,richardstorehalf.com,zacharycollectionmight.com,thomasalthoughhear.com,susanhavekeep.com,mbs.jp,lorimuchbenefit.com,ntv.co.jp,evelynthankregion.com,jessicaglassauthor.com,lisatrialidea.com,bethshouldercan.com,donaldlineelse.com,josephseveralconcern.com,alleneconomicmatter.com,robertplacespace.com,heatherdiscussionwhen.com,nikkatsu.com,jayservicestuff.com,d0000d.com,morganoperationface.com,johntryopen.com,do0od.com,edwardarriveoften.com,paulkitchendark.com,ds2play.com,doods.pro,dooood.com,dood.yt,dood.re,dood.wf,dood.la,dood.pm,dood.so,dood.to,dood.watch,dood.ws,guiasaude.info,gaz.com.br,relevantmagazine.com,camcaps.*,fakazaduo.com,gimy.app,ruyashoujo.com,nhk.or.jp,mangabtt.com,careet.net,contents.premium.naver.com,r114.com,app.kartra.com,leouve.com.br,comico.jp,tappytoon.com,toonnbook.nate.com,tapas.io,kakaowebtoon.com,lapandilladelarejilla.es,lezhinus.com,lezhin.com,grafolio.naver.com,webtoon.kakao.com,page.kakao.com#%#//scriptlet('prevent-addEventListener', 'contextmenu')
+! #%#//scriptlet('set-constant', 'document.oncontextmenu', 'null')
+joqr.co.jp,rawotaku.com,jmanga.cyou,hqq.to,hentaitk.net,dinvemitoloji.com,teachios.com,hulu.jp,filmzone.com,interface31.ru,ktv.jp,releasewitch.com,news.ntv.co.jp,novatoscans.top,flying-lines.com,fssp.gov.ru,ilife97.com,rdsong.com,lubedk.com,itempage3.auction.co.kr,cdramalove.com,10000recipe.com,nike.com,a2zapk.dev,fully-fundedscholarships.com,shoneekapoor.com,cda-hd.cc,bufftoon.plaync.com,studyguideindia.com,codedosa.com,newslibrary.naver.com,insight.co.kr,gamefinity.id,cafe.naver.com#%#//scriptlet('set-constant', 'document.oncontextmenu', 'null')
+! #%#//scriptlet('set-constant', 'document.onselectstart', 'null')
+tv-tokyo.co.jp,hqq.to,hentaitk.net,novelpia.com,dinvemitoloji.com,teachios.com,filmzone.com,interface31.ru,flying-lines.com,fssp.gov.ru,half-musiq.blogspot.com,rdsong.com,lubedk.com,nike.com,cda-hd.cc,tistory.com,insight.co.kr,cafe.naver.com#%#//scriptlet('set-constant', 'document.onselectstart', 'null')
+! #%#//scriptlet('set-constant', 'document.ondragstart', 'null')
+kazanabilirsin.com,novelpia.com,dinvemitoloji.com,teachios.com,ilife97.com,a2zapk.dev,fully-fundedscholarships.com,codedosa.com,gradium.co.kr,insight.co.kr,gamefinity.id,cafe.naver.com#%#//scriptlet('set-constant', 'document.ondragstart', 'null')
+! #%#//scriptlet('set-constant', 'document.onkeydown', 'null')
+kazanabilirsin.com,hqq.to,hentaitk.net,cgdownload.ru,filmzone.com,lubedk.com,cda-hd.cc#%#//scriptlet('set-constant', 'document.onkeydown', 'null')
+! #%#//scriptlet('set-constant', 'document.onkeypress', 'null')
+kazanabilirsin.com,hqq.to,hentaitk.net,lubedk.com#%#//scriptlet('set-constant', 'document.onkeypress', 'null')
+! #%#//scriptlet('abort-current-inline-script', 'document.ondragstart')
+footballchannel.jp,devilnovels.com,riwyat.com,hiraethtranslation.com,vernamagazine.com,rightrasta.com,kaystls.site,filmzone.com,immigrantinvest.com,pabrikarang.com,allaboutshaving.kr,clujust.ro,neo-blood.co.jp,machow2.com,theturtleislandnews.com,lapandilladelarejilla.es,7misr4day.com,michaelemad.com,my-expert.ru,iptv4best.com#%#//scriptlet('abort-current-inline-script', 'document.ondragstart')
+! #%#//scriptlet('prevent-addEventListener', 'dragstart')
+kazanabilirsin.com,r114.com,kakaowebtoon.com,page.kakao.com#%#//scriptlet('prevent-addEventListener', 'dragstart')
+! #%#//scriptlet('abort-current-inline-script', 'tjQuery', 'body')
+mathbang.net,teus.me,archwin.net,funfunhan.com,onpc.kr,bookpost.kr,donghun.kr,zoommastory.com,kokone.co.kr,blog.hangyeong.com,stevenh.net,ideas0419.com,raycat.net,hosii.info,blahblah.pe.kr,tokyodomin.com,modoobrisbane.com,geniusjw.com,gamegame.kr,centrair.kr,blog.esherloon.com,tistory.com#%#//scriptlet('abort-current-inline-script', 'tjQuery', 'body')
+! #%#//scriptlet('abort-on-property-read', 'disable_copy')
+vtuber-world.jp,footballchannel.jp,toono.in,filmzone.com,digitalsynopsis.com,easyayurveda.com,tunovelaligera.com,rightrasta.com,daotranslate.com,pabrikarang.com,novatoscans.top,neo-blood.co.jp,machow2.com,mangacrab.com,theturtleislandnews.com,lapandilladelarejilla.es,7misr4day.com,michaelemad.com,lazytranslations.com,wartaterkini.news,foxaholic.com,iptv4best.com,reinodekovel.com,elektrikmen.com,world4.eu#%#//scriptlet('abort-on-property-read', 'disable_copy')
+! #%#//scriptlet('abort-on-property-read', 'getSelection')
+kazanabilirsin.com,timesofindia.indiatimes.com,fakazaduo.com,sports-g.com,chungnamilbo.co.kr,jejusori.net,incheonilbo.com,ggilbo.com,newsnjoy.or.kr,mediaus.co.kr,lec.co.kr,spotvnews.co.kr,ibric.org,footballist.co.kr,hankooki.com,gametoc.hankyung.com,digitaltoday.co.kr,globale.co.kr,veritas-a.com,shinailbo.co.kr,ksilbo.co.kr,health.chosun.com,gukjenews.com,seoulfn.com,labortoday.co.kr,aitimes.kr,salgoonews.com,postshare.co.kr,rbc.ru,epnc.co.kr,wolyo.co.kr,hinfomax.co.kr,outdoornews.co.kr,anekdoty.ru,championat.com,bloombergquint.com,kinogo-720.club,kinogoonline.club,kino-kingdom.com,hd-kinogo.co#%#//scriptlet('abort-on-property-read', 'getSelection')
+! #%#//scriptlet('abort-on-property-read', 'disableSelection')
+skidrowreloaded.com,allaboutshaving.kr,allturkserials.com,victorytale.com,osomatsusan.hatenablog.com,iembra2or.com,wizardsubs.com,audio-sound-premium.com,sysnettechsolutions.com,mustafabukulmez.com,ifdreamscametrue.com#%#//scriptlet('abort-on-property-read', 'disableSelection')
+! #%#//scriptlet('remove-attr', 'oncontextmenu|onselectstart|ondragstart', 'body')
+animesaturn.cx,toomics.in,toomics.com,kocaelikuyumculardernegi.com,genesispano.com,ghibli.jpn.org,a2zapk.dev,j-lyric.net,comic.naver.com,thewordcracker.com,hankooki.com,dbr.donga.com,uwayapply.com,gukjenews.com,edujin.co.kr,venturesquare.net,spooncast.net,rdsong.com,slist.kr,3dpchip.com,dragonball-tube.com,onepiece-tube.com,baho.com.tr,siyasetcafe.com,webtv.dothome.co.kr,outdoornews.co.kr,novel.naver.com,eskisehirekspres.net#%#//scriptlet('remove-attr', 'oncontextmenu|onselectstart|ondragstart', 'body')
+! #%#//scriptlet('set-constant', 'disableEnterKey', 'noopFunc')
+vernamagazine.com,releasewitch.com,programasvirtualespc.net,legionscans.com,a2zapk.dev,flinsetyadi.com,theaircurrent.com,fully-fundedscholarships.com,now.rememberapp.co.kr,codedosa.com,gradium.co.kr,semesters.in#%#//scriptlet('set-constant', 'disableEnterKey', 'noopFunc')
+! #%#//scriptlet('abort-current-inline-script', 'document.onselectstart')
+reycade.com,pabrikarang.com,genuineactivator.com,now.rememberapp.co.kr,techieway.blogspot.com,chronologia.pl#%#//scriptlet('abort-current-inline-script', 'document.onselectstart')
+! #%#//scriptlet('abort-current-inline-script', '$', 'contextmenu')
+kpopjjang.com,hinfomax.co.kr,britg.kr,sexpox.com,47news.jp,learn-from-homey.blogspot.com,belajarbro.id#%#//scriptlet('abort-current-inline-script', '$', 'contextmenu')
+! #%#//scriptlet("set-constant", 'disable_copy', 'noopFunc')
+dora-guide.com,codedosa.com,gradium.co.kr,semesters.in#%#//scriptlet("set-constant", "disable_copy", "noopFunc")
+! #%#//scriptlet("set-constant", 'disable_copy_ie', 'noopFunc')
+dora-guide.com,codedosa.com,gradium.co.kr,semesters.in#%#//scriptlet("set-constant", "disable_copy_ie", "noopFunc")
+!
+templetoons.com#%#//scriptlet('prevent-addEventListener', 'contextmenu', 'e.preventDefault')
+divatoon.com,templetoons.com#%#//scriptlet('prevent-addEventListener', 'contextmenu', '[native code]')
+tv-tokyo.co.jp#%#//scriptlet('json-prune', 'preventCopy')
+toono.in#%#//scriptlet('abort-current-inline-script', 'addEventListener', 'wccp')
+toono.in#%#//scriptlet('abort-on-stack-trace', 'jQuery', '/_extentions|_ext_code/')
+vivamaxstream.com,bdstream.site#%#//scriptlet('prevent-addEventListener', '/contextmenu|keydown|selectstart|dragstart/', '.preventDefault()')
+hqq.to#%#//scriptlet('prevent-addEventListener', 'mousewheel', '.disabled)')
+shemalepower.xyz$$script:contains(/target.onselectstart|nocontext/)
+shemalepower.xyz#%#//scriptlet('remove-node-text', 'script', '/target.onselectstart|nocontext/')
+zdescargas.org#%#//scriptlet('remove-node-text', 'script', 'disableEnterKey')
+indiatimes.com#%#//scriptlet('prevent-setTimeout', 'getSelection')
+exame.com#%#//scriptlet('trusted-replace-argument', 'Clipboard.prototype.writeText', '0', 'replace:/\n\nEste[\s\S]*//', 'utm_source=copiaecola')
+exame.com,cgdownload.ru#%#//scriptlet('prevent-addEventListener', 'copy', 'preventDefault')
+novelpia.com#%#//scriptlet('remove-attr', 'oncontextmenu|onselectstart|ondragstart', '[oncontextmenu]')
+novelpia.com#%#//scriptlet('remove-node-text', 'script', 'disableclick')
+acidtool.com#%#//scriptlet('abort-current-inline-script', 'EventTarget.prototype.addEventListener', 'contextmenu')
+rehouse.co.jp#%#//scriptlet('trusted-set-attr', 'main[oncontextmenu]', 'oncontextmenu', 'return true;')
+suto.co.kr#%#//scriptlet('remove-attr', 'oncontextmenu', 'article')
+suto.co.kr#%#//scriptlet('remove-attr', 'oncontextmenu', '#bo_v_atc')
+manatoki465.net#%#//scriptlet('abort-current-inline-script', 'oncontextmenu')
+oricon.co.jp#%#//scriptlet('remove-attr', 'oncontextmenu|onmousedown|onMouseDown|onselectstart', '.all-lyrics')
+kkbox.com#%#//scriptlet('abort-on-stack-trace', 'PointerEvent.prototype.preventDefault', 'document.body.oncontextmenu')
+verdragonball.online,verboruto.net,vernaruto.tv#%#//scriptlet('prevent-addEventListener', '/contextmenu|copy|cut|selectstart|dragstart|keydown/', '/stopPropagation|preventDefault|0x/')
+poder360.com.br#%#//scriptlet("abort-on-property-read", "addSourceLink")
+meczyki.pl#%#//scriptlet('prevent-addEventListener', 'copy', '.attached')
+secrets.tinkoff.ru#%#//scriptlet('prevent-addEventListener', 'copy')
+sportnews.to,topsporter.net#%#//scriptlet('set-constant', 'cancelContextMenu', 'noopFunc')
+sportnews.to,topsporter.net#%#//scriptlet('abort-on-property-write', 'ConsoleBan')
+tiktok.com#%#//scriptlet('prevent-addEventListener', 'keydown')
+pastepvp.org#%#//scriptlet('prevent-addEventListener', '/^(?:contextmenu|copy)$/', 'preventDefault')
+desenefaine.net,guiasaude.info#%#//scriptlet('abort-on-property-write', 'document.onkeydown')
+repack-games.com#%#//scriptlet("prevent-addEventListener", "contextmenu", "undefined")
+brokensilenze.net#%#//scriptlet('abort-on-property-write', 'nocontext')
+riwyat.com,hiraethtranslation.com,filmzone.com,brokensilenze.net#%#//scriptlet('abort-on-property-write', 'disableEnterKey')
+songtextemania.com#%#//scriptlet('remove-attr', 'oncopy', '.lyrics-body')
+transtv.co.id#%#//scriptlet('abort-current-inline-script', 'document.getElementsByTagName', 'oncontextmenu')
+detik.com#%#//scriptlet('remove-attr', 'oncontextmenu', '[oncontextmenu]')
+klto9.com,mn4u.net,jestful.net,raw1001.net,afrikalyrics.com#%#//scriptlet('remove-attr', 'oncontextmenu', 'div[oncontextmenu]')
+hk01.com#%#//scriptlet('prevent-addEventListener', 'copy')
+utaten.com#%#//scriptlet('remove-attr', 'oncontextmenu|onselectstart', '.lyricBody')
+uta-net.com#%#//scriptlet('set-constant', 'noCopy', 'noopFunc')
+lyricsondemand.com#%#//scriptlet('set-constant', 'addLink', 'noopFunc')
+lyrsense.com#%#//scriptlet("abort-on-property-read", "clipboard_addLink")
+braziljournal.com#%#//scriptlet("abort-on-property-read", "addCopy")
+daotranslate.com,easyayurveda.com#%#//scriptlet("abort-on-property-read", "wccp_pro_iscontenteditable")
+teammy.ru,raindropteamfan.com#%#//scriptlet('abort-on-property-write', 'nocontextmenu')
+humoruniv.com#%#//scriptlet('abort-on-property-read', 'drag_off')
+economia.uol.com.br#%#//scriptlet('prevent-addEventListener', 'copy', 'event.dispatch.apply')
+contents.premium.naver.com#%#//scriptlet('prevent-addEventListener', 'mousedown')
+inveglo.tistory.com#$#body { overflow: auto !important; }
+inveglo.tistory.com#$##waiting { display: none !important; }
+blog.naver.com#%#//scriptlet('set-constant', 'rightClickOpenYn', 'false')
+blog.naver.com#%#//scriptlet('set-constant', 'autoSourcingYn', 'false')
+r114.com#%#//scriptlet("prevent-addEventListener", "selectstart")
+tezgoal.com#%#//scriptlet('abort-current-inline-script', 'validateKey')
+instiz.net#%#//scriptlet("prevent-setInterval", "nocopy")
+author.today#%#//scriptlet('remove-attr', 'oncontextmenu|onselectstart|ondragstart|onmousedown|unselectable', '.noselect')
+author.today#%#//scriptlet('remove-attr', 'oncontextmenu|onselectstart|ondragstart|onmousedown|unselectable', '.page-content')
+pisupisu.pl#%#//scriptlet('prevent-addEventListener', 'contextmenu', '.preventDefault()')
+omoi.com,123pan.com#%#//scriptlet('prevent-addEventListener', 'contextmenu', '[native code]')
+comeinsidebox.com#%#//scriptlet("abort-current-inline-script", "addEventListener", "blockEvent")
+ufchgu.ru,mi-faq.ru#%#//scriptlet("abort-current-inline-script", "disable_keystrokes")
+ufchgu.ru,mi-faq.ru#%#//scriptlet("prevent-addEventListener", "copy", "pagelink")
+top10mais.org#%#//scriptlet("prevent-addEventListener", "copy", "nocopas")
+onna.kr,tistory.com#%#//scriptlet("abort-current-inline-script", "document.addEventListener", "copyWithSource")
+recantodasletras.com.br#%#//scriptlet('prevent-addEventListener', '/^(?:contextmenu|copy|cut)$/', '/nrWrapper|Handler/')
+yodu.org,linovelib.com#%#//scriptlet('remove-attr', 'onselectstart', 'body')
+readcomiconline.li,nusantararom.org#%#//scriptlet("prevent-addEventListener", "/keydown|contextmenu/")
+ladyblog.me#%#//scriptlet('abort-current-inline-script', 'jQuery', 'onselectstart')
+kumanga.com,rdnews.com.br,acritica.com#%#//scriptlet("abort-current-inline-script", "document.onkeypress")
+estadao.com.br,atribuna.com.br,braziljournal.com,revistapesquisa.fapesp.br,migalhas.com.br#%#//scriptlet("prevent-addEventListener", "copy", "event")
+tweaktown.com#%#//scriptlet("prevent-addEventListener", "copy", "bypassEventsInProxies")
+toptoon.com#%#//scriptlet('abort-current-inline-script', 'window.oncontextmenu')
+revistaoeste.com,elliberal.com.ar,opovo.com.br,brasilescola.uol.com.br,forbes.com.br,abril.com.br#%#//scriptlet('prevent-addEventListener', 'copy', '.clipboardData.setData')
+pressian.com#%#//scriptlet('abort-current-inline-script', 'window.addEventListener', 'copy')
+sedaily.com#%#//scriptlet('set-constant', 'NewsSource.addSource', 'noopFunc')
+bomtoon.com#%#//scriptlet('remove-attr', 'oncontextmenu|onselectstart|ondragstart', '.inner')
+bomtoon.com#%#//scriptlet('remove-attr', 'oncontextmenu|onselectstart|ondragstart', '#novel_inner_wrap')
+bomtoon.com#%#//scriptlet('remove-attr', 'oncontextmenu|onselectstart|ondragstart', 'article')
+bomtoon.com#%#//scriptlet('remove-attr', 'oncontextmenu|onselectstart|ondragstart', '#novel_area')
+bomtoon.com#%#//scriptlet('remove-attr', 'oncontextmenu|onselectstart|ondragstart', '.content')
+bomtoon.com#%#//scriptlet('remove-attr', 'oncontextmenu|onselectstart|ondragstart', '.document_img')
+khan.co.kr#%#//scriptlet("set-constant", "linkback.l", "true")
+postype.com#%#//scriptlet('remove-class', 'disable-selection', 'body')
+fmkorea.com#%#//scriptlet('set-constant', 'var7', '0')
+brunch.co.kr#%#//scriptlet('set-constant', 'window.B.Article.preventSelection', 'noopFunc')
+noticiasdlb.com#%#//scriptlet('prevent-addEventListener', '/contextmenu|copy/')
+read.qidian.com,invado.pl#%#//scriptlet("prevent-addEventListener", "/^(?:contextmenu|copy)$/", "event.dispatch.apply")
+portalwrc.pl#%#//scriptlet('set-constant', 'document.onmousedown', 'undefined')
+half-musiq.blogspot.com,studyguideindia.com#%#//scriptlet('set-constant', 'document.onmousedown', 'null')
+bestxiaomiproducts.com#%#//scriptlet("abort-current-inline-script", "_HWIO.readyjs", "stopPrntScr")
+seriesgratis.biz,texture-packs.com,liveworksheets.com#%#//scriptlet('remove-attr', 'oncontextmenu', 'body')
+tistory.com#%#//scriptlet('set-constant', 'mouseClickRight', 'noopFunc')
+! Disabled temporary - https://github.com/AdguardTeam/AdguardFilters/issues/137374#issuecomment-1353110741
+! cafe.naver.com#%#//scriptlet('set-constant', 'document.body.oncopy', 'null')
+jovenesweb.com#%#//scriptlet('remove-class', 'no-select', 'div')
+wneen.com#%#//scriptlet('remove-class', 'unselectable', 'p')
+appofmirror.com#%#//scriptlet("abort-current-inline-script", "nocontextmenu")
+fishki.net,city-data.com,patrika.com,ogznet.com#%#//scriptlet("set-constant", "document.oncopy", "undefined")
+ogznet.com#%#//scriptlet("prevent-addEventListener", "/^(?:contextmenu|copy)$/")
+webtoons.com#%#//scriptlet('remove-attr', 'onselectstart|ondragstart|oncontextmenu', 'img[class="_images"]')
+expertology.ru#%#//scriptlet('abort-on-property-write', 'document.oncopy')
+deepl.com#%#//scriptlet("set-constant", "Object.prototype.getFooterText", "undefined")
+electricalvoice.com#%#//scriptlet("abort-on-property-write", "image_save_msg")
+foodnavigator.com#%#//scriptlet("set-constant", "wrbm_gb.copyAlert", "undefined")
+tistory.com#%#//scriptlet('remove-attr', 'onselectstart|ondragstart|oncontextmenu|onpaste|oncopy', 'body')
+codedosa.com,semesters.in#%#//scriptlet('set-constant', 'disableSelection', 'noopFunc')
+digitalsynopsis.com,dora-guide.com,gradium.co.kr,electricalvoice.com,semesters.in#%#//scriptlet('set-constant', 'nocontext', 'noopFunc')
+downloadtutorials.net#%#//scriptlet("prevent-addEventListener", "keydown", "metaKey")
+moboreader.net#%#//scriptlet("prevent-addEventListener", "/contextmenu|selectstart/", "event.dispatch.apply")
+leg.br#%#//scriptlet("prevent-addEventListener", "copy", "window.alert")
+plantaomaringa.com#%#//scriptlet("abort-on-property-read", "ready")
+blisseyhusband.in#%#//scriptlet("abort-on-property-read", "sccopytext")
+nubng.com,blisseyhusband.in#%#//scriptlet("abort-on-property-read", "contentprotector")
+my.pcloud.com,blisseyhusband.in,kapiert.de,verdragonball.online#%#//scriptlet("prevent-addEventListener", "contextmenu", "preventDefault")
+gamefinity.id#%#//scriptlet("set-constant", "onload", "null")
+gamefinity.id#%#//scriptlet('prevent-addEventListener', '/^key/', 'wpccpDisable')
+my-expert.ru#%#//scriptlet("abort-current-inline-script", "document.onkeydown")
+streamtape.*,strcloud.*,digitalfernsehen.de,mundodonghua.com#%#//scriptlet("prevent-addEventListener", "contextmenu", "event.dispatch.apply")
+blitzrechner.de#%#//scriptlet("abort-on-property-read", "wp_copy")
+bloombergquint.com,kakpishem.ru#%#//scriptlet("abort-current-inline-script", "document.oncopy")
+charbelnemnom.com#%#//scriptlet("abort-current-inline-script", "stopPrntScr")
+theasianparent.com,tutoganga.blogspot.com,texte.work#%#//scriptlet("abort-on-property-read", "disableselect")
+globaledu.jp#%#//scriptlet('remove-attr', 'oncontextmenu|onselectstart', 'body')
+korona.co.jp#%#//scriptlet('remove-attr', 'oncopy|oncontextmenu', 'body')
+nordkorea-info.de#%#//scriptlet("set-constant", "document.oncontextmenu", "emptyObj")
+studio.fm.br,easyayurveda.com,iembra2or.com,wizardsubs.com,procrackerz.org#%#//scriptlet("abort-on-property-read", "nocontext")
+animeactua.com,procrackerz.org#%#//scriptlet("abort-current-inline-script", "disableEnterKey", "Content is protected")
+ukrainianwall.com#%#//scriptlet('prevent-addEventListener', '/copy|selectstart|contextmenu/', 'preventDefault')
+japan-fans.com#%#//scriptlet('abort-current-inline-script', 'document.onmousedown')
+skidrowreloaded.com,mustafabukulmez.com#%#//scriptlet("abort-on-property-read", "clickIE4")
+informatykit.it,osomatsusan.hatenablog.com#%#//scriptlet("prevent-addEventListener", "/contextmenu|selectstart|dragstart|copy|cut|keydown|keyup/", "preventDefault")
+bdb.com.pl#%#//scriptlet("remove-attr", "oncontextmenu|onselectstart|onselect|oncopy|ondragstart|ondrag|onbeforeprint", "body")
+nubng.com,ifdreamscametrue.com,jucagototranslations.fukou-da.net#%#//scriptlet("abort-current-inline-script", "jQuery", "contextmenu")
+ifdreamscametrue.com#%#//scriptlet("prevent-addEventListener", "/keydown|cut|copy|paste/", "event.dispatch.apply")
+cq.ru,reinodekovel.com#%#//scriptlet('prevent-addEventListener', 'copy', 'clipboardData')
+ainamulyana.blogspot.com#%#//scriptlet("remove-attr", "oncontextmenu|onkeydown|onmousedown", "body")
+babelnovel.com#%#//scriptlet("prevent-addEventListener", "/contextmenu|copy|selectionchange|mousedown/", "native code")
+digitalsynopsis.com#%#//scriptlet('abort-on-property-read', 'copyToClipboard')
+tunovelaligera.com#%#//scriptlet('abort-on-property-read', 'disable_copy_ie')
+easyayurveda.com,clujust.ro,secondlifetranslations.com,tunovelaligera.com#%#//scriptlet('abort-on-property-read', 'disable_hot_keys')
+tunovelaligera.com#%#//scriptlet('set-constant', 'MdpAppender', 'undefined')
+cafe.daum.net#%#//scriptlet("prevent-addEventListener", "load", "addEvent(")
+kusonime.com#%#//scriptlet("abort-on-property-read", "mousedwn")
+kusonime.com#%#//scriptlet("abort-current-inline-script", "document.keypress")
+kusonime.com#%#//scriptlet('abort-current-inline-script', 'EventTarget.prototype.addEventListener', 'keydown')
+emailfake.com#%#//scriptlet("prevent-addEventListener", "copy", "addLink")
+texte.work#%#//scriptlet("remove-attr", "oncontextmenu|onkeydown", "body")
+teepr.com#%#//scriptlet("abort-current-inline-script", "jQuery", "document.oncontextmenu")
+software-on.com#%#//scriptlet("prevent-addEventListener", "/selectstart|dragstart|keydown/", "preventDefault")
+proserialkey.com,exlyrics.com,skidrowcodex.net#%#//scriptlet("abort-on-property-read", "stopPrntScr")
+crunchyscan.fr,picallow.com,thecustomrom.com#%#//scriptlet("abort-on-property-read", "addMultiEventListener")
+lectortmo.com#%#//scriptlet("remove-attr", "oncontextmenu", ".img-container > img[oncontextmenu]")
+psycabi.net#%#//scriptlet("abort-on-property-read", "addLink")
+e-marineeducation.com,viralogic.xyz,portalwrc.pl#%#//scriptlet('abort-on-property-read', 'disableSelection')
+orangespotlight.com#%#//scriptlet("remove-attr", "data-protect", "body[data-protect]")
+as-selection.net#%#//scriptlet("remove-attr", "oncontextmenu|ondragstart|onkeydown|onmousedown|onselectstart", "body")
+mangaku.cc#%#//scriptlet("abort-current-inline-script", "$", "contextmenu")
+hatauzmani.com#%#//scriptlet("abort-on-property-read", "mousehandler")
+cgdownload.ru,ufchgu.ru,mi-faq.ru,aihristdreamtranslations.com,kakpishem.ru#%#//scriptlet("abort-current-inline-script", "disableSelection")
+poisonous-raspberry-fields.blogspot.com#%#//scriptlet("remove-attr", "onmousedown|onselectstart|ondragstart", "body")
+poisonous-raspberry-fields.blogspot.com#%#//scriptlet("remove-attr", "onmousedown|onselectstart|ondragstart", ".post-body[ondragstart][onmousedown][onselectstart]")
+ufret.jp,joysound.com#%#(()=>{["contextmenu","copy","selectstart"].forEach((o=>{window.addEventListener(o,(o=>{o.stopPropagation()}),!0)}));})();
+wattpad.com#%#window.addEventListener("contextmenu",function(a){a.stopPropagation()},!0); window.addEventListener("copy",function(a){a.stopPropagation()},!0);
+viralogic.xyz#%#//scriptlet("abort-on-property-read", "mousedwn")
+ouo.io#%#//scriptlet('trusted-click-element', '#form-captcha > #captcha > button', '', '300')
+ouo.io#%#//scriptlet('trusted-click-element', '#form-go > #btn-main', '', '300')
+portalwrc.pl#%#//scriptlet("abort-current-inline-script", "addEvent", "document.body.oncopy")
+doujindesu.tv,shield-project.ru#%#//scriptlet("abort-on-property-write", "document.oncontextmenu")
+ktk.kz#%#//scriptlet("abort-current-inline-script", "document.addEventListener", "addLink")
+runningnews.gr#%#//scriptlet("remove-attr", "oncontextmenu", "[oncontextmenu]")
+runningnews.gr#%#//scriptlet("remove-attr", "ondragstart", "[ondragstart]")
+runningnews.gr#%#//scriptlet("remove-attr", "onselectstart", "[onselectstart]")
+runningnews.gr#%#//scriptlet("remove-attr", "onmousedown", "img[onmousedown]")
+tistory.com,runningnews.gr#%#//scriptlet('set-constant', 'window.disableselect', 'noopFunc')
+murciatoday.com#%#window.addEventListener("selectstart",function(a){a.stopPropagation()},!0);
+kingbet.net#%#(function(){z=self.EventTarget.prototype.addEventListener;self.EventTarget.prototype.addEventListener=function(a,b){if(!/cut|copy|paste/.test(a.toString()))return z.apply(this,arguments)}})();
+volt-index.ru#%#//scriptlet("abort-current-inline-script", "jQuery", "oncopy")
+patrika.com#%#//scriptlet("set-constant", "document.onpaste", "undefined")
+gaypornwave.com,sporx.com#%#//scriptlet("set-constant", "document.oncontextmenu", "undefined")
+muharebetarihi.com#%#//scriptlet("set-constant", "oncontextmenu", "undefined")
+muharebetarihi.com#%#//scriptlet("abort-on-property-read", "addMultiEventListener")
+tokyo-sports.co.jp,news.dwango.jp#%#//scriptlet("remove-attr", "oncontextmenu", "body")
+7lafa.com#%#//scriptlet("remove-attr", "oncopy|onselectstart", "body")
+mhwg.org,biyografi.info,seiya-saiga.com#%#//scriptlet("remove-attr", "oncontextmenu|onselectstart", "body")
+!
+!+ NOT_PLATFORM(ext_ff)
+sportsonlinee.click,dollardescent.net,guzesqdro.pinme.dev,sportsbite.*,allanime.day,vidbasic.live,embdmstrplayer.com,kisskh.*,anixtv.pro,anixtv.in,anixtv.us.cc,anixx.fun,cloudorchestranova.com,nextgencloudfabric.com,anixx.fun,streamingnow.mov,vidmoly.*,vidmoly.biz,savefiles.com,mangaplus.shueisha.co.jp,otakuhg.site,megaplay.buzz,cloudnestra.com,rapid-cloud.co,ico3c.com,luluvdoo.com,sterham.net,animeshouse.net,animeunity.it,themeslide.com,orangespotlight.com,magdyman.com,topflix.*,poisonous-raspberry-fields.blogspot.com,redirdx.in,tmofans.com,thememazing.com,baan-series.com,baixarfilmetorrent.net,yourupload.com,wikitechy.com,windes.com.es,freecourser.com,audioreview.m1001.coreserver.jp,portalwrc.pl,themeslide.com#%#window.addEventListener("contextmenu",function(a){a.stopPropagation()},!0);
+!+ PLATFORM(ext_ff)
+sportsonlinee.click,dollardescent.net,guzesqdro.pinme.dev,sportsbite.*,allanime.day,vidbasic.live,embdmstrplayer.com,kisskh.*,anixtv.pro,anixtv.in,anixtv.us.cc,anixx.fun,cloudorchestranova.com,nextgencloudfabric.com,anixx.fun,streamingnow.mov,vidmoly.*,vidmoly.biz,savefiles.com,mangaplus.shueisha.co.jp,otakuhg.site,megaplay.buzz,cloudnestra.com,rapid-cloud.co,ico3c.com,luluvdoo.com,sterham.net,animeshouse.net,animeunity.it,themeslide.com,orangespotlight.com,magdyman.com,topflix.*,poisonous-raspberry-fields.blogspot.com,redirdx.in,tmofans.com,thememazing.com,baan-series.com,baixarfilmetorrent.net,yourupload.com,wikitechy.com,windes.com.es,freecourser.com,audioreview.m1001.coreserver.jp,portalwrc.pl,themeslide.com#%#//scriptlet('trusted-create-element', 'head', 'script', '', '(()=>{window.addEventListener("contextmenu",function(a){a.stopPropagation()},!0);})();')
+!--- HTML ----
+! NOTE: Context menu - HTML
+||luluvdoo.com/player/jw8/jwplayer.js$replace=/else [a-z]\.el\.oncontextmenu=function\([a-z]\){return [a-z]\([a-z]\,[a-z]\,[a-z]\)\,\!1\}//
+fakazaduo.com$$style[tag-content="selection"]
+comeinsidebox.com$$style[wildcard="user-select:*none"][max-length="500"]
+beginerboy.blogspot.com$$script[tag-content="typeof document.onselectstart"]
+quotev.com$$style[tag-content="#res_area ::selection"][max-length="250"]
+quotev.com$$script[tag-content="document.body.ondragstart=function"][max-length="150"]
+fujiisouta.xyz,turkstar.in$$script[id="wpcp_disable_selection"]
+fujiisouta.xyz,turkstar.in$$script[id="wpcp_disable_Right_Click"]
+fujiisouta.xyz,turkstar.in$$style[tag-content=".unselectable"][max-length="350"]
+openssource.biz$$script[tag-content="document.onkeypress = function"][max-length="2000"]
+twgreatdaily.com$$script[tag-content="indexOf|css|fn|this|attr|unselectable|console|empty|copy|contextmenu"]
+! NOTE: Context menu (mixed rules) end ⬆️
+! !SECTION: Tweaks - Context menu (mixed rules)
+!

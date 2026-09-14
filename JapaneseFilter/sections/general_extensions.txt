@@ -1,0 +1,456 @@
+!
+! This section contains the list of ad blocking rules that fall under "advanced" category.
+! By advanced we mean the following rule types: CSS, scriptlets, HTML filtering (`$$` marker), JS.
+!
+! Good: example.org#$##rek { display: none !important; }; example.org#%#//scriptlet('set-cookie', 'ad', '0'); example.org$$script[tag-content="ad"][max-length="3000"].
+! Bad: example.org###rek (should be in specific.txt)
+!
+!-------------------
+!-------JS----------
+!-------------------
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/223378
+daily.co.jp#%#//scriptlet('trusted-replace-argument', 'Document.prototype.getElementById', '0', 'dspc-bottomRecommend', 'dspc-inread')
+!+ PLATFORM(windows, mac, android, cli, ios, ext_safari)
+daily.co.jp#%#(()=>{window.addEventListener("load",(()=>{const t=document.querySelector("#openwebSection"),e=document.querySelector("div[data-spot-id]");if(!e||!t)return;const d=e.getAttribute("data-spot-id");if(!d)return;var o;((t,e,d)=>{const o=document.createElement("div");o.setAttribute("data-spotim-module","conversation"),o.setAttribute("data-spot-id",t),o.dataset.postId=e,d.appendChild(o)})(d,Math.abs((o=document.title,[...o].reduce(((t,e)=>Math.imul(31,t)+e.charCodeAt(0)|0),0))),t);const a=document.createElement("script");a.setAttribute("src",`https://launcher.spot.im/spot/${d}`),a.setAttribute("async",""),document.head.appendChild(a)}));})();
+!+ NOT_PLATFORM(windows, mac, android, cli, ios, ext_safari)
+daily.co.jp#%#//scriptlet('trusted-create-element', 'head', 'script', '', '(()=>{window.addEventListener("load",(()=>{const t=document.querySelector("#openwebSection"),e=document.querySelector("div[data-spot-id]");if(!e||!t)return;const d=e.getAttribute("data-spot-id");if(!d)return;var o;((t,e,d)=>{const o=document.createElement("div");o.setAttribute("data-spotim-module","conversation"),o.setAttribute("data-spot-id",t),o.dataset.postId=e,d.appendChild(o)})(d,Math.abs((o=document.title,[...o].reduce(((t,e)=>Math.imul(31,t)+e.charCodeAt(0)|0),0))),t);const a=document.createElement("script");a.setAttribute("src",`https://launcher.spot.im/spot/${d}`),a.setAttribute("async",""),document.head.appendChild(a)}));})();')
+! https://github.com/AdguardTeam/AdguardFilters/issues/211472
+sports.tv.rakuten.co.jp#%#//scriptlet('json-prune', 'ads')
+sports.tv.rakuten.co.jp#%#//scriptlet('json-prune', 'result.ad_info')
+sports.tv.rakuten.co.jp#%#//scriptlet('json-prune', 'result.paths.[].ad_info')
+! https://github.com/AdguardTeam/AdguardFilters/issues/180461
+akibablog.blog.jp#%#//scriptlet('abort-current-inline-script', 'document.write', 'sitejack')
+! Leftover
+kasegeru.blog.jp#%#//scriptlet('remove-node-text', '#text', '/スポンサードリンク：?|楽天広告：/')
+! Ads
+blog.livedoor.jp#%#//scriptlet('remove-node-text', 'script', 'selectRandomProduct')
+! overlay
+erommd-street.com#%#//scriptlet('abort-current-inline-script', 'document.createElement', 'overview')
+! https://github.com/AdguardTeam/AdguardFilters/issues/192076
+twivideo.net#%#//scriptlet('abort-current-inline-script', 'document.getElementById', 'imageUrls')
+twivideo.net#%#//scriptlet('prevent-addEventListener', 'load', 'videoInstArea')
+twivideo.net$$script:contains(/videoInstArea|randomImageUrl/)
+! https://github.com/AdguardTeam/AdguardFilters/issues/176598
+ac-illust.com,photo-ac.com#%#//scriptlet('abort-current-inline-script', '$', 'google_ads_iframe_')
+! ad-leftover on click
+twidouga.net#%#//scriptlet('prevent-addEventListener', '', 'setTrigger')
+! https://github.com/AdguardTeam/AdguardFilters/issues/166651
+! https://github.com/AdguardTeam/AdguardFilters/issues/166658
+pictab.art,onagazou.info#%#//scriptlet('set-constant', 'pum_vars', 'undefined')
+! https://github.com/uBlockOrigin/uAssets/issues/20629
+shindanmaker.com#%#//scriptlet('adjust-setInterval', 'reward_countdown')
+! leftover
+betweenjpandkr.blog#%#//scriptlet('remove-node-text', '#text', 'PR:')
+! https://github.com/AdguardTeam/AdguardFilters/issues/161236
+fashionpost.jp#%#//scriptlet('set-constant', 'ads_data', 'emptyObj')
+! https://github.com/AdguardTeam/AdguardFilters/issues/160835
+dvdrev.com#%#//scriptlet('remove-node-text', '#text', '関連動画')
+! skip ad
+portal.game.sycasualgames.com#%#//scriptlet('adjust-setInterval', 'timerId', '1000')
+! ex. https://fm.sekkaku.net/mail/1303202134/
+fm.sekkaku.net#%#//scriptlet('remove-node-text', '#text', '【広告】')
+! https://github.com/AdguardTeam/AdguardFilters/issues/157658
+lifematome.blog#%#//scriptlet('remove-node-text', '#text', '/\[vkExUnit_ad area=(after|before)\]/')
+lifematome.blog#%#//scriptlet('remove-attr', 'href', '.cps-post-main a[href^="https://www.amazon.co.jp"]', 'stay')
+! https://github.com/AdguardTeam/AdguardFilters/issues/154588
+yaraon-blog.com#%#//scriptlet('prevent-setInterval', 'q2w3_sidebar(q2w3_sidebar_options')
+! https://github.com/AdguardTeam/AdguardFilters/issues/154186
+nan-net.com#%#//scriptlet('prevent-setTimeout', 'movie_cnt', '300')
+! popstate overlay
+chibanippo.co.jp,engineweb.jp,kenshonavi.com,maidonanews.jp,nkreport.jp,riajo.com,searchkoreanews.jp,trafficnews.jp,yougakumap.com,encount.press,realsound.jp,h1g.jp#%#//scriptlet('abort-current-inline-script', 'document.referrer', 'gmo_bb')
+! https://github.com/AdguardTeam/AdguardFilters/issues/128686
+uraaka-joshi.com#%#//scriptlet('prevent-window-open')
+! https://github.com/AdguardTeam/AdguardFilters/issues/146129
+jav380.com#%#//scriptlet('set-constant', 'document.write', 'noopFunc')
+! fix sidebar
+anacap.doorblog.jp#%#//scriptlet('prevent-addEventListener', 'scroll', 'b.type')
+! https://github.com/AdguardTeam/AdguardFilters/issues/144212
+anianierosuki.work#%#//scriptlet('prevent-addEventListener', 'click', 'event')
+! https://github.com/AdguardTeam/AdguardFilters/issues/142720
+signalskey.signal-st.com,empire.miyaco.moe,stormskey.works,m.eskey.click,labo.wovs.tk,nukers-misskey.hpc-densi.f5.si,msk.kitamiss.com,uneune.one,posskey.com,redfuku.com,misskey.secinet.jp,msk.ilnk.info,uttaeruyo.com,ikaskey.bktsk.com,live-theater.net,misskey.resonite.love,misskeytsf.love,misskirara.net,p1.a9z.dev,takusuki.com,trpger.us,mk.yopo.work,sushi.ski,warpday.net,zadankai.club,misskey.*#%#//scriptlet('json-prune', 'ads.[].imageUrl')
+! https://github.com/AdguardTeam/AdguardFilters/pull/136936
+agora-web.jp#%#//scriptlet('abort-current-inline-script', 'document.currentScript', 'insertAdjacentHTML')
+! https://github.com/AdguardTeam/AdguardFilters/issues/136491
+video.laxd.com#%#//scriptlet('remove-class', 'with-ad', 'section.main')
+! popunder
+shico.xyz#%#//scriptlet('abort-on-property-read', 'fanza_link')
+trendynailwraps.com#%#//scriptlet('prevent-window-open')
+! https://github.com/AdguardTeam/AdguardFilters/issues/133903
+nwknews.jp,nandemo-uketori.com,2chblog.jp,yugioh-starlight.com,kijomatomelog.com,gundamlog.com,doorblog.jp,digital-thread.com,livedoor.blog,blog.jp,blog.livedoor.jp#%#//scriptlet('abort-current-inline-script', 'jQuery', 'floatingAd')
+! https://github.com/AdguardTeam/AdguardFilters/issues/128599
+uraaka-joshi.com#%#//scriptlet('prevent-addEventListener', 'playing', 'VAST_TARGET')
+! skip ad
+collepic.net#%#//scriptlet('adjust-setInterval', '.run()}', '1000')
+! https://github.com/AdguardTeam/AdguardFilters/issues/68275
+javcup.com#%#//scriptlet("prevent-setTimeout", "getAdCookie")
+! https://github.com/AdguardTeam/AdguardFilters/issues/133218
+! https://github.com/AdguardTeam/AdguardFilters/issues/114915
+! https://github.com/AdguardTeam/AdguardFilters/issues/111968
+! https://github.com/AdguardTeam/AdguardFilters/issues/94170
+negisoku.com,arty-matome.com,aidoly.net,aikru.com,ranky-ranking.net,kabegami.jpn.org,ideal2ch.livedoor.biz,seikeidouga.blog.jp,tcg-bloglife.com,ch-review.net,gametohkenranbu.sakuraweb.com,rank1-media.com,resizer.myct.jp#%#//scriptlet('remove-node-text', '#text', '/スポンサード?リンク/')
+! https://github.com/AdguardTeam/AdguardFilters/issues/113729
+phileweb.com#%#//scriptlet("remove-class", "has-topbanner", "body > header.has-topbanner")
+! https://github.com/AdguardTeam/AdguardFilters/issues/101637
+majikichi.com#%#//scriptlet('abort-current-inline-script', 'tag', 'Math.random')
+! https://github.com/AdguardTeam/AdguardFilters/issues/100858 fix sidebar
+! https://github.com/AdguardTeam/AdguardFilters/issues/94352
+46matome.net,openworldnews.net,animesoku.com,vipnews.jp,ldblog.jp,livedoor.blog,2chblog.jp,oumaga-times.com,all-nationz.com,ebitsu.net,fiveslot777.com,jisaka.com,kijyomatome.com,konoyubitomare.jp,livedoor.biz,momoclonews.com,norisoku.com,pachinkopachisro.com,vtubernews.jp,blog.jp,giants-news.com,blog.livedoor.jp,doorblog.jp#%#//scriptlet("prevent-setTimeout", "floatingAd")
+! https://github.com/AdguardTeam/AdguardFilters/issues/125843
+! https://github.com/AdguardTeam/AdguardFilters/issues/99361
+xn--gmq92kd2rm1kx34a.com,javmix.*#%#//scriptlet('abort-current-inline-script', 'addEventListener', 'style.display')
+! skip in-game ad
+simplegame.jp#%#//scriptlet('adjust-setTimeout', 'simplegameAdCountDown', '1000', '0.02')
+! tokyomotion.net ad initiator
+tokyomotion.net#%#//scriptlet('prevent-addEventListener', 'DOMContentLoaded', 'window[')
+! https://github.com/AdguardTeam/AdguardFilters/issues/93604#issuecomment-913651082
+blog.livedoor.jp#%#//scriptlet('abort-current-inline-script', 'jmp', 'Math')
+! popup on play
+ero-video.net#%#//scriptlet('prevent-addEventListener', 'DOMContentLoaded', 'showPopUpBanner')
+! popup ad
+ov53i9il.blog.fc2.com,mjoato3uion.ky-3.net,qaacacthlive.omaww.net#%#//scriptlet('prevent-eval-if', 'hoihoi')
+! random ads
+momoiroadult.com#%#//scriptlet('abort-current-inline-script', 'document.getElementById', 'lists')
+! broken link (not by blocker)
+sonae.sankei.co.jp#%#//scriptlet('set-constant', 'geoAvailable', 'true')
+! http://blog.livedoor.jp/geek periodical campaign ads
+blog.livedoor.jp#%#//scriptlet('abort-current-inline-script', 'document.write', 'sitejack')
+! https://github.com/uBlockOrigin/uAssets/issues/7546
+wav.tv#%#//scriptlet('set-constant', '$.popunder', 'noopFunc')
+wav.tv#%#//scriptlet('prevent-window-open')
+wav.tv#%#//scriptlet('remove-attr', 'data-popup-url')
+! skip in-game ads
+minigame.aeriagames.jp#%#//scriptlet('adjust-setTimeout', 'aeriaGamesAdCountDown', '', '0.02')
+! popup
+asg.to#%#//scriptlet('prevent-window-open')
+! www.380cc.cc auto-redirect
+380cc.cc#%#//scriptlet('remove-attr', 'onclick', 'span > a[onclick]')
+! https://github.com/AdguardTeam/AdguardFilters/issues/66815
+dl.520cc.cc#%#//scriptlet('prevent-window-open')
+! https://github.com/AdguardTeam/AdguardFilters/issues/57490
+ponta.abstractpainting.work#%#//scriptlet('adjust-setTimeout', 'visibility', '4000')
+ponta.abstractpainting.work#%#//scriptlet('adjust-setTimeout', '[native code]', '2000', '0.3')
+ponta.abstractpainting.work#%#//scriptlet('adjust-setTimeout', '[native code]', '3000', '0.25')
+ponta.abstractpainting.work#%#//scriptlet('adjust-setTimeout', '[native code]', '4000', '0.2')
+ponta.abstractpainting.work#%#//scriptlet('set-constant', 'FIRST_DELAY', '0')
+ponta.abstractpainting.work#%#//scriptlet('set-constant', 'NEXT_DELAY', '0')
+! https://github.com/AdguardTeam/AdguardFilters/issues/54027
+dotti2.jp,pochitto2.jp#%#//scriptlet("set-constant", "sec", "0")
+! https://github.com/AdguardTeam/AdguardFilters/issues/54025
+gotouchi.jp#%#//scriptlet("set-constant", "sec", "0")
+! https://github.com/AdguardTeam/AdguardFilters/issues/53253
+cmnw.jp#%#//scriptlet("set-constant", "sec", "0")
+!
+!-------------------
+!-------CSS---------
+!-------------------
+!
+! https://itest.bbspink.com/
+itest.bbspink.com#$#.footer-with-ad { padding-bottom: 10px !important; }
+! https://github.com/tofukko/filter/issues/96
+nlab.itmedia.co.jp#$##globalHeader { min-height: 0 !important; margin: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/112640
+eromovie-s.com#$#.movie-watch { display: block !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/178408
+2game.info#$#.sponsored-loop300x250 { position: absolute !important; left: -4000px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/160407
+eroanime-movie.com#$#@media (min-width: 835px) { .top-section { grid-template-columns: minmax(180px, 1fr) 0 !important; } }
+! https://github.com/AdguardTeam/AdguardFilters/issues/174081
+telling.asahi.com#$#.p-header-billboard { min-height: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/171466
+erologz.com#$##sidebar-small[style^="height:"] { height: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/169518
+ge-soku.com#$##custom_html-48 { margin-top: 0px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/168163
+hitoikigame.com#$#.plugin-freearea td[bgcolor] > div[style] { width: 100% !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/167699
+afsgames.com#$#.ad970x250 { visibility: hidden !important; height: 0 !important; margin-bottom: 45px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/166591
+wpb.shueisha.co.jp#$?#ul.mod-grid2 > li.block-list-a-a__list__item:has(> div.block-banner-b-a) { display: none !important; }
+wpb.shueisha.co.jp#$?#ul.mod-grid2 > li.block-list-a-a__list__item:has(> div[class$="_InRecommend"]) { display: none !important; }
+wpb.shueisha.co.jp#$?#ul.mod-grid2:has(> li.block-list-a-a__list__item > div.block-banner-b-a) { width: 50% !important; }
+wpb.shueisha.co.jp#$?#ul.mod-grid2:has(> li.block-list-a-a__list__item > div[class$="_InRecommend"]) { width: 50% !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/166349
+minkch.com#$#.lsidebar[style^="min-height"] { min-height: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/165829
+soredoko.jp#$##srdk-index-native-pc { display: none !important; }
+soredoko.jp#$##srdk-index-native-pc ~ li.rank-7 { margin-left: 20px !important; }
+soredoko.jp#$##srdk-index-native-pc ~ li.rank-8 { margin-left: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/164977
+allabout.co.jp#$#.aa_footer { padding-bottom: unset !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/165195
+telling.asahi.com#$#.u-mb64 .p-new__row { margin-top: 100px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/164490
+ryukyushimpo.jp#$?#main > .homepage:not(:matches-css(max-width: 1150px)) { margin-top: 0px !important; }
+! placeholder
+vip-front.video.g.fc2.com,video.fc2.com#$#.main_ad_head_wide { padding-top: 0 !important; }
+video.fc2.com#$#.c-ad-103 { height: 0 !important; }
+map.yahoo.co.jp#$#.App__contentsMap[style="height: calc(100% - 50px);"] { height: 100% !important; }
+umaroidblog.com#$##sidebar[style^="height:"] { height: auto !important; }
+maonline.jp#$#.media_article .articlegroups .d-block:not(:first-of-type) { border-top: none !important; padding-top: 0 !important; }
+peko-step.com#$##cgrig_base_pic { grid-auto-rows: auto !important; }
+peko-step.com#$##cgrig_cont { grid-row-start: auto !important; grid-row-end: auto !important; }
+peko-step.com#$##cgrig_left { grid-row-start: 3 !important; grid-row-end: 7 !important; }
+oricon.co.jp#$#.block-sub-recommend[style="margin-top:30px;"] { margin-top: 0 !important; }
+oricon.co.jp#$#.block-sub-ad + .block-sub { margin-top: 0 !important; }
+mapfan.com#$#.side-ad-area.half-margin { margin-top: 0 !important; }
+mapfan.com#$#.nav-menu-width.margin.no-side-margin { margin-top: 0 !important; }
+shirotomaster.com#$#div[style="margin: auto; width: 930px; height: 265px; text-align: center;"] { height: 0 !important; }
+dengekionline.com#$#.gPr.u-mtbM  { margin-top: 0 !important; }
+dengekionline.com#$#.gPr_title.u-ttl01  { margin-top: 0 !important; }
+dengekionline.com#$#.p-dol .gNews_title.u-ttl01 { margin-top: 0 !important; }
+jikayosha.jp#$#@media (min-width: 641px) { .wym-v2022__header.is-scroll-up ~ .wym-v2022__footer-fixed.is-pc-bottom { bottom: 0 !important; } }
+friday.kodansha.co.jp#$#div[class^="detail_photo_"] { height: 100% !important; max-height: calc(100vh - 70px - 20px) !important; }
+friday.kodansha.co.jp#$#img[class^="detail_mainImage"] { max-height: calc(100vh - 70px - 20px) !important; }
+ekr.chosunonline.com,life.chosunonline.com#$#.csh_main { padding-top: 30px !important; }
+www.chosunonline.com#$#.top_banner_area { height: 44px !important }
+mangalove.me#$#.viewer, .viewer .imgWrap, .viewer .lastPage.slick-slide, .viewer .slick-list, .viewer .slick-track, .viewerBody { height: 100% !important; }
+gameranbu.jp#$##sub-col-wrap_top280 { padding-top: 0 !important; }
+kakijun.jp#$##hidari { top: unset !important; }
+gdm.or.jp#$##asideRight .box.bottom { margin-top: 0 !important; }
+barks.jp#$#.c167:nth-child(2) { margin-top: 0 !important; }
+barks.jp#$#.c213:nth-child(2) { margin-top: 0 !important; }
+barks.jp#$#.c422:nth-child(2) { margin-top: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/154258
+hostlove.com#$#body:not(.tp) > div#container > #main.template1 { padding-top: 20px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/153085
+bunshun.jp#$#div[class="block recommend"] { min-height: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/151719
+anime.eiga.com#$##subProgram { margin-top: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/151633
+dailynewsonline.jp#$#body[style*="position"] { position: static !important; }
+! placeholder
+azby.fmworld.net#$#.side_box { padding-top: 0 !important; }
+ameblo.jp#$#._2pnTOjTu { width: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/143727
+ff8clear.net,ff10-hd.com,sheepplus.com,winningpost8.com#$##entry[class^="e"] { padding-bottom: 0 !important; }
+ff8clear.net,ff10-hd.com,sheepplus.com,winningpost8.com#$##new { position: static !important; }
+ff8clear.net,ff10-hd.com,sheepplus.com,winningpost8.com#$##side[class^="s"] { padding-top: 0 !important; }
+ff8clear.net,winningpost8.com#$#div#wrapper.on { padding-top: 450px !important; }
+ff8clear.net,winningpost8.com#$#div.on nav#path { top: 330px !important; }
+ff8clear.net,winningpost8.com#$#div.on h1 { top: 386px !important; }
+dqclear.com#$##right { padding-top: 25px !important; }
+sheepplus.com#$##main { margin-bottom: 0 !important; }
+sheepplus.com#$##side[class^="ad"] { border-top: 0 !important; }
+sheepplus.com#$#.adh { border-top: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/144702
+e-nenpi.com#$#.gadget_topics > div.cont.last-child { height: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/144497
+wazap.com#$#.sub > div.section > span.heading { margin-top: 0 !important; }
+! fix layout
+estate.nikkan.co.jp#$#.center_column { min-height: 1500px!important; }
+twpf.jp#$##signin-with-twitter { margin-bottom: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/142663
+h-pon.doorblog.jp#$#.right-container[style^="position: fixed"] { position: static !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/139546
+[$path=/jp/]goal.com#$#.aside_has-children__Ub7k8 { grid-template-rows: 1fr auto 1fr !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/103233
+4gamer.net#$#.medipartner { position: static !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/138527
+matometanews.com#$##leftbody > div.plugin-memo:first-child { display: none !important; }
+matometanews.com#$##leftbody > div.plugin-memo:last-of-type { display: none !important; }
+matometanews.com#$##left { position: static !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/136499
+jumpmatome2ch.biz#$##body-in > div[class^="d-contents"] { height: auto !important; }
+! fix player
+video.tv-tokyo.co.jp#$##tx7player[style*="opacity: 0."] { opacity: 1 !important; }
+! fix layout of sidebar
+gizmodo.jp#$#main > div.l-generalContent-secondary { position: sticky !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/135390
+colordic.org#$#footer { height: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/134147
+games.yahoo.co.jp#$#.isJack { margin-top: 0!important; }
+! placeholder
+lesson.golfdigest.co.jp,score.golfdigest.co.jp#$##wholeHeaderPane { height: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/132595
+[$path=/\/.+\/map/]9db.jp###container > div#footer
+[$path=/\/.+\/map/]9db.jp#$?#body > div#container > div#contents { margin-bottom: 0 !important; }
+! https://twitter.com/Wataru_Nanase/status/1578703643767083008
+dq-dai.com#$##lower section.character ul.character_list li.standby { opacity: 1 !important; }
+! https://egg.5ch.net/test/read.cgi/software/1659969958/142
+tver.jp#$?#.vjs-text-track-display > div:matches-css(background-color: rgb(0, 0, 0)) { background: none !important; }
+! https://eguchi-hd.co.jp/enelabo-kepco-tour/ modal
+eguchi-hd.co.jp#$#.hustle-popup { display: none !important; }
+eguchi-hd.co.jp#$#.hustle-no-scroll { overflow: auto !important; }
+! hidden button
+uranaitv.jp#$#.fortune-submit { display: block !important; }
+! placeholder
+t-mall.kantangame.com#$#body[style="padding: 0px 0px 154px;"] { padding-bottom: 0 !important; }
+auctions.yahoo.co.jp#$#div[class^="LayoutContentInner-sc"] > div[class^="Promotion-sc"] { grid-template-columns: 1fr 0 !important; }
+avfuuzoku.com#$##top #head { height: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/125758
+news.jorudan.co.jp#$#.ad_common_1_970x250 { min-height: 0 !important; }
+! https://itest.5ch.net/subback/android
+itest.5ch.io#$#.bbsmenu-with-ad { padding-bottom: 0 !important; }
+! when comment form opened
+itest.5ch.io#$##js-forms { height: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/124404
+weather.yahoo.co.jp#$##ydn-bot { visibility: hidden !important; height: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/124335
+supercweather.com#$##adds { display: none !important; }
+supercweather.com#$##content { display: block !important; width: 100% !important; height: 100% !important; }
+! bottom placeholder
+applica.info#$#.l-contentsSub[style^="height"] { height: auto !important; }
+! overlay if scrolled to the bottom
+twivideo.net#$#.__isboostReturnAd { display: none !important; }
+twivideo.net#$##is_w_area { display: none !important; }
+twivideo.net#$#.inv_scroll_cancel { overflow: auto !important; height: auto !important; }
+! kabegamikan.com leftover
+kabegamikan.com#$#td[width="340"] { display: none !important; }
+kabegamikan.com#$#div[style="width:730px;font-size:11pt;"] > table[width="730"] { width: 380px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/121344
+news-postseven.com#$#.su-modal { display: none !important; }
+news-postseven.com#$#body[style^="overflow:"] { overflow: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/119817
+minkabu.jp#$#.ly_content_wrapper { margin-bottom: 0!important; }
+! overlay leftover
+naitter.hippy.jp,pictab.art,my-nikki.net,ero-gazou.jp#$#.pum-overlay { display: none !important; }
+naitter.hippy.jp,pictab.art,my-nikki.net,ero-gazou.jp#$#.pum-open { overflow: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/117400
+mapion.co.jp#$##map_yads { display: none !important; }
+mapion.co.jp#$##result_nav { bottom: 0 !important; }
+! https://github.com/uBlockOrigin/uAssets/issues/12993
+teny.co.jp#$#.s-ad { height: 1px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/115551
+roote.ekispert.net#$##bottom_area { height: 1px !important; }
+! placeholder
+ovninavi.com#$##cb-container { padding-top: 110px !important; }
+ovninavi.com#$#.ovni-header { height: auto !important; }
+medibang.com#$##content { padding-bottom: 354px !important; }
+piapro.jp#$##footer { height: auto !important; }
+piapro.jp#$##main[style="padding-bottom:300px;"] { padding-bottom: 170px !important; }
+! placeholder on top page
+minpo.jp#$#.ads970 { height: 0 !important; min-height: 0 !important; }
+! placeholder on floating nav
+young-machine.com#$#.wym-v2022__header.is-scroll-up ~ .wym-v2022__footer-fixed { bottom: 0 !important; }
+! leftover and layout fixes
+bbs4.mozakin.com#$#.thread_txad { border: 0 !important; }
+bbs4.mozakin.com#$#.adsepa { height: 0 !important; }
+bbs4.mozakin.com#$#.reply_txad { border: 0 !important; }
+mozakin.com#$##wrap01 { height: 2205px !important; }
+mozakin.com#$#.tabpain[style="left: -260px; top: 280px;"] { top: 0 !important; }
+mozakin.com#$#.tabpain[style="top: 550px; left: 0px;"] { top: -1120px !important; }
+! placeholder
+okwave.jp#$#.following_buttons_upper { bottom: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/101983
+blog.livedoor.jp#$?#.plugin-memo > div.side > div.gad-fixed:upward(2) { display: none !important; }
+[$path=/goldennews]blog.livedoor.jp#$##side-column[style^="position: fixed"] { position: static!important; }
+! main-hrs-game.ssl-lolipop.jp
+hrs-game.main.jp,main-hrs-game.ssl-lolipop.jp#$#.ads_native { visibility: hidden !important;margin: 0 !important; }
+! bottom placeholder on comic viewer
+firecross.jp#$##stage { max-height: 100% !important; }
+! e.g. https://novel.prcm.jp/novel/4sbJOxhOgFkRTVqwSq3E/chapter/11DldoiXpkz0nEVk4erG
+novel.prcm.jp#$##gn_interstitial_area { display: none!important; }
+novel.prcm.jp#$#body.app-scroll-lock { position: relative!important;overflow-y: unset !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/106292
+blog.livedoor.jp#$?#.plugin-memo > div.side > div.ad-center:upward(2) { visibility: hidden!important;height: 0 !important;}
+! https://github.com/AdguardTeam/AdguardFilters/issues/106293
+gizmodo.jp#$#.s-body-ad-wrapper { display: none!important; }
+gizmodo.jp#$#.l-generalContent-secondary[style="position: unset;"] { position: sticky !important; }
+! placeholder on top
+security-next.com#$#.header { height: 50px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/102812
+gigafile.nu#$##wrap_contents_box { min-height: 676px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/104005
+freesoft-100.com#$##bglink { display: none !important; }
+freesoft-100.com#$#body { background: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/102498
+sunri2525.blog.jp#$#._fukugan_grid { height: auto!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/97959
+hiraganakeyaki.blog.jp#$#.right-column-inner > div.plugin-memo:first-child { display: none !important; }
+hiraganakeyaki.blog.jp#$#.right-column-inner > div.plugin-memo:last-of-type { display: none !important; }
+hiraganakeyaki.blog.jp#$#.right-container[style^="position: fixed"] { position: static !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/95771
+blog.fc2.com#$##main-container { padding: 0px 60px 80px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/95936
+duellinks.doorblog.jp#$#.l-sidebar-b[style^="position: fixed"] { position: static !important; }
+duellinks.doorblog.jp#$#.l-sidebar-b > div.plugin-memo { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/94576
+news.2chblog.jp#$##sub > div.column-inner > div.column-inner-2 > div.plugin-memo:nth-child(-n+2) { display: none !important; }
+news.2chblog.jp#$##sub > div.column-inner > div.column-inner-2 > div.plugin-memo:last-of-type { display: none !important; }
+news.2chblog.jp#$##side-r { position: static !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/94352
+shikaku2ch.doorblog.jp#$##adnone { height: 724px !important; }
+shikaku2ch.doorblog.jp#$##extra > div.column-inner > div.column-inner-2 > div.plugin-memo:first-child { display: none !important; }
+shikaku2ch.doorblog.jp#$##extra > div.column-inner > div.column-inner-2 > div.plugin-memo:last-of-type { display: none !important; }
+! placeholder
+otajo.jp#$##writerprofile + aside.adsense { height: 90px !important; width: 0 !important; }
+togetter.com#$#.clearfix.contents { min-height: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/92507
+gendai.media#$#.sideContents.ie-sticky[style$="min-height: 1500px;"] { min-height: auto !important; }
+gendai.media#$#.blockContainer[style$="-60px auto;"] > div[style="min-height: 90px;"] { min-height: 1px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/88158
+battlecats-db.com#$#.adsbygoogle { position: absolute!important;left: -4000px !important; }
+! cosp.jp foot space
+cosp.jp#$#.latestnewstable2014[height^="1"] { height: auto !important; }
+! otonanswer.jp bottom space
+otonanswer.jp#$#.side[style^="height"] { height: auto !important; }
+! broken sidebar at https://ameblo.jp/mammy-boco/
+ameblo.jp#$##subAInner[style] { position: static !important;margin-top: auto !important; }
+! placeholder
+figgy.jp#$#.adBillBoardPC { min-height: 0 !important }
+gamer.ne.jp,onlinegamer.jp#$#.adBillboard_pc { height: 0 !important; min-height: 0 !important; margin-bottom: 0 !important; }
+! occasinal interstitial ad leftover
+yamareco.com#$##ad01 { display: none!important; }
+yamareco.com#$#.modal-backdrop { display: none!important; }
+yamareco.com#$#body.header_bg_ad.modal-open { padding-right: 0 !important; overflow: auto!important; }
+! https://minigame.aeriagames.jp/games/top/ae-tpgs-043
+minigame.aeriagames.jp#$##aeriaGamesCenterAd { display: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/79889
+pokemon-matome.net#$##header_rtranking { top: 120px !important; }
+pokemon-matome.net#$#div[id^="container_in"] { margin-top: 240px !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/76774
+asahi.com#$#.vjs-modal-dialog.vjs-error-display { display: none !important; }
+asahi.com#$#.vjs-controls-disabled.vjs-error .vjs-control-bar { display: block !important; }
+! automaton-media.com ads
+automaton-media.com#$#body { background: none !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/109834
+! video.fc2.com placeholder
+vip-front.video.g.fc2.com,ideo.laxd.com,video.fc2.com#$#.app-container[aria-expanded="false"] section.with-ad { width: calc(100% - 20px) !important; }
+vip-front.video.g.fc2.com,video.fc2.com#$#.with-ad[data-layout="list"] .main-header { width: 100% !important; }
+vip-front.video.g.fc2.com,video.fc2.com#$#.with-ad[data-layout="list"][data-section-type="new-video"] .content-wrap:nth-child(-n+2) { width: 100% !important; }
+! mail.yahoo.co.jp placeholder
+mail.yahoo.co.jp#$#body.withsky div#shellcontent[style] { right: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/72416
+news.mynavi.jp#$#.articleList-attention[style^="min-height"] { min-height: auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/60234
+sp.jp.wazap.com#$#.gmoam_outer_wrapper { display: none !important; }
+sp.jp.wazap.com#$#body[style="position: fixed;"] { position: static !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/59739
+tv-asahi.co.jp#$##common-header > div[class^="common-header-pc-"] { padding-top: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/58587
+buhidoh.net#$##center-left { height: auto !important; }
+!
+! fix blog sidebar
+nwknews.jp#$##extra { position: static !important; }
+gadget2ch.com#$##sidebar { position: static !important; }
+nandemo-uketori.com,watarukiti.com,saikyo-jump.com#$#.right-container { position: static !important; }
+kosoch.com#$##plugin2[style^="position: fixed"] { position: static !important; }
+[$path=/kinisoku]blog.livedoor.jp#$##aside[style] { position: static !important; }
+anige-sokuhouvip.com#$##scroll.fixed { position: static !important; }
+itaishinja.com,digital-thread.com,kyousoku.net,oryouri.2chblog.jp#$##sub { position: static !important; }
+gahalog.2chblog.jp#$##sidebar[style^="position: fixed"] { position: static !important; }
+itainews.com#$##left[style^="position: fixed"] { position: static !important; }
+takenokosokuhou.com#$#.fix_box-m { position: static !important; }
+nicovideo.jp#$#.BottomContainer.InView { min-height:auto !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/34774
+otakomu.jp,blog.esuteru.com#$#.jackFix + div.siteContent { margin-top: 0 !important; }
+otakomu.jp,blog.esuteru.com#$#.siteRanking-main { margin-left: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/pull/131231
+otakomu.jp#$#.siteRanking-main { margin-left: 0!important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/26823
+hostlove.com#$##index_nav > h1 { padding-top: 30px!important; }
+!#if (ext_ublock)
+! aglint-disable-next-line no-unsupported-css-pseudo-class
+jikayosha.jp##.wym-v2022__header.is-scroll-up ~ .wym-v2022__footer-fixed.is-pc-bottom:matches-media((min-width: 641px)):style(bottom: 0 !important;)
+!#endif
+!
+!-------------------
+!-------HTML--------
+!-------------------
+!
+!
+! popunder
+wav.tv$$div[class="adv-popup"]
+! https://github.com/tofukko/filter/issues/69
+kuruma-news.jp,magmix.jp,trafficnews.jp$$div[data-history="photo_extra"]

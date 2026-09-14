@@ -1,0 +1,89 @@
+!
+! This section contains the list of rules that fix the problems caused by incorrect blocking of in-page popups.
+! At the bottom of this file, you can find the allowlist that fixes issues caused by the rules from this file.
+!
+! Good: @@||popups.org^$domain=example.org
+! Bad:  ||example.org^
+!
+! SECTION: Popups - Allowlist
+!
+! https://github.com/AdguardTeam/AdguardFilters/issues/238211
+@@||immobilienscout24.de^$permissions=identity-credentials-get=()
+! https://journals.sagepub.com/doi/full/10.1177/02783649241312698 "View all authors and affiliations"
+@@||journals.sagepub.com^$permissions=identity-credentials-get=()
+! https://github.com/AdguardTeam/AdguardFilters/issues/88593
+@@||bild.de^$permissions=identity-credentials-get=()
+@@||welt.de^$permissions=identity-credentials-get=()
+! https://github.com/AdguardTeam/AdguardFilters/issues/230327
+@@||abacus.api.useinsider.com/get-purchase-stats$domain=rossmann.com.tr
+! https://github.com/AdguardTeam/AdguardFilters/issues/226716
+@@||script.wikia.nocookie.net/fandom-ae-assets/odyssey/ad-engine/production/main.js$domain=metacritic.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/225720
+@@||salesmanago.pl/static/sm.js$domain=puccini.pl
+! https://github.com/AdguardTeam/AdguardFilters/issues/224361
+@@||powr.io/plugins/form-builder/wix_cached_view$domain=artroundtennessee.org
+! https://github.com/AdguardTeam/AdguardFilters/issues/224028
+@@||tracklib.com^$permissions=identity-credentials-get=()
+! https://github.com/AdguardTeam/AdguardFilters/issues/220673
+@@||viki.com^$permissions=identity-credentials-get=()
+! https://github.com/AdguardTeam/AdguardFilters/issues/210526
+@@||pinterest.com^$permissions=identity-credentials-get=()
+! https://github.com/AdguardTeam/AdguardFilters/issues/205224
+@@||cdn-hainf.nitrocdn.com/*/assets/static/optimized/$domain=motionhealth.com.au
+! https://github.com/AdguardTeam/AdguardFilters/issues/214649
+!+ NOT_OPTIMIZED
+@@||tennislegend.fr/wp-content/plugins/thrive-leads/js/frontend.min.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/202059
+tb.pro,thundermail.com#@##mc_embed_signup
+! https://github.com/uBlockOrigin/uAssets/issues/26606
+! TODO: remove when FireFox will support `permissions`
+!+ PLATFORM(ext_ff, ext_ublock)
+@@||inducks.org^$permissions=identity-credentials-get=()
+! https://github.com/AdguardTeam/AdguardFilters/issues/193384
+@@||fregat.com/wp-content/plugins/popup-maker/assets/js/site.min.js
+! ttk-com.ru - fix software order
+@@||ttk-com.ru/wp-content/plugins/popup-maker/assets/js/site.min.js
+! https://github.com/uBlockOrigin/uAssets/issues/24899
+@@||sdk.iad-*.braze.com/api/v3/data/|$xmlhttprequest,domain=dairyqueen.com
+@@||sdk.iad-*.braze.com/api/v3/content_cards/sync|$xmlhttprequest,domain=dairyqueen.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/180566
+@@||gstatic.com/uservoice/surveys/resources/prod/js/survey$domain=labs.google.com
+labs.google.com#@##google-hats-survey
+! https://github.com/AdguardTeam/AdguardFilters/issues/175204
+@@||api.flocktory.com/v2/loader.js$domain=citilink.ru
+! unblock featured content
+@@||sdk.*.braze.com^$domain=forum.paradoxplaza.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/164746
+@@||technode.com/wp-content/plugins/newspack-popups/dist/view.css
+! https://github.com/uBlockOrigin/uAssets/issues/16321
+@@||centrisfcu.org/wp-content/plugins/popup-maker/$domain=centrisfcu.org
+! https://github.com/uBlockOrigin/uAssets/issues/15647
+@@||popup.wisepops.com/my-wisepop$domain=bluecinema.ch
+! https://github.com/AdguardTeam/AdguardFilters/issues/126265
+@@||celloworld.com/wp-content/plugins/popup-maker/assets/js/vendor/mobile-detect.min.js
+! https://twitter.com/nkym4575/status/1504995658675093505
+@@||delivery.satr.jp^$script,domain=mieru-ca.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/91863
+!+ PLATFORM(ios, ext_android_cb)
+@@||libertyparkmusic.com/wp-content/plugins/thrive-leads/
+! https://github.com/AdguardTeam/AdguardFilters/issues/91825
+@@||kbb.com/wp-content/themes/Newspaper-child/assets/KBBLogoRefresh.svg$domain=kbb.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/85886
+@@||pc-builds.com/wp-content/themes/Newspaper-child/js/calculatorInitV2.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/82424
+@@||novadex.com/wp-content/plugins/arscode-ninja-popups/js/ninjapopups.js
+! https://github.com/AdguardTeam/AdguardFilters/issues/64941
+@@||a.mailmunch.co/app/$domain=getfitwithjen.net
+! https://github.com/ryanbr/fanboy-adblock/issues/1403
+@@||widget.pico.tools/static/js/bundle.js$domain=escapistmagazine.com
+@@||widget.pico.tools/widget_frame.html$domain=escapistmagazine.com
+! https://github.com/AdguardTeam/AdguardFilters/issues/56615
+@@||downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js$domain=thisisbarry.com
+! https://forum.adguard.com/index.php?threads/23138/
+@@||photoshoptutorials.ws/wp-content/plugins/arscode-ninja-popups/js/jquery.placeholder.js
+!
+@@||my.leadpages.net/template/$script,domain=weddingjams.com|thesaturdaypaper.com.au|careercontessa.com
+@@||my.leadpages.net^*/public/
+! NOTE: Section end
+! !SECTION: Popups - Allowlist
+!

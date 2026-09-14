@@ -1,0 +1,56 @@
+!
+! This section contains the list of ad blocking rules that fall under "advanced" category.
+! By advanced we mean the following rule types: CSS, scriptlets, HTML filtering (`$$` marker), JS.
+!
+! Good: example.org#$##rek { display: none !important; }; example.org#%#//scriptlet('set-cookie', 'ad', '0'); example.org$$script[tag-content="ad"][max-length="3000"].
+! Bad: example.org###rek (should be in specific.txt)
+!
+!-------------------
+!-------JS----------
+!-------------------
+!
+! prevent ad requests
+aniqit.com#%#//scriptlet('json-prune', 'vast')
+! https://github.com/AdguardTeam/AdguardFilters/issues/154442
+ain.ua#%#//scriptlet('abort-current-inline-script', 'jQuery', 'link_br')
+! https://github.com/AdguardTeam/AdguardFilters/issues/96330
+classicalmusicnews.ru,agroreview.com,agronews.ua#%#//scriptlet('abort-on-property-read', 'wpsite_clickable_data')
+! uCoz/clan.su popup(+ rules in 'general_url.txt')
+legion-rus.clan.su,narod.ru,at.ua,clan.su,igrul-ka.ru,selezen.net,my1.ru,do.am,moy.su,jetvis.ru,fanofnfs.3dn.ru,kubik3.ru,paravozik.tv,greenflash.su,play-force.ru,megomult.ru,rub.org.ua,elektronika56.ru,staroetv.su,pro-zakupki.ru,kino-torrent.net,tc-image.3dn.ru,pokatushki-pmr.ru#%#//scriptlet("abort-on-property-read", "u_global_data")
+! popups - `ads_script`
+tapochek.net,fanofnfs.3dn.ru#%#//scriptlet("abort-on-property-read", "ads_script")
+! utarget
+jetvis.ru#%#//scriptlet("abort-on-property-read", "u_global_data")
+narod.ru,at.ua#%#//scriptlet("abort-current-inline-script", "u_global_data")
+nnmclub.to,doramakun.ru,kinogo.eu#%#//scriptlet("abort-on-property-read", "utarget_script")
+! RedTram (`/ru-n4p/`)
+rivnepost.rv.ua,telegraf.in.ua,vlast.kz,mignews.com.ua,sibkray.ru,kursiv.kz,livekavkaz.ru,times.km.ua,grad.ua,altyn-orda.kz,viva.ua,newsoneua.tv,zikua.news,cikavosti.com,womo.ua,4studio.com.ua,tverigrad.ru,kapital-rus.ru,volyninfa.com.ua,gorodkiev.com.ua,vsviti.com.ua,tenews.org.ua,provce.ck.ua,portal.lviv.ua,rivnenews.com.ua,teren.in.ua,prichernomorie.com.ua,marieclaire.ua,politnavigator.net,redpost.com.ua,dv-gazeta.info,elle.ua,womanel.com,nr2.com.ua,plitkar.com.ua,zik.ua,molbuk.ua,sud.ua,newsua.one,tele.ru,pingvin.pro,glavnoe.ua,glavpost.com,enovosty.com,bagnet.org,versii.if.ua,comments.ua,cbn.com.ua,comments.ua,otvetnavse.com,news.dks.com.ua,golos.te.ua,procherk.info,cheline.com.ua,4mama.ua,ogo.ua,rusjev.net,fakty.ua,fainaidea.com,unn.com.ua#%#//scriptlet('abort-current-inline-script', 'document.createElement', '/загрузка/')
+!
+!-------------------
+!-------CSS---------
+!-------------------
+!
+! promo at the main page
+!#if (!adguard_app_android && !adguard_app_ios)
+ostrovok.ru#$#.homepage-promo-wrapper { display: none !important; }
+ostrovok.ru#$#.homepage-howdy-title { color: black !important; }
+ostrovok.ru#$#.homepage-howdy { height: auto !important; }
+!#endif
+! https://github.com/AdguardTeam/AdguardFilters/issues/147690
+dumskaya.net#$##nav { padding-top: 0 !important; }
+! https://github.com/AdguardTeam/AdguardFilters/issues/103305
+! Группа компаний Актион
+!#if (!adguard_app_android && !adguard_app_ios)
+kom-dir.ru,gd.ru,buhsoft.ru,business.ru,26-2.ru,fd.ru,pro-personal.ru#$#.topAdvertize__wrapper { display: none !important; }
+kom-dir.ru,gd.ru,buhsoft.ru,business.ru,26-2.ru,fd.ru,pro-personal.ru#$#body.branded { margin-top: 60px !important; }
+!#endif
+!
+talks.happymonday.com.ua,unisender.com#$##popmechanic-snippet { display: none!important; }
+talks.happymonday.com.ua,unisender.com#$#body { overflow: visible!important; }
+!
+!-------------------
+!-------HTML--------
+!-------------------
+!
+! https://forum.adguard.com/index.php?threads/26986/
+fishki.net,hronika.info,meta.ua$$script[tag-content="window.AD_DOMAIN_URL_SYS"][max-length="500"]
