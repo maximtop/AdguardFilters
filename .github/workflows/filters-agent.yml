@@ -39,6 +39,11 @@ jobs:
             - name: Analyze the issue
               id: agent
               uses: maximtop/filters-agent@main
+              # The action's default completion cap for vision calls is the ceiling of the model it
+              # was tuned on (384000). The vision model below stops at 65536, and a gateway that
+              # routes by the requested cap finds no endpoint for a larger one.
+              env:
+                  LLM_VISION_MAX_OUTPUT_TOKENS: '65536'
               with:
                   # Mandatory in every run: the action only serves GitHub-read modes, and the report
                   # comment posts through this token (the issues: write permission above).
@@ -49,7 +54,7 @@ jobs:
                   llmBaseUrl: https://openrouter.ai/api/v1
                   llmApiKey: ${{ secrets.FILTERS_AGENT_LLM_API_KEY }}
                   llmModel: deepseek/deepseek-v4.1-flash
-                  llmVisionModel: deepseek/deepseek-v4.1-flash
+                  llmVisionModel: google/gemini-3.8-flash
                   llmProviderRouting: '{"ignore":["Together"]}'
                   # The label event carries the issue number directly; a manual dispatch carries it
                   # as the issueNumber input instead.
