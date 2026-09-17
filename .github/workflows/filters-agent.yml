@@ -55,7 +55,10 @@ jobs:
                   llmApiKey: ${{ secrets.FILTERS_AGENT_LLM_API_KEY }}
                   llmModel: deepseek/deepseek-v4.1-flash
                   llmVisionModel: google/gemini-3.8-flash
-                  llmProviderRouting: '{"ignore":["Together"]}'
+                  # Alibaba filters model output for content and fails the request ("Output data may
+                  # contain inappropriate content"): a filters agent reads whatever page was reported,
+                  # and a news front page with crime headlines was enough to end a run on 2026-09-17.
+                  llmProviderRouting: '{"ignore":["Together","Alibaba"]}'
                   # The label event carries the issue number directly; a manual dispatch carries it
                   # as the issueNumber input instead.
                   issueNumber: ${{ github.event.issue.number || inputs.issueNumber }}
