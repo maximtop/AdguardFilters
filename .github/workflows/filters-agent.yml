@@ -39,11 +39,6 @@ jobs:
             - name: Analyze the issue
               id: agent
               uses: maximtop/filters-agent@main
-              # The action's default completion cap for vision calls is the ceiling of the model it
-              # was tuned on (384000). The vision model below stops at 65536, and a gateway that
-              # routes by the requested cap finds no endpoint for a larger one.
-              env:
-                  LLM_VISION_MAX_OUTPUT_TOKENS: '65536'
               with:
                   # Mandatory in every run: the action only serves GitHub-read modes, and the report
                   # comment posts through this token (the issues: write permission above).
@@ -55,6 +50,10 @@ jobs:
                   llmApiKey: ${{ secrets.FILTERS_AGENT_LLM_API_KEY }}
                   llmModel: deepseek/deepseek-v4.1-flash
                   llmVisionModel: google/gemini-3.8-flash
+                  # The action's default completion cap is the ceiling of the model it was tuned on
+                  # (384000). This vision model stops at 65536, and a gateway that routes by the
+                  # requested cap finds no endpoint for a larger one.
+                  llmVisionMaxOutputTokens: '65536'
                   # Alibaba filters model output for content and fails the request ("Output data may
                   # contain inappropriate content"): a filters agent reads whatever page was reported,
                   # and a news front page with crime headlines was enough to end a run on 2026-09-17.
