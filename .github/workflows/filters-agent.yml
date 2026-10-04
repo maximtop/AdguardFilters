@@ -22,6 +22,12 @@ permissions:
     contents: read
     issues: write
 
+# The AdGuard CLI executor activates the licence on one device per run and resets it at the end;
+# one run at a time keeps the licence within its device limit. Queued runs wait, never cancel.
+concurrency:
+    group: filters-agent-adguard-cli
+    cancel-in-progress: false
+
 jobs:
     analyze:
         # Manual dispatch always runs; an issue event runs only for the label this workflow owns.
@@ -43,21 +49,21 @@ jobs:
                   # Mandatory in every run: the action only serves GitHub-read modes, and the report
                   # comment posts through this token (the issues: write permission above).
                   githubToken: ${{ github.token }}
-                  # Only the API key is a secret; the endpoint and the two model slugs below are
-                  # plain values in this file. Replace all three with your own provider's — shown
-                  # here in the shape an OpenRouter-compatible endpoint takes.
-                  llmBaseUrl: https://openrouter.ai/api/v1
+                  # TokenGuard through its public address. The address carries its own credential, so
+                  # it is a secret like the key: GitHub masks both in the log, and the action redacts
+                  # both from the run traces it uploads.
+                  llmBaseUrl: ${{ secrets.FILTERS_AGENT_LLM_BASE_URL }}
                   llmApiKey: ${{ secrets.FILTERS_AGENT_LLM_API_KEY }}
-                  llmModel: deepseek/deepseek-v4.1-flash
-                  llmVisionModel: google/gemini-3.8-flash
+                  llmModel: deepseek-v4-flash
+                  llmVisionModel: gemini-3.7-flash
                   # The action's default completion cap is the ceiling of the model it was tuned on
                   # (384000). This vision model stops at 65536, and a gateway that routes by the
                   # requested cap finds no endpoint for a larger one.
                   llmVisionMaxOutputTokens: '65536'
-                  # Alibaba filters model output for content and fails the request ("Output data may
-                  # contain inappropriate content"): a filters agent reads whatever page was reported,
-                  # and a news front page with crime headlines was enough to end a run on 2026-09-17.
-                  llmProviderRouting: '{"ignore":["Together","Alibaba"]}'
+                  # Both blockers verify the rule: the AdGuard Browser Extension, and AdGuard CLI as a
+                  # filtering proxy. Drop one name to run the other alone; unset runs the extension.
+                  executors: browser_extension,adguard_cli
+                  adguardLicenseKey: ${{ secrets.ADGUARD_LICENSE_KEY }}
                   # The label event carries the issue number directly; a manual dispatch carries it
                   # as the issueNumber input instead.
                   issueNumber: ${{ github.event.issue.number || inputs.issueNumber }}
