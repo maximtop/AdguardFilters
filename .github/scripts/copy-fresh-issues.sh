@@ -49,11 +49,30 @@ if [[ ${#picked[@]} -eq 0 ]]; then
     exit 0
 fi
 
+# Start the agent run on one fork issue and wait until it ends. Runs go one at a time: the agent
+# workflow's concurrency group keeps a single pending run and cancels any older pending one, so
+# dispatching them all at once would lose every run but the first and the last.
+run_agent() {
+    local fork_number="$1" before run_id
+    before="$(gh run list --repo "${fork}" --workflow filters-agent.yml --limit 1 \
+        --json databaseId --jq '.[0].databaseId // 0')"
+    gh workflow run filters-agent.yml --repo "${fork}" -f "issueNumber=${fork_number}"
+    for _ in $(seq 1 30); do
+        run_id="$(gh run list --repo "${fork}" --workflow filters-agent.yml --limit 1 \
+            --json databaseId --jq '.[0].databaseId // 0')"
+        [[ "${run_id}" != "${before}" ]] && break
+        sleep 5
+    done
+    echo "Started filters-agent run ${run_id} on #${fork_number}"
+    gh run watch "${run_id}" --repo "${fork}" --interval 60 > /dev/null || true
+    echo "Run ${run_id}: $(gh run view "${run_id}" --repo "${fork}" --json conclusion --jq .conclusion)"
+}
+
 for number in "${picked[@]}"; do
     # The label alone would start no run: events the workflow token causes start no workflows.
     created="$(bash "${script_dir}/copy-upstream-issue.sh" "${number}" "${fork}")"
     echo "${created}"
     fork_number="$(sed -n 's#^Created .*/issues/\([0-9]*\)$#\1#p' <<< "${created}")"
-    gh workflow run filters-agent.yml --repo "${fork}" -f "issueNumber=${fork_number}"
-    echo "Started filters-agent on #${fork_number} (upstream #${number})"
+    echo "Copied upstream #${number} as #${fork_number}"
+    run_agent "${fork_number}"
 done

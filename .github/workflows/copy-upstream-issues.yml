@@ -1,6 +1,6 @@
 # Feed the filters-agent test runs: copy a few fresh AdguardFilters reports into this fork every
-# day and start a filters-agent run on each. Runs queue behind each other through the agent
-# workflow's own concurrency group, so the AdGuard licence is held by one run at a time.
+# day and run filters-agent on each, one after another, so the AdGuard licence is held by one run
+# at a time.
 name: 'copy upstream issues'
 
 on:
@@ -27,6 +27,8 @@ permissions:
 jobs:
     copy:
         runs-on: ubuntu-latest
+        # Waits for every agent run it starts, one after another.
+        timeout-minutes: 300
         steps:
             - uses: actions/checkout@v6
               with:
