@@ -1,5 +1,9 @@
 # Feed the filters-agent test runs: every hour, copy each new open AdguardFilters report into this
 # fork and run filters-agent on it. At most five runs go at once, to keep the LLM gateway load even.
+#
+# GitHub does not run scheduled workflows in a fork (the cron below never fired here), so each run
+# dispatches the next one, which waits an hour before copying. A manual dispatch starts the chain
+# again if it ever breaks.
 name: 'copy upstream issues'
 
 on:
@@ -14,9 +18,14 @@ on:
                 description: 'Copy reports opened in the last this many hours'
                 required: false
                 default: '4'
+            waitMinutes:
+                description: 'Minutes to wait before copying; the chained run passes 60'
+                required: false
+                default: '0'
 
-# A copy that is still waiting for run slots finishes before the next starts, so two copies never
-# race on the same report.
+# A copy that is still waiting finishes before the next starts, so two copies never race on the same
+# report. GitHub keeps one run pending and cancels older pending ones, so extra dispatches collapse
+# into one chain.
 concurrency:
     group: copy-upstream-issues
     cancel-in-progress: false
@@ -25,15 +34,21 @@ permissions:
     # Recording each copy in copies.tsv on the filters-agent-copies branch.
     contents: write
     issues: write
-    # Starting the agent workflow by dispatch: a label the workflow token adds starts nothing.
+    # Starting the agent workflow and the next copy by dispatch: a label the workflow token adds
+    # starts nothing, while a dispatch does.
     actions: write
 
 jobs:
     copy:
         runs-on: ubuntu-latest
-        # Waits for a free run slot before each copy.
-        timeout-minutes: 180
+        # The hour of waiting, then a free run slot before each copy.
+        timeout-minutes: 240
         steps:
+            - name: Wait for the next hour of reports
+              env:
+                  WAIT_MINUTES: ${{ inputs.waitMinutes || '0' }}
+              run: sleep "$((WAIT_MINUTES * 60))"
+
             - uses: actions/checkout@v6
               with:
                   persist-credentials: false
@@ -44,3 +59,13 @@ jobs:
                   GH_TOKEN: ${{ github.token }}
                   SINCE_HOURS: ${{ inputs.sinceHours || '4' }}
               run: bash .github/scripts/copy-fresh-issues.sh "${SINCE_HOURS}"
+
+            # Runs even when the copy failed, so one bad hour does not end the chain. Cancelling a
+            # run, or disabling this workflow, stops it.
+            - name: Start the next hourly copy
+              if: ${{ !cancelled() }}
+              env:
+                  GH_TOKEN: ${{ github.token }}
+              run: |
+                  gh workflow run copy-upstream-issues.yml --repo "${GITHUB_REPOSITORY}" \
+                      --ref "${GITHUB_REF_NAME}" -f waitMinutes=60
