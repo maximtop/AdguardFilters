@@ -3,8 +3,9 @@
 # Windows or Mac into this fork and start a filters-agent run on each, so both the extension route
 # and the AdGuard CLI module keep getting real issues.
 #
-# Reports maintainers already closed are copied too: the fix they shipped is what the run's answer
-# compares against. A report already copied (its copy names it as `AdguardTeam/AdguardFilters#N`) is never copied again.
+# Reports maintainers already closed are copied too: their fix can be compared with the run's
+# answer. A report already copied (its copy names it as `AdguardTeam/AdguardFilters#N`) is never
+# copied again.
 #
 # Usage: copy-fresh-issues.sh <since-hours>
 #   Copies reports opened in the last <since-hours> hours.
