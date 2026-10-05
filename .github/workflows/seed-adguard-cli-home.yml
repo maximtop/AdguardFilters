@@ -1,0 +1,29 @@
+# Activates the AdGuard licence once and saves the activated CLI home to this fork's Actions cache.
+# Every filters-agent run restores the newest seed and shares its one licence device, so runs need
+# not wait for each other.
+#
+# Run it by hand when runs log "seeded licence not active", after a CLI release bump, or after the
+# cache was evicted (seven days without a run). Each seed binds one more licence device: unlink the
+# replaced one in the AdGuard account.
+#
+# Any workflow in this fork can restore the seed. Do not add workflows that run code from pull
+# requests.
+name: 'seed the AdGuard CLI home'
+
+on:
+    workflow_dispatch:
+
+permissions:
+    contents: read
+
+jobs:
+    seed:
+        runs-on: ubuntu-latest
+        timeout-minutes: 15
+        steps:
+            - name: Activate the licence once and save the seed
+              uses: maximtop/filters-agent/adguard-cli@blocker-modules
+              env:
+                  ADGUARD_LICENSE_KEY: ${{ secrets.ADGUARD_LICENSE_KEY }}
+              with:
+                  seedHome: 'true'

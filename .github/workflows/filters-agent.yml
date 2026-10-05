@@ -22,11 +22,8 @@ permissions:
     contents: read
     issues: write
 
-# The AdGuard CLI executor activates the licence on one device per run and resets it at the end;
-# one run at a time keeps the licence within its device limit. Queued runs wait, never cancel.
-concurrency:
-    group: filters-agent-adguard-cli
-    cancel-in-progress: false
+# No concurrency limit: every run restores the seeded AdGuard CLI home (seed-adguard-cli-home.yml)
+# and shares its one licence device, so runs go in parallel.
 
 jobs:
     analyze:
@@ -41,15 +38,16 @@ jobs:
                   persist-credentials: false
 
             # The AdGuard CLI blocker module: a pinned, verified CLI release and the module that drives
-            # it, installed into the workspace. The action image itself carries no CLI.
+            # it, installed into the workspace, plus the seeded CLI home restored from the cache. The
+            # action image itself carries no CLI.
             - name: Install the AdGuard CLI module
               id: adguard-cli
-              uses: maximtop/filters-agent/adguard-cli@main
+              uses: maximtop/filters-agent/adguard-cli@blocker-modules
 
-            # A released tag (for example @v1) replaces @main once one exists.
+            # A released tag (for example @v1) replaces the branch once one exists.
             - name: Analyze the issue
               id: agent
-              uses: maximtop/filters-agent@main
+              uses: maximtop/filters-agent@blocker-modules
               # Secrets a plugged-in module needs reach it through the step's env, named by its
               # manifest; the action passes the module nothing else secret.
               env:
@@ -69,6 +67,9 @@ jobs:
                   # (384000). This vision model stops at 65536, and a gateway that routes by the
                   # requested cap finds no endpoint for a larger one.
                   llmVisionMaxOutputTokens: '65536'
+                  # TokenGuard sometimes cuts a response off mid-stream twice in a row; a third
+                  # attempt keeps the run from ending without an answer.
+                  llmRequestMaxAttempts: '3'
                   # Both blockers verify the rule: the built-in AdGuard Browser Extension, and the
                   # AdGuard CLI module as a filtering proxy. Drop one name to run the other alone.
                   blockerModules: ${{ steps.adguard-cli.outputs.manifest }}
