@@ -1,0 +1,42 @@
+# Feed the filters-agent test runs: copy a few fresh AdguardFilters reports into this fork every
+# day and start a filters-agent run on each. Runs queue behind each other through the agent
+# workflow's own concurrency group, so the AdGuard licence is held by one run at a time.
+name: 'copy upstream issues'
+
+on:
+    schedule:
+        # Daily, after the European morning brings in new reports.
+        - cron: '0 9 * * *'
+    workflow_dispatch:
+        inputs:
+            extensionCount:
+                description: 'Reports from the AdGuard Browser Extension to copy'
+                required: false
+                default: '2'
+            desktopCount:
+                description: 'Reports from AdGuard for Windows or Mac to copy'
+                required: false
+                default: '2'
+
+permissions:
+    contents: read
+    issues: write
+    # Starting the agent workflow by dispatch: a label the workflow token adds starts nothing.
+    actions: write
+
+jobs:
+    copy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v6
+              with:
+                  persist-credentials: false
+                  sparse-checkout: .github/scripts
+
+            - name: Copy fresh reports and start runs
+              env:
+                  GH_TOKEN: ${{ github.token }}
+              run: |
+                  bash .github/scripts/copy-fresh-issues.sh \
+                      "${{ inputs.extensionCount || '2' }}" \
+                      "${{ inputs.desktopCount || '2' }}"
