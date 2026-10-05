@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# Copy every fresh AdguardFilters report from the AdGuard Browser Extension or AdGuard for
-# Windows or Mac into this fork and start a filters-agent run on each, so both the extension route
-# and the AdGuard CLI module keep getting real issues.
+# Copy every fresh AdguardFilters report into this fork and start a filters-agent run on each, so
+# the action keeps getting real issues from every product. The run itself picks the blocker it
+# verifies with and records where it cannot match the reporter's product (mobile apps, Safari
+# content blockers, DNS).
 #
 # Only reports still open are copied: a closed one usually has its fix in the published filter
 # lists already, and the run would find the page fixed.
@@ -23,7 +24,6 @@ max_parallel="${MAX_PARALLEL_RUNS:-5}"
 upstream="${UPSTREAM_REPOSITORY:-AdguardTeam/AdguardFilters}"
 fork="${GITHUB_REPOSITORY:?GITHUB_REPOSITORY must name this fork}"
 script_dir="$(dirname "${BASH_SOURCE[0]}")"
-products='Browser Extension|AdGuard for (Windows|Mac)'
 mapping_branch='filters-agent-copies'
 mapping_path='copies.tsv'
 
@@ -52,15 +52,11 @@ record_copy() {
 read_mapping
 cut -f2 "${workdir}/mapping.tsv" | grep -E '^[0-9]+$' | sort -u > "${workdir}/copied.txt" || true
 
-# Open upstream reports opened since the cutoff whose product line matches, oldest first.
+# Open upstream reports opened since the cutoff, oldest first.
 since="$(date -u -d "${since_hours} hours ago" +%Y-%m-%dT%H:%M:%SZ)"
 gh issue list --repo "${upstream}" --state open --limit 1000 --search "created:>=${since}" \
-    --json number,body \
-    | jq -r --arg products "${products}" '
-        map(select((.body // "")
-            | capture("AdGuard product:[^\\n]*?(?<p>AdGuard[^\\n|]*)").p // ""
-            | test($products)))
-        | sort_by(.number) | .[].number' \
+    --json number \
+    | jq -r 'sort_by(.number) | .[].number' \
     | { grep -vxF -f "${workdir}/copied.txt" || true; } > "${workdir}/picked.txt"
 
 count="$(wc -l < "${workdir}/picked.txt" | tr -d ' ')"

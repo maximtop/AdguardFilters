@@ -1,6 +1,5 @@
-# Feed the filters-agent test runs: every hour, copy each new AdguardFilters report from the AdGuard
-# Browser Extension or AdGuard for Windows or Mac into this fork, and run filters-agent on it. At
-# most five runs go at once, to keep the LLM gateway load even.
+# Feed the filters-agent test runs: every hour, copy each new open AdguardFilters report into this
+# fork and run filters-agent on it. At most five runs go at once, to keep the LLM gateway load even.
 name: 'copy upstream issues'
 
 on:
