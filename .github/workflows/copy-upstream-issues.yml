@@ -23,7 +23,8 @@ concurrency:
     cancel-in-progress: false
 
 permissions:
-    contents: read
+    # Recording each copy in copies.tsv on the filters-agent-copies branch.
+    contents: write
     issues: write
     # Starting the agent workflow by dispatch: a label the workflow token adds starts nothing.
     actions: write

@@ -3,15 +3,19 @@
 # Windows or Mac into this fork and start a filters-agent run on each, so both the extension route
 # and the AdGuard CLI module keep getting real issues.
 #
-# Reports maintainers already closed are copied too: their fix can be compared with the run's
-# answer. A report already copied (its copy names it as `AdguardTeam/AdguardFilters#N`) is never
-# copied again.
+# Only reports still open are copied: a closed one usually has its fix in the published filter
+# lists already, and the run would find the page fixed.
+#
+# Which upstream report each copy came from is kept in copies.tsv on the filters-agent-copies
+# branch, never in the copy itself, which the run reads. A report listed there is never copied
+# again.
 #
 # Usage: copy-fresh-issues.sh <since-hours>
 #   Copies reports opened in the last <since-hours> hours.
 # Environment:
 #   MAX_PARALLEL_RUNS  Agent runs allowed at once (default 5); each is a paid LLM run.
-# Needs GH_TOKEN with issues: write and actions: write on this fork; GITHUB_REPOSITORY names it.
+# Needs GH_TOKEN with contents: write, issues: write and actions: write on this fork;
+# GITHUB_REPOSITORY names it.
 set -euo pipefail
 
 since_hours="${1:?Usage: copy-fresh-issues.sh <since-hours>}"
@@ -20,19 +24,37 @@ upstream="${UPSTREAM_REPOSITORY:-AdguardTeam/AdguardFilters}"
 fork="${GITHUB_REPOSITORY:?GITHUB_REPOSITORY must name this fork}"
 script_dir="$(dirname "${BASH_SOURCE[0]}")"
 products='Browser Extension|AdGuard for (Windows|Mac)'
+mapping_branch='filters-agent-copies'
+mapping_path='copies.tsv'
 
 workdir="$(mktemp -d)"
 trap 'rm -rf "${workdir}"' EXIT
 
-# Upstream numbers already copied into the fork, read from the footer every copy carries.
-gh issue list --repo "${fork}" --state all --limit 5000 --json body \
-    | jq -r '.[].body' \
-    | grep -oE "Copied from \`${upstream}#[0-9]+\`" \
-    | grep -oE '[0-9]+`$' | tr -d '`' | sort -u > "${workdir}/copied.txt" || true
+# Read the mapping (fork number, upstream number per line) and the blob sha its update needs.
+read_mapping() {
+    gh api "repos/${fork}/contents/${mapping_path}?ref=${mapping_branch}" > "${workdir}/mapping.json"
+    jq -r '.content' "${workdir}/mapping.json" | base64 -d > "${workdir}/mapping.tsv"
+}
 
-# Upstream reports opened since the cutoff whose product line matches, oldest first.
+# Append one copy to the mapping. The commit message names no issue with `#`: GitHub would add the
+# commit to that issue's timeline, and an upstream one would be linked back to the copy.
+record_copy() {
+    local fork_number="$1" upstream_number="$2"
+    read_mapping
+    printf '%s\t%s\n' "${fork_number}" "${upstream_number}" >> "${workdir}/mapping.tsv"
+    gh api --method PUT "repos/${fork}/contents/${mapping_path}" \
+        -f branch="${mapping_branch}" \
+        -f message="Record fork issue ${fork_number}" \
+        -f sha="$(jq -r '.sha' "${workdir}/mapping.json")" \
+        -f content="$(base64 < "${workdir}/mapping.tsv" | tr -d '\n')" > /dev/null
+}
+
+read_mapping
+cut -f2 "${workdir}/mapping.tsv" | grep -E '^[0-9]+$' | sort -u > "${workdir}/copied.txt" || true
+
+# Open upstream reports opened since the cutoff whose product line matches, oldest first.
 since="$(date -u -d "${since_hours} hours ago" +%Y-%m-%dT%H:%M:%SZ)"
-gh issue list --repo "${upstream}" --state all --limit 1000 --search "created:>=${since}" \
+gh issue list --repo "${upstream}" --state open --limit 1000 --search "created:>=${since}" \
     --json number,body \
     | jq -r --arg products "${products}" '
         map(select((.body // "")
@@ -54,10 +76,11 @@ while IFS= read -r number; do
     while (( $(active_runs) >= max_parallel )); do
         sleep 60
     done
-    # The label alone would start no run: events the workflow token causes start no workflows.
     created="$(bash "${script_dir}/copy-upstream-issue.sh" "${number}" "${fork}")"
     echo "${created}"
     fork_number="$(sed -n 's#^Created .*/issues/\([0-9]*\)$#\1#p' <<< "${created}")"
+    record_copy "${fork_number}" "${number}"
+    # A dispatch, not a label: events the workflow token causes start no workflows.
     gh workflow run filters-agent.yml --repo "${fork}" -f "issueNumber=${fork_number}"
     echo "Copied upstream #${number} as #${fork_number} and started its run"
     # A dispatched run takes a few seconds to appear in the list the slot count reads.
