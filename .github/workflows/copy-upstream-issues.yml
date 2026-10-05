@@ -1,18 +1,26 @@
-# Feed the filters-agent test runs: every day, copy each AdguardFilters report opened since the last
-# copy from the AdGuard Browser Extension or AdGuard for Windows or Mac into this fork, and run
-# filters-agent on it. At most five runs go at once, to keep the LLM gateway load even.
+# Feed the filters-agent test runs: every hour, copy each new AdguardFilters report from the AdGuard
+# Browser Extension or AdGuard for Windows or Mac into this fork, and run filters-agent on it. At
+# most five runs go at once, to keep the LLM gateway load even.
 name: 'copy upstream issues'
 
 on:
     schedule:
-        # Daily, after the European morning brings in new reports.
-        - cron: '0 9 * * *'
+        # Hourly, off the top of the hour when scheduled runs pile up. Each run looks four hours
+        # back: a run GitHub delays or skips is covered by the next, and reports already copied are
+        # skipped.
+        - cron: '17 * * * *'
     workflow_dispatch:
         inputs:
             sinceHours:
                 description: 'Copy reports opened in the last this many hours'
                 required: false
-                default: '24'
+                default: '4'
+
+# A copy that is still waiting for run slots finishes before the next starts, so two copies never
+# race on the same report.
+concurrency:
+    group: copy-upstream-issues
+    cancel-in-progress: false
 
 permissions:
     contents: read
@@ -23,9 +31,8 @@ permissions:
 jobs:
     copy:
         runs-on: ubuntu-latest
-        # Waits for a free run slot before each copy; a busy day takes hours. GitHub-hosted jobs end
-        # at six hours.
-        timeout-minutes: 350
+        # Waits for a free run slot before each copy.
+        timeout-minutes: 180
         steps:
             - uses: actions/checkout@v6
               with:
@@ -35,5 +42,5 @@ jobs:
             - name: Copy fresh reports and start runs
               env:
                   GH_TOKEN: ${{ github.token }}
-                  SINCE_HOURS: ${{ inputs.sinceHours || '24' }}
+                  SINCE_HOURS: ${{ inputs.sinceHours || '4' }}
               run: bash .github/scripts/copy-fresh-issues.sh "${SINCE_HOURS}"
