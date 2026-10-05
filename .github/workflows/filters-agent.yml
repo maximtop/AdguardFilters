@@ -40,11 +40,20 @@ jobs:
                   # .git/config in the mounted workspace, where run commands could read it.
                   persist-credentials: false
 
-            # A released tag (for example @v1) replaces @main once one exists; @main tracks the
-            # action's default branch.
+            # The AdGuard CLI blocker module: a pinned, verified CLI release and the module that drives
+            # it, installed into the workspace. The action image itself carries no CLI.
+            - name: Install the AdGuard CLI module
+              id: adguard-cli
+              uses: maximtop/filters-agent/adguard-cli@blocker-modules
+
+            # A released tag (for example @v1) replaces the branch once one exists.
             - name: Analyze the issue
               id: agent
-              uses: maximtop/filters-agent@main
+              uses: maximtop/filters-agent@blocker-modules
+              # Secrets a plugged-in module needs reach it through the step's env, named by its
+              # manifest; the action passes the module nothing else secret.
+              env:
+                  ADGUARD_LICENSE_KEY: ${{ secrets.ADGUARD_LICENSE_KEY }}
               with:
                   # Mandatory in every run: the action only serves GitHub-read modes, and the report
                   # comment posts through this token (the issues: write permission above).
@@ -60,10 +69,10 @@ jobs:
                   # (384000). This vision model stops at 65536, and a gateway that routes by the
                   # requested cap finds no endpoint for a larger one.
                   llmVisionMaxOutputTokens: '65536'
-                  # Both blockers verify the rule: the AdGuard Browser Extension, and AdGuard CLI as a
-                  # filtering proxy. Drop one name to run the other alone; unset runs the extension.
+                  # Both blockers verify the rule: the built-in AdGuard Browser Extension, and the
+                  # AdGuard CLI module as a filtering proxy. Drop one name to run the other alone.
+                  blockerModules: ${{ steps.adguard-cli.outputs.manifest }}
                   executors: browser_extension,adguard_cli
-                  adguardLicenseKey: ${{ secrets.ADGUARD_LICENSE_KEY }}
                   # The label event carries the issue number directly; a manual dispatch carries it
                   # as the issueNumber input instead.
                   issueNumber: ${{ github.event.issue.number || inputs.issueNumber }}
