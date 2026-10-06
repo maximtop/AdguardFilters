@@ -78,6 +78,8 @@ jobs:
                   executors: browser_extension,adguard_cli
                   # The label event carries the issue number directly; a manual dispatch carries it
                   # as the issueNumber input instead.
+                  # Adult-site reports are never opened, so no screenshot of one is committed.
+                  excludedLabels: NSFW
                   issueNumber: ${{ github.event.issue.number || inputs.issueNumber }}
                   # repository, checkoutPath and artifactsDir are not passed: the binding falls back to
                   # the runner's GITHUB_REPOSITORY and GITHUB_WORKSPACE. Inside the action's container
