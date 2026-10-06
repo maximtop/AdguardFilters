@@ -16,10 +16,11 @@ on:
                 required: true
                 type: string
 
-# The report comment posts from the workflow token, and issue reading needs only read access to
-# repository contents — no elevated scope.
+# The report comment posts from the workflow token. `contents: write` lets the run commit the
+# before and after screenshots of a verified rule to the `filters-agent-screenshots` branch, which
+# the comment shows them from.
 permissions:
-    contents: read
+    contents: write
     issues: write
 
 # No concurrency limit: every run restores the seeded AdGuard CLI home (seed-adguard-cli-home.yml)
