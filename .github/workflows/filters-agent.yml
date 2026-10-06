@@ -78,6 +78,9 @@ jobs:
                   executors: browser_extension,adguard_cli
                   # The label event carries the issue number directly; a manual dispatch carries it
                   # as the issueNumber input instead.
+                  # A maintainer who labels an issue or runs this by hand wants the report even when
+                  # they are already assigned to the issue.
+                  force: ${{ github.event_name == 'workflow_dispatch' || github.event.action == 'labeled' }}
                   # Adult-site reports are never opened, so no screenshot of one is committed.
                   excludedLabels: NSFW
                   issueNumber: ${{ github.event.issue.number || inputs.issueNumber }}
