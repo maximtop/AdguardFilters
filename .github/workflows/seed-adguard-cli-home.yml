@@ -22,7 +22,7 @@ jobs:
         timeout-minutes: 15
         steps:
             - name: Activate the licence once and save the seed
-              uses: maximtop/filters-agent/adguard-cli@main
+              uses: maximtop/filters-agent/adguard-cli@v1
               env:
                   ADGUARD_LICENSE_KEY: ${{ secrets.ADGUARD_LICENSE_KEY }}
               with:
