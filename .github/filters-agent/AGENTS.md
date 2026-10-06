@@ -17,6 +17,14 @@ rule kind across `<Filter>/sections/*.txt`, and one declaration would force ever
 single file. Choose the file from where the repository already keeps rules like the new one: the
 file that holds the reported site's rules, otherwise the one that holds rules of the same kind.
 
+## Filter policy
+
+- The site's own advertising (first-party ads): close without a rule.
+- Paywalls: close without a rule.
+- German anti-adblock walls: close without a rule.
+- Any other anti-adblock wall: write a rule only after the network log shows the detector script;
+  without it, hand the report to a maintainer.
+
 ## Maintainer rules
 
 How this repository's maintainers write rules. These rules come on top of the documents above and
