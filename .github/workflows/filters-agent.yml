@@ -45,7 +45,7 @@ jobs:
               id: adguard-cli
               uses: maximtop/filters-agent/adguard-cli@v1
 
-            # A released tag (for example @v1) is used; @main tracks unreleased changes.
+            # @v1 follows every v1.x.y release; @main would run unreleased changes.
             - name: Analyze the issue
               id: agent
               uses: maximtop/filters-agent@v1
