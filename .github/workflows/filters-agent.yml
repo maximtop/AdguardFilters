@@ -64,9 +64,10 @@ jobs:
                   llmApiKey: ${{ secrets.FILTERS_AGENT_LLM_API_KEY }}
                   llmModel: deepseek-v4-flash
                   llmVisionModel: gemini-3.7-flash
-                  # The action's default completion cap is the ceiling of the model it was tuned on
-                  # (384000). This vision model stops at 65536, and a gateway that routes by the
-                  # requested cap finds no endpoint for a larger one.
+                  # The models' own limits at the gateway. The vision model stops at 65536, and a
+                  # gateway that routes by the requested cap finds no endpoint for a larger one.
+                  llmContextWindowTokens: '1048576'
+                  llmMaxOutputTokens: '384000'
                   llmVisionMaxOutputTokens: '65536'
                   # TokenGuard sometimes cuts a response off mid-stream twice in a row; a third
                   # attempt keeps the run from ending without an answer.
