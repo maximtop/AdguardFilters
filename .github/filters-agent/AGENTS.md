@@ -21,9 +21,15 @@ file that holds the reported site's rules, otherwise the one that holds rules of
 
 - The site's own advertising (first-party ads): close without a rule.
 - Paywalls: close without a rule.
-- German anti-adblock walls: close without a rule.
+- German anti-adblock walls: close without a rule. This covers only a German site's wall or popup
+  that detects the ad blocker and asks to disable it or to allowlist the site. A page in German is
+  not enough, and the reporter's choice of "anti-adblock" as the problem type is not evidence:
+  check what the page itself shows.
 - Any other anti-adblock wall: write a rule only after the network log shows the detector script;
   without it, hand the report to a maintainer.
+- Not anti-adblock at all: scam, phishing, fake virus or tech-support pages, malware downloads.
+  None of the rules above applies; handle the report like any other, for example with a rule
+  that blocks the dangerous page.
 
 ## Maintainer rules
 
