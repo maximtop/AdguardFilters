@@ -12,11 +12,16 @@
 # renders as plain text and never links. Bare #N references are wrapped too: in the fork they
 # would point at the fork's own, unrelated issues.
 #
+# The copy keeps the upstream labels named in COPIED_LABELS. NSFW is one: the agent workflow skips
+# an issue carrying it (excludedLabels), so an adult site is never opened and no screenshot of it is
+# committed. The fork must have each such label; the copy fails otherwise.
+#
 # Usage: copy-upstream-issue.sh <issue-number> <fork-owner/repo>
 # Prints "Created <issue-url>".
 #
 # Environment:
 #   UPSTREAM_REPOSITORY  Source repository (default AdguardTeam/AdguardFilters).
+#   COPIED_LABELS        Comma-separated upstream labels the copy keeps (default NSFW).
 #
 # Requires `gh` authenticated with write access to the fork's issues, `jq` and `perl`.
 set -euo pipefail
@@ -28,6 +33,7 @@ fi
 issue_number="$1"
 fork="$2"
 upstream="${UPSTREAM_REPOSITORY:-AdguardTeam/AdguardFilters}"
+copied_labels="${COPIED_LABELS:-NSFW}"
 
 # Wrap every token that would notify someone or link back to another issue in a code span.
 # The lookbehinds skip tokens already inside a code span and e-mail addresses.
@@ -50,6 +56,9 @@ if jq -e '.pull_request != null' "${workdir}/issue.json" > /dev/null; then
 fi
 
 jq -r '.body // ""' "${workdir}/issue.json" | neutralize > "${workdir}/body.md"
+labels="$(jq -r --arg keep "${copied_labels}" \
+    '[.labels[].name | select(. as $name | $keep | split(",") | index($name))] | join(",")' \
+    "${workdir}/issue.json")"
 issue_url="$(gh issue create --repo "${fork}" --title "$(jq -r '.title' "${workdir}/issue.json")" \
-    --body-file "${workdir}/body.md")"
+    --body-file "${workdir}/body.md" ${labels:+--label "${labels}"})"
 echo "Created ${issue_url}"
