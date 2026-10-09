@@ -31,6 +31,7 @@ jobs:
         # Manual dispatch always runs; an issue event runs only for the label this workflow owns.
         if: ${{ github.event_name == 'workflow_dispatch' || github.event.label.name == 'filters-agent' }}
         runs-on: ubuntu-latest
+        timeout-minutes: 90
         steps:
             - uses: actions/checkout@v6
               with:
@@ -83,6 +84,10 @@ jobs:
                   force: ${{ github.event_name == 'workflow_dispatch' || github.event.action == 'labeled' }}
                   # Adult-site reports are never opened, so no screenshot of one is committed.
                   excludedLabels: NSFW
+                  # Mirrors AdguardFilters: this label means a maintainer picked the issue up, and
+                  # adguard-bot files the reports from AdGuard's reporting tool.
+                  inProgressLabels: 'A: In progress'
+                  reportBots: adguard-bot
                   issueNumber: ${{ github.event.issue.number || inputs.issueNumber }}
                   # repository, checkoutPath and artifactsDir are not passed: the binding falls back to
                   # the runner's GITHUB_REPOSITORY and GITHUB_WORKSPACE. Inside the action's container
@@ -97,7 +102,7 @@ jobs:
             # published an artifacts directory (missing inputs, missing browser).
             - name: Upload run artifacts
               if: ${{ !cancelled() && steps.agent.outputs.artifacts-dir != '' }}
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v5
               with:
                   name: filters-agent-artifacts-${{ github.run_number }}
                   path: ${{ steps.agent.outputs.artifacts-dir }}
