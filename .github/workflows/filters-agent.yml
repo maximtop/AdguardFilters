@@ -63,7 +63,7 @@ jobs:
                   # both from the run traces it uploads.
                   llmBaseUrl: ${{ secrets.FILTERS_AGENT_LLM_BASE_URL }}
                   llmApiKey: ${{ secrets.FILTERS_AGENT_LLM_API_KEY }}
-                  llmModel: deepseek-v4.1-flash
+                  llmModel: ${{ vars.FILTERS_AGENT_LLM_MODEL }}
                   llmVisionModel: gemini-3.7-flash
                   # The models' own limits at the gateway. The vision model stops at 65536, and a
                   # gateway that routes by the requested cap finds no endpoint for a larger one.
