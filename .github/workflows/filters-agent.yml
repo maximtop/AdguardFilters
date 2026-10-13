@@ -44,12 +44,12 @@ jobs:
             # action image itself carries no CLI.
             - name: Install the AdGuard CLI module
               id: adguard-cli
-              uses: maximtop/filters-agent/adguard-cli@v1
+              uses: maximtop/filters-agent/adguard-cli@adguard-import-check
 
             # @v1 follows every v1.x.y release; @main would run unreleased changes.
             - name: Analyze the issue
               id: agent
-              uses: maximtop/filters-agent@v1
+              uses: maximtop/filters-agent@adguard-import-check
               # Secrets a plugged-in module needs reach it through the step's env, named by its
               # manifest; the action passes the module nothing else secret.
               env:
