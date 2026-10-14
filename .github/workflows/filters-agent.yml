@@ -46,7 +46,7 @@ jobs:
               id: adguard-cli
               uses: AdguardTeam/FiltersAgent/adguard-cli@v1
 
-            # @v1 follows every v1.x.y release; @main would run unreleased changes.
+            # @v1 follows every v1.x.y release; @master would run unreleased changes.
             - name: Analyze the issue
               id: agent
               uses: AdguardTeam/FiltersAgent@v1
