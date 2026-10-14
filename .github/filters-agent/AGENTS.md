@@ -1,8 +1,10 @@
 # Run instruction: AdguardFilters
 
-The run's blocker is the built-in AdGuard Browser Extension in Chromium — the host prepares,
-launches and reads it back itself. This file adds nothing to that route but the guidance
-documents this repository writes its rules against.
+The run verifies a rule in one of two blockers, chosen per report by the routing guidance: the
+built-in AdGuard Browser Extension in Chromium, or AdGuard CLI as a filtering proxy for reports
+from AdGuard apps that filter at the network level. The host prepares, launches and reads both back
+itself. This file adds nothing to those routes but the guidance documents this repository writes
+its rules against.
 
 application: adguard-extension
 
